@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="889e0961-1b70-4918-9086-439ba23be459" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/inmanagepkg/Program.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/inmanagepkg/ProgramI.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sql/SQLCommands.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sql/SQLConnect.java" afterPath="$PROJECT_DIR$/src/sql/SQLConnect.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/inmanagepkg/Program.java" afterPath="$PROJECT_DIR$/src/inmanagepkg/ProgramImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/inmanagepkg/ProgramI.java" afterPath="$PROJECT_DIR$/src/inmanagepkg/IProgram.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sql/SQLCommands.java" afterPath="$PROJECT_DIR$/src/sql/SQLCommands.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,25 +36,25 @@
               <caret line="10" column="14" lean-forward="false" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#326#327#0" expanded="true" />
-                <element signature="e#377#378#0" expanded="true" />
+                <element signature="e#330#331#0" expanded="true" />
+                <element signature="e#385#386#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Program.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/inmanagepkg/Program.java">
+      <file leaf-file-name="ProgramImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/inmanagepkg/ProgramImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+            <state relative-caret-position="210">
+              <caret line="14" column="26" lean-forward="true" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProgramI.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/inmanagepkg/ProgramI.java">
+      <file leaf-file-name="IProgram.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/inmanagepkg/IProgram.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
               <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
@@ -94,6 +91,7 @@
         <option value="$PROJECT_DIR$/src/inmanagepkg/ProgramI.java" />
         <option value="$PROJECT_DIR$/src/sql/SQLCommands.java" />
         <option value="$PROJECT_DIR$/src/inmanagepkg/Program.java" />
+        <option value="$PROJECT_DIR$/src/inmanagepkg/ProgramImpl.java" />
       </list>
     </option>
   </component>
@@ -607,12 +605,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1508757545427</updated>
-      <workItem from="1508757547119" duration="3575000" />
+      <workItem from="1508757547119" duration="3692000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3575000" />
+    <option name="totallyTimeSpent" value="3692000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -659,7 +657,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/inmanagepkg/ProgramI.java">
+    <entry file="file://$PROJECT_DIR$/src/inmanagepkg/IProgram.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
@@ -683,16 +681,16 @@
           <caret line="10" column="14" lean-forward="false" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#326#327#0" expanded="true" />
-            <element signature="e#377#378#0" expanded="true" />
+            <element signature="e#330#331#0" expanded="true" />
+            <element signature="e#385#386#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/inmanagepkg/Program.java">
+    <entry file="file://$PROJECT_DIR$/src/inmanagepkg/ProgramImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+        <state relative-caret-position="210">
+          <caret line="14" column="26" lean-forward="true" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
           <folding />
         </state>
       </provider>
