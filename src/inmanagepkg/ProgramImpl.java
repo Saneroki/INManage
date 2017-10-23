@@ -5,23 +5,23 @@ import sql.SQLCommands;
 /**
  * Created by omnhaww on 23/10/2017.
  */
-public class Program implements ProgramI {
+public class ProgramImpl implements IProgram {
 
     private SQLCommands sql;
 
-    private static Program instance = null;
+    private static ProgramImpl instance = null;
 
 
-    public Program() {
+    public ProgramImpl() {
 
         sql = new SQLCommands();
 
     }
 
     //Singleton
-    public static Program getProgramInstance() {
+    public static ProgramImpl getProgramInstance() {
         if (instance == null) {
-            instance = new Program();
+            instance = new ProgramImpl();
         }
         return instance;
     }
