@@ -1,27 +1,27 @@
-package inmanagepkg;
+package inmanage;
 
 import sql.SQLCommands;
 
 /**
  * Created by omnhaww on 23/10/2017.
  */
-public class ProgramImpl implements IProgram {
+public class Program implements IProgram {
 
     private SQLCommands sql;
 
-    private static ProgramImpl instance = null;
+    private static Program instance = null;
 
 
-    public ProgramImpl() {
+    public Program() {
 
         sql = new SQLCommands();
 
     }
 
     //Singleton
-    public static ProgramImpl getProgramInstance() {
+    public static Program getProgramInstance() {
         if (instance == null) {
-            instance = new ProgramImpl();
+            instance = new Program();
         }
         return instance;
     }
