@@ -1,4 +1,4 @@
-package inmanage;
+package domain;
 
 import sql.SQLCommands;
 

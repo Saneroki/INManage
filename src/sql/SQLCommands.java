@@ -1,9 +1,10 @@
 package sql;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
-import inmanage.Program;
-import inmanage.IProgram;
+import domain.Program;
+import domain.IProgram;
 
 /**
  * Created by omnhaww on 23/10/2017.
@@ -14,7 +15,11 @@ public class SQLCommands {
     Connection c;
 
     public SQLCommands() {
-        c = SQL_connect.connect();
+        try {
+            c = SQL_connect.connect();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         SQL_connect = new SQLConnect();
     }
 

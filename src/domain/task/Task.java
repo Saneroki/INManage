@@ -1,4 +1,4 @@
-package inmanage.task;
+package domain.task;
 
 public class Task {
     public Task() {

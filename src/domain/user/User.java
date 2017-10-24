@@ -1,4 +1,4 @@
-package inmanage.user;
+package domain.user;
 
 public class User {
     private String firstname;

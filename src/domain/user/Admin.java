@@ -1,4 +1,4 @@
-package inmanage.user;
+package domain.user;
 
 public class Admin extends User {
     public Admin(String firstname, String lastname, String username, String password, String usertype) {
