@@ -1,4 +1,4 @@
-package inmanage.calendar;
+package domain.calendar;
 
 public class Calendar {
 }
