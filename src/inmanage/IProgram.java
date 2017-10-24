@@ -1,4 +1,4 @@
-package inmanagepkg;
+package inmanage;
 
 /**
  * Created by omnhaww on 23/10/2017.

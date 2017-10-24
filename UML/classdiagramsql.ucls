@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.1" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
   realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="sql.SQLCommands" project="INManage" file="/INManage/src/sql/SQLCommands.java" 
+  <class id="1" language="java" name="sql.SQLCommands" project="INManage" file="/INManage/src/sql/SQLCommands.java"
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="146" y="231"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -10,8 +10,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="inmanagepkg.ProgramImpl" project="INManage" 
-    file="/INManage/src/inmanagepkg/ProgramImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="2" language="java" name="inmanage.Program" project="INManage"
+    file="/INManage/src/inmanage/ProgramImpl.java" binary="false" corner="BOTTOM_RIGHT">
     <position height="-1" width="-1" x="260" y="71"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -19,8 +19,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="3" language="java" name="inmanagepkg.IProgram" project="INManage" 
-    file="/INManage/src/inmanagepkg/IProgram.java" binary="false" corner="BOTTOM_RIGHT">    
+  <interface id="3" language="java" name="inmanage.IProgram" project="INManage"
+    file="/INManage/src/inmanage/IProgram.java" binary="false" corner="BOTTOM_RIGHT">
     <position height="-1" width="-1" x="321" y="363"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -28,7 +28,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="4" language="java" name="sql.SQLConnect" project="INManage" file="/INManage/src/sql/SQLConnect.java" 
+  <class id="4" language="java" name="sql.SQLConnect" project="INManage" file="/INManage/src/sql/SQLConnect.java"
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="120" y="381"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
