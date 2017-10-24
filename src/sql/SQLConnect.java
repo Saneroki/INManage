@@ -21,7 +21,6 @@ public class SQLConnect {
             String url = "jdbc:postgresql://tek-mmmi-db0a.tek.c.sdu.dk/si3_2017_group_1_db";
             String user = "si3_2017_group_1";
             String password = "Mach901&blow";
-            Class.forName("org.postgresql.Driver");
             Connection db = DriverManager.getConnection(url, user, password);
             try {
                 db = DriverManager.getConnection(url, user, password);
