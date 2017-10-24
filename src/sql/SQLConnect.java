@@ -11,15 +11,20 @@ import java.util.logging.Logger;
  */
 public class SQLConnect {
 
-        public Connection connect() {
-            String url = "jdbc:postgresql://tek-mmmi-db0a.tek.c.sdu.dk";
+    public static void main(String[] args) throws SQLException {
+
+        SQLConnect sql = new SQLConnect();
+        sql.connect();
+
+    }
+        public Connection connect() throws SQLException {
+            String url = "jdbc:postgresql://tek-mmmi-db0a.tek.c.sdu.dk/si3_2017_group_1_db";
             String user = "si3_2017_group_1";
             String password = "Mach901&blow";
-            Connection con = null;
-
-            //CONNECTING
+            Class.forName("org.postgresql.Driver");
+            Connection db = DriverManager.getConnection(url, user, password);
             try {
-                con = DriverManager.getConnection(url, user, password);
+                db = DriverManager.getConnection(url, user, password);
 
                 System.out.println("Connection to database successful!");
 
@@ -27,6 +32,6 @@ public class SQLConnect {
                 Logger lgr = Logger.getLogger(SQLConnect.class.getName());
                 lgr.log(Level.WARNING, ex.getMessage(), ex);
             }
-            return con;
+            return db;
         }
     }

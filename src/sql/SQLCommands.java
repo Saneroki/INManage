@@ -1,6 +1,7 @@
 package sql;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
 import inmanagepkg.ProgramImpl;
 import inmanagepkg.IProgram;
@@ -14,8 +15,10 @@ public class SQLCommands {
     SQLConnect SQL_connect = new SQLConnect();
     Connection s = SQL_connect.connect();
 
+    public SQLCommands() throws SQLException {
+    }
 
-    private IProgram createProgInterface() {
+    private IProgram createProgInterface() throws SQLException {
         return ProgramImpl.getProgramInstance();
     }
 }
