@@ -1,4 +1,4 @@
-package domain.chat;
+package server.domain.chat;
 
 public class Chat {
     public Chat() {

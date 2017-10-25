@@ -1,4 +1,4 @@
-package domain.user;
+package server.domain.user;
 
 public class Member extends User {
 

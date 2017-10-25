@@ -1,18 +1,18 @@
-package domain;
+package server.domain;
 
-import sql.SQLCommands;
+import server.sql.SQLCommands;
 
 /**
  * Created by omnhaww on 23/10/2017.
  */
-public class ProgramImpl implements IProgram {
+public class Program implements IProgram {
 
     private SQLCommands sql;
 
     private static Program instance = null;
 
 
-    public ProgramImpl() {
+    public Program() {
 
         sql = new SQLCommands();
 
