@@ -1,7 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="74d7b9a8-919e-4199-8fa0-57d1246c0d9b" name="Default" comment="">
+    <list default="true" id="74d7b9a8-919e-4199-8fa0-57d1246c0d9b" name="Default" comment="Webinterface addition">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/java-client-generated/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/java-client-generated/docs/AdminsApi.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/java-client-generated/docs/User.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/java-client-generated/pom.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/java-client-generated/src/main/java/io/swagger/client/ApiCallback.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/java-client-generated/src/main/java/io/swagger/client/ApiClient.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/java-client-generated/src/main/java/io/swagger/client/ApiException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/java-client-generated/src/main/java/io/swagger/client/ApiResponse.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/java-client-generated/src/main/java/io/swagger/client/Configuration.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/java-client-generated/src/main/java/io/swagger/client/JSON.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/java-client-generated/src/main/java/io/swagger/client/Pair.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/java-client-generated/src/main/java/io/swagger/client/ProgressRequestBody.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/java-client-generated/src/main/java/io/swagger/client/ProgressResponseBody.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/java-client-generated/src/main/java/io/swagger/client/StringUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/java-client-generated/src/main/java/io/swagger/client/api/AdminsApi.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/java-client-generated/src/main/java/io/swagger/client/auth/ApiKeyAuth.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/java-client-generated/src/main/java/io/swagger/client/auth/Authentication.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/java-client-generated/src/main/java/io/swagger/client/auth/HttpBasicAuth.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/java-client-generated/src/main/java/io/swagger/client/auth/OAuth.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/java-client-generated/src/main/java/io/swagger/client/auth/OAuthFlow.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/java-client-generated/src/main/java/io/swagger/client/model/User.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/java-client-generated/src/test/java/io/swagger/client/api/AdminsApiTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/jaxrs-server-generated/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/jaxrs-server-generated/pom.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/jaxrs-server-generated/src/gen/java/io/swagger/api/ApiException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/jaxrs-server-generated/src/gen/java/io/swagger/api/ApiOriginFilter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/jaxrs-server-generated/src/gen/java/io/swagger/api/ApiResponseMessage.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/jaxrs-server-generated/src/gen/java/io/swagger/api/JacksonJsonProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/jaxrs-server-generated/src/gen/java/io/swagger/api/NotFoundException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/jaxrs-server-generated/src/gen/java/io/swagger/api/RFC3339DateFormat.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/jaxrs-server-generated/src/gen/java/io/swagger/api/StringUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/jaxrs-server-generated/src/gen/java/io/swagger/api/UsersApi.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/jaxrs-server-generated/src/gen/java/io/swagger/api/UsersApiService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/jaxrs-server-generated/src/gen/java/io/swagger/model/User.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/jaxrs-server-generated/src/main/java/io/swagger/api/Bootstrap.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/jaxrs-server-generated/src/main/java/io/swagger/api/factories/UsersApiServiceFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/jaxrs-server-generated/src/main/java/io/swagger/api/impl/UsersApiServiceImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/jaxrs-server-generated/src/main/webapp/WEB-INF/web.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,7 +61,11 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
               <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#527#528#0" expanded="false" />
+                <element signature="e#578#579#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -81,6 +124,9 @@
         <entry key="$PROJECT_DIR$" value="Glenn" />
       </map>
     </option>
+    <push-targets>
+      <push-target-info repo="$PROJECT_DIR$" source="sp2Webservice" target-remote="origin" target-branch="Glenn" />
+    </push-targets>
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -596,7 +642,14 @@
       <option name="project" value="LOCAL" />
       <updated>1508924581952</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Webinterface addition">
+      <created>1508924780173</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1508924780173</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -609,13 +662,14 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.49713877" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329602" sideWeight="0.5028612" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329602" sideWeight="0.5028612" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.49713877" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329602" sideWeight="0.49713877" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -631,7 +685,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -659,7 +712,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#527#528#0" expanded="false" />
+            <element signature="e#578#579#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -699,7 +756,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#527#528#0" expanded="false" />
+            <element signature="e#578#579#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -731,7 +792,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#527#528#0" expanded="false" />
+            <element signature="e#578#579#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
