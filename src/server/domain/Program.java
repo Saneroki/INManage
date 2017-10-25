@@ -1,6 +1,6 @@
-package domain;
+package server.domain;
 
-import sql.SQLCommands;
+import server.sql.SQLCommands;
 
 /**
  * Created by omnhaww on 23/10/2017.
