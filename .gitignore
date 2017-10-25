@@ -3,3 +3,5 @@
 /out/
 /INManage.iml
 !/.gitignore
+/src/api/jaxrs-server-generated/swagger-jaxrs-server.iml
+/src/api/java-client-generated/swagger-java-client.iml
