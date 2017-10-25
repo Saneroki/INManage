@@ -1,7 +1,7 @@
 package server.domain.chat;
 
 /*
- * Test comment by mr.Mikkel
+ * a Comment.
  */
 
 public class Chat {
