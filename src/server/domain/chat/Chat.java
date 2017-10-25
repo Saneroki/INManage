@@ -1,4 +1,4 @@
-package domain.chat;
+package server.domain.chat;
 
 /*
  * Test comment by mr.Mikkel

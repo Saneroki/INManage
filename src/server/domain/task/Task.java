@@ -1,4 +1,4 @@
-package domain.task;
+package server.domain.task;
 
 public class Task {
     public Task() {

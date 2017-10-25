@@ -1,10 +1,10 @@
-package sql;
+package server.sql;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import domain.Program;
-import domain.IProgram;
+import server.domain.Program;
+import server.domain.IProgram;
 
 /**
  * Created by omnhaww on 23/10/2017.
