@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74d7b9a8-919e-4199-8fa0-57d1246c0d9b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/server/domain/Program.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/domain/ProgramImpl.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/domain/IProgram.java" afterPath="$PROJECT_DIR$/src/server/domain/IProgram.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/domain/calendar/Calendar.java" afterPath="$PROJECT_DIR$/src/server/domain/calendar/Calendar.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/domain/chat/Chat.java" afterPath="$PROJECT_DIR$/src/server/domain/chat/Chat.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/domain/task/Task.java" afterPath="$PROJECT_DIR$/src/server/domain/task/Task.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/domain/user/Admin.java" afterPath="$PROJECT_DIR$/src/server/domain/user/Admin.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/domain/user/Member.java" afterPath="$PROJECT_DIR$/src/server/domain/user/Member.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/domain/user/User.java" afterPath="$PROJECT_DIR$/src/server/domain/user/User.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/gui/Controller.java" afterPath="$PROJECT_DIR$/src/server/gui/Controller.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/gui/Launcher.java" afterPath="$PROJECT_DIR$/src/server/gui/Launcher.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/gui/main.fxml" afterPath="$PROJECT_DIR$/src/server/gui/main.fxml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sql/SQLCommands.java" afterPath="$PROJECT_DIR$/src/server/sql/SQLCommands.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/sql/SQLConnect.java" afterPath="$PROJECT_DIR$/src/server/sql/SQLConnect.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Documentation/UML/classdiagramsql.ucls" afterPath="$PROJECT_DIR$/Documentation/UML/classdiagramsql.ucls" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -577,6 +561,14 @@
       <updated>1508916297205</updated>
       <workItem from="1508916299425" duration="110000" />
     </task>
+    <task id="LOCAL-00001" summary="Webinterface addition">
+      <created>1508923794903</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1508923794903</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -592,7 +584,7 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329602" sideWeight="0.5028612" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329602" sideWeight="0.5028612" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.49713877" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -600,7 +592,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2532189" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2532189" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -623,7 +615,8 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="Webinterface addition" />
+    <option name="LAST_COMMIT_MESSAGE" value="Webinterface addition" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
