@@ -1,6 +1,6 @@
 package gen.java.invoker;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-01T20:29:24.606Z")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-06T19:42:24.585Z")
 public class Pair {
     private String name = "";
     private String value = "";

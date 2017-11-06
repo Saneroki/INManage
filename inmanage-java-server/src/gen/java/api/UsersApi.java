@@ -22,11 +22,11 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import javax.ws.rs.*;
 
-@Path("/Users")
+@Path("/users")
 
 
-@io.swagger.annotations.Api(description = "the Users API")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-11-01T20:29:26.283Z")
+@io.swagger.annotations.Api(description = "the users API")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-11-06T19:42:05.650Z")
 public class UsersApi  {
    private final UsersApiService delegate = UsersApiServiceFactory.getUsersApi();
 
@@ -34,7 +34,7 @@ public class UsersApi  {
     
     @Consumes({ "application/json" })
     @Produces({ "application/json" })
-    @io.swagger.annotations.ApiOperation(value = "adds a user", notes = "Adds a User to the system", response = void.class, tags={ "admins", })
+    @io.swagger.annotations.ApiOperation(value = "adds a user", notes = "Adds a User to the system", response = void.class, tags={ "Admins", })
     @io.swagger.annotations.ApiResponses(value = { 
         @io.swagger.annotations.ApiResponse(code = 201, message = "User created", response = void.class),
         
@@ -47,10 +47,25 @@ public class UsersApi  {
         return delegate.addUser(user,securityContext);
     }
     @GET
+    @Path("/login")
+    
+    @Produces({ "application/json" })
+    @io.swagger.annotations.ApiOperation(value = "Logs in the user", notes = "Logs in the user with username and password, returns ID to access the content", response = Object.class, tags={ "User", })
+    @io.swagger.annotations.ApiResponses(value = { 
+        @io.swagger.annotations.ApiResponse(code = 200, message = "Logged in user succesfully", response = Object.class),
+        
+        @io.swagger.annotations.ApiResponse(code = 400, message = "Failed login", response = Object.class) })
+    public Response loginUser(@ApiParam(value = "The username of user logging in",required=true) @QueryParam("username") String username
+,@ApiParam(value = "The password of the user logging in",required=true) @QueryParam("password") String password
+,@Context SecurityContext securityContext)
+    throws NotFoundException {
+        return delegate.loginUser(username,password,securityContext);
+    }
+    @GET
     
     
     @Produces({ "application/json" })
-    @io.swagger.annotations.ApiOperation(value = "searches Users", notes = "By passing in the appropriate options, you can search for available User in the system ", response = Object.class, tags={ "admins", })
+    @io.swagger.annotations.ApiOperation(value = "searches Users", notes = "By passing in the appropriate options, you can search for available User in the system ", response = Object.class, tags={ "Admins", })
     @io.swagger.annotations.ApiResponses(value = { 
         @io.swagger.annotations.ApiResponse(code = 200, message = "search results matching criteria", response = Object.class),
         

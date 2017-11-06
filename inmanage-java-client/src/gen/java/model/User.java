@@ -9,48 +9,90 @@ import java.io.Serializable;
 /**
  * User
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-01T20:29:24.606Z")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-06T19:42:24.585Z")
 public class User implements Serializable {
-  @SerializedName("id")
-  private String id = null;
+  @SerializedName("taskName")
+  private String taskName = null;
 
-  @SerializedName("name")
-  private String name = null;
+  @SerializedName("userId")
+  private String userId = null;
 
-  public User id(String id) {
-    this.id = id;
+  @SerializedName("description")
+  private String description = null;
+
+  @SerializedName("dueDate")
+  private String dueDate = null;
+
+  public User taskName(String taskName) {
+    this.taskName = taskName;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get taskName
+   * @return taskName
   **/
-  @ApiModelProperty(example = "d290f1ee-6c54-4b01-90e6-d701748f0851", value = "")
-  public String getId() {
-    return id;
+  @ApiModelProperty(required = true, value = "")
+  public String getTaskName() {
+    return taskName;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setTaskName(String taskName) {
+    this.taskName = taskName;
   }
 
-  public User name(String name) {
-    this.name = name;
+  public User userId(String userId) {
+    this.userId = userId;
     return this;
   }
 
    /**
-   * Get name
-   * @return name
+   * Get userId
+   * @return userId
   **/
-  @ApiModelProperty(example = "Apple", required = true, value = "")
-  public String getName() {
-    return name;
+  @ApiModelProperty(required = true, value = "")
+  public String getUserId() {
+    return userId;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public User description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Get description
+   * @return description
+  **/
+  @ApiModelProperty(value = "")
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public User dueDate(String dueDate) {
+    this.dueDate = dueDate;
+    return this;
+  }
+
+   /**
+   * Get dueDate
+   * @return dueDate
+  **/
+  @ApiModelProperty(value = "")
+  public String getDueDate() {
+    return dueDate;
+  }
+
+  public void setDueDate(String dueDate) {
+    this.dueDate = dueDate;
   }
 
 
@@ -63,13 +105,15 @@ public class User implements Serializable {
       return false;
     }
     User user = (User) o;
-    return Objects.equals(this.id, user.id) &&
-        Objects.equals(this.name, user.name);
+    return Objects.equals(this.taskName, user.taskName) &&
+        Objects.equals(this.userId, user.userId) &&
+        Objects.equals(this.description, user.description) &&
+        Objects.equals(this.dueDate, user.dueDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name);
+    return Objects.hash(taskName, userId, description, dueDate);
   }
 
 
@@ -78,8 +122,10 @@ public class User implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class User {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    taskName: ").append(toIndentedString(taskName)).append("\n");
+    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    dueDate: ").append(toIndentedString(dueDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

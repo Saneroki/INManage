@@ -1,4 +1,4 @@
-/* bhhhgt
+
 
 package main.java.example;
 
@@ -30,8 +30,8 @@ public class AdminsApiExample {
 
     private static void addUser(AdminsApi apiInstance) throws ApiException {
         User user = new User(); // User | User to add
-        user.setId("666");
-        user.setName("Malte");
+        user.setUserId("666");
+        user.setTaskName("Malte");
         apiInstance.addUser(user);
         System.out.println(user);
     }
@@ -43,4 +43,4 @@ public class AdminsApiExample {
         //System.out.println(apiInstance.searchUser("Glenn",0,100));
     }
 }
-*/
+

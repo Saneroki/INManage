@@ -32,59 +32,56 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * User
+ * Project
  */
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-11-06T19:42:05.650Z")
-public class User   {
-  @JsonProperty("taskName")
-  private String taskName = null;
+public class Project   {
+  @JsonProperty("id")
+  private String id = null;
 
-  @JsonProperty("userId")
-  private String userId = null;
+  @JsonProperty("name")
+  private String name = null;
 
   @JsonProperty("description")
   private String description = null;
 
-  @JsonProperty("dueDate")
-  private String dueDate = null;
-
-  public User taskName(String taskName) {
-    this.taskName = taskName;
+  public Project id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get taskName
-   * @return taskName
+   * Get id
+   * @return id
   **/
-  @ApiModelProperty(required = true, value = "")
-  public String getTaskName() {
-    return taskName;
+  @ApiModelProperty(example = "d290f1ee-6c54-4b01-90e6-d701748f0851", required = true, value = "")
+  public String getId() {
+    return id;
   }
 
-  public void setTaskName(String taskName) {
-    this.taskName = taskName;
+  public void setId(String id) {
+    this.id = id;
   }
 
-  public User userId(String userId) {
-    this.userId = userId;
+  public Project name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get userId
-   * @return userId
+   * Get name
+   * @return name
   **/
-  @ApiModelProperty(required = true, value = "")
-  public String getUserId() {
-    return userId;
+  @ApiModelProperty(example = "Semester project group 1.", value = "")
+  public String getName() {
+    return name;
   }
 
-  public void setUserId(String userId) {
-    this.userId = userId;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public User description(String description) {
+  public Project description(String description) {
     this.description = description;
     return this;
   }
@@ -93,31 +90,13 @@ public class User   {
    * Get description
    * @return description
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "This project is about doing the semester correctly", value = "")
   public String getDescription() {
     return description;
   }
 
   public void setDescription(String description) {
     this.description = description;
-  }
-
-  public User dueDate(String dueDate) {
-    this.dueDate = dueDate;
-    return this;
-  }
-
-   /**
-   * Get dueDate
-   * @return dueDate
-  **/
-  @ApiModelProperty(value = "")
-  public String getDueDate() {
-    return dueDate;
-  }
-
-  public void setDueDate(String dueDate) {
-    this.dueDate = dueDate;
   }
 
 
@@ -129,28 +108,26 @@ public class User   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    User user = (User) o;
-    return Objects.equals(this.taskName, user.taskName) &&
-        Objects.equals(this.userId, user.userId) &&
-        Objects.equals(this.description, user.description) &&
-        Objects.equals(this.dueDate, user.dueDate);
+    Project project = (Project) o;
+    return Objects.equals(this.id, project.id) &&
+        Objects.equals(this.name, project.name) &&
+        Objects.equals(this.description, project.description);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(taskName, userId, description, dueDate);
+    return Objects.hash(id, name, description);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class User {\n");
+    sb.append("class Project {\n");
     
-    sb.append("    taskName: ").append(toIndentedString(taskName)).append("\n");
-    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    dueDate: ").append(toIndentedString(dueDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

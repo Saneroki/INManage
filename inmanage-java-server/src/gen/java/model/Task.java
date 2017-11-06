@@ -32,59 +32,59 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * User
+ * Task
  */
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-11-06T19:42:05.650Z")
-public class User   {
-  @JsonProperty("taskName")
-  private String taskName = null;
+public class Task   {
+  @JsonProperty("id")
+  private String id = null;
 
-  @JsonProperty("userId")
-  private String userId = null;
+  @JsonProperty("name")
+  private String name = null;
 
   @JsonProperty("description")
   private String description = null;
 
-  @JsonProperty("dueDate")
-  private String dueDate = null;
+  @JsonProperty("duedate")
+  private String duedate = null;
 
-  public User taskName(String taskName) {
-    this.taskName = taskName;
+  public Task id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get taskName
-   * @return taskName
+   * Get id
+   * @return id
   **/
-  @ApiModelProperty(required = true, value = "")
-  public String getTaskName() {
-    return taskName;
+  @ApiModelProperty(example = "d290f1ee-6c54-4b01-90e6-d701748f0851", required = true, value = "")
+  public String getId() {
+    return id;
   }
 
-  public void setTaskName(String taskName) {
-    this.taskName = taskName;
+  public void setId(String id) {
+    this.id = id;
   }
 
-  public User userId(String userId) {
-    this.userId = userId;
+  public Task name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get userId
-   * @return userId
+   * Get name
+   * @return name
   **/
-  @ApiModelProperty(required = true, value = "")
-  public String getUserId() {
-    return userId;
+  @ApiModelProperty(example = "Make UML diagrams", value = "")
+  public String getName() {
+    return name;
   }
 
-  public void setUserId(String userId) {
-    this.userId = userId;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public User description(String description) {
+  public Task description(String description) {
     this.description = description;
     return this;
   }
@@ -93,7 +93,7 @@ public class User   {
    * Get description
    * @return description
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "Do the UML", value = "")
   public String getDescription() {
     return description;
   }
@@ -102,22 +102,22 @@ public class User   {
     this.description = description;
   }
 
-  public User dueDate(String dueDate) {
-    this.dueDate = dueDate;
+  public Task duedate(String duedate) {
+    this.duedate = duedate;
     return this;
   }
 
    /**
-   * Get dueDate
-   * @return dueDate
+   * Get duedate
+   * @return duedate
   **/
-  @ApiModelProperty(value = "")
-  public String getDueDate() {
-    return dueDate;
+  @ApiModelProperty(example = "1985-04-12T23:20:50.520Z", value = "")
+  public String getDuedate() {
+    return duedate;
   }
 
-  public void setDueDate(String dueDate) {
-    this.dueDate = dueDate;
+  public void setDuedate(String duedate) {
+    this.duedate = duedate;
   }
 
 
@@ -129,28 +129,28 @@ public class User   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    User user = (User) o;
-    return Objects.equals(this.taskName, user.taskName) &&
-        Objects.equals(this.userId, user.userId) &&
-        Objects.equals(this.description, user.description) &&
-        Objects.equals(this.dueDate, user.dueDate);
+    Task task = (Task) o;
+    return Objects.equals(this.id, task.id) &&
+        Objects.equals(this.name, task.name) &&
+        Objects.equals(this.description, task.description) &&
+        Objects.equals(this.duedate, task.duedate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(taskName, userId, description, dueDate);
+    return Objects.hash(id, name, description, duedate);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class User {\n");
+    sb.append("class Task {\n");
     
-    sb.append("    taskName: ").append(toIndentedString(taskName)).append("\n");
-    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    dueDate: ").append(toIndentedString(dueDate)).append("\n");
+    sb.append("    duedate: ").append(toIndentedString(duedate)).append("\n");
     sb.append("}");
     return sb.toString();
   }
