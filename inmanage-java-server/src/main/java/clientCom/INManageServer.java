@@ -12,37 +12,17 @@ import java.util.UUID;
 
 public class INManageServer {
 
-    private static SQLCommands sql;
+    private static SQLCommands sql = Bootstrap.getSql();
 
     public static INManageServer get(){
-        if(sql == null){
-            try {
-                sql = SQLCommands.getInstance();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-
         return singleton;
     }
 
     public static final INManageServer singleton = new INManageServer();
 
-    public String addProjectResponse(Project project){
-        System.out.println(project.getId() + project.getDescription() + project.getName());
 
-        String resp = "Succes!";
-
-        return resp;
-    }
 
     public void addUserResponse(User user){
-
-        try {
-            sql = new SQLCommands();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
 
         System.out.println("Adding new user: " + user.getName());
 
@@ -54,6 +34,12 @@ public class INManageServer {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+    }
+    public void addProjectResponse(Project project){
+        System.out.println("Adding new project: " + project.getName());
+
+        //sql.addProject .....
 
     }
 

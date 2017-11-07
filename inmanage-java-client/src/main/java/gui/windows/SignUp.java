@@ -30,7 +30,7 @@ public class SignUp{
             passwordConfirmInput.setText("");
             passwordConfirmInput.setPromptText("The passwords don't match");
         } else {
-            ServerCom.createUser(checkedUsername(), checkedPassword());
+            //ServerCom.addUser(checkedUsername(), checkedPassword());
             ClientLauncher.getWindowChanger().setScene("Dashboard");
         }
 
