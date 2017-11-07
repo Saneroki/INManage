@@ -7,34 +7,42 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ToolBar;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.io.IOException;
+
 public class ClientLauncher extends Application {
+    private static WindowChanger windowChanger;
+    private static Stage primaryStage;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        this.primaryStage = primaryStage;
         primaryStage.initStyle(StageStyle.UNDECORATED);
-        Parent root = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
-
-
-
+        test();
+        //windowChanger = new WindowChanger();
+        //windowChanger.setScene("Login");
+        primaryStage.isMaximized();
     }
 
-    private void customWindowTop(){
-        ToolBar toolBar = new ToolBar();
+    public static WindowChanger getWindowChanger(){
+        return windowChanger;
+    }
 
-        int height = 25;
-        toolBar.setPrefHeight(height);
-        toolBar.setMinHeight(height);
-        toolBar.setMaxHeight(height);
+    public static Stage getPrimaryStage(){
+        return primaryStage;
+    }
+
+    public void test() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        Scene scene = new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
     public static void main(String[] args) {
         launch(args);
     }
+
 }
