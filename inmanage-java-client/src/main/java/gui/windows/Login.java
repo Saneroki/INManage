@@ -8,11 +8,11 @@ import main.java.gui.ClientLauncher;
 
 public class Login{
     public void signUp(ActionEvent actionEvent) {
-        ClientLauncher.getWindowChanger().setScene("SignUp");
+        ClientLauncher.getWindowChanger().setScene("/fxml/windows/SignUp.fxml");
     }
 
     public void SignIn(ActionEvent actionEvent) {
-        ClientLauncher.getWindowChanger().setScene("Dashboard");
+        ClientLauncher.getWindowChanger().setScene("/fxml/windows/Dashboard.fxml");
     }
 
     public void turnOff(MouseEvent mouseEvent) {

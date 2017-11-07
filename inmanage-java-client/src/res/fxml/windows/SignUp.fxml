@@ -32,7 +32,7 @@
                <children>
                   <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#turnOff" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
                      <image>
-                        <Image url="@../resources/power-button-off.png" />
+                        <Image url="@../../img/power-button-off.png" />
                      </image>
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -40,7 +40,7 @@
                   </ImageView>
                   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/inManage_150px.png" />
+                        <Image url="@../../img/inManage_150px.png" />
                      </image>
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

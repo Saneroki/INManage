@@ -4,13 +4,9 @@ package main.java.gui;
   Created by Glenn on 25/10/2017.
 */
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
-import java.io.IOException;
+import main.java.gui.windows.WindowChanger;
 
 public class ClientLauncher extends Application {
     private static WindowChanger windowChanger;
@@ -20,9 +16,8 @@ public class ClientLauncher extends Application {
     public void start(Stage primaryStage) throws Exception{
         this.primaryStage = primaryStage;
         primaryStage.initStyle(StageStyle.UNDECORATED);
-        test();
-        //windowChanger = new WindowChanger();
-        //windowChanger.setScene("Login");
+        windowChanger = new WindowChanger();
+        windowChanger.setScene("/fxml/windows/Login.fxml");
         primaryStage.isMaximized();
     }
 
@@ -34,12 +29,6 @@ public class ClientLauncher extends Application {
         return primaryStage;
     }
 
-    public void test() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
-        Scene scene = new Scene(root);
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
 
     public static void main(String[] args) {
         launch(args);
