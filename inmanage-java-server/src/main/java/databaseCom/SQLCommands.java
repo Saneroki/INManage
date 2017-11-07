@@ -12,7 +12,7 @@ public class SQLCommands implements ISQLCommands {
     private SQLConnect sqlconnect;
     private Connection con;
 
-    private SQLCommands() throws SQLException {
+    public SQLCommands() throws SQLException {
         sqlconnect = new SQLConnect();
         con = sqlconnect.connect();
     }

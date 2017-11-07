@@ -15,9 +15,9 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
+import gen.java.model.AddTaskObject;
 import gen.java.model.Project;
 import gen.java.model.Task;
-import gen.java.model.User;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -142,8 +142,8 @@ public class UserApi {
         return call;
     }
     /* Build call for addTask */
-    private com.squareup.okhttp.Call addTaskCall(User user, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = user;
+    private com.squareup.okhttp.Call addTaskCall(AddTaskObject addTaskObject, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = addTaskObject;
         
 
         // create path and map variables
@@ -186,34 +186,34 @@ public class UserApi {
     /**
      * Adds a new task to a project
      * Adds a new task to a project, whil adding the id&#39;s of the task and the user.
-     * @param user Adds a task to a project (optional)
+     * @param addTaskObject Adds a task to a project (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void addTask(User user) throws ApiException {
-        addTaskWithHttpInfo(user);
+    public void addTask(AddTaskObject addTaskObject) throws ApiException {
+        addTaskWithHttpInfo(addTaskObject);
     }
 
     /**
      * Adds a new task to a project
      * Adds a new task to a project, whil adding the id&#39;s of the task and the user.
-     * @param user Adds a task to a project (optional)
+     * @param addTaskObject Adds a task to a project (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> addTaskWithHttpInfo(User user) throws ApiException {
-        com.squareup.okhttp.Call call = addTaskCall(user, null, null);
+    public ApiResponse<Void> addTaskWithHttpInfo(AddTaskObject addTaskObject) throws ApiException {
+        com.squareup.okhttp.Call call = addTaskCall(addTaskObject, null, null);
         return apiClient.execute(call);
     }
 
     /**
      * Adds a new task to a project (asynchronously)
      * Adds a new task to a project, whil adding the id&#39;s of the task and the user.
-     * @param user Adds a task to a project (optional)
+     * @param addTaskObject Adds a task to a project (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call addTaskAsync(User user, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call addTaskAsync(AddTaskObject addTaskObject, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -234,7 +234,7 @@ public class UserApi {
             };
         }
 
-        com.squareup.okhttp.Call call = addTaskCall(user, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = addTaskCall(addTaskObject, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }

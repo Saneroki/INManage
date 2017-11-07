@@ -7,8 +7,8 @@ import gen.java.api.factories.TaskApiServiceFactory;
 import io.swagger.annotations.ApiParam;
 import io.swagger.jaxrs.*;
 
+import gen.java.model.AddTaskObject;
 import gen.java.model.Task;
-import gen.java.model.User;
 
 import java.util.List;
 import gen.java.api.NotFoundException;
@@ -27,7 +27,7 @@ import javax.ws.rs.*;
 
 
 @io.swagger.annotations.Api(description = "the task API")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-11-06T19:42:05.650Z")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-11-07T10:56:57.897Z")
 public class TaskApi  {
    private final TaskApiService delegate = TaskApiServiceFactory.getTaskApi();
 
@@ -40,10 +40,10 @@ public class TaskApi  {
         @io.swagger.annotations.ApiResponse(code = 201, message = "Task created", response = void.class),
         
         @io.swagger.annotations.ApiResponse(code = 400, message = "Task creation failed", response = void.class) })
-    public Response addTask(@ApiParam(value = "Adds a task to a project" ) User user
+    public Response addTask(@ApiParam(value = "Adds a task to a project" ) AddTaskObject addTaskObject
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
-        return delegate.addTask(user,securityContext);
+        return delegate.addTask(addTaskObject,securityContext);
     }
     @GET
     

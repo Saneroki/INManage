@@ -1,10 +1,9 @@
 package gen.java.api;
 
-import com.squareup.okhttp.Response;
 import gen.java.invoker.ApiException;
+import gen.java.model.AddTaskObject;
 import gen.java.model.Project;
 import gen.java.model.Task;
-import gen.java.model.User;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -30,11 +29,8 @@ public class UserApiTest {
      */
     @Test
     public void addProjectTest() throws ApiException {
-        Project project = new Project();
-        project.setDescription("A project about shitty projects");
-        project.setName(".less");
-        api.addProject(project);
-
+        Project project = null;
+        // api.addProject(project);
 
         // TODO: test validations
     }
@@ -49,8 +45,8 @@ public class UserApiTest {
      */
     @Test
     public void addTaskTest() throws ApiException {
-        User user = null;
-        // api.addTask(user);
+        AddTaskObject addTaskObject = null;
+        // api.addTask(addTaskObject);
 
         // TODO: test validations
     }

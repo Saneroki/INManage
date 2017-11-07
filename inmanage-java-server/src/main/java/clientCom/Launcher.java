@@ -34,7 +34,7 @@ public class Launcher  extends UsersApiService {
     public Response searchUser(String searchUsername, Integer skip, Integer limit, SecurityContext securityContext) throws NotFoundException {
         // here should be a check if the searchUsername matches the one of user1 and only return .ok if it does.
         // If it does not then respond Response.noContent().entity(new ApiResponseMessage(ApiResponseMessage.noContent, "Nothing found")).build();
-        System.out.println(user1.getTaskName());
+        System.out.println(user1.getName());
         return Response.ok().entity(user1).build();
 
     }
