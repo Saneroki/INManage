@@ -8,6 +8,7 @@ import javafx.scene.input.MouseEvent;
 import main.java.gui.ClientLauncher;
 import main.java.gui.windows.Windows;
 import main.java.serverCom.ServerCom;
+import main.java.serverCom.ServerComImpl;
 
 public class SignUp{
     @FXML
@@ -19,7 +20,7 @@ public class SignUp{
     @FXML
     private TextField passwordConfirmInput;
 
-
+    private ServerCom serv = new ServerComImpl();
 
     public void cancel(ActionEvent actionEvent) {
         ClientLauncher.getWindowChanger().setScene("Login");
@@ -30,7 +31,7 @@ public class SignUp{
             passwordConfirmInput.setText("");
             passwordConfirmInput.setPromptText("The passwords don't match");
         } else {
-            //ServerCom.addUser(checkedUsername(), checkedPassword());
+            serv.addUser(checkedUsername(), checkedPassword());
             ClientLauncher.getWindowChanger().setScene("Dashboard");
         }
 
