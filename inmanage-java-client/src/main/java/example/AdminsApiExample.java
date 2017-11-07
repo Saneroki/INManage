@@ -19,7 +19,9 @@ public class AdminsApiExample {
 
         try {
             addUser(apiInstance);
+            System.out.println("User added!");
             searchUser(apiInstance);
+            System.out.println("User searched: " + apiInstance);
 
         } catch (ApiException e) {
             System.err.println("Exception when calling AdminsApi#addUser");
@@ -29,11 +31,11 @@ public class AdminsApiExample {
 
 
     private static void addUser(AdminsApi apiInstance) throws ApiException {
-       /* User user = new User(); // User | User to add
+    /*    User user = new User(); // User | User to add
         user.setUserId("666");
         user.setTaskName("Malte");
         apiInstance.addUser(user);
-        System.out.println(user);*/
+        System.out.println(user); */
     }
 
     private static void searchUser(AdminsApi apiInstance) throws ApiException {
