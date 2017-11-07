@@ -1,3 +1,6 @@
+
+
+
 package main.java.clientCom;
 
 
@@ -20,6 +23,11 @@ public class Launcher  extends UsersApiService {
         System.out.println(user);
         System.out.println(user1);
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
+    }
+
+    @Override
+    public Response loginUser(String username, String password, SecurityContext securityContext) throws NotFoundException {
+        return null;
     }
 
     @Override

@@ -32,17 +32,38 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * User
+ * Project
  */
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-11-07T10:56:57.897Z")
-public class User   {
+public class Project   {
+  @JsonProperty("id")
+  private String id = null;
+
   @JsonProperty("name")
   private String name = null;
 
-  @JsonProperty("password")
-  private String password = null;
+  @JsonProperty("description")
+  private String description = null;
 
-  public User name(String name) {
+  public Project id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @ApiModelProperty(example = "d290f1ee-6c54-4b01-90e6-d701748f0851", required = true, value = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Project name(String name) {
     this.name = name;
     return this;
   }
@@ -51,7 +72,7 @@ public class User   {
    * Get name
    * @return name
   **/
-  @ApiModelProperty(example = "Apple", required = true, value = "")
+  @ApiModelProperty(example = "Semester project group 1.", value = "")
   public String getName() {
     return name;
   }
@@ -60,22 +81,22 @@ public class User   {
     this.name = name;
   }
 
-  public User password(String password) {
-    this.password = password;
+  public Project description(String description) {
+    this.description = description;
     return this;
   }
 
    /**
-   * Get password
-   * @return password
+   * Get description
+   * @return description
   **/
-  @ApiModelProperty(example = "superSecretPassword", required = true, value = "")
-  public String getPassword() {
-    return password;
+  @ApiModelProperty(example = "This project is about doing the semester correctly", value = "")
+  public String getDescription() {
+    return description;
   }
 
-  public void setPassword(String password) {
-    this.password = password;
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -87,24 +108,26 @@ public class User   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    User user = (User) o;
-    return Objects.equals(this.name, user.name) &&
-        Objects.equals(this.password, user.password);
+    Project project = (Project) o;
+    return Objects.equals(this.id, project.id) &&
+        Objects.equals(this.name, project.name) &&
+        Objects.equals(this.description, project.description);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, password);
+    return Objects.hash(id, name, description);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class User {\n");
+    sb.append("class Project {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("}");
     return sb.toString();
   }

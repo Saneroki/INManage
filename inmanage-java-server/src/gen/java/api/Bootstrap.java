@@ -4,13 +4,18 @@ import io.swagger.jaxrs.config.SwaggerContextService;
 import io.swagger.models.*;
 
 import io.swagger.models.auth.*;
+import main.java.databaseCom.SQLCommands;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import java.sql.SQLException;
 
 public class Bootstrap extends HttpServlet {
+
+  public static SQLCommands sql;
+
   @Override
   public void init(ServletConfig config) throws ServletException {
     Info info = new Info()
@@ -26,6 +31,16 @@ public class Bootstrap extends HttpServlet {
     ServletContext context = config.getServletContext();
     Swagger swagger = new Swagger().info(info);
 
+    try {
+      sql = SQLCommands.getInstance();
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+
     new SwaggerContextService().withServletConfig(config).updateSwagger(swagger);
+  }
+
+  public static SQLCommands getSql(){
+      return sql;
   }
 }

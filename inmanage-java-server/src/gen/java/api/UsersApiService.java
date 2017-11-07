@@ -15,8 +15,9 @@ import java.io.InputStream;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-11-01T20:29:26.283Z")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-11-07T10:56:57.897Z")
 public abstract class UsersApiService {
     public abstract Response addUser(User user,SecurityContext securityContext) throws NotFoundException;
+    public abstract Response loginUser(String username,String password,SecurityContext securityContext) throws NotFoundException;
     public abstract Response searchUser(String searchUsername,Integer skip,Integer limit,SecurityContext securityContext) throws NotFoundException;
 }

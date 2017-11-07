@@ -32,17 +32,41 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * User
+ * Task
  */
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-11-07T10:56:57.897Z")
-public class User   {
+public class Task   {
+  @JsonProperty("id")
+  private String id = null;
+
   @JsonProperty("name")
   private String name = null;
 
-  @JsonProperty("password")
-  private String password = null;
+  @JsonProperty("description")
+  private String description = null;
 
-  public User name(String name) {
+  @JsonProperty("duedate")
+  private String duedate = null;
+
+  public Task id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @ApiModelProperty(example = "d290f1ee-6c54-4b01-90e6-d701748f0851", required = true, value = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Task name(String name) {
     this.name = name;
     return this;
   }
@@ -51,7 +75,7 @@ public class User   {
    * Get name
    * @return name
   **/
-  @ApiModelProperty(example = "Apple", required = true, value = "")
+  @ApiModelProperty(example = "Make UML diagrams", value = "")
   public String getName() {
     return name;
   }
@@ -60,22 +84,40 @@ public class User   {
     this.name = name;
   }
 
-  public User password(String password) {
-    this.password = password;
+  public Task description(String description) {
+    this.description = description;
     return this;
   }
 
    /**
-   * Get password
-   * @return password
+   * Get description
+   * @return description
   **/
-  @ApiModelProperty(example = "superSecretPassword", required = true, value = "")
-  public String getPassword() {
-    return password;
+  @ApiModelProperty(example = "Do the UML", value = "")
+  public String getDescription() {
+    return description;
   }
 
-  public void setPassword(String password) {
-    this.password = password;
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public Task duedate(String duedate) {
+    this.duedate = duedate;
+    return this;
+  }
+
+   /**
+   * Get duedate
+   * @return duedate
+  **/
+  @ApiModelProperty(example = "1985-04-12T23:20:50.520Z", value = "")
+  public String getDuedate() {
+    return duedate;
+  }
+
+  public void setDuedate(String duedate) {
+    this.duedate = duedate;
   }
 
 
@@ -87,24 +129,28 @@ public class User   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    User user = (User) o;
-    return Objects.equals(this.name, user.name) &&
-        Objects.equals(this.password, user.password);
+    Task task = (Task) o;
+    return Objects.equals(this.id, task.id) &&
+        Objects.equals(this.name, task.name) &&
+        Objects.equals(this.description, task.description) &&
+        Objects.equals(this.duedate, task.duedate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, password);
+    return Objects.hash(id, name, description, duedate);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class User {\n");
+    sb.append("class Task {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    duedate: ").append(toIndentedString(duedate)).append("\n");
     sb.append("}");
     return sb.toString();
   }
