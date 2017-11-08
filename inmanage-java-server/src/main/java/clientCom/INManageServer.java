@@ -1,9 +1,11 @@
 package main.java.clientCom;
 
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import gen.java.api.Bootstrap;
 import gen.java.model.Project;
 import io.swagger.models.Response;
+import io.swagger.util.Json;
 import main.java.databaseCom.SQLCommands;
 import gen.java.model.*;
 
@@ -40,6 +42,28 @@ public class INManageServer {
         System.out.println("Adding new project: " + project.getName());
 
         //sql.addProject .....
+
+    }
+
+    public String loginResponse(String username, String password){
+        System.out.println("Logging in user: " + username);
+        String uuid = null;
+        try {
+            uuid = sql.loginUser(username,password);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        if (uuid.equals(null)){
+            return uuid;
+        }else {
+
+            //Turn this into JSON
+            return uuid;
+
+        }
+
+
 
     }
 

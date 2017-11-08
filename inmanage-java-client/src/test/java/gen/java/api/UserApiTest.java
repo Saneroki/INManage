@@ -93,9 +93,10 @@ public class UserApiTest {
      */
     @Test
     public void loginUserTest() throws ApiException {
-        String username = null;
-        String password = null;
-        // Object response = api.loginUser(username, password);
+        String username = "malteBoy";
+        String password = "password123";
+        Object response = api.loginUser(username, password);
+        System.out.println(response);
 
         // TODO: test validations
     }
