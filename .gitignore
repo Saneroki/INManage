@@ -2,7 +2,6 @@
 .idea
 *.iml
 out
-.idea/
 inmanage-java-client/target/
 inmanage-java-client/.idea
 inmanage-java-server/target/
