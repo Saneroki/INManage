@@ -1,16 +1,18 @@
 package main.java.domain.task;
 
-//import main.java.domain.project.Project;
+/*
+* Currently being worked on by Mikkel.
+*/
 
 public class Task {
-
+/*
     private String dueTime;
     private String startTime;
     private String taskDescription;
     private String taskTitle;
     private String taskStatus;
 
-    public Task() { //project ID ties the task to a specific project.
+    public Task(super.projectID) { //project ID ties the task to a specific project.
 
         Task task = new Task();
     }
@@ -63,5 +65,5 @@ public class Task {
     public void setTaskDescription() {
 
         this.taskDescription = taskDescription;
-    }
+    } */
 }
