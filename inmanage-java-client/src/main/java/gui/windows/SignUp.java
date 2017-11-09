@@ -44,7 +44,6 @@ public class SignUp{
 
     private String checkedPassword() {
         if (passwordInput.getText().equals(passwordConfirmInput.getText())) {
-            System.out.println("Confirmed!");
             return passwordConfirmInput.getText(); }
         return null;
     }

@@ -10,6 +10,7 @@ import gen.java.api.NotFoundException;
 
 import java.io.InputStream;
 
+import main.java.clientCom.INManageServer;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 
 import javax.ws.rs.core.Response;
