@@ -338,17 +338,6 @@ public class SQLCommands implements ISQLCommands {
         }
     }
 
-    /**
-     *
-     * @param checkUsername
-     * @param checkPassword
-     * @return String
-     * @throws SQLException
-     *
-     * Checks if the user is in the database and returns his ID if he is.
-     *
-     */
-
     @Override
     public String loginUser(String checkUsername, String checkPassword) throws SQLException {
         Statement statement = con.createStatement();
@@ -362,6 +351,76 @@ public class SQLCommands implements ISQLCommands {
             e.printStackTrace();
         }
         return null;
+    }
+
+    //Task
+    @Override
+    public boolean addTaskToProject(UUID taskId, String taskName, String taskDescription, String taskDue, String projectId) throws SQLException {
+        Statement statement = con.createStatement();
+        try {
+            statement.execute("INSERT INTO task (taskId, taskName, taskDescription, taskStart, taskDue, taskStatus, fk_projectID)\n" +
+                    "VALUES ('"+taskId+"', '"+taskName+"', '"+taskDescription+"', 'CURDATE()', '"+taskDue+"', '1', '"+projectId+"');");
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+        }
+    }
+
+    @Override
+    public boolean setTaskStatus(String taskId, int statusId) throws SQLException {
+        Statement statement = con.createStatement();
+        try {
+            statement.executeQuery("UPDATE task\n" +
+                    "SET taskStatus = '"+statusId+"'\n" +
+                    "WHERE taskId = '"+taskId+"';");
+            return true;
+        } catch (SQLException e) {
+            System.out.println("\nCaused by the task not existing.");
+            return false;
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+        }
+    }
+
+    @Override
+    public boolean deleteTask(String taskId) throws SQLException {
+        Statement statement = con.createStatement();
+        try {
+            statement.executeQuery("DELETE FROM task\n" +
+                    "WHERE taskId = '"+taskId+"';");
+            return true;
+        } catch (SQLException e) {
+            System.out.println("\nCaused by the task not existing.");
+            return false;
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+        }
+    }
+
+    @Override
+    public boolean deleteAllTaskForProject(String projectId) throws SQLException {
+        Statement statement = con.createStatement();
+        try {
+            statement.executeQuery("DELETE FROM task\n" +
+                    "WHERE fk_projectId = '"+projectId+"';");
+            return true;
+        } catch (SQLException e) {
+            System.out.println("\nCaused by the project not having any tasks.");
+            return false;
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+        }
     }
 
 }

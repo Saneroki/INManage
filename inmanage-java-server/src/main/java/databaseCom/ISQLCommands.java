@@ -1,5 +1,6 @@
 package main.java.databaseCom;
 
+import java.awt.*;
 import java.sql.SQLException;
 import java.util.UUID;
 
@@ -15,7 +16,7 @@ public interface ISQLCommands {
 
     String getLastname(String username) throws SQLException;
 
-    public boolean setUsername(String username) throws SQLException;
+    boolean setUsername(String username) throws SQLException;
 
     boolean setPassword(String username, String password) throws SQLException;
 
@@ -30,6 +31,20 @@ public interface ISQLCommands {
     boolean isUserAdmin(String username) throws SQLException;
 
     String loginUser(String username, String password) throws SQLException;
+
+    //Task
+
+    boolean addTaskToProject(UUID taskId, String taskName, String taskDescription, String taskDue, String projectId) throws SQLException;
+
+    boolean setTaskStatus(String taskId, int statusId) throws SQLException;
+
+    boolean deleteTask(String taskId) throws SQLException;
+
+    boolean deleteAllTaskForProject(String projectId) throws SQLException;
+
+    List getTaskByStatus(String projectId, int statusId) throws SQLException;
+
+    List getAllTaskByProject(String projectId) throws SQLException;
 
 
 

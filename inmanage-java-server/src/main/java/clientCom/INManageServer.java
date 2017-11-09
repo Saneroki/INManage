@@ -16,7 +16,7 @@ import java.util.UUID;
 
 public class INManageServer {
 
-    private static SQLCommands sql;
+    private static SQLCommands sql = Bootstrap.getSql();
 
     public static INManageServer get(){
         return singleton;
