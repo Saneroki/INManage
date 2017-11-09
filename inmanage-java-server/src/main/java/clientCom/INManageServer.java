@@ -1,9 +1,11 @@
 package main.java.clientCom;
 
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import gen.java.api.Bootstrap;
 import gen.java.model.Project;
 import io.swagger.models.Response;
+import io.swagger.util.Json;
 import main.java.databaseCom.SQLCommands;
 import gen.java.model.*;
 
@@ -12,37 +14,17 @@ import java.util.UUID;
 
 public class INManageServer {
 
-    private static SQLCommands sql;
+    private static SQLCommands sql = Bootstrap.getSql();
 
     public static INManageServer get(){
-        if(sql == null){
-            try {
-                sql = SQLCommands.getInstance();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-
         return singleton;
     }
 
     public static final INManageServer singleton = new INManageServer();
 
-    public String addProjectResponse(Project project){
-        System.out.println(project.getId() + project.getDescription() + project.getName());
 
-        String resp = "Succes!";
-
-        return resp;
-    }
 
     public void addUserResponse(User user){
-
-        try {
-            sql = new SQLCommands();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
 
         System.out.println("Adding new user: " + user.getName());
 
@@ -54,6 +36,34 @@ public class INManageServer {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+    }
+    public void addProjectResponse(Project project){
+        System.out.println("Adding new project: " + project.getName());
+
+        //sql.addProject .....
+
+    }
+
+    public String loginResponse(String username, String password){
+        System.out.println("Logging in user: " + username);
+        String uuid = null;
+        try {
+            uuid = sql.loginUser(username,password);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        if (uuid.equals(null)){
+            return uuid;
+        }else {
+
+            //Turn this into JSON
+            return uuid;
+
+        }
+
+
 
     }
 

@@ -29,4 +29,8 @@ public interface ISQLCommands {
 
     boolean isUserAdmin(String username) throws SQLException;
 
+    String loginUser(String username, String password) throws SQLException;
+
+
+
 }

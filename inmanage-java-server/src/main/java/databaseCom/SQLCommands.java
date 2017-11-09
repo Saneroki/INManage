@@ -338,4 +338,19 @@ public class SQLCommands implements ISQLCommands {
         }
     }
 
+    @Override
+    public String loginUser(String checkUsername, String checkPassword) throws SQLException {
+        Statement statement = con.createStatement();
+
+        try {
+            ResultSet resultSet = statement.executeQuery("SELECT id FROM public.user WHERE username = '" + checkUsername + "' AND password = '" + checkPassword + "';");
+            resultSet.next();
+            return resultSet.getString(1);
+
+            }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }
