@@ -27,10 +27,8 @@ public class AdminsApiTest {
      */
     @Test
     public void addUserTest() throws ApiException {
-        User user = new User();
-        user.setName("malteBoy");
-        user.setPassword("password123");
-        api.addUser(user);
+        User user = null;
+        // api.addUser(user);
 
         // TODO: test validations
     }

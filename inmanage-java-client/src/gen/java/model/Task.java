@@ -9,7 +9,7 @@ import java.io.Serializable;
 /**
  * Task
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-07T10:57:42.849Z")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-08T10:55:34.924Z")
 public class Task implements Serializable {
   @SerializedName("id")
   private String id = null;

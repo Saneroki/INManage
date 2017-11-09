@@ -28,7 +28,7 @@ public class ServerComImpl implements ServerCom {
     @Override
     public String loginUser(String userName, String password) {
         try {
-            String uuid = (String) userApi.loginUser(userName, password);
+            String uuid = userApi.loginUser(userName, password);
             return uuid;
         } catch (ApiException e) {
             e.printStackTrace();

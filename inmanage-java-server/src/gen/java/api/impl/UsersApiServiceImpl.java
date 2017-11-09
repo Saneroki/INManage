@@ -10,28 +10,22 @@ import gen.java.api.NotFoundException;
 
 import java.io.InputStream;
 
-import main.java.clientCom.INManageServer;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-11-07T10:56:57.897Z")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-11-08T10:54:29.881Z")
 public class UsersApiServiceImpl extends UsersApiService {
     @Override
     public Response addUser(User user, SecurityContext securityContext) throws NotFoundException {
-        INManageServer.get().addUserResponse(user);
+        // do some magic!
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
     }
     @Override
     public Response loginUser(String username, String password, SecurityContext securityContext) throws NotFoundException {
-        String resp = INManageServer.get().loginResponse(username, password);
-        if(!resp.equals(null)){
-            return Response.ok().entity(resp).build();
-        }else{
-            return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.ERROR, "Error logging in")).build();
-        }
-
+        // do some magic!
+        return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
     }
     @Override
     public Response searchUser(String searchUsername, Integer skip, Integer limit, SecurityContext securityContext) throws NotFoundException {
