@@ -34,17 +34,17 @@ public interface ISQLCommands {
 
     //Task
 
-    boolean addTaskToProject(UUID taskId, String taskName, String taskDescription, String taskDue, int projectId) throws SQLException;
+    boolean addTaskToProject(UUID taskId, String taskName, String taskDescription, String taskDue, String projectId) throws SQLException;
 
-    boolean setTaskStatus(int taskId, int taskStatus) throws SQLException;
+    boolean setTaskStatus(String taskId, int statusId) throws SQLException;
 
-    boolean deleteTask(int taskId) throws SQLException;
+    boolean deleteTask(String taskId) throws SQLException;
 
-    boolean deleteAllTaskForProject(int projectId) throws SQLException;
+    boolean deleteAllTaskForProject(String projectId) throws SQLException;
 
-    List getTaskByStatus(int projectId, String taskStatus) throws SQLException;
+    List getTaskByStatus(String projectId, int statusId) throws SQLException;
 
-    List getAllTaskByProject(int projectId) throws SQLException;
+    List getAllTaskByProject(String projectId) throws SQLException;
 
 
 
