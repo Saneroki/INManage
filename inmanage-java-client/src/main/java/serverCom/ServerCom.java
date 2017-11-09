@@ -6,7 +6,7 @@ import gen.java.model.Task;
 
 import java.util.List;
 
-    String loginUser(String userName, String password);
+public interface ServerCom {
 
     void addUser(String username, String password);
 
