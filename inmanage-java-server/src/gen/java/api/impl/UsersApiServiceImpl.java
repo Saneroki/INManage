@@ -25,8 +25,13 @@ public class UsersApiServiceImpl extends UsersApiService {
     }
     @Override
     public Response loginUser(String username, String password, SecurityContext securityContext) throws NotFoundException {
-        // do some magic!
-        return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
+        String resp = INManageServer.get().loginResponse(username, password);
+        if (!resp.equals(null)) {
+            return Response.ok().entity(resp).build();
+        } else {
+            return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.ERROR, "Error logging in")).build();
+        }
+
     }
     @Override
     public Response searchUser(String searchUsername, Integer skip, Integer limit, SecurityContext securityContext) throws NotFoundException {
