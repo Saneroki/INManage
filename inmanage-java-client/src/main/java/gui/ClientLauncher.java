@@ -7,6 +7,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.application.Platform;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import main.java.gui.windows.WindowChanger;
@@ -35,11 +36,8 @@ public class ClientLauncher extends Application {
         return primaryStage;
     }
 
-    public void test() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
-        Scene scene = new Scene(root);
-        primaryStage.setScene(scene);
-        primaryStage.show();
+    public void turnOff(){
+        Platform.exit();
     }
 
 

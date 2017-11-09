@@ -13,30 +13,27 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="root" focusTraversable="true" minHeight="400.0" minWidth="600.0" prefHeight="768.0" prefWidth="1024.0"
-            styleClass="root" stylesheets="@/fxml/Style.css" xmlns="http://javafx.com/javafx/8.0.141"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.gui.windows.Login">
-   <BorderPane id="root" styleClass="root" stylesheets="@/fxml/Style.css" AnchorPane.bottomAnchor="0.0"
-               AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+<AnchorPane id="root" focusTraversable="true" minHeight="400.0" minWidth="600.0" prefHeight="768.0" prefWidth="1024.0" stylesheets="@/fxml/Style.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.gui.windows.Login">
+   <BorderPane id="root" styleClass="root" stylesheets="@/fxml/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <center>
-         <VBox maxHeight="200.0" minHeight="200.0" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <VBox maxHeight="200.0" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
             <children>
-               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <HBox alignment="CENTER" minHeight="100.0" minWidth="200.0" prefHeight="100.0" prefWidth="200.0">
                   <children>
-                     <TextField fx:id="usernameInput" promptText="Username"/>
+                     <TextField fx:id="usernameInput" promptText="Username" />
                   </children>
                </HBox>
                <HBox alignment="CENTER" prefWidth="200.0">
                   <children>
-                     <TextField fx:id="UsernameInput" promptText="Password"/>
+                     <TextField fx:id="UsernameInput" promptText="Password" />
                   </children>
                   <prefHeight>100.0</prefHeight>
                </HBox>
                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                   <children>
-                     <Button cancelButton="true" mnemonicParsing="false" onAction="#signUp" text="Sign up"/>
-                     <Pane prefWidth="50.0"/>
-                     <Button defaultButton="true" mnemonicParsing="false" onAction="#SignIn" text="Sign in"/>
+                     <Button cancelButton="true" mnemonicParsing="false" onAction="#signUp" text="Sign up" />
+                     <Pane prefWidth="50.0" />
+                     <Button defaultButton="true" mnemonicParsing="false" onAction="#SignIn" text="Sign in" />
                   </children>
                </HBox>
             </children>
@@ -47,13 +44,12 @@
             <children>
                <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
                   <children>
-                     <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#turnOff" pickOnBounds="true"
-                                preserveRatio="true">
+                     <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#turnOff" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../../img/power-button-off.png"/>
+                           <Image url="@../../img/power-button-off.png" />
                         </image>
                         <HBox.margin>
-                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                         </HBox.margin>
                      </ImageView>
                   </children>
@@ -62,18 +58,18 @@
                   <children>
                      <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../../img/inManage_150px.png"/>
+                           <Image url="@../../img/inManage_150px.png" />
                         </image>
                         <HBox.margin>
-                           <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+                           <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                         </HBox.margin>
                      </ImageView>
                      <Label prefHeight="150.0" text="INManage" textAlignment="CENTER" textFill="#259bd7">
                         <font>
-                           <Font name="Gadugi" size="82.0"/>
+                           <Font name="Gadugi" size="82.0" />
                         </font>
                         <HBox.margin>
-                           <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+                           <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                         </HBox.margin>
                      </Label>
                   </children>

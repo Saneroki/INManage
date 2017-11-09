@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import main.java.gui.ClientLauncher;
+import main.java.gui.windows.Controller;
 import main.java.gui.windows.Windows;
 import main.java.serverCom.ServerCom;
 import main.java.serverCom.ServerComImpl;
@@ -32,7 +33,7 @@ public class SignUp{
             passwordConfirmInput.setPromptText("The passwords don't match");
         } else {
             serv.addUser(checkedUsername(), checkedPassword());
-            ClientLauncher.getWindowChanger().setScene("Dashboard");
+            ClientLauncher.getWindowChanger().setScene("/fxml/windows/ProjectOverview.fxml");
         }
 
     }
