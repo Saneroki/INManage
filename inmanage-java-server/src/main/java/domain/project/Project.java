@@ -11,9 +11,18 @@ public class Project {
     private ArrayList<User> users = new ArrayList<>();
 
     private String name;
-
+    private String projectID;
 
     public Project(String name) {
         this.name = name;
     }
+
+    private void setProjectID() {
+        this.projectID = projectID;
+    }
+
+    public String getProjectID() {
+        return projectID;
+    }
+
 }
