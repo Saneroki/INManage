@@ -28,11 +28,11 @@ public abstract class AbstractChatClient<Connection> {
      * An idea would be to have a thread for every user, and I'm assuming that this is what
      * this does? /omhaw16
      */
-    public void displayMessagesIn(ChatWindow display) {
-        new Thread(() -> {
-            while (true) display.addMessage(receiveText(connection));
-        }).start();
-    }
+//    public void displayMessagesIn(ChatWindow display) {
+//        new Thread(() -> {
+//            while (true) display.addMessage(receiveText(connection));
+//        }).start();
+//    }
 
     /**
      * The action invoked from the GUI when the "send" button is pressed: send the
@@ -70,4 +70,4 @@ public abstract class AbstractChatClient<Connection> {
     protected abstract String receiveText(Connection connection);
 
 }
-}
+

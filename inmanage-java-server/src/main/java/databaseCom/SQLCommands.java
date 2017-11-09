@@ -4,6 +4,7 @@ import gen.java.model.Task;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -15,6 +16,10 @@ public class SQLCommands implements ISQLCommands {
     private static SQLCommands instance = null;
     private SQLConnect sqlconnect;
     private Connection con;
+
+    public static void main(String[] args) throws SQLException {
+
+    }
 
     public SQLCommands() throws SQLException {
         sqlconnect = new SQLConnect();
@@ -363,16 +368,31 @@ public class SQLCommands implements ISQLCommands {
     }
 
     @Override
+    public boolean setTaskStatus(String taskId, int statusId) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public boolean deleteTask(String taskId) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public boolean deleteAllTaskForProject(String projectId) throws SQLException {
+        return false;
+    }
+
+    @Override
     public List getTaskByStatus(String projectId, int statusId) throws SQLException {
         List<Task> tasksByStatus = new ArrayList<>();
-        String taskNameByStatus;
+   /*     String taskNameByStatus;
         String taskDescByStatus;
         Date taskStartByStatus;
         Date taskDueByStatus;
         String taskProjectIDByStatus;
         int taskStatusByStatus;
+        Statement statement = con.createStatement();
         try {
-            Statement statement = con.createStatement();
             ResultSet getTaskByStatusrs = statement.executeQuery("SELECT * FROM task\n" +
                     "INNER JOIN taskStatus ON fk_StatusId = statusId WHERE fk_projectId = '" + projectId + "' AND fk_statusId, = '" + statusId + "';");
             while (getTaskByStatusrs.next()) {
@@ -382,8 +402,7 @@ public class SQLCommands implements ISQLCommands {
                 taskDueByStatus = getTaskByStatusrs.getDate(5);
                 taskProjectIDByStatus = getTaskByStatusrs.getString(6);
                 taskStatusByStatus = getTaskByStatusrs.getInt(7);
-                tasksByStatus.add((taskNameByStatus, taskDescByStatus, taskStartByStatus, taskDueByStatus, taskProjectIDByStatus, taskStatusByStatus))
-                ;
+           //     tasksByStatus.add((taskNameByStatus, taskDescByStatus, taskStartByStatus, taskDueByStatus, taskProjectIDByStatus, taskStatusByStatus))
 
             }
             return tasksByStatus;
@@ -394,7 +413,9 @@ public class SQLCommands implements ISQLCommands {
             if (statement != null) {
                 statement.close();
             }
-        }
+        }*/
+        return tasksByStatus;
+    }
 
     public List getAllTaskByProject(String projectId) throws SQLException {
         List<String> tasksByProject = new ArrayList<>();
@@ -415,7 +436,7 @@ public class SQLCommands implements ISQLCommands {
         try {
             Statement statement = con.createStatement();
             ResultSet getTaskByProjrs = statement.executeQuery("SELECT * FROM task\n" +
-                    "INNER JOIN projectId ON fk_projectId = projectId WHERE fk_projectId = '" + projectId + "';");
+                    "INNER JOIN project ON fk_projectId = projectId WHERE fk_projectId = '" + projectId + "';");
             while (getTaskByProjrs.next()) {
                 taskNameFetched = getTaskByProjrs.getString(2);
                 taskDescFetched = getTaskByProjrs.getString(3);
@@ -431,7 +452,8 @@ public class SQLCommands implements ISQLCommands {
                 taskStatusByProjectOrig = getTaskByProjrs.getInt(7);
                 taskStatusByProjFetched = "" + taskStatusByProjectOrig;
 
-                tasksByProject.add(taskNameFetched, taskDescFetched, taskStartFetched, taskDueFetched, taskProjectID, taskStatusByProjFetched);
+                tasksByProject.addAll(Arrays.asList(taskNameFetched, taskDescFetched, taskStartFetched, taskDueFetched, taskProjectID, taskStatusByProjFetched));
+                System.out.println("Tasks sorted by project: " + tasksByProject);
             }
 
 
@@ -443,4 +465,4 @@ public class SQLCommands implements ISQLCommands {
     }
 
 }
-}
+
