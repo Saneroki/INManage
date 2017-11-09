@@ -26,7 +26,7 @@ import javax.ws.rs.*;
 
 
 @io.swagger.annotations.Api(description = "the users API")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-11-07T10:56:57.897Z")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-11-08T10:54:29.881Z")
 public class UsersApi  {
    private final UsersApiService delegate = UsersApiServiceFactory.getUsersApi();
 
@@ -50,11 +50,11 @@ public class UsersApi  {
     @Path("/login")
     
     @Produces({ "application/json" })
-    @io.swagger.annotations.ApiOperation(value = "Logs in the user", notes = "Logs in the user with username and password, returns ID to access the content", response = Object.class, tags={ "User", })
+    @io.swagger.annotations.ApiOperation(value = "Logs in the user", notes = "Logs in the user with username and password, returns ID to access the content", response = String.class, tags={ "User", })
     @io.swagger.annotations.ApiResponses(value = { 
-        @io.swagger.annotations.ApiResponse(code = 200, message = "Logged in user succesfully", response = Object.class),
+        @io.swagger.annotations.ApiResponse(code = 200, message = "Logged in user succesfully", response = String.class),
         
-        @io.swagger.annotations.ApiResponse(code = 400, message = "Failed login", response = Object.class) })
+        @io.swagger.annotations.ApiResponse(code = 400, message = "Failed login", response = String.class) })
     public Response loginUser(@ApiParam(value = "The username of user logging in",required=true) @QueryParam("username") String username
 ,@ApiParam(value = "The password of the user logging in",required=true) @QueryParam("password") String password
 ,@Context SecurityContext securityContext)

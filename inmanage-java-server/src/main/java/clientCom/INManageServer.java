@@ -10,6 +10,8 @@ import main.java.databaseCom.SQLCommands;
 import gen.java.model.*;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class INManageServer {
@@ -40,9 +42,7 @@ public class INManageServer {
     }
     public void addProjectResponse(Project project){
         System.out.println("Adding new project: " + project.getName());
-
         //sql.addProject .....
-
     }
 
     public String loginResponse(String username, String password){
@@ -53,17 +53,42 @@ public class INManageServer {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         if (uuid.equals(null)){
             return uuid;
         }else {
-
             //Turn this into JSON
+            //Or maybe not
             return uuid;
-
         }
+    }
 
+    public List<Project> getProjectsResponse(String userID){
 
+        List<Project> list = new ArrayList<>();
+
+        //sql.getAllProjects
+
+        //add projects to list
+
+        return list;
+    }
+
+    public void addTaskResponse(AddTaskObject addTask){
+
+        System.out.println("Adding new task: " + addTask.getTaskName());
+
+        //Sql.addTask();
+
+    }
+
+    public List<Task> addTaskResponse(String projectId){
+        List<Task> list = new ArrayList<>();
+
+        //sql.getTasks()
+
+        //add tasks to list
+
+        return list;
 
     }
 

@@ -338,6 +338,17 @@ public class SQLCommands implements ISQLCommands {
         }
     }
 
+    /**
+     *
+     * @param checkUsername
+     * @param checkPassword
+     * @return String
+     * @throws SQLException
+     *
+     * Checks if the user is in the database and returns his ID if he is.
+     *
+     */
+
     @Override
     public String loginUser(String checkUsername, String checkPassword) throws SQLException {
         Statement statement = con.createStatement();

@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Project
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-11-07T10:56:57.897Z")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-11-08T10:54:29.881Z")
 public class Project   {
   @JsonProperty("id")
   private String id = null;
@@ -44,6 +44,9 @@ public class Project   {
 
   @JsonProperty("description")
   private String description = null;
+
+  @JsonProperty("userid")
+  private String userid = null;
 
   public Project id(String id) {
     this.id = id;
@@ -99,6 +102,24 @@ public class Project   {
     this.description = description;
   }
 
+  public Project userid(String userid) {
+    this.userid = userid;
+    return this;
+  }
+
+   /**
+   * Get userid
+   * @return userid
+  **/
+  @ApiModelProperty(example = "d290f1ee-6c54-4b01-90e6-d701748f0851", value = "")
+  public String getUserid() {
+    return userid;
+  }
+
+  public void setUserid(String userid) {
+    this.userid = userid;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -111,12 +132,13 @@ public class Project   {
     Project project = (Project) o;
     return Objects.equals(this.id, project.id) &&
         Objects.equals(this.name, project.name) &&
-        Objects.equals(this.description, project.description);
+        Objects.equals(this.description, project.description) &&
+        Objects.equals(this.userid, project.userid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, description);
+    return Objects.hash(id, name, description, userid);
   }
 
 
@@ -128,6 +150,7 @@ public class Project   {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    userid: ").append(toIndentedString(userid)).append("\n");
     sb.append("}");
     return sb.toString();
   }
