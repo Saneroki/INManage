@@ -355,11 +355,11 @@ public class SQLCommands implements ISQLCommands {
 
     //Task
     @Override
-    public boolean addTaskToProject(UUID taskId, String taskName, String taskDescription, String taskDue, String projectId) throws SQLException {
+    public boolean addTaskToProject(String taskName, String taskDescription, String taskDue, String projectId) throws SQLException {
         Statement statement = con.createStatement();
         try {
-            statement.execute("INSERT INTO task (taskId, taskName, taskDescription, taskStart, taskDue, taskStatus, fk_projectID)\n" +
-                    "VALUES ('"+taskId+"', '"+taskName+"', '"+taskDescription+"', 'CURDATE()', '"+taskDue+"', '1', '"+projectId+"');");
+            statement.execute("INSERT INTO task (taskId, taskName, taskDescription, taskStart, taskDue, fk_projectID, fk_statusId)\n" +
+                    "VALUES ('"+UUID.randomUUID()+"', '"+taskName+"', '"+taskDescription+"', 'CURDATE()', '"+taskDue+"', '"+projectId+"', '1');");
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
