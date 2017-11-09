@@ -15,16 +15,15 @@ import main.java.gui.windows.WindowChanger;
 import java.io.IOException;
 
 public class ClientLauncher extends Application {
-    private static WindowChanger windowChanger;
+    private static WindowChanger windowChanger = new WindowChanger();
     private static Stage primaryStage;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
         this.primaryStage = primaryStage;
         primaryStage.initStyle(StageStyle.UNDECORATED);
-        test();
-        //windowChanger = new WindowChanger();
-        //windowChanger.setScene("Login");
+        windowChanger = new WindowChanger();
+        windowChanger.setScene("Login");
         primaryStage.isMaximized();
     }
 

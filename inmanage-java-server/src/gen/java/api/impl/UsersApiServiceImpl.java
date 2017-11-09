@@ -21,7 +21,7 @@ public class UsersApiServiceImpl extends UsersApiService {
     @Override
     public Response addUser(User user, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
-        return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
+        return Response.ok().entity(INManageServer.get().addUserResponse(user)).build();
     }
     @Override
     public Response loginUser(String username, String password, SecurityContext securityContext) throws NotFoundException {

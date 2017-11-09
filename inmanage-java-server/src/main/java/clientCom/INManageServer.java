@@ -16,7 +16,7 @@ import java.util.UUID;
 
 public class INManageServer {
 
-    private static SQLCommands sql = Bootstrap.getSql();
+    private static SQLCommands sql;
 
     public static INManageServer get(){
 
@@ -35,7 +35,7 @@ public class INManageServer {
 
 
 
-    public void addUserResponse(User user){
+    public String addUserResponse(User user){
 
         System.out.println("Adding new user: " + user.getName());
 
@@ -47,6 +47,8 @@ public class INManageServer {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        return "Succes!";
 
     }
     public void addProjectResponse(Project project){
@@ -87,7 +89,7 @@ public class INManageServer {
         System.out.println("Adding new task: " + addTask.getTaskName());
 
         try {
-            sql.addTaskToProject(UUID.randomUUID(),addTask.getTaskName(),addTask.getDescription(),addTask.getDueDate(),addTask.getProjectId());
+            sql.addTaskToProject(addTask.getTaskName(),addTask.getDescription(),addTask.getDueDate(),addTask.getProjectId());
         } catch (SQLException e) {
             e.printStackTrace();
         }

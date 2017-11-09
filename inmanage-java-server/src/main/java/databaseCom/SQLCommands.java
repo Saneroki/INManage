@@ -345,13 +345,29 @@ public class SQLCommands implements ISQLCommands {
         return null;
     }
 
+
+    @Override
+    public boolean setTaskStatus(String taskId, int statusId) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public boolean deleteTask(String taskId) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public boolean deleteAllTaskForProject(String projectId) throws SQLException {
+        return false;
+    }
+
     //Task
     @Override
-    public boolean addTaskToProject(UUID taskId, String taskName, String taskDescription, String taskDue, String projectId) throws SQLException {
+    public boolean addTaskToProject(String taskName, String taskDescription, String taskDue, String projectId) throws SQLException {
         Statement statement = con.createStatement();
         try {
             statement.execute("INSERT INTO task (taskId, taskName, taskDescription, taskStart, taskDue, taskStatus, fk_projectID)\n" +
-                    "VALUES ('" + taskId + "', '" + taskName + "', '" + taskDescription + "', 'CURDATE()', '" + taskDue + "', '1', '" + projectId + "');");
+                    "VALUES ('" + taskName + "', '" + taskDescription + "', 'CURDATE()', '" + taskDue + "', '1', '" + projectId + "');");
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -383,7 +399,7 @@ public class SQLCommands implements ISQLCommands {
                 taskDueByStatus = getTaskByStatusrs.getDate(5);
                 taskProjectIDByStatus = getTaskByStatusrs.getString(6);
                 taskStatusByStatus = getTaskByStatusrs.getInt(7);
-                tasksByStatus.add((taskNameByStatus, taskDescByStatus, taskStartByStatus, taskDueByStatus, taskProjectIDByStatus, taskStatusByStatus))
+                /*tasksByStatus.add((taskNameByStatus, taskDescByStatus, taskStartByStatus, taskDueByStatus, taskProjectIDByStatus, taskStatusByStatus);*/
                 ;
 
             }
@@ -391,11 +407,14 @@ public class SQLCommands implements ISQLCommands {
         } catch (SQLException e) {
             System.err.println("Error while getting tasks by status");
             e.printStackTrace();
-        } finally {
+        }
+        /*finally {
             if (statement != null) {
                 statement.close();
             }
-        }
+        }*/
+        return null;
+    }
 
     public List getAllTaskByProject(String projectId) throws SQLException {
         List<String> tasksByProject = new ArrayList<>();
@@ -432,7 +451,7 @@ public class SQLCommands implements ISQLCommands {
                 taskStatusByProjectOrig = getTaskByProjrs.getInt(7);
                 taskStatusByProjFetched = "" + taskStatusByProjectOrig;
 
-                tasksByProject.add(taskNameFetched, taskDescFetched, taskStartFetched, taskDueFetched, taskProjectID, taskStatusByProjFetched);
+                /*tasksByProject.add(taskNameFetched, taskDescFetched, taskStartFetched, taskDueFetched, taskProjectID, taskStatusByProjFetched);*/
             }
 
 
@@ -444,4 +463,4 @@ public class SQLCommands implements ISQLCommands {
     }
 
 }
-}
+
