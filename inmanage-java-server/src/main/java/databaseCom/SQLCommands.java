@@ -353,4 +353,27 @@ public class SQLCommands implements ISQLCommands {
         return null;
     }
 
+    //Task
+    @Override
+    public boolean addTaskToProject(String username) throws SQLException {
+        Statement statement = con.createStatement();
+        try {
+            ResultSet resultset = statement.executeQuery("SELECT type FROM public.user WHERE username = '"+username+"';");
+            resultset.next();
+            if (resultset.getString(1).equals("admin")) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("\nCaused by: the entered username doesn't exist in the database.");
+            return false;
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+        }
+    }
+
 }
