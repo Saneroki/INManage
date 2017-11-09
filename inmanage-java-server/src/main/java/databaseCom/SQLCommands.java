@@ -1,5 +1,6 @@
 package main.java.databaseCom;
 
+import java.awt.*;
 import java.sql.*;
 import java.util.UUID;
 
@@ -421,6 +422,16 @@ public class SQLCommands implements ISQLCommands {
                 statement.close();
             }
         }
+    }
+
+    @Override
+    public List getTaskByStatus(String projectId, int statusId) throws SQLException {
+        return null;
+    }
+
+    @Override
+    public List getAllTaskByProject(String projectId) throws SQLException {
+        return null;
     }
 
 }

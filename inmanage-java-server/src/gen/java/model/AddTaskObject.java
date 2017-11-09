@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * AddTaskObject
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-11-08T10:54:29.881Z")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-11-09T14:04:57.864Z")
 public class AddTaskObject   {
   @JsonProperty("taskName")
   private String taskName = null;
@@ -47,6 +47,9 @@ public class AddTaskObject   {
 
   @JsonProperty("dueDate")
   private String dueDate = null;
+
+  @JsonProperty("projectId")
+  private String projectId = null;
 
   public AddTaskObject taskName(String taskName) {
     this.taskName = taskName;
@@ -120,6 +123,24 @@ public class AddTaskObject   {
     this.dueDate = dueDate;
   }
 
+  public AddTaskObject projectId(String projectId) {
+    this.projectId = projectId;
+    return this;
+  }
+
+   /**
+   * Get projectId
+   * @return projectId
+  **/
+  @ApiModelProperty(value = "")
+  public String getProjectId() {
+    return projectId;
+  }
+
+  public void setProjectId(String projectId) {
+    this.projectId = projectId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -133,12 +154,13 @@ public class AddTaskObject   {
     return Objects.equals(this.taskName, addTaskObject.taskName) &&
         Objects.equals(this.userId, addTaskObject.userId) &&
         Objects.equals(this.description, addTaskObject.description) &&
-        Objects.equals(this.dueDate, addTaskObject.dueDate);
+        Objects.equals(this.dueDate, addTaskObject.dueDate) &&
+        Objects.equals(this.projectId, addTaskObject.projectId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(taskName, userId, description, dueDate);
+    return Objects.hash(taskName, userId, description, dueDate, projectId);
   }
 
 
@@ -151,6 +173,7 @@ public class AddTaskObject   {
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dueDate: ").append(toIndentedString(dueDate)).append("\n");
+    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
