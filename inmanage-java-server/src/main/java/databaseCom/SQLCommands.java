@@ -2,6 +2,8 @@ package main.java.databaseCom;
 
 import java.awt.*;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -360,7 +362,7 @@ public class SQLCommands implements ISQLCommands {
         Statement statement = con.createStatement();
         try {
             statement.execute("INSERT INTO task (taskId, taskName, taskDescription, taskStart, taskDue, fk_projectID, fk_statusId)\n" +
-                    "VALUES ('"+UUID.randomUUID()+"', '"+taskName+"', '"+taskDescription+"', 'CURDATE()', '"+taskDue+"', '"+projectId+"', '1');");
+                        "VALUES ('"+UUID.randomUUID()+"', '"+taskName+"', '"+taskDescription+"', CURRENT_DATE, '"+taskDue+"', '"+projectId+"', '1');");
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -426,12 +428,37 @@ public class SQLCommands implements ISQLCommands {
 
     @Override
     public List getTaskByStatus(String projectId, int statusId) throws SQLException {
-        return null;
-    }
+        ArrayList<String, String, Date, Date, String, int> tasksByStatus = new ArrayList<>();
+        String taskNameFetched;
+        String taskDescFetched;
+        Date taskStartFetched;
+        Date taskDueFetched;
+        String taskProjectID;
+        int taskStatus;
+        try {
+            Statement statement = con.createStatement();
+            ResultSet getTaskrs = statement.executeQuery("SELECT * FROM task\n" +
+                    "INNER JOIN taskStatus ON fk_StatusId = statusId\n" +
+                    "WHERE fk_projectId = '" + projectId + "' AND fk_statusId, = '" + statusId + "';");
+            while (getTaskrs.next()) {
+                taskNameFetched = getTaskrs.getString(2);
+                taskDescFetched = getTaskrs.getString(3);
+                taskStartFetched = getTaskrs.getDate(4);
+                taskDueFetched = getTaskrs.getDate(5);
+                taskProjectID = getTaskrs.getString(6);
+                taskStatus = getTaskrs.getInt(7);
+                tasksByStatus.add(taskNameFetched, taskDescFetched, taskStartFetched, taskDueFetched, taskProjectID, taskStatus);
 
-    @Override
-    public List getAllTaskByProject(String projectId) throws SQLException {
-        return null;
+            }
+            return tasksByStatus;
+        } catch (SQLException e) {
+            System.err.println("Error while getting tasks by status");
+            e.printStackTrace();
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+        }
     }
 
 }

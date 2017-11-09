@@ -42,7 +42,7 @@ public interface ISQLCommands {
 
     boolean deleteAllTaskForProject(String projectId) throws SQLException;
 
-    List getTaskByStatus(String projectId, int statusId) throws SQLException;
+    java.util.List getTaskByStatus(String projectId, int statusId) throws SQLException;
 
     List getAllTaskByProject(String projectId) throws SQLException;
 
