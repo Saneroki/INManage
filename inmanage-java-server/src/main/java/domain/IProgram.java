@@ -7,7 +7,7 @@ import java.util.UUID;
  * Created by omnhaww on 23/10/2017.
  */
 public interface IProgram {
-    boolean registerUser(UUID id, String username, String password, String firstname, String lastname, String type) throws SQLException;
+    boolean addUser(String username, String password, String firstname, String lastname, String type) throws SQLException;
 
     boolean checkUserLogin(String username, String password) throws SQLException;
 
