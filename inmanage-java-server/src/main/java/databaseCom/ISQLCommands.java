@@ -1,6 +1,7 @@
 package main.java.databaseCom;
 
 import java.sql.SQLException;
+import java.util.List;
 import java.util.UUID;
 
 public interface ISQLCommands {
@@ -31,6 +32,18 @@ public interface ISQLCommands {
 
     String loginUser(String username, String password) throws SQLException;
 
+//Task
 
+    boolean addTaskToProject(UUID taskId, String taskName, String taskDescription, String taskDue, String projectId) throws SQLException;
+
+    boolean setTaskStatus(String taskId, int statusId) throws SQLException;
+
+    boolean deleteTask(String taskId) throws SQLException;
+
+    boolean deleteAllTaskForProject(String projectId) throws SQLException;
+
+    List getTaskByStatus(String projectId, int statusId) throws SQLException;
+
+    List getAllTaskByProject(String projectId) throws SQLException;
 
 }
