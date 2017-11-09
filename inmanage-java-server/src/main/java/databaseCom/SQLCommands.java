@@ -26,7 +26,7 @@ public class SQLCommands implements ISQLCommands {
 
     /**
      * pepak16
-     * @param id
+     * @param userid
      * @param username
      * @param password
      * @param firstname
@@ -39,10 +39,10 @@ public class SQLCommands implements ISQLCommands {
      * by executing an insert sql statement.
      */
     @Override
-    public boolean registerUser(UUID id, String username, String password, String firstname, String lastname, String type) throws SQLException {
+    public boolean addUser(UUID userid, String username, String password, String firstname, String lastname, String type) throws SQLException {
         Statement statement = con.createStatement();
         try {
-            statement.execute("INSERT INTO public.user VALUES ('"+id+"','"+username+"','"+password+"','"+firstname+"','"+lastname+"','"+type+"');");
+            statement.execute("INSERT INTO public.user VALUES ('"+userid+"','"+username+"','"+password+"','"+firstname+"','"+lastname+"','"+type+"');");
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -264,7 +264,7 @@ public class SQLCommands implements ISQLCommands {
     public boolean setUserType(String username,String type) throws SQLException {
         Statement statement = con.createStatement();
         try {
-            return statement.execute("UPDATE public.user SET type = '"+type+"' WHERE username = '"+username+"';");
+            return statement.execute("UPDATE public.user SET role = '"+type+"' WHERE username = '"+username+"';");
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
@@ -320,7 +320,7 @@ public class SQLCommands implements ISQLCommands {
     public boolean isUserAdmin(String username) throws SQLException {
         Statement statement = con.createStatement();
         try {
-            ResultSet resultset = statement.executeQuery("SELECT type FROM public.user WHERE username = '"+username+"';");
+            ResultSet resultset = statement.executeQuery("SELECT role FROM public.user WHERE username = '"+username+"';");
             resultset.next();
             if (resultset.getString(1).equals("admin")) {
                 return true;
@@ -337,5 +337,139 @@ public class SQLCommands implements ISQLCommands {
             }
         }
     }
+
+
+    //Nyt fra mig :)
+
+
+    /**
+     * pepak16
+     * @param projectid
+     * @param name
+     * @param description
+     * @return boolean
+     * @throws SQLException
+     *
+     * Adds new projects to the database
+     */
+    @Override
+    public boolean addProject(UUID projectid, String name,String description) throws SQLException {
+        Statement statement = con.createStatement();
+        try {
+            ResultSet resultset = statement.executeQuery("INSERT INTO public.project VALUES '"+projectid+"','"+name+"','"+description+"';");
+            resultset.next();
+            if (resultset.getString(1).equals("admin")) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("\nCaused by: project already exists in database.");
+            return false;
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+        }
+    }
+
+    /**
+     * pepak16
+     * @param userid
+     * @return boolean
+     * @throws SQLException
+     *
+     * Fetches the project name via the given userid.
+     */
+    @Override
+    public String getProjectName(UUID userid) throws SQLException {
+        Statement statement = con.createStatement();
+        try {
+            ResultSet resultset = statement.executeQuery(
+                    "SELECT name from public.project" +
+                    "  INNER JOIN UserProject ON projectId = fk_projectId" +
+                    "  WHERE fk_userId = '"+userid+"'");
+            while (resultset.next()) {
+                return resultset.getString(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("\nCaused by: project related to the userid doesn't exist in the database.");
+            return null;
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+        }
+        return null;
+    }
+
+    /**
+     * pepak16
+     * @param userid
+     * @param name
+     * @return boolean
+     * @throws SQLException
+     *
+     * Fetches the project name via the given userid.
+     */
+    @Override
+    public boolean setProjectName(UUID userid,String name) throws SQLException {
+        Statement statement = con.createStatement();
+        try {
+            ResultSet resultset = statement.executeQuery(
+                    "UPDATE '"+name+"' from public.project" +
+                            "  INNER JOIN UserProject ON projectId = fk_projectId" +
+                            "  WHERE fk_userId = '"+userid+"'");
+            resultset.next();
+            if (resultset.getString(1).equals("admin")) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("\nCaused by: project related to the userid doesn't exist in the database.");
+            return false;
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+        }
+    }
+
+    /**
+     * pepak16
+     * @param userid
+     * @return boolean
+     * @throws SQLException
+     *
+     * Fetches the project description via the given userid.
+     */
+    @Override
+    public String getProjectDescription(UUID userid) throws SQLException {
+        Statement statement = con.createStatement();
+        try {
+            ResultSet resultset = statement.executeQuery(
+                    "SELECT description from Project" +
+                            "  INNER JOIN UserProject ON projectId = fk_projectId\n" +
+                            "  WHERE fk_userId = '"+userid+"'");
+            while (resultset.next()) {
+                return resultset.getString(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("\nCaused by: project related to the userid doesn't exist in the database.");
+            return null;
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+            return null;
+        }
+    }
+
+
 
 }

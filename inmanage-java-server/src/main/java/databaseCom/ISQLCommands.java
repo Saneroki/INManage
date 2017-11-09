@@ -5,7 +5,7 @@ import java.util.UUID;
 
 public interface ISQLCommands {
 
-    boolean registerUser(UUID id, String username, String password, String firstname, String lastname, String type) throws SQLException;
+    boolean addUser(UUID userid, String username, String password, String firstname, String lastname, String type) throws SQLException;
 
     boolean checkUserLogin(String username, String password) throws SQLException;
 
@@ -29,4 +29,11 @@ public interface ISQLCommands {
 
     boolean isUserAdmin(String username) throws SQLException;
 
+    boolean addProject(UUID projectid, String name,String description) throws SQLException;
+
+    String getProjectName(UUID userid) throws SQLException;
+
+    boolean setProjectName(UUID userid, String name) throws SQLException;
+
+    String getProjectDescription(UUID userid) throws SQLException;
 }
