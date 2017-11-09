@@ -27,11 +27,11 @@ public class Program implements IProgram {
     }
 
     @Override
-    public boolean registerUser(UUID id, String username, String password, String firstname, String lastname, String type) throws SQLException {
+    public boolean addUser(String username, String password, String firstname, String lastname, String type) throws SQLException {
         if (sql.isUserExisting(username)) {
             return false;
         } else {
-            if (sql.registerUser(id,username,password,firstname,lastname,type)) {
+            if (sql.addUser(UUID.randomUUID(),username,password,firstname,lastname,type)) {
                 return true;
             } else {
                 return false;
