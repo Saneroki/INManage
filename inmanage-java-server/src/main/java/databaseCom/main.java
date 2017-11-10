@@ -7,17 +7,32 @@ public class main {
 
     // Main method, mainly for testing purposes. /omhaw16,pepak16
     public static void main(String[] args) throws SQLException {
-//        SQLConnect sql = new SQLConnect();
-//        sql.connect();
-        SQLCommands sql = SQLCommands.getInstance();
-//        System.out.println(sql.$$$$$registerUser(UUID.randomUUID(),"alex33","123123p","alex","hansen","admin"));
-//        System.out.println(sql.checkUserLogin("persha95","123123p"));
-//        System.out.println(sql.isUserAdmin("alex33"));
-//        System.out.println(sql.isUserExisting("persha955"));
-//        System.out.println();
-        UUID projectid = UUID.fromString("0af0ebaf-9b29-425c-92c7-3056bb3ff762");
-        //System.out.println(sql.getProjectName(uuid));
-        //System.out.println(sql.addUser("Ulrik95","123123p","Ulrik","Schultz","member"));
-        //System.out.println(sql.addUserToProject("",));
+package main.java.databaseCom;
+
+import java.sql.SQLException;
+import java.util.UUID;
+
+        public class main {
+
+            // Main method, mainly for testing purposes. /omhaw16,pepak16
+            public void main(String[] args) throws SQLException {
+
+                System.out.println("Welcome to the testing method of SQLCommands.java!");
+                System.out.println("Creating instance of the SQLConnection class.");
+                SQLConnect sql = new SQLConnect();
+                System.out.println("Instance created.");
+                System.out.println("Attempting to connect to server.");
+                System.out.println("");
+                System.out.println("Creating SQLCommands instance 'sqlc'");
+                SQLCommands sqlc = SQLCommands.getInstance();
+                System.out.println("Instance created.");
+                System.out.println("Now fetching all to-do task names, sorted by PROJECT '105e4567-e89b-12d3-a456-426655440000'");
+                sqlc.getTaskByStatus("105e4567-e89b-12d3-a456-426655440000", 1);
+                System.out.println("");
+                System.out.println("Testing done.");
+                System.out.println("Now exiting...");
+                System.exit(1);
+            }
+        }
     }
 }
