@@ -1,13 +1,9 @@
 package main.java.clientCom;
 
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import gen.java.api.Bootstrap;
 import gen.java.model.Project;
-import io.swagger.models.Response;
-import io.swagger.util.Json;
-import main.java.databaseCom.SQLCommands;
 import gen.java.model.*;
+import main.java.databaseCom.SQLCommands;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -43,7 +39,7 @@ public class INManageServer {
             if(sql == null){
                 System.out.println("SQL ER NULL!!!!!");
             }
-            sql.registerUser(UUID.randomUUID(),user.getName(),user.getPassword(),"bob","Loblaw","user");
+            sql.addUser(user.getName(),user.getPassword(),"bob","Loblaw","user");
         } catch (SQLException e) {
             e.printStackTrace();
         }
