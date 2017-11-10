@@ -45,6 +45,7 @@ public interface ISQLCommands {
     boolean setProjectName(UUID projectid, String name) throws SQLException;
 
     String getProjectDescription(UUID userid) throws SQLException;
+    List getTaskByStatus(String projectId, int statusId) throws SQLException;
 
     boolean setProjectDescription(UUID projectid, String name) throws SQLException;
 
