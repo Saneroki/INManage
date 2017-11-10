@@ -9,7 +9,7 @@ import java.io.Serializable;
 /**
  * AddTaskObject
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-08T10:55:34.924Z")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-09T14:05:23.786Z")
 public class AddTaskObject implements Serializable {
   @SerializedName("taskName")
   private String taskName = null;
@@ -22,6 +22,9 @@ public class AddTaskObject implements Serializable {
 
   @SerializedName("dueDate")
   private String dueDate = null;
+
+  @SerializedName("projectId")
+  private String projectId = null;
 
   public AddTaskObject taskName(String taskName) {
     this.taskName = taskName;
@@ -95,6 +98,24 @@ public class AddTaskObject implements Serializable {
     this.dueDate = dueDate;
   }
 
+  public AddTaskObject projectId(String projectId) {
+    this.projectId = projectId;
+    return this;
+  }
+
+   /**
+   * Get projectId
+   * @return projectId
+  **/
+  @ApiModelProperty(value = "")
+  public String getProjectId() {
+    return projectId;
+  }
+
+  public void setProjectId(String projectId) {
+    this.projectId = projectId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -108,12 +129,13 @@ public class AddTaskObject implements Serializable {
     return Objects.equals(this.taskName, addTaskObject.taskName) &&
         Objects.equals(this.userId, addTaskObject.userId) &&
         Objects.equals(this.description, addTaskObject.description) &&
-        Objects.equals(this.dueDate, addTaskObject.dueDate);
+        Objects.equals(this.dueDate, addTaskObject.dueDate) &&
+        Objects.equals(this.projectId, addTaskObject.projectId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(taskName, userId, description, dueDate);
+    return Objects.hash(taskName, userId, description, dueDate, projectId);
   }
 
 
@@ -126,6 +148,7 @@ public class AddTaskObject implements Serializable {
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dueDate: ").append(toIndentedString(dueDate)).append("\n");
+    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

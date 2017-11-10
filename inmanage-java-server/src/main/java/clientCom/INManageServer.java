@@ -19,6 +19,15 @@ public class INManageServer {
     private static SQLCommands sql;
 
     public static INManageServer get(){
+
+        if(sql==null){
+            try {
+                sql=SQLCommands.getInstance();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
         return singleton;
     }
 
@@ -26,7 +35,7 @@ public class INManageServer {
 
 
 
-    public void addUserResponse(User user){
+    public String addUserResponse(User user){
 
         System.out.println("Adding new user: " + user.getName());
 
@@ -38,6 +47,8 @@ public class INManageServer {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        return "Succes!";
 
     }
     public void addProjectResponse(Project project){
@@ -62,13 +73,15 @@ public class INManageServer {
         }
     }
 
-    public List<Project> getProjectsResponse(String userID){
+    public List<Project> getProjectsResponse(String projectID){
 
         List<Project> list = new ArrayList<>();
 
-        //sql.getAllProjects
-
-        //add projects to list
+        try {
+            list = sql.(projectID);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         return list;
     }
@@ -77,7 +90,11 @@ public class INManageServer {
 
         System.out.println("Adding new task: " + addTask.getTaskName());
 
-        //Sql.addTask();
+        try {
+            sql.addTaskToProject(addTask.getTaskName(),addTask.getDescription(),addTask.getDueDate(),addTask.getProjectId());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
 

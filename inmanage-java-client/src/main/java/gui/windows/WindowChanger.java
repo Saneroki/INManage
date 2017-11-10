@@ -19,7 +19,8 @@ public class WindowChanger {
         try {
             root = loader.load();
         } catch (IOException e) {
-            System.out.println("The file for " + window + " could not be found!");
+            throw new Error("The file for " + window + " could not be found!");
+            //System.out.println("The file for " + window + " could not be found!");
         }
         stage.setTitle("INManage");
         stage.setScene(new Scene(root));
@@ -28,6 +29,6 @@ public class WindowChanger {
     }
 
     private void setFxmlLoader(String fxmlPath){
-        loader = new FXMLLoader(getClass().getResource(fxmlPath));
+        loader = new FXMLLoader(getClass().getClassLoader().getResource(fxmlPath));
     }
 }

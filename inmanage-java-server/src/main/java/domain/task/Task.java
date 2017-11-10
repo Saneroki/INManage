@@ -4,21 +4,24 @@ package main.java.domain.task;
 * Currently being worked on by Mikkel.
 */
 
+import main.java.domain.project.Project;
+
 public class Task {
-/*
+
     private String dueTime;
     private String startTime;
     private String taskDescription;
     private String taskTitle;
     private String taskStatus;
 
-    public Task(super.projectID) { //project ID ties the task to a specific project.
+    public Task(String projectID) { //project ID ties the task to a specific project.
 
-        Task task = new Task();
+        Project project = new Project("");  // Instance of the project class in order to use the projectID.
+        Task task = new Task(project.getProjectID());   // Usage of projectID.
     }
 
     //Change Task Status
-    public String ChangeTaskStatus (String status) {
+    public String changeTaskStatus(String status) {
         taskStatus = status;
         return taskStatus;
     }
@@ -65,5 +68,5 @@ public class Task {
     public void setTaskDescription() {
 
         this.taskDescription = taskDescription;
-    } */
+    }
 }
