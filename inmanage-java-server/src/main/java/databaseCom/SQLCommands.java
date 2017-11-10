@@ -348,17 +348,54 @@ public class SQLCommands implements ISQLCommands {
 
     @Override
     public boolean setTaskStatus(String taskId, int statusId) throws SQLException {
-        return false;
+        Statement statement = con.createStatement();
+        try {
+            statement.executeQuery("UPDATE task\n" +
+                    "SET taskStatus = '"+statusId+"'\n" +
+                    "WHERE taskId = '"+taskId+"';");
+            return true;
+        } catch (SQLException e) {
+            System.out.println("\nCaused by the task not existing.");
+            return false;
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+        }
     }
 
     @Override
     public boolean deleteTask(String taskId) throws SQLException {
-        return false;
+        Statement statement = con.createStatement();
+        try {
+            statement.executeQuery("DELETE FROM task\n" +
+                    "WHERE taskId = '"+taskId+"';");
+            return true;
+        } catch (SQLException e) {
+            System.out.println("\nCaused by the task not existing.");
+            return false;
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+        }
     }
 
     @Override
     public boolean deleteAllTaskForProject(String projectId) throws SQLException {
-        return false;
+        Statement statement = con.createStatement();
+        try {
+            statement.executeQuery("DELETE FROM task\n" +
+                    "WHERE fk_projectId = '"+projectId+"';");
+            return true;
+        } catch (SQLException e) {
+            System.out.println("\nCaused by the project not having any tasks.");
+            return false;
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+        }
     }
 
     //Task
@@ -367,7 +404,7 @@ public class SQLCommands implements ISQLCommands {
         Statement statement = con.createStatement();
         try {
             statement.execute("INSERT INTO task (taskId, taskName, taskDescription, taskStart, taskDue, taskStatus, fk_projectID)\n" +
-                    "VALUES ('" + taskName + "', '" + taskDescription + "', 'CURDATE()', '" + taskDue + "', '1', '" + projectId + "');");
+                    "VALUES ('" + taskName + "', '" + taskDescription + "', CURRENT_DATE, '" + taskDue + "', '1', '" + projectId + "');");
             return true;
         } catch (SQLException e) {
             e.printStackTrace();

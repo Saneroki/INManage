@@ -1,6 +1,5 @@
 package main.java.databaseCom;
 
-import java.awt.*;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.UUID;
@@ -43,7 +42,7 @@ public interface ISQLCommands {
 
     boolean deleteAllTaskForProject(String projectId) throws SQLException;
 
-    java.util.List getTaskByStatus(String projectId, int statusId) throws SQLException;
+    List getTaskByStatus(String projectId, int statusId) throws SQLException;
 
     List getAllTaskByProject(String projectId) throws SQLException;
 
