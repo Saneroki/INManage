@@ -382,7 +382,7 @@ public class SQLCommands implements ISQLCommands {
     }
 
 
-    /**b
+    /**
      * author: omhaw16
      */
     @Override
