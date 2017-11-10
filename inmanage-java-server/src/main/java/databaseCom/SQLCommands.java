@@ -364,21 +364,28 @@ public class SQLCommands implements ISQLCommands {
 
     /**
      * Made by pepak16.
-     * Adds new projects to the database, if the project isn't existing already.
-     * @param name
-     * @param description
+     * Adds new project to the table project and respectively its association between
+     * the user and project in the userproject table to the database, if the project isn't existing already.
+     * @param userid
+     * @param projectname
+     * @param projectdescription
      * @return boolean
      * @throws SQLException
      */
     @Override
-    public boolean addProject(String name,String description) throws SQLException {
+    public boolean addProject(UUID userid, String projectname,String projectdescription) throws SQLException {
         Statement statement = con.createStatement();
         try {
-            statement.execute("INSERT INTO public.project VALUES '"+UUID.randomUUID()+"','"+name+"','"+description+"';");
+            UUID projectid = UUID.randomUUID();
+            boolean check = true;
+            check = statement.execute("INSERT INTO public.project VALUES ('"+projectid+"',"+UUID.randomUUID()+",'"+projectdescription+"');");
+            if (!check) {
+                statement.execute("INSERT INTO public.userproject VALUES ('"+UUID.randomUUID()+"','"+userid+"','"+projectid+"');");
+            }
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
-            System.err.println("\nCaused by: project already exists in database.");
+            System.err.println("\nCaused maybe by: project already exists in database.");
             return false;
         } finally {
             if (statement != null) {
@@ -389,24 +396,116 @@ public class SQLCommands implements ISQLCommands {
 
     /**
      * Made by pepak16.
-     * Adds new user to a specific project to the database, if the user isn't already associated to the project.
-     * @param userid
+     * Adds new project to the table project and respectively its association between
+     * the user and project in the userproject table to the database, if the project isn't existing already.
      * @param projectid
      * @return boolean
      * @throws SQLException
      */
-
     @Override
-    public boolean addUserToProject(UUID userid,UUID projectid) throws SQLException {
+    public boolean deleteProject(UUID projectid) throws SQLException {
         Statement statement = con.createStatement();
         try {
             ResultSet resultset = statement.executeQuery("");
-            resultset.next();
-            statement.execute("INSERT INTO public.userproject VALUES '"+UUID.randomUUID()+"','"+userid+"','"+projectid+"';");
+            if (!statement.execute("DELETE FROM userProject WHERE fk_projectId = '"+projectid+"';")) {
+                if (!statement.execute("DELETE FROM task WHERE fk_projectId = '"+projectid+"';")) {
+                    if (!statement.execute("DELETE FROM project WHERE projectId = '"+projectid+"';")) {
+                        System.out.println("slettet projektet!!! HAHAHAHAHAH");
+                        return true;
+                    }
+                }
+            } else {
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("\nCaused maybe by: project already exists in database.");
+            return false;
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+        }
+        return false;
+    }
+
+    /*
+deleteProject
+---------------------------
+projectId = projectId
+
+DELETE FROM userProject
+WHERE fk_projectId = 'projectId';
+//Deletes all relations between any user and the porject.
+
+DELETE FROM task
+WHERE fk_projectId = 'projectId';
+//deletes all tasks for the project.
+//Run deleteAllTaskForProject()
+
+DELETE FROM project
+WHERE projectId = 'projectId';
+//delete the project itself.
+     */
+
+    /**
+     * Made by pepak16.
+     * Adds new user to a specific project via the projectid to the database, if the user isn't already added to the project.
+     * @param username
+     * @param projectid
+     * @return boolean
+     * @throws SQLException
+     */
+    @Override
+    public boolean addUserToProject(String username,UUID projectid) throws SQLException {
+        Statement statement = con.createStatement();
+        try {
+            String userid;
+            ResultSet resultset = statement.executeQuery("SELECT userid FROM public.user WHERE username = '"+username+"';");
+            while (resultset.next()) {
+                userid = resultset.getString(1);
+                if (!userid.equals(null)) {
+                    boolean check = statement.execute("SELECT fk_userId, fk_projectId FROM userproject WHERE fk_userId = '"+userid+"' AND fk_projectId = '"+projectid+"';");
+                    if (!check) {
+                        System.out.println("Brugeren er allerede added til projektet i forvejen.");
+                    } else {
+                        System.out.println("Adder projektet nu.");
+
+                    }
+                } else {
+                    System.err.println("Caused by: user doesn't exist.");
+                }
+            }
+
+            //ResultSet resultset = statement.executeQuery("SELECT * FROM userProject WHERE fk_userid = '"+userid+"';");
+            //resultset.next();
+            //resultset.getString(1);
+            //statement.execute("");
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
-            System.err.println("\nCaused by: the user is already associated to the project.");
+            System.err.println("\nCaused maybe by: the user is already associated to the project.");
+            return false;
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+        }
+    }
+
+    @Override
+    public boolean deleteUserFromProject(UUID userid,UUID projectid) throws SQLException {
+        Statement statement = con.createStatement();
+        try {
+            boolean check = statement.execute("DELETE FROM userProject WHERE fk_userId = '"+userid+"' AND fk_projectId = '"+projectid+"';");
+            if (!check) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("\nCaused maybe by: the user is already associated to the project.");
             return false;
         } finally {
             if (statement != null) {
@@ -416,18 +515,36 @@ public class SQLCommands implements ISQLCommands {
     }
 
 
+
+
     /*
-    addUserToProject()
+
+deleteUserFromProject
+---------------------------
+userId = userId
+projectId = projectId
+
+DELETE FROM userProject
+WHERE fk_userId = 'userId' AND fk_projectId = 'projectId';
+
+
+
+
+
+
+
+
+
+
+addUserToProject()
 
 projectId = projectId
-userName = userName
+userId = userId
 
 SELECT (userId, userName) FROM user
-WHERE userName = 'userName';
+WHERE userId = 'userId';
 
 if(true){
-
-  userId = userId
 
   SELECT * FROM userProject
   WHERE fk_userId = 'userId';
@@ -444,7 +561,41 @@ if(true){
 } else {
   "User doesn't exist";
 }
+
+
+
+
+
+
+
+deleteUserFromProject
+---------------------------
+userId = userId
+projectId = projectId
+
+DELETE FROM userProject
+WHERE (fk_userId, fk_projectId) IN ('userId', 'projectId');
+
+---------------------------------
+
+deleteProject
+---------------------------
+projectId = projectId
+
+DELETE FROM userProject
+WHERE fk_projectId = 'projectId';
+//Deletes all relations between any user and the porject.
+
+DELETE FROM task
+WHERE fk_projectId = 'projectId';
+//deletes all tasks for the project.
+
+DELETE FROM project
+WHERE projectId = 'projectId';
+//delete the project itself.
      */
+
+
 
 
     /**
