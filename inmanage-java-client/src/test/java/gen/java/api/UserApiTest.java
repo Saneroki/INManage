@@ -16,7 +16,7 @@ import java.util.Map;
  */
 public class UserApiTest {
 
-    private final UserApi api = new UserApi();
+    //private final UserApi api = new UserApi();
 
     
     /**

@@ -25,10 +25,13 @@ public class AdminsApiTest {
      * @throws ApiException
      *          if the Api call fails
      */
+
     @Test
     public void addUserTest() throws ApiException {
-        User user = null;
-        // api.addUser(user);
+        User user = new User();
+        user.setName("MalteNEWNEW");
+        user.setPassword("New password");
+        api.addUser(user);
 
         // TODO: test validations
     }
@@ -50,5 +53,5 @@ public class AdminsApiTest {
 
         // TODO: test validations
     }
-    
+
 }

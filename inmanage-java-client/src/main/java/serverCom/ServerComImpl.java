@@ -1,6 +1,6 @@
 package main.java.serverCom;
 
-import gen.java.AdminsApi;
+import gen.java.api.AdminsApi;
 import gen.java.api.UserApi;
 import gen.java.invoker.ApiException;
 import gen.java.model.AddTaskObject;
@@ -12,24 +12,34 @@ import java.util.List;
 
 public class ServerComImpl implements ServerCom {
 
-    private UserApi userApi = new UserApi();
-    private AdminsApi adminsApi = new AdminsApi();
+    private final UserApi userApi = new UserApi();
+    private final AdminsApi adminsApi = new AdminsApi();
 
 
     @Override
-    public void addUser(String username, String password) {
+    public void addUser(String username, String password){
+
+        if (adminsApi == null) {
+            System.out.println("APIEN ER NULL AF EN ELLER ANDEN GRUND!!");
+        } else {
+            System.out.println("_____APIEN ER ikke NULL");
+        }
+
         User tempUser = new User();
 
+        System.out.println("username: " + username);
         tempUser.setName(username);
+        System.out.println("password: " + password);
         tempUser.setPassword(password);
+
 
         try {
             adminsApi.addUser(tempUser);
         } catch (ApiException e) {
             e.printStackTrace();
         }
-    }
 
+    }
     @Override
     public String loginUser(String userName, String password) {
         try {

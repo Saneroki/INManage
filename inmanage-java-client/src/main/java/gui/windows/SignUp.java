@@ -1,5 +1,6 @@
 package main.java.gui.windows;
 
+import gen.java.invoker.ApiException;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,19 +21,19 @@ public class SignUp{
     @FXML
     private TextField passwordConfirmInput;
 
-    private ServerCom serv = new ServerComImpl();
+    private ServerCom serv = ClientLauncher.getServer();
 
     public void cancel(ActionEvent actionEvent) {
         ClientLauncher.getWindowChanger().setScene("Login");
     }
 
-    public void signup(ActionEvent actionEvent) {
+    public void signup(ActionEvent actionEvent){
         if (checkedPassword() == null) {
             passwordConfirmInput.setText("");
             passwordConfirmInput.setPromptText("The passwords don't match");
         } else {
             serv.addUser(checkedUsername(), checkedPassword());
-            ClientLauncher.getWindowChanger().setScene("/fxml/windows/ProjectOverview.fxml");
+            ClientLauncher.getWindowChanger().setScene("fxml/windows/ProjectOverview.fxml");
         }
 
     }

@@ -335,7 +335,7 @@ public class SQLCommands implements ISQLCommands {
         Statement statement = con.createStatement();
 
         try {
-            ResultSet resultSet = statement.executeQuery("SELECT id FROM public.user WHERE username = '" + checkUsername + "' AND password = '" + checkPassword + "';");
+            ResultSet resultSet = statement.executeQuery("SELECT userid FROM public.user WHERE username = '" + checkUsername + "' AND password = '" + checkPassword + "';");
             resultSet.next();
             return resultSet.getString(1);
 

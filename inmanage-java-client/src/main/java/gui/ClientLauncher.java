@@ -11,19 +11,23 @@ import javafx.application.Platform;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import main.java.gui.windows.WindowChanger;
+import main.java.serverCom.ServerCom;
+import main.java.serverCom.ServerComImpl;
 
 import java.io.IOException;
 
 public class ClientLauncher extends Application {
-    private static WindowChanger windowChanger = new WindowChanger();
+    private static WindowChanger windowChanger;
     private static Stage primaryStage;
+    private static ServerCom serv;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        serv = new ServerComImpl();
         this.primaryStage = primaryStage;
         primaryStage.initStyle(StageStyle.UNDECORATED);
         windowChanger = new WindowChanger();
-        windowChanger.setScene("Login");
+        windowChanger.setScene("fxml/windows/Login.fxml");
         primaryStage.isMaximized();
     }
 
@@ -43,5 +47,7 @@ public class ClientLauncher extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
+    public static ServerCom getServer(){ return serv; }
 
 }
