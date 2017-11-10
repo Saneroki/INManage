@@ -1,24 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="774f0c59-91a0-4e39-980a-2923e9bef22d" name="Default" comment="Deleted domain package (not necessary for the project), Merged with Omars Task methods in SQLCommands">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/inmanage-java-server/src/main/java/domain/IProgram.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/inmanage-java-server/src/main/java/domain/Program.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/inmanage-java-server/src/main/java/domain/calendar/Calendar.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/inmanage-java-server/src/main/java/domain/main.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/inmanage-java-server/src/main/java/domain/project/Project.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/inmanage-java-server/src/main/java/domain/task/Task.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/inmanage-java-server/src/main/java/domain/user/Admin.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/inmanage-java-server/src/main/java/domain/user/Member.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/inmanage-java-server/src/main/java/domain/user/User.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+    <list default="true" id="774f0c59-91a0-4e39-980a-2923e9bef22d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/SignUp.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/SignUp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-server/src/main/java/clientCom/INManageServer.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/main/java/clientCom/INManageServer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/ISQLCommands.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/ISQLCommands.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/SQLCommands.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/SQLCommands.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/SQLConnect.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/SQLConnect.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/main.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/inmanage-java-client/target/" />
     <ignored path="$PROJECT_DIR$/inmanage-java-server/target/" />
@@ -60,81 +46,90 @@
         <item name="public" type="e3449647:DbNodeDescriptor" />
         <item name="project" type="e3449647:DbNodeDescriptor" />
       </path>
+      <path>
+        <item name="" type="eadb38e5:DatabaseStructure$Root" />
+        <item name="si3_2017_group_1_db@tek-mmmi-db0a.tek.c.sdu.dk" type="e3449647:DbNodeDescriptor" />
+        <item name="si3_2017_group_1_db" type="e3449647:DbNodeDescriptor" />
+        <item name="public" type="e3449647:DbNodeDescriptor" />
+        <item name="userproject" type="e3449647:DbNodeDescriptor" />
+      </path>
     </expand>
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="ISQLCommands.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/ISQLCommands.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="185">
+              <caret line="44" column="10" lean-forward="false" selection-start-line="44" selection-start-column="10" selection-end-line="44" selection-end-column="10" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SQLCommands.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/SQLCommands.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="232">
+              <caret line="513" column="13" lean-forward="true" selection-start-line="513" selection-start-column="13" selection-end-line="513" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <marker date="1510308629000" expanded="true" signature="1243:1371" ph="INSERT INTO public.user... " />
+                <marker date="1510308629000" expanded="true" signature="2119:2183" ph="SELECT passw... user" />
+                <marker date="1510308629000" expanded="true" signature="2964:3028" ph="SELECT passw... user" />
+                <marker date="1510308629000" expanded="true" signature="3834:3899" ph="SELECT first... user" />
+                <marker date="1510308629000" expanded="true" signature="4705:4769" ph="SELECT lastn... user" />
+                <marker date="1510308629000" expanded="true" signature="5557:5637" ph="UPDATE publi... " />
+                <marker date="1510308629000" expanded="true" signature="6322:6402" ph="UPDATE publi... " />
+                <marker date="1510308629000" expanded="true" signature="7099:7181" ph="UPDATE publi... " />
+                <marker date="1510308629000" expanded="true" signature="7865:7945" ph="UPDATE publi... " />
+                <marker date="1510308629000" expanded="true" signature="8681:8753" ph="UPDATE publi... " />
+                <marker date="1510308629000" expanded="true" signature="9508:9572" ph="SELECT usern... user" />
+                <marker date="1510308629000" expanded="true" signature="10476:10536" ph="SELECT role user" />
+                <marker date="1510308629000" expanded="true" signature="11274:11380" ph="SELECT id FR... user" />
+                <marker date="1510308629000" expanded="true" signature="12022:12108" ph="INSERT INTO public.project... " />
+                <marker date="1510308629000" expanded="true" signature="12990:13171" ph="SELECT name project" />
+                <marker date="1510308629000" expanded="true" signature="14026:14128" ph="UPDATE publi... " />
+                <marker date="1510308629000" expanded="true" signature="14919:15109" ph="SELECT descr... project" />
+                <marker date="1510308629000" expanded="true" signature="16000:16091" ph="UPDATE publi... " />
+                <marker date="1510308629000" expanded="true" signature="16925:17105" ph="SELECT * fro... project" />
+                <marker date="1510308629000" expanded="true" signature="18084:18320" ph="INSERT INTO task... " />
+                <marker date="1510308629000" expanded="true" signature="18768:18891" ph="UPDATE task\... " />
+                <marker date="1510308629000" expanded="true" signature="19359:19429" ph="DELETE FROM " />
+                <marker date="1510308629000" expanded="true" signature="19913:19992" ph="DELETE FROM " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="16" column="31" lean-forward="true" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+            <state relative-caret-position="255">
+              <caret line="18" column="53" lean-forward="false" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Chat.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/components/Chat.java">
+      <file leaf-file-name="Project.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/gen/java/model/Project.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            <state relative-caret-position="-316">
+              <caret line="50" column="21" lean-forward="false" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TopBar.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/components/TopBar.java">
+      <file leaf-file-name="Task.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/gen/java/model/Task.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SignUp.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/SignUp.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#592#593#0" expanded="true" />
-                <element signature="e#659#660#0" expanded="true" />
-                <marker date="1510305237000" expanded="false" signature="1477:1488" ph=" { " />
-                <marker date="1510305237000" expanded="false" signature="1504:1510" ph=" }" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ClientLauncher.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/ClientLauncher.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding>
-                <element signature="e#1016#1017#0" expanded="true" />
-                <element signature="e#1052#1053#0" expanded="true" />
-                <element signature="e#1096#1097#0" expanded="true" />
-                <element signature="e#1131#1132#0" expanded="true" />
-                <element signature="e#1159#1160#0" expanded="true" />
-                <element signature="e#1190#1191#0" expanded="true" />
-                <element signature="e#1237#1238#0" expanded="true" />
-                <element signature="e#1265#1266#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SQLCommands.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/SQLCommands.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-6532">
-              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+            <state relative-caret-position="135">
+              <caret line="35" column="3" lean-forward="true" selection-start-line="35" selection-start-column="3" selection-end-line="35" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -157,6 +152,9 @@
         <option value="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/SignUp.java" />
         <option value="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/Login.fxml" />
         <option value="$PROJECT_DIR$/inmanage-java-server/src/main/java/clientCom/Launcher.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/3888c8be-24dc-4c31-8fb9-8791d9060111/console.sql" />
+        <option value="$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/ISQLCommands.java" />
+        <option value="$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/SQLCommands.java" />
       </list>
     </option>
   </component>
@@ -166,7 +164,13 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="width" value="1280" />
     <option name="height" value="800" />
   </component>
@@ -191,84 +195,25 @@
           <expand>
             <path>
               <item name="INManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="inmanage-java-client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="INManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="inmanage-java-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="INManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="inmanage-java-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="INManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="inmanage-java-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="INManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="inmanage-java-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="gui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="INManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="inmanage-java-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="gui" type="462c0819:PsiDirectoryNode" />
-              <item name="windows" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="INManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="inmanage-java-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="serverCom" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="INManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="inmanage-java-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="INManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="inmanage-java-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="fxml" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="INManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="inmanage-java-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="fxml" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="INManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="inmanage-java-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="fxml" type="462c0819:PsiDirectoryNode" />
-              <item name="windows" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="INManage" type="b2602c69:ProjectViewProjectNode" />
               <item name="inmanage-java-server" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="INManage" type="b2602c69:ProjectViewProjectNode" />
               <item name="inmanage-java-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="INManage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="inmanage-java-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="INManage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="inmanage-java-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="INManage" type="b2602c69:ProjectViewProjectNode" />
@@ -443,40 +388,56 @@
       <option name="presentableId" value="Default" />
       <updated>1510304206612</updated>
       <workItem from="1510304211193" duration="35000" />
-      <workItem from="1510304263530" duration="1511000" />
+      <workItem from="1510304263530" duration="4070000" />
     </task>
+    <task id="LOCAL-00001" summary="Deleted domain package (not necessary for the project), Merged with Omars Task methods in SQLCommands">
+      <created>1510306008738</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1510306008739</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Deleted domain package (not necessary for the project), Merged with Omars Task methods in SQLCommands">
+      <created>1510306373806</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1510306373806</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1546000" />
+    <option name="totallyTimeSpent" value="4105000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <frame x="0" y="22" width="1280" height="702" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294893" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287483" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294893" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287483" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32784185" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294893" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24878837" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -517,14 +478,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/components/Chat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/Login.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -536,34 +489,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/ISQLCommands.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="18" column="55" lean-forward="true" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/components/TopBar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/main/java/clientCom/factories/UsersApiServiceFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/SQLCommands.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6532">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -576,13 +505,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/90c5bb87/3888c8be-24dc-4c31-8fb9-8791d9060111/si3_2017_group_1_db.public.user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" text="0af0ebaf-9b29-425c-92c7-3056bb3ff762" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://table:/90c5bb87/3888c8be-24dc-4c31-8fb9-8791d9060111/si3_2017_group_1_db.public.userproject">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -590,11 +512,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/main.java">
+    <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/main/java/domain/Program.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="16" column="31" lean-forward="true" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+        <state relative-caret-position="-1165">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/90c5bb87/3888c8be-24dc-4c31-8fb9-8791d9060111/si3_2017_group_1_db.public.user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -612,19 +541,105 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/components/TopBar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/components/Chat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/ClientLauncher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state relative-caret-position="200">
+          <caret line="27" column="30" lean-forward="true" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
           <folding>
-            <element signature="e#1016#1017#0" expanded="true" />
-            <element signature="e#1052#1053#0" expanded="true" />
-            <element signature="e#1096#1097#0" expanded="true" />
-            <element signature="e#1131#1132#0" expanded="true" />
-            <element signature="e#1159#1160#0" expanded="true" />
-            <element signature="e#1190#1191#0" expanded="true" />
-            <element signature="e#1237#1238#0" expanded="true" />
-            <element signature="e#1265#1266#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/gen/java/model/Task.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="35" column="3" lean-forward="true" selection-start-line="35" selection-start-column="3" selection-end-line="35" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/3888c8be-24dc-4c31-8fb9-8791d9060111/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="18" column="53" lean-forward="false" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/gen/java/model/Project.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-316">
+          <caret line="50" column="21" lean-forward="false" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/ISQLCommands.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="44" column="10" lean-forward="false" selection-start-line="44" selection-start-column="10" selection-end-line="44" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/SQLCommands.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="513" column="13" lean-forward="true" selection-start-line="513" selection-start-column="13" selection-end-line="513" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1510308629000" expanded="true" signature="1243:1371" ph="INSERT INTO public.user... " />
+            <marker date="1510308629000" expanded="true" signature="2119:2183" ph="SELECT passw... user" />
+            <marker date="1510308629000" expanded="true" signature="2964:3028" ph="SELECT passw... user" />
+            <marker date="1510308629000" expanded="true" signature="3834:3899" ph="SELECT first... user" />
+            <marker date="1510308629000" expanded="true" signature="4705:4769" ph="SELECT lastn... user" />
+            <marker date="1510308629000" expanded="true" signature="5557:5637" ph="UPDATE publi... " />
+            <marker date="1510308629000" expanded="true" signature="6322:6402" ph="UPDATE publi... " />
+            <marker date="1510308629000" expanded="true" signature="7099:7181" ph="UPDATE publi... " />
+            <marker date="1510308629000" expanded="true" signature="7865:7945" ph="UPDATE publi... " />
+            <marker date="1510308629000" expanded="true" signature="8681:8753" ph="UPDATE publi... " />
+            <marker date="1510308629000" expanded="true" signature="9508:9572" ph="SELECT usern... user" />
+            <marker date="1510308629000" expanded="true" signature="10476:10536" ph="SELECT role user" />
+            <marker date="1510308629000" expanded="true" signature="11274:11380" ph="SELECT id FR... user" />
+            <marker date="1510308629000" expanded="true" signature="12022:12108" ph="INSERT INTO public.project... " />
+            <marker date="1510308629000" expanded="true" signature="12990:13171" ph="SELECT name project" />
+            <marker date="1510308629000" expanded="true" signature="14026:14128" ph="UPDATE publi... " />
+            <marker date="1510308629000" expanded="true" signature="14919:15109" ph="SELECT descr... project" />
+            <marker date="1510308629000" expanded="true" signature="16000:16091" ph="UPDATE publi... " />
+            <marker date="1510308629000" expanded="true" signature="16925:17105" ph="SELECT * fro... project" />
+            <marker date="1510308629000" expanded="true" signature="18084:18320" ph="INSERT INTO task... " />
+            <marker date="1510308629000" expanded="true" signature="18768:18891" ph="UPDATE task\... " />
+            <marker date="1510308629000" expanded="true" signature="19359:19429" ph="DELETE FROM " />
+            <marker date="1510308629000" expanded="true" signature="19913:19992" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>

@@ -1,6 +1,8 @@
 package main.java.databaseCom;
 
-import java.awt.*;
+import gen.java.model.Project;
+
+import java.util.List;
 import java.sql.SQLException;
 import java.util.UUID;
 
@@ -43,6 +45,8 @@ public interface ISQLCommands {
     String getProjectDescription(UUID userid) throws SQLException;
 
     boolean setProjectDescription(UUID projectid, String name) throws SQLException;
+
+    List<Project> getProject(UUID userid) throws SQLException;
 
     //Task
 

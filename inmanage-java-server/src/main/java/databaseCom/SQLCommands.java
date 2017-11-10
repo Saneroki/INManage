@@ -1,7 +1,10 @@
 package main.java.databaseCom;
 
-import java.awt.*;
+import gen.java.model.Project;
+
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -449,7 +452,9 @@ public class SQLCommands implements ISQLCommands {
     @Override
     public String getProjectDescription(UUID userid) throws SQLException {
         Statement statement = con.createStatement();
+        List<Project> list = new ArrayList<>();
         try {
+
             ResultSet resultset = statement.executeQuery(
                     "SELECT description from public.project" +
                             "  INNER JOIN UserProject ON projectId = fk_projectId\n" +
@@ -487,6 +492,44 @@ public class SQLCommands implements ISQLCommands {
             e.printStackTrace();
             System.err.println("\nCaused by: project related to the userid doesn't exist in the database.");
             return false;
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+        }
+    }
+
+    /**
+     * Made by pepak16.
+     * Fetches the project description via the given userid.
+     * @param userid
+     * @return boolean
+     * @throws SQLException
+     */
+    @Override
+    public List<Project> getProject(UUID userid) throws SQLException {
+        Statement statement = con.createStatement();
+        List<Project> list = new ArrayList<>();
+        Project project;
+        try {
+
+            ResultSet resultset = statement.executeQuery(
+                    "SELECT * from public.project" +
+                            "  INNER JOIN UserProject ON projectId = fk_projectId\n" +
+                            "  WHERE fk_userId = '"+userid+"'");
+            while (resultset.next()) {
+                project = new Project();
+                project.setId(resultset.getString(1));
+                project.name(resultset.getString(2));
+                project.setDescription(resultset.getString(3));
+                project.setUserid(userid.toString());
+                list.add(project);
+            }
+            return list;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("\nCaused by: project related to the userid doesn't exist in the database.");
+            return null;
         } finally {
             if (statement != null) {
                 statement.close();
