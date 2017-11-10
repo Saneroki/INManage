@@ -69,6 +69,8 @@ public class ProjectDashboard {
         vboxLeft.setStyle("-fx-font-size: 20px");
         btn.setOnAction(event -> {
             ClientLauncher.setCurrentProjectId(proj.getId());
+            //delte later
+            ClientLauncher.setProj(proj);
             ClientLauncher.getWindowChanger().setScene("fxml/windows/TaskOverview.fxml");
         });
         vboxLeft.getChildren().add(btn);

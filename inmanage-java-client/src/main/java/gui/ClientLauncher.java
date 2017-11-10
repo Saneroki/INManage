@@ -3,6 +3,7 @@ package main.java.gui;
 /*
   Created by Glenn on 25/10/2017.
 */
+import gen.java.model.Project;
 import gen.java.model.User;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -23,6 +24,9 @@ public class ClientLauncher extends Application {
     private static ServerCom serv;
     private static String userID;
     private static String currentProjectId;
+    //Here i will save the project locally and use it,
+    //I think that in the future i will have use a sql command to get it for the specific projects
+    private static Project proj;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -65,5 +69,13 @@ public class ClientLauncher extends Application {
 
     public static void setCurrentProjectId(String currentProjectId) {
         ClientLauncher.currentProjectId = currentProjectId;
+    }
+
+    public static Project getProj() {
+        return proj;
+    }
+
+    public static void setProj(Project proj) {
+        ClientLauncher.proj = proj;
     }
 }

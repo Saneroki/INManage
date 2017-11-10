@@ -21,9 +21,6 @@ public class ProjectOverview {
     private Text projectDescText;
 
     @FXML
-    private Text dueDateText;
-
-    @FXML
     private Button goToTasks;
 
     @FXML
@@ -34,7 +31,12 @@ public class ProjectOverview {
     @FXML
     public void initialize(){
 
-        Project proj = serv.get
+        Project proj = ClientLauncher.getProj();
+
+        projectNameText.setText(proj.getName());
+        projectDescText.setText(proj.getDescription());
+
+        
 
     }
 
