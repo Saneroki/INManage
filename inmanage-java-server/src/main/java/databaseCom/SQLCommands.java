@@ -4,7 +4,6 @@ import gen.java.model.Task;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -17,13 +16,13 @@ public class SQLCommands implements ISQLCommands {
     private SQLConnect sqlconnect;
     private Connection con;
 
-    public static void main(String[] args) throws SQLException {
-
-    }
-
     public SQLCommands() throws SQLException {
         sqlconnect = new SQLConnect();
         con = sqlconnect.connect();
+    }
+
+    public static void main(String[] args) throws SQLException {
+
     }
 
     public static SQLCommands getInstance() throws SQLException {
@@ -383,12 +382,12 @@ public class SQLCommands implements ISQLCommands {
     }
 
 
-    /**
+    /**b
      * author: omhaw16
      */
     @Override
     public List getTaskByStatus(String projectId, int statusId) throws SQLException {
-        List<String> tasksByStatus = new ArrayList<>();       // Creation of ArrayList
+        List<Task> tasksByStatus = new ArrayList<>();       // Creation of ArrayList
 
         /** Explanation of the naming convention: **/
         /* 'Conv' at the end of the attribute name means it either
@@ -397,22 +396,19 @@ public class SQLCommands implements ISQLCommands {
         * /omhaw16
         */
 
-        String taskNameByStatusConv;     // Name of said task.
-        String taskDescByStatusConv;    // Description of said task.
+
+        /* Start dates are just in case. They might be used later. /omhaw16
 
         Date taskStartByStatusOrig;     // Start date for said task. This is a Date.
         String taskStartByStatusConv;   // ... and here it's a String.
+
+        */
 
         Date taskDueByStatusOrig;       // Due date for said task. This too is a date.
         String taskDueByStatusConv;     // ... and here it's a String.
 
         String taskProjectIDByStatusConv;  /* Project ID for said task. It's already in String format.
-                                            * Tasks are sorted according to their status.
-                                            */
-
-        int taskStatusByStatusOrig;         // Task status for said task. This is an integer (from 1-5).
-        String taskStatusByStatusConv;      // and here, the task status is a String.
-
+                                           * Tasks are sorted according to their status. */
 
         Statement statement = con.createStatement();        // Statement in order to use the SQL connection.
 
@@ -421,25 +417,31 @@ public class SQLCommands implements ISQLCommands {
             ResultSet getTaskByStatusrs = statement.executeQuery("SELECT * FROM task\n" +
                     "INNER JOIN taskStatus ON fk_StatusId = statusId WHERE fk_projectId = '" + projectId + "' AND fk_statusId = '" + statusId + "';");
 
+            Task task;
+
             while (getTaskByStatusrs.next()) {
 
-                taskNameByStatusConv = getTaskByStatusrs.getString(2);      // Get task name as a String.
-                taskDescByStatusConv = getTaskByStatusrs.getString(3);      // Get task desc. as a String.
+                task = new Task();
+                task.setName(getTaskByStatusrs.getString(2));               // Get task name as a String.
+                task.setDescription(getTaskByStatusrs.getString(3));      // Get task desc. as a String.
 
-                taskStartByStatusOrig = getTaskByStatusrs.getDate(4);       // Get taskStatus as a Date.
-                taskStartByStatusConv = taskStartByStatusOrig.toString();               // Convert taskStatus to String.
+                //  taskStartByStatusOrig = getTaskByStatusrs.getDate(4);       // Get task's start date as a Date.
+                //  taskStartByStatusConv = taskStartByStatusOrig.toString();               // Convert taskStatus to String.
 
                 taskDueByStatusOrig = getTaskByStatusrs.getDate(5);         // Get taskDue as a Date.
                 taskDueByStatusConv = taskDueByStatusOrig.toString();                   // Convert taskDue to String.
+                task.setDuedate(taskDueByStatusConv);                                   // Store due date (String) in the Task object.
 
-                taskProjectIDByStatusConv = getTaskByStatusrs.getString(6);  // Get taskProjectID as a String.
+                task.setId(getTaskByStatusrs.getString(6));  // Get taskProjectID as a String.
 
-                taskStatusByStatusOrig = getTaskByStatusrs.getInt(7);       // Get taskStatus as an int.
-                taskStatusByStatusConv = "" + taskStatusByStatusOrig;                   // Convert taskStatus to a String.
+                // TODO ((Remove comment when task.setStatus() has been implemented in the model.Task.java.
+                //task.setStatus(getTaskByStatusrs.getInt(7));       // Get taskStatus as an int.
 
                 // Add all elements to an ArrayList, which will then be returned.
+                // TODO Remember to add elements to the list.
 
-                tasksByStatus.addAll(Arrays.asList(taskNameByStatusConv, taskDescByStatusConv, taskStartByStatusConv, taskDueByStatusConv, taskProjectIDByStatusConv, taskStatusByStatusConv));
+                // TODO Remove the comment from this once task.setStatus is implemented in model.Task.java. /omhaw16
+                // tasksByStatus.addAll());
 
                 // For testing purposes, it's printed to the console.
 
@@ -467,6 +469,10 @@ public class SQLCommands implements ISQLCommands {
         return tasksByStatus;
     }
 
+
+    /**
+     * author: omhaw16
+     */
     public String getTaskNameByStatus(String projectId, int statusId) throws SQLException {
 
         Statement statement = con.createStatement();        // Statement in order to use the SQL connection.
@@ -495,45 +501,52 @@ public class SQLCommands implements ISQLCommands {
 
         /** Explanation of the naming convention: **/
         /* 'Conv' at the end of the attribute name means it either
-        * 1. Said information is already a string. This is the case with taskName and taskDesc.
+        * 1. Said information is already a string
+        *                   or
         * 2. It's been converted to a String, hence CONV (short for 'converted).
         * /omhaw16
         */
 
-        String taskNameConv;
-        String taskDescConv;
-
         Date taskStartOrig;
-        String taskStartConv;
+        String taskStartConv; // just in case /omhaw16
 
         Date taskDueOrig;
         String taskDueConv;
 
-        String taskProjectIDbyProjectConv;
-
-        int taskStatusByProjectOrig;
-        String taskStatusByProjConv;
 
         try {
+
             Statement statement = con.createStatement();
             ResultSet getTaskByProjrs = statement.executeQuery("SELECT * FROM task\n" +
                     "INNER JOIN project ON fk_projectId = projectId WHERE fk_projectId = '" + projectId + "';");
+
+            Task task;
+
             while (getTaskByProjrs.next()) {
-                taskNameConv = getTaskByProjrs.getString(2);
-                taskDescConv = getTaskByProjrs.getString(3);
+                task = new Task();
 
-                taskStartOrig = getTaskByProjrs.getDate(4);     // Get the start date.
-                taskStartConv = taskStartOrig.toString();                // Convert start date to String.
+                task.setName(getTaskByProjrs.getString(2));         // Get task name as a String. Assign to Task object.
+                task.setDescription(getTaskByProjrs.getString(3));  // Get task desc. as a String. Assign to Task object.
 
-                taskDueOrig = getTaskByProjrs.getDate(5);
-                taskDueConv = taskDueOrig.toString();
+                //        taskStartOrig = getTaskByProjrs.getDate(4);                // Get the start date.
+                //        taskStartConv = taskStartOrig.toString();                // Convert start date to String. (just in case)
 
-                taskProjectIDbyProjectConv = getTaskByProjrs.getString(6);
+                taskDueOrig = getTaskByProjrs.getDate(5);   // Get task date as a Date.
+                taskDueConv = taskDueOrig.toString();                   // Convert task date to a String.
+                task.setDuedate(taskDueConv);                           // Assign task due date (String) to the Task object.
 
-                taskStatusByProjectOrig = getTaskByProjrs.getInt(7);
-                taskStatusByProjConv = "" + taskStatusByProjectOrig;
+                task.setId(getTaskByProjrs.getString(6));   // Get project ID for specified task
+                // & assign it to the task object.
 
-                tasksByProject.addAll(Arrays.asList(taskNameConv, taskDescConv, taskStartConv, taskDueConv, taskProjectIDbyProjectConv, taskStatusByProjConv));
+
+                // TODO ((Remove comment when task.setStatus() has been implemented in model.Task.java. /omhaw16
+                //task.setStatus(getTaskByProjrs.getInt(7));       // Get taskStatus as an int.
+
+                // Add all elements to an ArrayList, which will then be returned.
+                // TODO Remember to add elements to the list.
+
+                // TODO Remove the comment from this once task.setStatus is implemented in model.Task.java. /omhaw16
+                //                tasksByProject.addAll();
                 System.out.println("Tasks sorted by project: " + tasksByProject);
             }
 
