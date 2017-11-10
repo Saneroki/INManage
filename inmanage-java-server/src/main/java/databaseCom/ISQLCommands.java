@@ -2,12 +2,11 @@ package main.java.databaseCom;
 
 import java.awt.*;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.UUID;
 
 public interface ISQLCommands {
 
-    boolean registerUser(UUID id, String username, String password, String firstname, String lastname, String type) throws SQLException;
+    boolean addUser(String username, String password, String firstname, String lastname, String type) throws SQLException;
 
     boolean checkUserLogin(String username, String password) throws SQLException;
 
@@ -33,20 +32,30 @@ public interface ISQLCommands {
 
     String loginUser(String username, String password) throws SQLException;
 
+    //Project
+
+    boolean addProject(String name,String description) throws SQLException;
+
+    String getProjectName(UUID userid) throws SQLException;
+
+    boolean setProjectName(UUID projectid, String name) throws SQLException;
+
+    String getProjectDescription(UUID userid) throws SQLException;
+
+    boolean setProjectDescription(UUID projectid, String name) throws SQLException;
+
     //Task
 
-    boolean addTaskToProject(String taskName, String taskDescription, String taskDue, String projectId) throws SQLException;
+    boolean addTaskToProject(UUID taskid, String taskname, String taskdescription, String taskdue, String projectid) throws SQLException;
 
-    boolean setTaskStatus(String taskId, int statusId) throws SQLException;
+    boolean setTaskStatus(String taskid, int statusid) throws SQLException;
 
-    boolean deleteTask(String taskId) throws SQLException;
+    boolean deleteTask(String taskid) throws SQLException;
 
-    boolean deleteAllTaskForProject(String projectId) throws SQLException;
+    boolean deleteAllTaskForProject(String projectid) throws SQLException;
 
-    java.util.List getTaskByStatus(String projectId, int statusId) throws SQLException;
+    List getTaskByStatus(String projectid, int statusid) throws SQLException;
 
-    List getAllTaskByProject(String projectId) throws SQLException;
-
-
+    List getAllTaskByProject(String projectid) throws SQLException;
 
 }
