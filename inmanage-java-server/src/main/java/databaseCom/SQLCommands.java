@@ -616,12 +616,12 @@ if(true){
     }
 
     @Override
-    public boolean setTaskStatus(String taskid, int statusid) throws SQLException {
+    public boolean setTaskStatus(String taskId, int statusId) throws SQLException {
         Statement statement = con.createStatement();
         try {
             statement.executeQuery("UPDATE task\n" +
-                    "SET taskStatus = '"+statusid+"'\n" +
-                    "WHERE taskid = '"+taskid+"';");
+                    "SET taskStatus = '"+statusId+"'\n" +
+                    "WHERE taskId = '"+taskId+"';");
             return true;
         } catch (SQLException e) {
             System.out.println("\nCaused by the task not existing.");
@@ -634,11 +634,11 @@ if(true){
     }
 
     @Override
-    public boolean deleteTask(String taskid) throws SQLException {
+    public boolean deleteTask(String taskId) throws SQLException {
         Statement statement = con.createStatement();
         try {
             statement.executeQuery("DELETE FROM task\n" +
-                    "WHERE taskid = '"+taskid+"';");
+                    "WHERE taskId = '"+taskId+"';");
             return true;
         } catch (SQLException e) {
             System.out.println("\nCaused by the task not existing.");
@@ -651,11 +651,11 @@ if(true){
     }
 
     @Override
-    public boolean deleteAllTaskForProject(String projectid) throws SQLException {
+    public boolean deleteAllTaskForProject(String projectId) throws SQLException {
         Statement statement = con.createStatement();
         try {
             statement.executeQuery("DELETE FROM task\n" +
-                    "WHERE fk_projectid = '"+projectid+"';");
+                    "WHERE fk_projectId = '"+projectId+"';");
             return true;
         } catch (SQLException e) {
             System.out.println("\nCaused by the project not having any tasks.");

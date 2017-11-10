@@ -3,15 +3,6 @@ package main.java.databaseCom;
 import java.sql.SQLException;
 import java.util.UUID;
 
-public class main {
-
-    // Main method, mainly for testing purposes. /omhaw16,pepak16
-    public static void main(String[] args) throws SQLException {
-package main.java.databaseCom;
-
-import java.sql.SQLException;
-import java.util.UUID;
-
         public class main {
 
             // Main method, mainly for testing purposes. /omhaw16,pepak16
@@ -34,5 +25,4 @@ import java.util.UUID;
                 System.exit(1);
             }
         }
-    }
-}
+

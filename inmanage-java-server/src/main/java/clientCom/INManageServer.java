@@ -87,7 +87,7 @@ public class INManageServer {
         System.out.println("Adding new task: " + addTask.getTaskName());
 
         try {
-            sql.addTaskToProject(UUID.randomUUID(),addTask.getTaskName(),addTask.getDescription(),addTask.getDueDate(),addTask.getProjectId());
+            sql.addTaskToProject(addTask.getProjectId(),addTask.getTaskName(),addTask.getDescription(),addTask.getDueDate());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -97,7 +97,11 @@ public class INManageServer {
     public List<Task> getTaskResponse(String projectId){
         List<Task> list = new ArrayList<>();
 
-
+        try {
+            sql.getAllTaskByProject(projectId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         //add tasks to list
 
