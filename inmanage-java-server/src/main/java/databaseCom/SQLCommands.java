@@ -389,7 +389,7 @@ public class SQLCommands implements ISQLCommands {
     @Override
     public List getTaskByStatus(String projectId, int statusId) throws SQLException {
         List<String> tasksByStatus = new ArrayList<>();       // Creation of ArrayList
-        // which will hold tasks sorted by their current status.
+
         /** Explanation of the naming convention: **/
         /* 'Conv' at the end of the attribute name means it either
         * 1. Said information is already a string. This is the case with taskName and taskDesc.
@@ -417,6 +417,7 @@ public class SQLCommands implements ISQLCommands {
         Statement statement = con.createStatement();        // Statement in order to use the SQL connection.
 
         try {
+
             ResultSet getTaskByStatusrs = statement.executeQuery("SELECT * FROM task\n" +
                     "INNER JOIN taskStatus ON fk_StatusId = statusId WHERE fk_projectId = '" + projectId + "' AND fk_statusId = '" + statusId + "';");
 
@@ -464,6 +465,26 @@ public class SQLCommands implements ISQLCommands {
             }
         }
         return tasksByStatus;
+    }
+
+    public String getTaskNameByStatus(String projectId, int statusId) throws SQLException {
+
+        Statement statement = con.createStatement();        // Statement in order to use the SQL connection.
+
+        try {
+            ResultSet getTaskByStatusrs = statement.executeQuery("SELECT taskName FROM task WHERE fk_projectId = '" + projectId + "' AND fk_statusId = '" + statusId + "';");
+            getTaskByStatusrs.next();
+            return getTaskByStatusrs.getString(1);
+
+        } catch (SQLException e) {
+            System.err.println("Error while fetching task name.");
+            e.printStackTrace();
+            return null;
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+        }
     }
 
     /**
