@@ -94,10 +94,10 @@ public class INManageServer {
 
     }
 
-    public List<Task> addTaskResponse(String projectId){
+    public List<Task> getTaskResponse(String projectId){
         List<Task> list = new ArrayList<>();
 
-        //sql.getTasks()
+
 
         //add tasks to list
 

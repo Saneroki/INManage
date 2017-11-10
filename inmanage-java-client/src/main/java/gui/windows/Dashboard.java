@@ -46,7 +46,7 @@ public class Dashboard extends Controller {
 
     public Dashboard(){
         try {
-            topPane = FXMLLoader.load(getClass().getResource("/fxml/components/TopBar.fxml"));
+            topPane = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/components/TopBar.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
             throw new Error();
@@ -56,7 +56,7 @@ public class Dashboard extends Controller {
     @FXML
     public void initialize(){
         try {
-            topPane = FXMLLoader.load(getClass().getResource("/fxml/components/TopBar.fxml"));
+            topPane = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/components/TopBar.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
             throw new Error();

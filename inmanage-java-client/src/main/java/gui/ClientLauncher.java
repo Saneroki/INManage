@@ -22,6 +22,7 @@ public class ClientLauncher extends Application {
     private static Stage primaryStage;
     private static ServerCom serv;
     private static String userID;
+    private static String currentProjectId;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -57,4 +58,12 @@ public class ClientLauncher extends Application {
     }
 
     public static String getUserID(){return userID;}
+
+    public static String getCurrentProjectId() {
+        return currentProjectId;
+    }
+
+    public static void setCurrentProjectId(String currentProjectId) {
+        ClientLauncher.currentProjectId = currentProjectId;
+    }
 }
