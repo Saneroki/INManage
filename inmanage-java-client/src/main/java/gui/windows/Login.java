@@ -29,8 +29,9 @@ public class Login {
         String resp = serv.loginUser(usernameInput.getText(),passwordInput.getText());
         //Store resp which is the user UUID in a local user object variable so we can use it later to acces the other data
         System.out.println(resp);
+        ClientLauncher.setUserId(resp);
         if((resp)!=null){
-            ClientLauncher.getWindowChanger().setScene("fxml/windows/ProjectOverview.fxml");
+            ClientLauncher.getWindowChanger().setScene("fxml/windows/Dashboard.fxml");
         }else{
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Error logging in");

@@ -31,7 +31,7 @@ public class AdminsApiTest {
         User user = new User();
         user.setName("MalteNEWNEW");
         user.setPassword("New password");
-        api.addUser(user);
+        //api.addUser(user);
 
         // TODO: test validations
     }

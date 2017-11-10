@@ -3,6 +3,7 @@ package main.java.gui;
 /*
   Created by Glenn on 25/10/2017.
 */
+import gen.java.model.User;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -20,6 +21,7 @@ public class ClientLauncher extends Application {
     private static WindowChanger windowChanger;
     private static Stage primaryStage;
     private static ServerCom serv;
+    private static String userID;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -50,4 +52,9 @@ public class ClientLauncher extends Application {
 
     public static ServerCom getServer(){ return serv; }
 
+    public static void setUserId(String setUserID){
+        userID = setUserID;
+    }
+
+    public static String getUserID(){return userID;}
 }

@@ -73,13 +73,15 @@ public class INManageServer {
         }
     }
 
-    public List<Project> getProjectsResponse(String userID){
+    public List<Project> getProjectsResponse(String projectID){
 
         List<Project> list = new ArrayList<>();
 
-        //sql.getAllProjects
-
-        //add projects to list
+        try {
+            list = sql.(projectID);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         return list;
     }

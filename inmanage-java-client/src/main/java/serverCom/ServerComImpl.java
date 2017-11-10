@@ -74,6 +74,10 @@ public class ServerComImpl implements ServerCom {
     @Override
     public List<Project> getAllProjects(String userID) {
 
+        /*
+        It says userID but we use Prohect ID, needs to be changed in next version of the API.
+         */
+
         try {
             return userApi.getAllProjects(userID);
         } catch (ApiException e) {

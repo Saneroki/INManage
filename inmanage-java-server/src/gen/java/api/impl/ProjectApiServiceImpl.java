@@ -10,6 +10,7 @@ import gen.java.api.NotFoundException;
 
 import java.io.InputStream;
 
+import main.java.clientCom.INManageServer;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 
 import javax.ws.rs.core.Response;
@@ -25,6 +26,10 @@ public class ProjectApiServiceImpl extends ProjectApiService {
     @Override
     public Response getAllProjects(String userId, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
-        return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
+
+        /*
+        It says userID but we use project ID, needs to be changed in next version of the API
+         */
+        return Response.ok().entity(INManageServer.get().getProjectsResponse(userId)).build();
     }
 }
