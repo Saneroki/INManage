@@ -28,11 +28,6 @@
             </Label>
             <Button id="addprojconfirmbtn" fx:id="addProjConfirmBtn" layoutX="17.0" layoutY="284.0" mnemonicParsing="false" onAction="#addProjectConfirmAction" text="Confirm" />
             <Button id="addprojcancelbtn" fx:id="addProjCancelBtn" layoutX="110.0" layoutY="284.0" mnemonicParsing="false" onAction="#addProjectCancelButton" text="Cancel" />
-            <ImageView fitHeight="70.0" fitWidth="61.0" layoutX="403.0" layoutY="20.0">
-               <image>
-                  <Image url="@../../../../../../../Desktop/inmanage_logo.png" />
-               </image>
-            </ImageView>
          </children>
       </AnchorPane>
    </children>

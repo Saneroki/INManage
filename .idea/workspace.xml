@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09a1278c-3f08-40fa-85d6-07c56f294b41" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/AddTask.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/AddTask.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/AddTask.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/AddTask.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/AddProject.fxml" afterPath="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/AddProject.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/AddTask.fxml" afterPath="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/AddTask.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/inmanage-java-client/target/" />
     <ignored path="$PROJECT_DIR$/inmanage-java-server/target/" />
@@ -21,103 +22,39 @@
       <file leaf-file-name="AddProject.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/AddProject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Login.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/Login.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProjectDashboard.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/ProjectDashboard.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="86" lean-forward="false" selection-start-line="18" selection-start-column="86" selection-end-line="18" selection-end-column="86" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProjectOverview.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/ProjectOverview.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SQLCommands.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/SQLCommands.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="608" column="32" lean-forward="true" selection-start-line="608" selection-start-column="32" selection-end-line="608" selection-end-column="32" />
+            <state relative-caret-position="327">
+              <caret line="26" column="28" lean-forward="true" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
               <folding>
-                <marker date="1510335030000" expanded="true" signature="1271:1399" ph="INSERT INTO public.user... " />
-                <marker date="1510335030000" expanded="true" signature="2147:2211" ph="SELECT passw... user" />
-                <marker date="1510335030000" expanded="true" signature="2992:3056" ph="SELECT passw... user" />
-                <marker date="1510335030000" expanded="true" signature="3862:3927" ph="SELECT first... user" />
-                <marker date="1510335030000" expanded="true" signature="4733:4797" ph="SELECT lastn... user" />
-                <marker date="1510335030000" expanded="true" signature="5585:5665" ph="UPDATE publi... " />
-                <marker date="1510335030000" expanded="true" signature="6350:6430" ph="UPDATE publi... " />
-                <marker date="1510335030000" expanded="true" signature="7127:7209" ph="UPDATE publi... " />
-                <marker date="1510335030000" expanded="true" signature="7893:7973" ph="UPDATE publi... " />
-                <marker date="1510335030000" expanded="true" signature="8709:8781" ph="UPDATE publi... " />
-                <marker date="1510335030000" expanded="true" signature="9536:9600" ph="SELECT usern... user" />
-                <marker date="1510335030000" expanded="true" signature="10504:10564" ph="SELECT role user" />
-                <marker date="1510335030000" expanded="true" signature="11534:11644" ph="SELECT useri... user" />
-                <marker date="1510335030000" expanded="true" signature="12255:12341" ph="INSERT INTO public.project... " />
-                <marker date="1510335030000" expanded="true" signature="13212:13302" ph="INSERT INTO public.userproject... " />
-                <marker date="1510335030000" expanded="true" signature="14489:14670" ph="SELECT name project" />
-                <marker date="1510335030000" expanded="true" signature="15525:15627" ph="UPDATE publi... " />
-                <marker date="1510335030000" expanded="true" signature="16417:16607" ph="SELECT descr... project" />
-                <marker date="1510335030000" expanded="true" signature="17498:17589" ph="UPDATE publi... " />
-                <marker date="1510335030000" expanded="true" signature="18422:18602" ph="SELECT * fro... project" />
-                <marker date="1510335030000" expanded="true" signature="19568:19815" ph="INSERT INTO task... " />
-                <marker date="1510335030000" expanded="true" signature="20263:20386" ph="UPDATE task\... " />
-                <marker date="1510335030000" expanded="true" signature="20854:20924" ph="DELETE FROM " />
-                <marker date="1510335030000" expanded="true" signature="21408:21487" ph="DELETE FROM " />
-                <marker date="1510335030000" expanded="true" signature="23130:23300" ph="SELECT * FRO... task" />
-                <marker date="1510335030000" expanded="true" signature="25940:26043" ph="SELECT taskN... task" />
-                <marker date="1510335030000" expanded="true" signature="27237:27369" ph="SELECT * FRO... task" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AddTask.fxml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AddTask.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/AddTask.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#744#745#0" expanded="true" />
+                <element signature="e#774#775#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddTask.fxml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/AddTask.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="13" column="69" lean-forward="true" selection-start-line="13" selection-start-column="69" selection-end-line="13" selection-end-column="69" />
+            <state relative-caret-position="420">
+              <caret line="28" column="39" lean-forward="true" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
               <folding>
-                <marker date="1510339199000" expanded="true" signature="2237:2261" ph="..." />
-                <marker date="1510339199000" expanded="true" signature="2237:2283" ph="..." />
-                <marker date="1510339199000" expanded="true" signature="2237:2299" ph="..." />
-                <marker date="1510339199000" expanded="true" signature="2237:2313" ph="..." />
+                <marker date="1510343285000" expanded="true" signature="2049:2073" ph="..." />
               </folding>
             </state>
           </provider>
@@ -129,50 +66,24 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="14" column="55" lean-forward="true" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
+            <state relative-caret-position="435">
+              <caret line="29" column="174" lean-forward="false" selection-start-line="29" selection-start-column="174" selection-end-line="29" selection-end-column="174" />
               <folding>
-                <marker date="1510330193000" expanded="true" signature="2030:2043" ph="..." />
+                <marker date="1510343302000" expanded="true" signature="1788:1801" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AddTask.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/AddTask.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" column="37" lean-forward="false" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
+      <file leaf-file-name="Dashboard.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/Dashboard.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Dashboard.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/Dashboard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="56" column="29" lean-forward="false" selection-start-line="56" selection-start-column="29" selection-end-line="56" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#1791#1792#0" expanded="false" />
-                <element signature="e#1822#1823#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/Controller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-              <folding>
-                <element signature="e#121#122#0" expanded="false" />
-                <element signature="e#152#153#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="435">
+              <caret line="29" column="14" lean-forward="false" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -214,8 +125,9 @@
         <option value="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/AddProject.fxml" />
         <option value="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/AddProject.java" />
         <option value="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/AddTask.java" />
-        <option value="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/AddTask.fxml" />
         <option value="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/AddTask.java" />
+        <option value="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/AddTask.fxml" />
+        <option value="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/AddProject.fxml" />
       </list>
     </option>
   </component>
@@ -1124,7 +1036,7 @@
       <workItem from="1510238424587" duration="3745000" />
       <workItem from="1510246442811" duration="440000" />
       <workItem from="1510324227081" duration="5268000" />
-      <workItem from="1510337830993" duration="1398000" />
+      <workItem from="1510337830993" duration="2744000" />
     </task>
     <task id="LOCAL-00001" summary="Deleted domain package (not necessary for the project), Merged with Omars Task methods in SQLCommands">
       <created>1510306008738</created>
@@ -1154,11 +1066,18 @@
       <option name="project" value="LOCAL" />
       <updated>1510334818535</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add task added to GUI. Implementation missing, I'll do it in the train. /omhaw16">
+      <created>1510339287081</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1510339287081</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13852000" />
+    <option name="totallyTimeSpent" value="15198000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -1210,7 +1129,8 @@
       <path value="$PROJECT_DIR$/INManage" />
     </ignored-roots>
     <MESSAGE value="Add project option added in GUI. It's not a pop-up yet - that'll be implemented soon. It's ready for further implementation with SQL and the API though. /omhaw16" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add project option added in GUI. It's not a pop-up yet - that'll be implemented soon. It's ready for further implementation with SQL and the API though. /omhaw16" />
+    <MESSAGE value="Add task added to GUI. Implementation missing, I'll do it in the train. /omhaw16" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add task added to GUI. Implementation missing, I'll do it in the train. /omhaw16" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1219,7 +1139,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/example/AdminsApiExample.java" />
     <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/Login.fxml" />
     <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/SignUp.fxml" />
     <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/ISQLCommands.java">
@@ -1436,7 +1355,7 @@
         <state relative-caret-position="261">
           <caret line="90" column="13" lean-forward="false" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1445,110 +1364,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
           <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/Dashboard.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="14" lean-forward="false" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/Login.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/ProjectOverview.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/ProjectDashboard.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="86" lean-forward="false" selection-start-line="18" selection-start-column="86" selection-end-line="18" selection-end-column="86" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding>
-            <element signature="e#121#122#0" expanded="false" />
-            <element signature="e#152#153#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/AddProject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/Dashboard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="56" column="29" lean-forward="false" selection-start-line="56" selection-start-column="29" selection-end-line="56" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1791#1792#0" expanded="false" />
-            <element signature="e#1822#1823#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/AddTask.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="13" column="69" lean-forward="true" selection-start-line="13" selection-start-column="69" selection-end-line="13" selection-end-column="69" />
-          <folding>
-            <marker date="1510339199000" expanded="true" signature="2237:2261" ph="..." />
-            <marker date="1510339199000" expanded="true" signature="2237:2283" ph="..." />
-            <marker date="1510339199000" expanded="true" signature="2237:2299" ph="..." />
-            <marker date="1510339199000" expanded="true" signature="2237:2313" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/AddProject.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="14" column="55" lean-forward="true" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
-          <folding>
-            <marker date="1510330193000" expanded="true" signature="2030:2043" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1588,12 +1403,121 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/ProjectOverview.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/ProjectDashboard.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="18" column="86" lean-forward="false" selection-start-line="18" selection-start-column="86" selection-end-line="18" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/Login.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/Dashboard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="56" column="29" lean-forward="false" selection-start-line="56" selection-start-column="29" selection-end-line="56" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding>
+            <element signature="e#121#122#0" expanded="false" />
+            <element signature="e#152#153#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/javafx-src.zip!/javafx/fxml/FXML.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="38" column="18" lean-forward="false" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/Dashboard.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="14" lean-forward="false" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/AddTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="37" lean-forward="false" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
+        <state relative-caret-position="300">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#744#745#0" expanded="true" />
+            <element signature="e#774#775#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/AddProject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="26" column="28" lean-forward="true" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/AddProject.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="174" lean-forward="false" selection-start-line="29" selection-start-column="174" selection-end-line="29" selection-end-column="174" />
+          <folding>
+            <marker date="1510343302000" expanded="true" signature="1788:1801" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/AddTask.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="39" lean-forward="true" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
+          <folding>
+            <marker date="1510343285000" expanded="true" signature="2049:2073" ph="..." />
           </folding>
         </state>
       </provider>

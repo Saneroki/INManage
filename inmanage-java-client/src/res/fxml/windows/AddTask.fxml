@@ -5,7 +5,10 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="329.0" prefWidth="493.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.gui.windows.AddTask">
     <children>
@@ -23,14 +26,9 @@
                         <Font name="Avenir Next Condensed Regular" size="17.0" />
                     </font>
                 </Label>
-                <Button id="addprojconfirmbtn" fx:id="addProjConfirmBtn" layoutX="17.0" layoutY="284.0" mnemonicParsing="false" onAction="#addProjectConfirmAction" text="Confirm" />
-                <Button id="addprojcancelbtn" fx:id="addProjCancelBtn" layoutX="110.0" layoutY="284.0" mnemonicParsing="false" onAction="#addProjectCancelButton" text="Cancel" />
-                <ImageView fitHeight="70.0" fitWidth="61.0" layoutX="403.0" layoutY="20.0">
-                    <image>
-                        <Image url="@../../../../../../../Desktop/inmanage_logo.png" />
-                    </image>
-                </ImageView>
-            <DatePicker fx:id="dueDateField" layoutX="337.0" layoutY="55.0" onAction="#dueDateAction" prefHeight="27.0" prefWidth="138.0" promptText="Pick a date" />
+                <Button id="addprojconfirmbtn" fx:id="addTaskConfirmBtn" layoutX="17.0" layoutY="284.0" mnemonicParsing="false" onAction="#addTaskConfirmAction" text="Confirm" />
+                <Button id="addprojcancelbtn" fx:id="addTaskCancelBtn" layoutX="110.0" layoutY="284.0" mnemonicParsing="false" onAction="#addTaskCancelButton" text="Cancel" />
+            <DatePicker fx:id="dueDateField" layoutX="337.0" layoutY="55.0" prefHeight="27.0" prefWidth="138.0" promptText="Pick a date" />
             <Label layoutX="337.0" layoutY="31.0" text="Due date" />
             </children>
         </AnchorPane>
