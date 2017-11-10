@@ -38,6 +38,8 @@ public interface ISQLCommands {
 
     boolean addProject(String name,String description) throws SQLException;
 
+    boolean addUserToProject(UUID userid,UUID projectid) throws SQLException;
+
     String getProjectName(UUID userid) throws SQLException;
 
     boolean setProjectName(UUID projectid, String name) throws SQLException;
@@ -50,7 +52,7 @@ public interface ISQLCommands {
 
     //Task
 
-    boolean addTaskToProject(UUID taskid, String taskname, String taskdescription, String taskdue, String projectid) throws SQLException;
+    boolean addTaskToProject(String taskname, String taskdescription, String taskdue, String projectid) throws SQLException;
 
     boolean setTaskStatus(String taskid, int statusid) throws SQLException;
 

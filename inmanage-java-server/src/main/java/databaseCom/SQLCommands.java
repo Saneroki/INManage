@@ -339,16 +339,22 @@ public class SQLCommands implements ISQLCommands {
         }
     }
 
+    /**
+     * Made by pepak16.
+     * Checks whether the user is admin or not and return a truth value respectively.
+     * @param checkUsername
+     * @param checkPassword
+     * @return boolean
+     * @throws SQLException
+     */
     @Override
     public String loginUser(String checkUsername, String checkPassword) throws SQLException {
         Statement statement = con.createStatement();
-
         try {
             ResultSet resultSet = statement.executeQuery("SELECT id FROM public.user WHERE username = '" + checkUsername + "' AND password = '" + checkPassword + "';");
             resultSet.next();
             return resultSet.getString(1);
-
-            }catch (SQLException e){
+        } catch (SQLException e){
             e.printStackTrace();
         }
         return null;
@@ -368,13 +374,8 @@ public class SQLCommands implements ISQLCommands {
     public boolean addProject(String name,String description) throws SQLException {
         Statement statement = con.createStatement();
         try {
-            ResultSet resultset = statement.executeQuery("INSERT INTO public.project VALUES '"+UUID.randomUUID()+"','"+name+"','"+description+"';");
-            resultset.next();
-            if (resultset.getString(1).equals("admin")) {
-                return true;
-            } else {
-                return false;
-            }
+            statement.execute("INSERT INTO public.project VALUES '"+UUID.randomUUID()+"','"+name+"','"+description+"';");
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
             System.err.println("\nCaused by: project already exists in database.");
@@ -385,6 +386,66 @@ public class SQLCommands implements ISQLCommands {
             }
         }
     }
+
+    /**
+     * Made by pepak16.
+     * Adds new user to a specific project to the database, if the user isn't already associated to the project.
+     * @param userid
+     * @param projectid
+     * @return boolean
+     * @throws SQLException
+     */
+
+    @Override
+    public boolean addUserToProject(UUID userid,UUID projectid) throws SQLException {
+        Statement statement = con.createStatement();
+        try {
+            ResultSet resultset = statement.executeQuery("");
+            resultset.next();
+            statement.execute("INSERT INTO public.userproject VALUES '"+UUID.randomUUID()+"','"+userid+"','"+projectid+"';");
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("\nCaused by: the user is already associated to the project.");
+            return false;
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+        }
+    }
+
+
+    /*
+    addUserToProject()
+
+projectId = projectId
+userName = userName
+
+SELECT (userId, userName) FROM user
+WHERE userName = 'userName';
+
+if(true){
+
+  userId = userId
+
+  SELECT * FROM userProject
+  WHERE fk_userId = 'userId';
+
+  if(true) {
+    "User is already part of project"
+  } else {
+
+    INSERT INTO userProject (userProjectId, fk_projectId, fk_userId)
+    VALUES (UUID, projectId, userId);
+
+  }
+
+} else {
+  "User doesn't exist";
+}
+     */
+
 
     /**
      * Made by pepak16.
@@ -454,7 +515,6 @@ public class SQLCommands implements ISQLCommands {
         Statement statement = con.createStatement();
         List<Project> list = new ArrayList<>();
         try {
-
             ResultSet resultset = statement.executeQuery(
                     "SELECT description from public.project" +
                             "  INNER JOIN UserProject ON projectId = fk_projectId\n" +
@@ -512,7 +572,6 @@ public class SQLCommands implements ISQLCommands {
         List<Project> list = new ArrayList<>();
         Project project;
         try {
-
             ResultSet resultset = statement.executeQuery(
                     "SELECT * from public.project" +
                             "  INNER JOIN UserProject ON projectId = fk_projectId\n" +
@@ -539,11 +598,11 @@ public class SQLCommands implements ISQLCommands {
 
     //Task
     @Override
-    public boolean addTaskToProject(UUID taskid, String taskName, String taskdescription, String taskdue, String projectid) throws SQLException {
+    public boolean addTaskToProject(String taskName, String taskdescription, String taskdue, String projectid) throws SQLException {
         Statement statement = con.createStatement();
         try {
             statement.execute("INSERT INTO task (taskId, taskName, taskDescription, taskStart, taskDue, fk_projectID, fk_statusId)\n" +
-                    "VALUES ('"+taskid+"', '"+taskName+"', '"+taskdescription+"', 'CURDATE()', '"+taskdue+"', '"+projectid+"', '1');");
+                    "VALUES ('"+UUID.randomUUID()+"', '"+taskName+"', '"+taskdescription+"', 'CURDATE()', '"+taskdue+"', '"+projectid+"', '1');");
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
