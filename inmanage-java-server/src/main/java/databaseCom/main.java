@@ -15,7 +15,9 @@ public class main {
 //        System.out.println(sql.isUserAdmin("alex33"));
 //        System.out.println(sql.isUserExisting("persha955"));
 //        System.out.println();
-        UUID uuid = UUID.fromString("0af0ebaf-9b29-425c-92c7-3056bb3ff762");
-        System.out.println(sql.getProjectName(uuid));
+        UUID projectid = UUID.fromString("0af0ebaf-9b29-425c-92c7-3056bb3ff762");
+        //System.out.println(sql.getProjectName(uuid));
+        //System.out.println(sql.addUser("Ulrik95","123123p","Ulrik","Schultz","member"));
+        //System.out.println(sql.addUserToProject("",));
     }
 }
