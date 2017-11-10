@@ -382,77 +382,137 @@ public class SQLCommands implements ISQLCommands {
         return false;
     }
 
+
+    /**
+     * author: omhaw16
+     */
     @Override
     public List getTaskByStatus(String projectId, int statusId) throws SQLException {
-        List<Task> tasksByStatus = new ArrayList<>();
-   /*     String taskNameByStatus;
-        String taskDescByStatus;
-        Date taskStartByStatus;
-        Date taskDueByStatus;
-        String taskProjectIDByStatus;
-        int taskStatusByStatus;
-        Statement statement = con.createStatement();
+        List<String> tasksByStatus = new ArrayList<>();       // Creation of ArrayList
+        // which will hold tasks sorted by their current status.
+        /** Explanation of the naming convention: **/
+        /* 'Conv' at the end of the attribute name means it either
+        * 1. Said information is already a string. This is the case with taskName and taskDesc.
+        * 2. It's been converted to a String, hence CONV (short for 'converted).
+        * /omhaw16
+        */
+
+        String taskNameByStatusConv;     // Name of said task.
+        String taskDescByStatusConv;    // Description of said task.
+
+        Date taskStartByStatusOrig;     // Start date for said task. This is a Date.
+        String taskStartByStatusConv;   // ... and here it's a String.
+
+        Date taskDueByStatusOrig;       // Due date for said task. This too is a date.
+        String taskDueByStatusConv;     // ... and here it's a String.
+
+        String taskProjectIDByStatusConv;  /* Project ID for said task. It's already in String format.
+                                            * Tasks are sorted according to their status.
+                                            */
+
+        int taskStatusByStatusOrig;         // Task status for said task. This is an integer (from 1-5).
+        String taskStatusByStatusConv;      // and here, the task status is a String.
+
+
+        Statement statement = con.createStatement();        // Statement in order to use the SQL connection.
+
         try {
             ResultSet getTaskByStatusrs = statement.executeQuery("SELECT * FROM task\n" +
-                    "INNER JOIN taskStatus ON fk_StatusId = statusId WHERE fk_projectId = '" + projectId + "' AND fk_statusId, = '" + statusId + "';");
+                    "INNER JOIN taskStatus ON fk_StatusId = statusId WHERE fk_projectId = '" + projectId + "' AND fk_statusId = '" + statusId + "';");
+
             while (getTaskByStatusrs.next()) {
-                taskNameByStatus = getTaskByStatusrs.getString(2);
-                taskDescByStatus = getTaskByStatusrs.getString(3);
-                taskStartByStatus = getTaskByStatusrs.getDate(4);
-                taskDueByStatus = getTaskByStatusrs.getDate(5);
-                taskProjectIDByStatus = getTaskByStatusrs.getString(6);
-                taskStatusByStatus = getTaskByStatusrs.getInt(7);
-           //     tasksByStatus.add((taskNameByStatus, taskDescByStatus, taskStartByStatus, taskDueByStatus, taskProjectIDByStatus, taskStatusByStatus))
+
+                taskNameByStatusConv = getTaskByStatusrs.getString(2);      // Get task name as a String.
+                taskDescByStatusConv = getTaskByStatusrs.getString(3);      // Get task desc. as a String.
+
+                taskStartByStatusOrig = getTaskByStatusrs.getDate(4);       // Get taskStatus as a Date.
+                taskStartByStatusConv = taskStartByStatusOrig.toString();               // Convert taskStatus to String.
+
+                taskDueByStatusOrig = getTaskByStatusrs.getDate(5);         // Get taskDue as a Date.
+                taskDueByStatusConv = taskDueByStatusOrig.toString();                   // Convert taskDue to String.
+
+                taskProjectIDByStatusConv = getTaskByStatusrs.getString(6);  // Get taskProjectID as a String.
+
+                taskStatusByStatusOrig = getTaskByStatusrs.getInt(7);       // Get taskStatus as an int.
+                taskStatusByStatusConv = "" + taskStatusByStatusOrig;                   // Convert taskStatus to a String.
+
+                // Add all elements to an ArrayList, which will then be returned.
+
+                tasksByStatus.addAll(Arrays.asList(taskNameByStatusConv, taskDescByStatusConv, taskStartByStatusConv, taskDueByStatusConv, taskProjectIDByStatusConv, taskStatusByStatusConv));
+
+                // For testing purposes, it's printed to the console.
+
+                System.out.print("\n" + "Tasks sorted by status: " + tasksByStatus);
 
             }
+            // When all elements have been traversed and added, return the list.
+
             return tasksByStatus;
-        } catch (SQLException e) {
+
+        } catch (SQLException e) {          // In the case of any SQL error, catch the exception instance 'e'.
+
+            // In said case, print out an error message.
+
             System.err.println("Error while getting tasks by status");
+
+            // Print out the stack trace to make debugging easier.
             e.printStackTrace();
+
         } finally {
             if (statement != null) {
                 statement.close();
             }
-        }*/
+        }
         return tasksByStatus;
     }
 
+    /**
+     * author: omhaw16
+     */
     public List getAllTaskByProject(String projectId) throws SQLException {
-        List<String> tasksByProject = new ArrayList<>();
-        String taskNameFetched;
-        String taskDescFetched;
+        List<String> tasksByProject = new ArrayList<>();        // ArrayList to hold tasks sorted by project.
+
+        /** Explanation of the naming convention: **/
+        /* 'Conv' at the end of the attribute name means it either
+        * 1. Said information is already a string. This is the case with taskName and taskDesc.
+        * 2. It's been converted to a String, hence CONV (short for 'converted).
+        * /omhaw16
+        */
+
+        String taskNameConv;
+        String taskDescConv;
 
         Date taskStartOrig;
-        String taskStartFetched;
+        String taskStartConv;
 
         Date taskDueOrig;
-        String taskDueFetched;
+        String taskDueConv;
 
-        String taskProjectID;
+        String taskProjectIDbyProjectConv;
 
         int taskStatusByProjectOrig;
-        String taskStatusByProjFetched;
+        String taskStatusByProjConv;
 
         try {
             Statement statement = con.createStatement();
             ResultSet getTaskByProjrs = statement.executeQuery("SELECT * FROM task\n" +
                     "INNER JOIN project ON fk_projectId = projectId WHERE fk_projectId = '" + projectId + "';");
             while (getTaskByProjrs.next()) {
-                taskNameFetched = getTaskByProjrs.getString(2);
-                taskDescFetched = getTaskByProjrs.getString(3);
+                taskNameConv = getTaskByProjrs.getString(2);
+                taskDescConv = getTaskByProjrs.getString(3);
 
                 taskStartOrig = getTaskByProjrs.getDate(4);     // Get the start date.
-                taskStartFetched = taskStartOrig.toString();                // Convert start date to String.
+                taskStartConv = taskStartOrig.toString();                // Convert start date to String.
 
                 taskDueOrig = getTaskByProjrs.getDate(5);
-                taskDueFetched = taskDueOrig.toString();
+                taskDueConv = taskDueOrig.toString();
 
-                taskProjectID = getTaskByProjrs.getString(6);
+                taskProjectIDbyProjectConv = getTaskByProjrs.getString(6);
 
                 taskStatusByProjectOrig = getTaskByProjrs.getInt(7);
-                taskStatusByProjFetched = "" + taskStatusByProjectOrig;
+                taskStatusByProjConv = "" + taskStatusByProjectOrig;
 
-                tasksByProject.addAll(Arrays.asList(taskNameFetched, taskDescFetched, taskStartFetched, taskDueFetched, taskProjectID, taskStatusByProjFetched));
+                tasksByProject.addAll(Arrays.asList(taskNameConv, taskDescConv, taskStartConv, taskDueConv, taskProjectIDbyProjectConv, taskStatusByProjConv));
                 System.out.println("Tasks sorted by project: " + tasksByProject);
             }
 
