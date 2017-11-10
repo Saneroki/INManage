@@ -1,45 +1,42 @@
 package main.java.gui.windows;
 
 import gen.java.model.Project;
-import gen.java.model.Task;
 import javafx.fxml.FXML;
-import javafx.scene.control.ListView;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableView;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import main.java.gui.ClientLauncher;
-import main.java.gui.windows.Controller;
 import main.java.serverCom.ServerCom;
 
-import java.util.ArrayList;
-
-public class ProjectOverview extends Controller {
+public class ProjectOverview {
 
     @FXML
-    private ListView<?> projectList;
+    private VBox mainVbox;
 
     @FXML
-    private HBox centerHbox;
+    private Text projectNameText;
+
+    @FXML
+    private Text projectDescText;
+
+    @FXML
+    private Text dueDateText;
+
+    @FXML
+    private Button goToTasks;
+
+    @FXML
+    private TableView<String> userList;
 
     ServerCom serv = ClientLauncher.getServer();
-
-    private ArrayList<Task> list = (ArrayList<Task>) serv.getAllTasks(ClientLauncher.getCurrentProjectId());
-
-
-    @FXML
-    void arrowDown(MouseEvent event) {
-
-    }
-
-    @FXML
-    void back(MouseEvent event) {
-        ClientLauncher.getWindowChanger().setScene("/fxml/windows/Login.fxml");
-    }
 
     @FXML
     public void initialize(){
 
+        Project proj = serv.get
 
     }
+
 
 }

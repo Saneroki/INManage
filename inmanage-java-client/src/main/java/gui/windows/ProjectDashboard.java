@@ -1,23 +1,17 @@
 package main.java.gui.windows;
 
 import gen.java.model.Project;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.scene.control.cell.ComboBoxListCell;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import main.java.gui.ClientLauncher;
 import main.java.serverCom.ServerCom;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class ProjectDashboard {
 
@@ -75,7 +69,7 @@ public class ProjectDashboard {
         vboxLeft.setStyle("-fx-font-size: 20px");
         btn.setOnAction(event -> {
             ClientLauncher.setCurrentProjectId(proj.getId());
-            ClientLauncher.getWindowChanger().setScene("fxml/windows/ProjectOverview.fxml");
+            ClientLauncher.getWindowChanger().setScene("fxml/windows/TaskOverview.fxml");
         });
         vboxLeft.getChildren().add(btn);
     }
