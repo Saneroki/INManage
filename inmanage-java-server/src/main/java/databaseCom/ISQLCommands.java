@@ -64,5 +64,5 @@ public interface ISQLCommands {
     List getTaskByStatus(String projectid, int statusid) throws SQLException;
 
     List getAllTaskByProject(String projectid) throws SQLException;
-
+    
 }

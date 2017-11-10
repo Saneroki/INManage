@@ -1,6 +1,7 @@
 package main.java.databaseCom;
 
 import gen.java.model.Project;
+import gen.java.model.Task;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -821,12 +822,12 @@ if(true){
     }
 
     @Override
-    public boolean setTaskStatus(String taskid, int statusid) throws SQLException {
+    public boolean setTaskStatus(String taskId, int statusId) throws SQLException {
         Statement statement = con.createStatement();
         try {
             statement.executeQuery("UPDATE task\n" +
-                    "SET taskStatus = '"+statusid+"'\n" +
-                    "WHERE taskid = '"+taskid+"';");
+                    "SET taskStatus = '"+statusId+"'\n" +
+                    "WHERE taskId = '"+taskId+"';");
             return true;
         } catch (SQLException e) {
             System.out.println("\nCaused by the task not existing.");
@@ -839,11 +840,11 @@ if(true){
     }
 
     @Override
-    public boolean deleteTask(String taskid) throws SQLException {
+    public boolean deleteTask(String taskId) throws SQLException {
         Statement statement = con.createStatement();
         try {
             statement.executeQuery("DELETE FROM task\n" +
-                    "WHERE taskid = '"+taskid+"';");
+                    "WHERE taskId = '"+taskId+"';");
             return true;
         } catch (SQLException e) {
             System.out.println("\nCaused by the task not existing.");
@@ -856,11 +857,11 @@ if(true){
     }
 
     @Override
-    public boolean deleteAllTaskForProject(String projectid) throws SQLException {
+    public boolean deleteAllTaskForProject(String projectId) throws SQLException {
         Statement statement = con.createStatement();
         try {
             statement.executeQuery("DELETE FROM task\n" +
-                    "WHERE fk_projectid = '"+projectid+"';");
+                    "WHERE fk_projectId = '"+projectId+"';");
             return true;
         } catch (SQLException e) {
             System.out.println("\nCaused by the project not having any tasks.");
@@ -872,14 +873,181 @@ if(true){
         }
     }
 
+
+    /**
+     * author: omhaw16
+     */
     @Override
-    public List getTaskByStatus(String projectid, int statusid) throws SQLException {
-        return null;
+    public List getTaskByStatus(String projectId, int statusId) throws SQLException {
+        List<Task> tasksByStatus = new ArrayList<>();       // Creation of ArrayList
+
+        /** Explanation of the naming convention: **/
+        /* 'Conv' at the end of the attribute name means it either
+        * 1. Said information is already a string. This is the case with taskName and taskDesc.
+        * 2. It's been converted to a String, hence CONV (short for 'converted).
+        * /omhaw16
+        */
+
+
+        /* Start dates are just in case. They might be used later. /omhaw16
+
+        Date taskStartByStatusOrig;     // Start date for said task. This is a Date.
+        String taskStartByStatusConv;   // ... and here it's a String.
+
+        */
+
+        Date taskDueByStatusOrig;       // Due date for said task. This too is a date.
+        String taskDueByStatusConv;     // ... and here it's a String.
+
+        String taskProjectIDByStatusConv;  /* Project ID for said task. It's already in String format.
+                                           * Tasks are sorted according to their status. */
+
+        Statement statement = con.createStatement();        // Statement in order to use the SQL connection.
+
+        try {
+
+            ResultSet getTaskByStatusrs = statement.executeQuery("SELECT * FROM task\n" +
+                    "INNER JOIN taskStatus ON fk_StatusId = statusId WHERE fk_projectId = '" + projectId + "' AND fk_statusId = '" + statusId + "';");
+
+            Task task;
+
+            while (getTaskByStatusrs.next()) {
+
+                task = new Task();
+                task.setName(getTaskByStatusrs.getString(2));               // Get task name as a String.
+                task.setDescription(getTaskByStatusrs.getString(3));      // Get task desc. as a String.
+
+                //  taskStartByStatusOrig = getTaskByStatusrs.getDate(4);       // Get task's start date as a Date.
+                //  taskStartByStatusConv = taskStartByStatusOrig.toString();               // Convert taskStatus to String.
+
+                taskDueByStatusOrig = getTaskByStatusrs.getDate(5);         // Get taskDue as a Date.
+                taskDueByStatusConv = taskDueByStatusOrig.toString();                   // Convert taskDue to String.
+                task.setDuedate(taskDueByStatusConv);                                   // Store due date (String) in the Task object.
+
+                task.setId(getTaskByStatusrs.getString(6));  // Get taskProjectID as a String.
+
+                // TODO ((Remove comment when task.setStatus() has been implemented in the model.Task.java.
+                //task.setStatus(getTaskByStatusrs.getInt(7));       // Get taskStatus as an int.
+
+                // Add all elements to an ArrayList, which will then be returned.
+                // TODO Remember to add elements to the list.
+
+                // TODO Remove the comment from this once task.setStatus is implemented in model.Task.java. /omhaw16
+                // tasksByStatus.addAll());
+
+                // For testing purposes, it's printed to the console.
+
+                System.out.print("\n" + "Tasks sorted by status: " + tasksByStatus);
+
+            }
+            // When all elements have been traversed and added, return the list.
+
+            return tasksByStatus;
+
+        } catch (SQLException e) {          // In the case of any SQL error, catch the exception instance 'e'.
+
+            // In said case, print out an error message.
+
+            System.err.println("Error while getting tasks by status");
+
+            // Print out the stack trace to make debugging easier.
+            e.printStackTrace();
+
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+        }
+        return tasksByStatus;
     }
 
-    @Override
-    public List getAllTaskByProject(String projectid) throws SQLException {
-        return null;
+
+    /**
+     * author: omhaw16
+     */
+    public String getTaskNameByStatus(String projectId, int statusId) throws SQLException {
+
+        Statement statement = con.createStatement();        // Statement in order to use the SQL connection.
+
+        try {
+            ResultSet getTaskByStatusrs = statement.executeQuery("SELECT taskName FROM task WHERE fk_projectId = '" + projectId + "' AND fk_statusId = '" + statusId + "';");
+            getTaskByStatusrs.next();
+            return getTaskByStatusrs.getString(1);
+
+        } catch (SQLException e) {
+            System.err.println("Error while fetching task name.");
+            e.printStackTrace();
+            return null;
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+        }
+    }
+
+    /**
+     * author: omhaw16
+     */
+    public List getAllTaskByProject(String projectId) throws SQLException {
+        List<String> tasksByProject = new ArrayList<>();        // ArrayList to hold tasks sorted by project.
+
+        /** Explanation of the naming convention: **/
+        /* 'Conv' at the end of the attribute name means it either
+        * 1. Said information is already a string
+        *                   or
+        * 2. It's been converted to a String, hence CONV (short for 'converted).
+        * /omhaw16
+        */
+
+        Date taskStartOrig;
+        String taskStartConv; // just in case /omhaw16
+
+        Date taskDueOrig;
+        String taskDueConv;
+
+
+        try {
+
+            Statement statement = con.createStatement();
+            ResultSet getTaskByProjrs = statement.executeQuery("SELECT * FROM task\n" +
+                    "INNER JOIN project ON fk_projectId = projectId WHERE fk_projectId = '" + projectId + "';");
+
+            Task task;
+
+            while (getTaskByProjrs.next()) {
+                task = new Task();
+
+                task.setName(getTaskByProjrs.getString(2));         // Get task name as a String. Assign to Task object.
+                task.setDescription(getTaskByProjrs.getString(3));  // Get task desc. as a String. Assign to Task object.
+
+                //        taskStartOrig = getTaskByProjrs.getDate(4);                // Get the start date.
+                //        taskStartConv = taskStartOrig.toString();                // Convert start date to String. (just in case)
+
+                taskDueOrig = getTaskByProjrs.getDate(5);   // Get task date as a Date.
+                taskDueConv = taskDueOrig.toString();                   // Convert task date to a String.
+                task.setDuedate(taskDueConv);                           // Assign task due date (String) to the Task object.
+
+                task.setId(getTaskByProjrs.getString(6));   // Get project ID for specified task
+                // & assign it to the task object.
+
+
+                // TODO ((Remove comment when task.setStatus() has been implemented in model.Task.java. /omhaw16
+                //task.setStatus(getTaskByProjrs.getInt(7));       // Get taskStatus as an int.
+
+                // Add all elements to an ArrayList, which will then be returned.
+                // TODO Remember to add elements to the list.
+
+                // TODO Remove the comment from this once task.setStatus is implemented in model.Task.java. /omhaw16
+                //                tasksByProject.addAll();
+                System.out.println("Tasks sorted by project: " + tasksByProject);
+            }
+
+
+        } catch (SQLException e) {
+            System.err.println("Error while getting tasks by project.");
+            e.printStackTrace();
+        }
+        return tasksByProject;
     }
 
 }
