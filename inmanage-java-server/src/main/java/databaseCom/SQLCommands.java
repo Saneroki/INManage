@@ -1,7 +1,9 @@
 package main.java.databaseCom;
 
 import gen.java.model.Project;
+import gen.java.model.Task;
 
+import javax.xml.transform.Result;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -351,7 +353,7 @@ public class SQLCommands implements ISQLCommands {
     public String loginUser(String checkUsername, String checkPassword) throws SQLException {
         Statement statement = con.createStatement();
         try {
-            ResultSet resultSet = statement.executeQuery("SELECT id FROM public.user WHERE username = '" + checkUsername + "' AND password = '" + checkPassword + "';");
+            ResultSet resultSet = statement.executeQuery("SELECT userid FROM public.user WHERE username = '" + checkUsername + "' AND password = '" + checkPassword + "';");
             resultSet.next();
             return resultSet.getString(1);
         } catch (SQLException e){
@@ -378,7 +380,7 @@ public class SQLCommands implements ISQLCommands {
         try {
             UUID projectid = UUID.randomUUID();
             boolean check = true;
-            check = statement.execute("INSERT INTO public.project VALUES ('"+projectid+"',"+UUID.randomUUID()+",'"+projectdescription+"');");
+            check = statement.execute("INSERT INTO public.project VALUES ('"+projectid+"','"+projectname+"','"+projectdescription+"');");
             if (!check) {
                 statement.execute("INSERT INTO public.userproject VALUES ('"+UUID.randomUUID()+"','"+userid+"','"+projectid+"');");
             }
@@ -394,32 +396,34 @@ public class SQLCommands implements ISQLCommands {
         }
     }
 
+
     /**
      * Made by pepak16.
-     * Adds new project to the table project and respectively its association between
-     * the user and project in the userproject table to the database, if the project isn't existing already.
+     * Adds new user to a specific project via the projectid to the database, if the user isn't already added to the project.
+     * This is done via some checks that uses the private methods getUseridFromUsername() and checkIfUserProjectExist().
+     * @param username
      * @param projectid
      * @return boolean
      * @throws SQLException
      */
     @Override
-    public boolean deleteProject(UUID projectid) throws SQLException {
+    public boolean addUserToProject(String username,String projectid) throws SQLException {
         Statement statement = con.createStatement();
         try {
-            ResultSet resultset = statement.executeQuery("");
-            if (!statement.execute("DELETE FROM userProject WHERE fk_projectId = '"+projectid+"';")) {
-                if (!statement.execute("DELETE FROM task WHERE fk_projectId = '"+projectid+"';")) {
-                    if (!statement.execute("DELETE FROM project WHERE projectId = '"+projectid+"';")) {
-                        System.out.println("slettet projektet!!! HAHAHAHAHAH");
-                        return true;
-                    }
+            String userid = getUseridFromUsername(username);
+            if (!userid.equals(null)) {
+                if (checkIfUserProjectExist(userid,projectid)) {
+                    System.err.println("Brugeren er allerede tilføjet til projektet i forvejen!");
+                    return false;
+                } else {
+                    System.out.println("Adder bruger til projektet nu.");
+                    statement.execute("INSERT INTO public.userproject VALUES ('"+UUID.randomUUID()+"','"+userid+"','"+projectid+"');");
+                    return true;
                 }
-            } else {
-                return false;
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            System.err.println("\nCaused maybe by: project already exists in database.");
+            System.err.println("\nCaused maybe by: the user is already associated to the project.");
             return false;
         } finally {
             if (statement != null) {
@@ -429,62 +433,54 @@ public class SQLCommands implements ISQLCommands {
         return false;
     }
 
-    /*
-deleteProject
----------------------------
-projectId = projectId
-
-DELETE FROM userProject
-WHERE fk_projectId = 'projectId';
-//Deletes all relations between any user and the porject.
-
-DELETE FROM task
-WHERE fk_projectId = 'projectId';
-//deletes all tasks for the project.
-//Run deleteAllTaskForProject()
-
-DELETE FROM project
-WHERE projectId = 'projectId';
-//delete the project itself.
+    /**
+     * Made by pepak16.
+     * A private method to be used by the addUserToProject() method.
+     * Fetches the userid via the given username from argument.
+     * Temporary problem: can only fetch one row of userid associated with the username,
+     * if the username has more than one userid associations.
+     * @param username
+     * @return String
+     * @throws SQLException
      */
+    private String getUseridFromUsername(String username) throws SQLException {
+        Statement statement = con.createStatement();
+        try {
+            ResultSet resultset = statement.executeQuery("SELECT userid FROM public.user WHERE username = '"+username+"';");
+            resultset.next();
+            return resultset.getString(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("\nCaused maybe by: the given username doesn't exist.\n");
+            return null;
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+        }
+    }
 
     /**
      * Made by pepak16.
-     * Adds new user to a specific project via the projectid to the database, if the user isn't already added to the project.
-     * @param username
+     * Checks whether the a userid and projectid is associated in userproject table,
+     * if yes then it would return true, else it would return false.
+     * It would perhaps catch a PSQLException saying that
+     * "ResultSet not positioned properly" the given userid or/and project is wrong.
+     * @param userid
      * @param projectid
-     * @return boolean
+     * @return String
      * @throws SQLException
      */
-    @Override
-    public boolean addUserToProject(String username,UUID projectid) throws SQLException {
+    private boolean checkIfUserProjectExist(String userid, String projectid) throws SQLException {
         Statement statement = con.createStatement();
         try {
-            String userid;
-            ResultSet resultset = statement.executeQuery("SELECT userid FROM public.user WHERE username = '"+username+"';");
-            while (resultset.next()) {
-                userid = resultset.getString(1);
-                if (!userid.equals(null)) {
-                    boolean check = statement.execute("SELECT fk_userId, fk_projectId FROM userproject WHERE fk_userId = '"+userid+"' AND fk_projectId = '"+projectid+"';");
-                    if (!check) {
-                        System.out.println("Brugeren er allerede added til projektet i forvejen.");
-                    } else {
-                        System.out.println("Adder projektet nu.");
-
-                    }
-                } else {
-                    System.err.println("Caused by: user doesn't exist.");
-                }
-            }
-
-            //ResultSet resultset = statement.executeQuery("SELECT * FROM userProject WHERE fk_userid = '"+userid+"';");
-            //resultset.next();
-            //resultset.getString(1);
-            //statement.execute("");
-            return true;
+            boolean check;
+            ResultSet resultset= statement.executeQuery("SELECT exists(SELECT fk_userId, fk_projectId FROM userproject WHERE fk_userId = '"+userid+"' AND fk_projectId = '"+projectid+"');");
+            resultset.next();
+            check = resultset.getBoolean(1);
+            return check;
         } catch (SQLException e) {
             e.printStackTrace();
-            System.err.println("\nCaused maybe by: the user is already associated to the project.");
             return false;
         } finally {
             if (statement != null) {
@@ -492,110 +488,6 @@ WHERE projectId = 'projectId';
             }
         }
     }
-
-    @Override
-    public boolean deleteUserFromProject(UUID userid,UUID projectid) throws SQLException {
-        Statement statement = con.createStatement();
-        try {
-            boolean check = statement.execute("DELETE FROM userProject WHERE fk_userId = '"+userid+"' AND fk_projectId = '"+projectid+"';");
-            if (!check) {
-                return true;
-            } else {
-                return false;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.err.println("\nCaused maybe by: the user is already associated to the project.");
-            return false;
-        } finally {
-            if (statement != null) {
-                statement.close();
-            }
-        }
-    }
-
-
-
-
-    /*
-
-deleteUserFromProject
----------------------------
-userId = userId
-projectId = projectId
-
-DELETE FROM userProject
-WHERE fk_userId = 'userId' AND fk_projectId = 'projectId';
-
-
-
-
-
-
-
-
-
-
-addUserToProject()
-
-projectId = projectId
-userId = userId
-
-SELECT (userId, userName) FROM user
-WHERE userId = 'userId';
-
-if(true){
-
-  SELECT * FROM userProject
-  WHERE fk_userId = 'userId';
-
-  if(true) {
-    "User is already part of project"
-  } else {
-
-    INSERT INTO userProject (userProjectId, fk_projectId, fk_userId)
-    VALUES (UUID, projectId, userId);
-
-  }
-
-} else {
-  "User doesn't exist";
-}
-
-
-
-
-
-
-
-deleteUserFromProject
----------------------------
-userId = userId
-projectId = projectId
-
-DELETE FROM userProject
-WHERE (fk_userId, fk_projectId) IN ('userId', 'projectId');
-
----------------------------------
-
-deleteProject
----------------------------
-projectId = projectId
-
-DELETE FROM userProject
-WHERE fk_projectId = 'projectId';
-//Deletes all relations between any user and the porject.
-
-DELETE FROM task
-WHERE fk_projectId = 'projectId';
-//deletes all tasks for the project.
-
-DELETE FROM project
-WHERE projectId = 'projectId';
-//delete the project itself.
-     */
-
-
 
 
     /**
@@ -753,7 +645,7 @@ WHERE projectId = 'projectId';
         Statement statement = con.createStatement();
         try {
             statement.execute("INSERT INTO task (taskId, taskName, taskDescription, taskStart, taskDue, fk_projectID, fk_statusId)\n" +
-                    "VALUES ('"+UUID.randomUUID()+"', '"+taskName+"', '"+taskdescription+"', 'CURDATE()', '"+taskdue+"', '"+projectid+"', '1');");
+                    "VALUES ('"+UUID.randomUUID()+"', '"+taskName+"', '"+taskdescription+"', 'now()', '"+taskdue+"', '"+projectid+"', '1');");
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -766,12 +658,12 @@ WHERE projectId = 'projectId';
     }
 
     @Override
-    public boolean setTaskStatus(String taskid, int statusid) throws SQLException {
+    public boolean setTaskStatus(String taskId, int statusId) throws SQLException {
         Statement statement = con.createStatement();
         try {
             statement.executeQuery("UPDATE task\n" +
-                    "SET taskStatus = '"+statusid+"'\n" +
-                    "WHERE taskid = '"+taskid+"';");
+                    "SET taskStatus = '"+statusId+"'\n" +
+                    "WHERE taskId = '"+taskId+"';");
             return true;
         } catch (SQLException e) {
             System.out.println("\nCaused by the task not existing.");
@@ -784,11 +676,11 @@ WHERE projectId = 'projectId';
     }
 
     @Override
-    public boolean deleteTask(String taskid) throws SQLException {
+    public boolean deleteTask(String taskId) throws SQLException {
         Statement statement = con.createStatement();
         try {
             statement.executeQuery("DELETE FROM task\n" +
-                    "WHERE taskid = '"+taskid+"';");
+                    "WHERE taskId = '"+taskId+"';");
             return true;
         } catch (SQLException e) {
             System.out.println("\nCaused by the task not existing.");
@@ -801,11 +693,11 @@ WHERE projectId = 'projectId';
     }
 
     @Override
-    public boolean deleteAllTaskForProject(String projectid) throws SQLException {
+    public boolean deleteAllTaskForProject(String projectId) throws SQLException {
         Statement statement = con.createStatement();
         try {
             statement.executeQuery("DELETE FROM task\n" +
-                    "WHERE fk_projectid = '"+projectid+"';");
+                    "WHERE fk_projectId = '"+projectId+"';");
             return true;
         } catch (SQLException e) {
             System.out.println("\nCaused by the project not having any tasks.");
@@ -817,14 +709,183 @@ WHERE projectId = 'projectId';
         }
     }
 
+
+    /**
+     * author: omhaw16
+     */
     @Override
-    public List getTaskByStatus(String projectid, int statusid) throws SQLException {
-        return null;
+    public List getTaskByStatus(String projectId, int statusId) throws SQLException {
+        List<Task> tasksByStatus = new ArrayList<>();       // Creation of ArrayList
+
+        /** Explanation of the naming convention: **/
+        /* 'Conv' at the end of the attribute name means it either
+        * 1. Said information is already a string. This is the case with taskName and taskDesc.
+        * 2. It's been converted to a String, hence CONV (short for 'converted).
+        * /omhaw16
+        */
+
+
+        /* Start dates are just in case. They might be used later. /omhaw16
+
+        Date taskStartByStatusOrig;     // Start date for said task. This is a Date.
+        String taskStartByStatusConv;   // ... and here it's a String.
+
+        */
+
+        Date taskDueByStatusOrig;       // Due date for said task. This too is a date.
+        String taskDueByStatusConv;     // ... and here it's a String.
+
+        String taskProjectIDByStatusConv;  /* Project ID for said task. It's already in String format.
+                                           * Tasks are sorted according to their status. */
+
+        Statement statement = con.createStatement();        // Statement in order to use the SQL connection.
+
+        try {
+
+            ResultSet getTaskByStatusrs = statement.executeQuery("SELECT * FROM task\n" +
+                    "INNER JOIN taskStatus ON fk_StatusId = statusId WHERE fk_projectId = '" + projectId + "' AND fk_statusId = '" + statusId + "';");
+
+            Task task;
+
+            while (getTaskByStatusrs.next()) {
+
+                task = new Task();
+                task.setName(getTaskByStatusrs.getString(2));               // Get task name as a String.
+                task.setDescription(getTaskByStatusrs.getString(3));      // Get task desc. as a String.
+
+                //  taskStartByStatusOrig = getTaskByStatusrs.getDate(4);       // Get task's start date as a Date.
+                //  taskStartByStatusConv = taskStartByStatusOrig.toString();               // Convert taskStatus to String.
+
+                taskDueByStatusOrig = getTaskByStatusrs.getDate(5);         // Get taskDue as a Date.
+                taskDueByStatusConv = taskDueByStatusOrig.toString();                   // Convert taskDue to String.
+                task.setDuedate(taskDueByStatusConv);                                   // Store due date (String) in the Task object.
+
+                task.setId(getTaskByStatusrs.getString(6));  // Get taskProjectID as a String.
+
+                // TODO ((Remove comment when task.setStatus() has been implemented in the model.Task.java.
+                //task.setStatus(getTaskByStatusrs.getInt(7));       // Get taskStatus as an int.
+
+                // Add all elements to an ArrayList, which will then be returned.
+                // TODO Remember to add elements to the list.
+
+                // TODO Remove the comment from this once task.setStatus is implemented in model.Task.java. /omhaw16
+                // tasksByStatus.addAll());
+
+                // For testing purposes, it's printed to the console.
+
+                System.out.print("\n" + "Tasks sorted by status: " + tasksByStatus);
+
+            }
+            // When all elements have been traversed and added, return the list.
+
+            return tasksByStatus;
+
+        } catch (SQLException e) {          // In the case of any SQL error, catch the exception instance 'e'.
+
+            // In said case, print out an error message.
+
+            System.err.println("Error while getting tasks by status");
+
+            // Print out the stack trace to make debugging easier.
+            e.printStackTrace();
+
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+        }
+        return tasksByStatus;
     }
 
-    @Override
-    public List getAllTaskByProject(String projectid) throws SQLException {
-        return null;
+
+    /**
+     * author: omhaw16
+     */
+    public String getTaskNameByStatus(String projectId, int statusId) throws SQLException {
+
+        Statement statement = con.createStatement();        // Statement in order to use the SQL connection.
+
+        try {
+            ResultSet getTaskByStatusrs = statement.executeQuery("SELECT taskName FROM task WHERE fk_projectId = '" + projectId + "' AND fk_statusId = '" + statusId + "';");
+            getTaskByStatusrs.next();
+            return getTaskByStatusrs.getString(1);
+
+        } catch (SQLException e) {
+            System.err.println("Error while fetching task name.");
+            e.printStackTrace();
+            return null;
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+        }
+    }
+
+    /**
+     * author: omhaw16
+     */
+    public List getAllTaskByProject(String projectId) throws SQLException {
+        List<Task> tasksByProject = new ArrayList<>();        // ArrayList to hold tasks sorted by project.
+
+        /** Explanation of the naming convention: **/
+        /* 'Conv' at the end of the attribute name means it either
+        * 1. Said information is already a string
+        *                   or
+        * 2. It's been converted to a String, hence CONV (short for 'converted).
+        * /omhaw16
+        */
+
+        Date taskStartOrig;
+        String taskStartConv; // just in case /omhaw16
+
+        Date taskDueOrig;
+        String taskDueConv;
+
+
+        try {
+
+            Statement statement = con.createStatement();
+            ResultSet getTaskByProjrs = statement.executeQuery("SELECT * FROM task\n" +
+                    "INNER JOIN project ON fk_projectId = projectId WHERE fk_projectId = '" + projectId + "';");
+
+            Task task;
+
+            while (getTaskByProjrs.next()) {
+                task = new Task();
+
+                task.setName(getTaskByProjrs.getString(2));         // Get task name as a String. Assign to Task object.
+                task.setDescription(getTaskByProjrs.getString(3));  // Get task desc. as a String. Assign to Task object.
+
+                //        taskStartOrig = getTaskByProjrs.getDate(4);                // Get the start date.
+                //        taskStartConv = taskStartOrig.toString();                // Convert start date to String. (just in case)
+
+                taskDueOrig = getTaskByProjrs.getDate(5);   // Get task date as a Date.
+                taskDueConv = taskDueOrig.toString();                   // Convert task date to a String.
+                task.setDuedate(taskDueConv);                           // Assign task due date (String) to the Task object.
+
+                task.setId(getTaskByProjrs.getString(6));   // Get project ID for specified task
+                // & assign it to the task object.
+
+
+                // TODO ((Remove comment when task.setStatus() has been implemented in model.Task.java. /omhaw16
+                //task.setStatus(getTaskByProjrs.getInt(7));       // Get taskStatus as an int.
+
+                // Add all elements to an ArrayList, which will then be returned.
+                // TODO Remember to add elements to the list.
+
+                // TODO Remove the comment from this once task.setStatus is implemented in model.Task.java. /omhaw16
+                                tasksByProject.add(task);
+
+            }
+
+
+
+        } catch (SQLException e) {
+            System.err.println("Error while getting tasks by project.");
+            e.printStackTrace();
+        }
+        System.out.println("Returning: " + tasksByProject.toString());
+        return tasksByProject;
     }
 
 }

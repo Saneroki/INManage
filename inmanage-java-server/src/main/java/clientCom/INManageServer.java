@@ -47,9 +47,16 @@ public class INManageServer {
         return "Succes!";
 
     }
-    public void addProjectResponse(Project project){
+    public String addProjectResponse(Project project){
         System.out.println("Adding new project: " + project.getName());
-        //sql.addProject .....
+        try {
+            sql.addProject(UUID.fromString(project.getUserid()),project.getName(),project.getDescription());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return "Succes!";
+
     }
 
     public String loginResponse(String username, String password){
@@ -74,7 +81,7 @@ public class INManageServer {
         List<Project> list = new ArrayList<>();
 
         try {
-            list = sql.(projectID);
+            list = sql.getProject(UUID.fromString(projectID));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -82,7 +89,7 @@ public class INManageServer {
         return list;
     }
 
-    public void addTaskResponse(AddTaskObject addTask){
+    public String addTaskResponse(AddTaskObject addTask){
 
         System.out.println("Adding new task: " + addTask.getTaskName());
 
@@ -92,17 +99,43 @@ public class INManageServer {
             e.printStackTrace();
         }
 
+        return "Succes!";
+
     }
 
-    public List<Task> addTaskResponse(String projectId){
+    /*
+
+
+
+     */
+
+    public List<Task> getTaskResponse(String projectId){
         List<Task> list = new ArrayList<>();
 
-        //sql.getTasks()
+        System.out.println("Getting tasks for the project: " + projectId);
+
+        try {
+           list = sql.getAllTaskByProject(projectId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         //add tasks to list
 
         return list;
 
+    }
+
+    public String addUserToProject(String projectId, String username){
+
+        try {
+            //It says userid, but it is username
+            sql.addUserToProject(username,projectId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return "Succes!";
     }
 
 }

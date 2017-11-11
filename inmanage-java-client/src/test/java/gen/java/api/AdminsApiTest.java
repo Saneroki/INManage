@@ -1,5 +1,6 @@
-package gen.java.api;
+package test.java.gen.java.api;
 
+import gen.java.api.AdminsApi;
 import gen.java.invoker.ApiException;
 import gen.java.model.User;
 import org.junit.Test;
@@ -25,13 +26,10 @@ public class AdminsApiTest {
      * @throws ApiException
      *          if the Api call fails
      */
-
     @Test
     public void addUserTest() throws ApiException {
-        User user = new User();
-        user.setName("MalteNEWNEW");
-        user.setPassword("New password");
-        //api.addUser(user);
+        User user = null;
+        // api.addUser(user);
 
         // TODO: test validations
     }
@@ -53,5 +51,5 @@ public class AdminsApiTest {
 
         // TODO: test validations
     }
-
+    
 }

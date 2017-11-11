@@ -96,4 +96,17 @@ public class ServerComImpl implements ServerCom {
         }
         return null;
     }
+
+    @Override
+    public void addUserToProject(String userID, String projecID) {
+
+        //It says id but it is username
+        try {
+            userApi.addUserToProject(projecID,userID);
+        } catch (ApiException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }

@@ -22,7 +22,7 @@ public class SignUp{
     private ServerCom serv = new ServerComImpl();
 
     public void cancel(ActionEvent actionEvent) {
-        ClientLauncher.getWindowChanger().setScene("Login");
+        ClientLauncher.getWindowChanger().setScene("fxml/windows/Login.fxml");
     }
 
     public void signup(ActionEvent actionEvent) {

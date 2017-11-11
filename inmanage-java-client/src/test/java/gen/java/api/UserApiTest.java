@@ -1,5 +1,6 @@
-package gen.java.api;
+package test.java.gen.java.api;
 
+import gen.java.api.UserApi;
 import gen.java.invoker.ApiException;
 import gen.java.model.AddTaskObject;
 import gen.java.model.Project;
@@ -16,7 +17,7 @@ import java.util.Map;
  */
 public class UserApiTest {
 
-    //private final UserApi api = new UserApi();
+    private final UserApi api = new UserApi();
 
     
     /**
@@ -47,6 +48,23 @@ public class UserApiTest {
     public void addTaskTest() throws ApiException {
         AddTaskObject addTaskObject = null;
         // api.addTask(addTaskObject);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Adds a user to a project
+     *
+     * Adds a user to a specific project
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void addUserToProjectTest() throws ApiException {
+        String projectID = null;
+        String theIDOfTheUserMakingTheOperation = null;
+        // api.addUserToProject(projectID, theIDOfTheUserMakingTheOperation);
 
         // TODO: test validations
     }

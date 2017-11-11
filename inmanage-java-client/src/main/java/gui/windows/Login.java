@@ -31,7 +31,7 @@ public class Login {
         System.out.println(resp);
         ClientLauncher.setUserId(resp);
         if((resp)!=null){
-            ClientLauncher.getWindowChanger().setScene("fxml/windows/Dashboard.fxml");
+            ClientLauncher.getWindowChanger().setScene("fxml/windows/ProjectDashboard.fxml");
         }else{
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Error logging in");
@@ -44,6 +44,7 @@ public class Login {
     }
 
     public void turnOff(MouseEvent mouseEvent) {
+        System.exit(1);
     }
 }
 
