@@ -18,7 +18,3 @@ inmanage-java-server/.idea
 inmanage-java-client/bin/
 inmanage-java-client/src/test/java/
 inmanage-java-server/bin/
-.DS_Store
-inmanage-java-client/.DS_Store
-inmanage-java-server/.DS_Store
-inmanage-java-server/src/.DS_Store
