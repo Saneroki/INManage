@@ -28,8 +28,7 @@ public class AddUserToProjectController {
     @FXML
     void onClickAdd(ActionEvent event) {
         if(event.getSource() == ButtonClose){
-            Stage stage = (Stage)ButtonClose.getScene().getWindow();
-            stage.close();
+            ClientLauncher.getWindowChanger().setScene("fxml/windows/ProjectOverview.fxml");
         }
         if(event.getSource()== ButtonAdd){
             if(!(TextFieldUsernameInput.getText()=="")){
@@ -37,7 +36,8 @@ public class AddUserToProjectController {
                 //implement add user method/ call to class
                 //responsible for searching database and connects user to current project
                 //
-
+                //
+                serv.addUserToProject(TextFieldUsernameInput.getText().toString(),ClientLauncher.getProj().getId());
 
             }
         }

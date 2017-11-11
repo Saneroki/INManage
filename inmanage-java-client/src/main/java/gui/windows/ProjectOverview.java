@@ -32,6 +32,9 @@ public class ProjectOverview {
     @FXML
     private Button addTaskBtn;
 
+    @FXML
+    private Button addUser;
+
     ServerCom serv = ClientLauncher.getServer();
 
     @FXML
@@ -55,6 +58,10 @@ public class ProjectOverview {
 
         addTaskBtn.setOnAction(event -> {
             ClientLauncher.getWindowChanger().setScene("fxml/windows/AddTask.fxml");
+        });
+
+        addUser.setOnAction(event -> {
+            ClientLauncher.getWindowChanger().setScene("fxml/windows/AddUserToProject.fxml");
         });
     }
 

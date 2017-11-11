@@ -395,26 +395,44 @@ public class SQLCommands implements ISQLCommands {
         }
     }
 
+
     /**
      * Made by pepak16.
-     * Adds new user to a specific project to the database, if the user isn't already associated to the project.
-     * @param userid
+     * Adds new user to a specific project via the projectid to the database, if the user isn't already added to the project.
+     * @param username
      * @param projectid
      * @return boolean
      * @throws SQLException
      */
-
     @Override
-    public boolean addUserToProject(UUID userid,UUID projectid) throws SQLException {
+    public boolean addUserToProject(String username,UUID projectid) throws SQLException {
         Statement statement = con.createStatement();
         try {
-            ResultSet resultset = statement.executeQuery("");
-            resultset.next();
-            statement.execute("INSERT INTO public.userproject VALUES '"+UUID.randomUUID()+"','"+userid+"','"+projectid+"';");
+            String userid;
+            ResultSet resultset = statement.executeQuery("SELECT userid FROM public.user WHERE username = '"+username+"';");
+            while (resultset.next()) {
+                userid = resultset.getString(1);
+                if (!userid.equals(null)) {
+                    boolean check = statement.execute("SELECT fk_userId, fk_projectId FROM userproject WHERE fk_userId = '"+userid+"' AND fk_projectId = '"+projectid+"';");
+                    if (!check) {
+                        System.out.println("Brugeren er allerede added til projektet i forvejen.");
+                    } else {
+                        System.out.println("Adder projektet nu.");
+
+                    }
+                } else {
+                    System.err.println("Caused by: user doesn't exist.");
+                }
+            }
+
+            //ResultSet resultset = statement.executeQuery("SELECT * FROM userProject WHERE fk_userid = '"+userid+"';");
+            //resultset.next();
+            //resultset.getString(1);
+            //statement.execute("");
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
-            System.err.println("\nCaused by: the user is already associated to the project.");
+            System.err.println("\nCaused maybe by: the user is already associated to the project.");
             return false;
         } finally {
             if (statement != null) {
@@ -423,36 +441,6 @@ public class SQLCommands implements ISQLCommands {
         }
     }
 
-
-    /*
-    addUserToProject()
-
-projectId = projectId
-userName = userName
-
-SELECT (userId, userName) FROM user
-WHERE userName = 'userName';
-
-if(true){
-
-  userId = userId
-
-  SELECT * FROM userProject
-  WHERE fk_userId = 'userId';
-
-  if(true) {
-    "User is already part of project"
-  } else {
-
-    INSERT INTO userProject (userProjectId, fk_projectId, fk_userId)
-    VALUES (UUID, projectId, userId);
-
-  }
-
-} else {
-  "User doesn't exist";
-}
-     */
 
 
     /**

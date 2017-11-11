@@ -2,20 +2,45 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09a1278c-3f08-40fa-85d6-07c56f294b41" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/AddUserToProjectController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/AddUserToProject.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/AddProject.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/AddProject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/AddTask.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/AddTask.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/Login.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/Login.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/ProjectDashboard.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/ProjectDashboard.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/api/UserApi.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/api/UserApi.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/ApiClient.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/ApiClient.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/ApiException.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/ApiException.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/Configuration.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/Configuration.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/Pair.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/Pair.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/StringUtil.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/StringUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/auth/ApiKeyAuth.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/auth/ApiKeyAuth.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/auth/OAuth.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/auth/OAuth.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/model/AddTaskObject.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/model/AddTaskObject.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/model/Project.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/model/Project.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/model/Task.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/model/Task.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/model/User.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/model/User.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/AddUserToProjectController.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/AddUserToProjectController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/ProjectOverview.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/ProjectOverview.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/TaskOverview.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/TaskOverview.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/ProjectDashboard.fxml" afterPath="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/ProjectDashboard.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-client/src/main/java/serverCom/ServerCom.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/main/java/serverCom/ServerCom.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-client/src/main/java/serverCom/ServerComImpl.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/main/java/serverCom/ServerComImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/AddUserToProject.fxml" afterPath="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/AddUserToProject.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/ProjectOverview.fxml" afterPath="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/ProjectOverview.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/TaskOverview.fxml" afterPath="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/TaskOverview.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-client/src/test/java/gen/java/api/AdminsApiTest.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/test/java/gen/java/api/AdminsApiTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-client/src/test/java/gen/java/api/UserApiTest.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/test/java/gen/java/api/UserApiTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/ApiException.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/ApiException.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/ApiOriginFilter.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/ApiOriginFilter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/ApiResponseMessage.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/ApiResponseMessage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/NotFoundException.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/NotFoundException.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/ProjectApi.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/ProjectApi.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/ProjectApiService.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/ProjectApiService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/StringUtil.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/StringUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/TaskApi.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/TaskApi.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/TaskApiService.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/TaskApiService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/UsersApi.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/UsersApi.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/UsersApiService.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/UsersApiService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/factories/ProjectApiServiceFactory.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/factories/ProjectApiServiceFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/factories/TaskApiServiceFactory.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/factories/TaskApiServiceFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/factories/UsersApiServiceFactory.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/factories/UsersApiServiceFactory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/impl/ProjectApiServiceImpl.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/impl/ProjectApiServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/impl/TaskApiServiceImpl.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/impl/TaskApiServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/model/AddTaskObject.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/model/AddTaskObject.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/model/Project.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/model/Project.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/model/Task.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/model/Task.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/model/User.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/model/User.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-server/src/main/java/clientCom/INManageServer.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/main/java/clientCom/INManageServer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/ISQLCommands.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/ISQLCommands.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/SQLCommands.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/SQLCommands.java" />
@@ -72,24 +97,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/Controller.java">
+      <file leaf-file-name="AddUserToProjectController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/AddUserToProjectController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Login.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/Login.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="46" column="21" lean-forward="false" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
+            <state relative-caret-position="248">
+              <caret line="28" column="36" lean-forward="false" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
               <folding>
-                <element signature="e#1503#1504#0" expanded="true" />
-                <element signature="e#1533#1534#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -98,22 +112,85 @@
       <file leaf-file-name="ClientLauncher.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/ClientLauncher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+            <state relative-caret-position="180">
+              <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TaskOverview.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/TaskOverview.java">
+      <file leaf-file-name="user" pinned="false" current-in-tab="false">
+        <entry file="das://table:/2c70575b/3280d27a-78cc-44d9-841c-346bb2c8624f/si3_2017_group_1_db.public.user">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SQLCommands.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/SQLCommands.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="38" column="52" lean-forward="true" selection-start-line="38" selection-start-column="52" selection-end-line="38" selection-end-column="52" />
+            <state relative-caret-position="268">
+              <caret line="420" column="0" lean-forward="false" selection-start-line="420" selection-start-column="0" selection-end-line="420" selection-end-column="0" />
               <folding>
-                <element signature="e#1034#1035#0" expanded="true" />
-                <element signature="e#1064#1065#0" expanded="true" />
+                <marker date="1510411472268" expanded="true" signature="1271:1399" ph="INSERT INTO public.user... " />
+                <marker date="1510411472268" expanded="true" signature="2147:2211" ph="SELECT passw... user" />
+                <marker date="1510411472268" expanded="true" signature="2992:3056" ph="SELECT passw... user" />
+                <marker date="1510411472268" expanded="true" signature="3862:3927" ph="SELECT first... user" />
+                <marker date="1510411472268" expanded="true" signature="4733:4797" ph="SELECT lastn... user" />
+                <marker date="1510411472268" expanded="true" signature="5585:5665" ph="UPDATE publi... " />
+                <marker date="1510411472268" expanded="true" signature="6350:6430" ph="UPDATE publi... " />
+                <marker date="1510411472268" expanded="true" signature="7127:7209" ph="UPDATE publi... " />
+                <marker date="1510411472268" expanded="true" signature="7893:7973" ph="UPDATE publi... " />
+                <marker date="1510411472268" expanded="true" signature="8709:8781" ph="UPDATE publi... " />
+                <marker date="1510411472268" expanded="true" signature="9536:9600" ph="SELECT usern... user" />
+                <marker date="1510411472268" expanded="true" signature="10504:10564" ph="SELECT role user" />
+                <marker date="1510411472268" expanded="true" signature="11534:11644" ph="SELECT useri... user" />
+                <marker date="1510411472268" expanded="true" signature="12521:12572" ph="INSERT INTO public.project... " />
+                <marker date="1510411472268" expanded="true" signature="12521:12615" ph="INSERT INTO public.project... " />
+                <marker date="1510411472268" expanded="true" signature="12681:12773" ph="INSERT INTO public.userproject... " />
+                <marker date="1510411472268" expanded="true" signature="13645:13707" ph="SELECT useri... user" />
+                <marker date="1510411472268" expanded="true" signature="13899:14012" ph="SELECT fk_us... userproject" />
+                <marker date="1510411472268" expanded="true" signature="15369:15550" ph="SELECT name project" />
+                <marker date="1510411472268" expanded="true" signature="16405:16507" ph="UPDATE publi... " />
+                <marker date="1510411472268" expanded="true" signature="17297:17487" ph="SELECT descr... project" />
+                <marker date="1510411472268" expanded="true" signature="18378:18469" ph="UPDATE publi... " />
+                <marker date="1510411472268" expanded="true" signature="19302:19482" ph="SELECT * fro... project" />
+                <marker date="1510411472268" expanded="true" signature="20448:20691" ph="INSERT INTO task... " />
+                <marker date="1510411472268" expanded="true" signature="21139:21262" ph="UPDATE task\... " />
+                <marker date="1510411472268" expanded="true" signature="21730:21800" ph="DELETE FROM " />
+                <marker date="1510411472268" expanded="true" signature="22284:22363" ph="DELETE FROM " />
+                <marker date="1510411472268" expanded="true" signature="24006:24176" ph="SELECT * FRO... task" />
+                <marker date="1510411472268" expanded="true" signature="26816:26919" ph="SELECT taskN... task" />
+                <marker date="1510411472268" expanded="true" signature="28111:28243" ph="SELECT * FRO... task" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectDashboard.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/ProjectDashboard.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="317">
+              <caret line="59" column="5" lean-forward="true" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1188#1189#0" expanded="true" />
+                <element signature="e#1273#1274#0" expanded="true" />
+                <element signature="e#1321#1322#0" expanded="true" />
+                <element signature="e#1351#1352#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectOverview.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/ProjectOverview.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="67" column="9" lean-forward="true" selection-start-line="67" selection-start-column="9" selection-end-line="67" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -124,60 +201,43 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+            <state relative-caret-position="225">
+              <caret line="16" column="13" lean-forward="true" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AddUserToProjectController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/AddUserToProjectController.java">
+      <file leaf-file-name="ProjectOverview.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/ProjectOverview.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="25" column="48" lean-forward="false" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
+            <state relative-caret-position="17">
+              <caret line="10" column="41" lean-forward="true" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <marker date="1510410890832" expanded="true" signature="5500:5520" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UsersApiServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/impl/UsersApiServiceImpl.java">
+      <file leaf-file-name="ServerComImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/serverCom/ServerComImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="21" column="85" lean-forward="false" selection-start-line="21" selection-start-column="85" selection-end-line="21" selection-end-column="85" />
+            <state relative-caret-position="229">
+              <caret line="102" column="39" lean-forward="false" selection-start-line="102" selection-start-column="39" selection-end-line="102" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TaskApiServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/impl/TaskApiServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="24" column="87" lean-forward="false" selection-start-line="24" selection-start-column="87" selection-end-line="24" selection-end-column="87" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProjectApiServiceImpl.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ProjectApiServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/impl/ProjectApiServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TaskDetail.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/TaskDetail.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            <state relative-caret-position="212">
+              <caret line="39" column="85" lean-forward="false" selection-start-line="39" selection-start-column="85" selection-end-line="39" selection-end-column="85" />
               <folding />
             </state>
           </provider>
@@ -196,6 +256,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>addProject</find>
+      <find>addUserTo</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -224,21 +285,23 @@
         <option value="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/AddTask.java" />
         <option value="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/AddTask.fxml" />
         <option value="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/AddProject.fxml" />
-        <option value="$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/ISQLCommands.java" />
-        <option value="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/impl/ProjectApiServiceImpl.java" />
         <option value="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/ProjectOverview.fxml" />
         <option value="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/TaskOverview.fxml" />
         <option value="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/impl/TaskApiServiceImpl.java" />
-        <option value="$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/SQLCommands.java" />
-        <option value="$PROJECT_DIR$/inmanage-java-server/src/main/java/clientCom/INManageServer.java" />
         <option value="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/AddProject.java" />
         <option value="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/AddTask.java" />
         <option value="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/ProjectDashboard.java" />
-        <option value="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/ProjectOverview.java" />
         <option value="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/Login.java" />
         <option value="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/TaskOverview.java" />
+        <option value="$PROJECT_DIR$/inmanage-java-client/src/main/java/serverCom/ServerCom.java" />
+        <option value="$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/ISQLCommands.java" />
+        <option value="$PROJECT_DIR$/inmanage-java-server/src/main/java/clientCom/INManageServer.java" />
+        <option value="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/impl/ProjectApiServiceImpl.java" />
+        <option value="$PROJECT_DIR$/inmanage-java-client/src/main/java/serverCom/ServerComImpl.java" />
+        <option value="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/ProjectOverview.java" />
         <option value="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/AddUserToProject.fxml" />
         <option value="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/AddUserToProjectController.java" />
+        <option value="$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/SQLCommands.java" />
       </list>
     </option>
   </component>
@@ -941,7 +1004,7 @@
       <workItem from="1510246442811" duration="440000" />
       <workItem from="1510324227081" duration="5268000" />
       <workItem from="1510337830993" duration="2744000" />
-      <workItem from="1510399459051" duration="9292000" />
+      <workItem from="1510399459051" duration="11483000" />
     </task>
     <task id="LOCAL-00001" summary="Deleted domain package (not necessary for the project), Merged with Omars Task methods in SQLCommands">
       <created>1510306008738</created>
@@ -982,7 +1045,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24490000" />
+    <option name="totallyTimeSpent" value="26681000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1552" height="840" extended-state="6" />
@@ -996,15 +1059,15 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32739726" sideWeight="0.503231" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1816354" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41335228" sideWeight="0.49597856" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1816354" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41335228" sideWeight="0.49597856" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38210228" sideWeight="0.49731904" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38210228" sideWeight="0.49731904" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2124665" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19906166" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19906166" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1044,13 +1107,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/test/java/gen/java/api/UserApiTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="47" column="32" lean-forward="false" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/gen/java/model/AddTaskObject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -1059,13 +1115,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/inmanage-java-server/docs/UML/Deployment Diagram0.png" />
-    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/serverCom/ServerCom.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="10" column="9" lean-forward="false" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1190,29 +1239,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/ISQLCommands.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="38" column="109" lean-forward="false" selection-start-line="38" selection-start-column="109" selection-end-line="38" selection-end-column="109" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/ProjectOverview.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-391">
-          <caret line="10" column="41" lean-forward="true" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
-          <folding>
-            <marker date="1510403834365" expanded="true" signature="5404:5424" ph="..." />
-            <marker date="1510403834365" expanded="true" signature="5404:5439" ph="..." />
-            <marker date="1510403834365" expanded="true" signature="5404:5453" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/gen/java/model/AddTaskObject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="27">
@@ -1276,60 +1302,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/serverCom/ServerComImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="92" column="14" lean-forward="true" selection-start-line="92" selection-start-column="14" selection-end-line="92" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/SQLCommands.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="852" column="27" lean-forward="false" selection-start-line="852" selection-start-column="27" selection-end-line="852" selection-end-column="27" />
-          <folding>
-            <marker date="1510407358526" expanded="true" signature="1271:1399" ph="INSERT INTO public.user... " />
-            <marker date="1510407358526" expanded="true" signature="2147:2211" ph="SELECT passw... user" />
-            <marker date="1510407358526" expanded="true" signature="2992:3056" ph="SELECT passw... user" />
-            <marker date="1510407358526" expanded="true" signature="3862:3927" ph="SELECT first... user" />
-            <marker date="1510407358526" expanded="true" signature="4733:4797" ph="SELECT lastn... user" />
-            <marker date="1510407358526" expanded="true" signature="5585:5665" ph="UPDATE publi... " />
-            <marker date="1510407358526" expanded="true" signature="6350:6430" ph="UPDATE publi... " />
-            <marker date="1510407358526" expanded="true" signature="7127:7209" ph="UPDATE publi... " />
-            <marker date="1510407358526" expanded="true" signature="7893:7973" ph="UPDATE publi... " />
-            <marker date="1510407358526" expanded="true" signature="8709:8781" ph="UPDATE publi... " />
-            <marker date="1510407358526" expanded="true" signature="9536:9600" ph="SELECT usern... user" />
-            <marker date="1510407358526" expanded="true" signature="10504:10564" ph="SELECT role user" />
-            <marker date="1510407358526" expanded="true" signature="11534:11644" ph="SELECT useri... user" />
-            <marker date="1510407358526" expanded="true" signature="12521:12572" ph="INSERT INTO public.project... " />
-            <marker date="1510407358526" expanded="true" signature="12521:12615" ph="INSERT INTO public.project... " />
-            <marker date="1510407358526" expanded="true" signature="12681:12773" ph="INSERT INTO public.userproject... " />
-            <marker date="1510407358526" expanded="true" signature="13664:13754" ph="INSERT INTO public.userproject... " />
-            <marker date="1510407358526" expanded="true" signature="14941:15122" ph="SELECT name project" />
-            <marker date="1510407358526" expanded="true" signature="15977:16079" ph="UPDATE publi... " />
-            <marker date="1510407358526" expanded="true" signature="16869:17059" ph="SELECT descr... project" />
-            <marker date="1510407358526" expanded="true" signature="17950:18041" ph="UPDATE publi... " />
-            <marker date="1510407358526" expanded="true" signature="18874:19054" ph="SELECT * fro... project" />
-            <marker date="1510407358526" expanded="true" signature="20020:20263" ph="INSERT INTO task... " />
-            <marker date="1510407358526" expanded="true" signature="20711:20834" ph="UPDATE task\... " />
-            <marker date="1510407358526" expanded="true" signature="21302:21372" ph="DELETE FROM " />
-            <marker date="1510407358526" expanded="true" signature="21856:21935" ph="DELETE FROM " />
-            <marker date="1510407358526" expanded="true" signature="23578:23748" ph="SELECT * FRO... task" />
-            <marker date="1510407358526" expanded="true" signature="26388:26491" ph="SELECT taskN... task" />
-            <marker date="1510407358526" expanded="true" signature="27683:27815" ph="SELECT * FRO... task" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/main/java/clientCom/INManageServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="111" column="17" lean-forward="false" selection-start-line="111" selection-start-column="17" selection-end-line="111" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/AddProject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -1354,39 +1326,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/ProjectDashboard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="59" column="5" lean-forward="true" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1188#1189#0" expanded="true" />
-            <element signature="e#1273#1274#0" expanded="true" />
-            <element signature="e#1321#1322#0" expanded="true" />
-            <element signature="e#1351#1352#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/ProjectOverview.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="69" column="0" lean-forward="true" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-          <folding>
-            <element signature="e#1650#1651#0" expanded="true" />
-            <element signature="e#1746#1747#0" expanded="true" />
-            <element signature="e#1794#1795#0" expanded="true" />
-            <element signature="e#1824#1825#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/SignUp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="484">
           <caret line="51" column="11" lean-forward="true" selection-start-line="51" selection-start-column="11" selection-end-line="51" selection-end-column="11" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1404,39 +1349,20 @@
         <state relative-caret-position="289">
           <caret line="46" column="21" lean-forward="false" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
           <folding>
-            <element signature="e#1503#1504#0" expanded="true" />
-            <element signature="e#1533#1534#0" expanded="true" />
+            <element signature="e#1503#1504#0" expanded="false" />
+            <element signature="e#1533#1534#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/ClientLauncher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/TaskOverview.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
-          <caret line="38" column="52" lean-forward="true" selection-start-line="38" selection-start-column="52" selection-end-line="38" selection-end-column="52" />
+          <caret line="38" column="52" lean-forward="false" selection-start-line="38" selection-start-column="52" selection-end-line="38" selection-end-column="52" />
           <folding>
-            <element signature="e#1034#1035#0" expanded="true" />
-            <element signature="e#1064#1065#0" expanded="true" />
+            <element signature="e#1034#1035#0" expanded="false" />
+            <element signature="e#1064#1065#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/AddUserToProject.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1448,36 +1374,172 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/AddUserToProjectController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="25" column="48" lean-forward="false" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/impl/TaskApiServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
+        <state relative-caret-position="181">
           <caret line="24" column="87" lean-forward="false" selection-start-line="24" selection-start-column="87" selection-end-line="24" selection-end-column="87" />
-          <folding />
+          <folding>
+            <marker date="1510405357000" expanded="true" signature="1106:1123" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/impl/UsersApiServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
+        <state relative-caret-position="187">
           <caret line="21" column="85" lean-forward="false" selection-start-line="21" selection-start-column="85" selection-end-line="21" selection-end-column="85" />
+          <folding>
+            <marker date="1510399278000" expanded="true" signature="1267:1273" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/serverCom/ServerCom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="23" column="39" lean-forward="false" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/ISQLCommands.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="40" column="44" lean-forward="false" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/main/java/clientCom/INManageServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="131" column="48" lean-forward="false" selection-start-line="131" selection-start-column="48" selection-end-line="131" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/impl/ProjectApiServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+        <state relative-caret-position="212">
+          <caret line="39" column="85" lean-forward="false" selection-start-line="39" selection-start-column="85" selection-end-line="39" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/ProjectDashboard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="59" column="5" lean-forward="true" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1188#1189#0" expanded="true" />
+            <element signature="e#1273#1274#0" expanded="true" />
+            <element signature="e#1321#1322#0" expanded="true" />
+            <element signature="e#1351#1352#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/ProjectOverview.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="67" column="9" lean-forward="true" selection-start-line="67" selection-start-column="9" selection-end-line="67" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/AddUserToProject.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="16" column="13" lean-forward="true" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/ProjectOverview.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="10" column="41" lean-forward="true" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
+          <folding>
+            <marker date="1510410890832" expanded="true" signature="5500:5520" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/AddUserToProjectController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="28" column="36" lean-forward="false" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/ClientLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/2c70575b/3280d27a-78cc-44d9-841c-346bb2c8624f/si3_2017_group_1_db.public.user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/SQLCommands.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="420" column="0" lean-forward="false" selection-start-line="420" selection-start-column="0" selection-end-line="420" selection-end-column="0" />
+          <folding>
+            <marker date="1510411472268" expanded="true" signature="1271:1399" ph="INSERT INTO public.user... " />
+            <marker date="1510411472268" expanded="true" signature="2147:2211" ph="SELECT passw... user" />
+            <marker date="1510411472268" expanded="true" signature="2992:3056" ph="SELECT passw... user" />
+            <marker date="1510411472268" expanded="true" signature="3862:3927" ph="SELECT first... user" />
+            <marker date="1510411472268" expanded="true" signature="4733:4797" ph="SELECT lastn... user" />
+            <marker date="1510411472268" expanded="true" signature="5585:5665" ph="UPDATE publi... " />
+            <marker date="1510411472268" expanded="true" signature="6350:6430" ph="UPDATE publi... " />
+            <marker date="1510411472268" expanded="true" signature="7127:7209" ph="UPDATE publi... " />
+            <marker date="1510411472268" expanded="true" signature="7893:7973" ph="UPDATE publi... " />
+            <marker date="1510411472268" expanded="true" signature="8709:8781" ph="UPDATE publi... " />
+            <marker date="1510411472268" expanded="true" signature="9536:9600" ph="SELECT usern... user" />
+            <marker date="1510411472268" expanded="true" signature="10504:10564" ph="SELECT role user" />
+            <marker date="1510411472268" expanded="true" signature="11534:11644" ph="SELECT useri... user" />
+            <marker date="1510411472268" expanded="true" signature="12521:12572" ph="INSERT INTO public.project... " />
+            <marker date="1510411472268" expanded="true" signature="12521:12615" ph="INSERT INTO public.project... " />
+            <marker date="1510411472268" expanded="true" signature="12681:12773" ph="INSERT INTO public.userproject... " />
+            <marker date="1510411472268" expanded="true" signature="13645:13707" ph="SELECT useri... user" />
+            <marker date="1510411472268" expanded="true" signature="13899:14012" ph="SELECT fk_us... userproject" />
+            <marker date="1510411472268" expanded="true" signature="15369:15550" ph="SELECT name project" />
+            <marker date="1510411472268" expanded="true" signature="16405:16507" ph="UPDATE publi... " />
+            <marker date="1510411472268" expanded="true" signature="17297:17487" ph="SELECT descr... project" />
+            <marker date="1510411472268" expanded="true" signature="18378:18469" ph="UPDATE publi... " />
+            <marker date="1510411472268" expanded="true" signature="19302:19482" ph="SELECT * fro... project" />
+            <marker date="1510411472268" expanded="true" signature="20448:20691" ph="INSERT INTO task... " />
+            <marker date="1510411472268" expanded="true" signature="21139:21262" ph="UPDATE task\... " />
+            <marker date="1510411472268" expanded="true" signature="21730:21800" ph="DELETE FROM " />
+            <marker date="1510411472268" expanded="true" signature="22284:22363" ph="DELETE FROM " />
+            <marker date="1510411472268" expanded="true" signature="24006:24176" ph="SELECT * FRO... task" />
+            <marker date="1510411472268" expanded="true" signature="26816:26919" ph="SELECT taskN... task" />
+            <marker date="1510411472268" expanded="true" signature="28111:28243" ph="SELECT * FRO... task" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/main/java/serverCom/ServerComImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="102" column="39" lean-forward="false" selection-start-line="102" selection-start-column="39" selection-end-line="102" selection-end-column="39" />
           <folding />
         </state>
       </provider>

@@ -103,6 +103,12 @@ public class INManageServer {
 
     }
 
+    /*
+
+
+
+     */
+
     public List<Task> getTaskResponse(String projectId){
         List<Task> list = new ArrayList<>();
 
@@ -118,6 +124,18 @@ public class INManageServer {
 
         return list;
 
+    }
+
+    public String addUserToProject(String projectId, String userID){
+
+        try {
+            //It says userid, but it is username
+            sql.addUserToProject(userID,UUID.fromString(projectId));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return "Succes!";
     }
 
 }

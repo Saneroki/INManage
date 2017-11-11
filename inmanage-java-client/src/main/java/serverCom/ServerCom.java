@@ -21,6 +21,8 @@ public interface ServerCom {
 
     List<Task> getAllTasks(String projectID);
 
+    void addUserToProject(String userID, String projecID);
+
 
 
 

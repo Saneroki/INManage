@@ -94,6 +94,7 @@
                <children>
                   <Button fx:id="goToTasks" mnemonicParsing="false" text="View tasks" />
                   <Button fx:id="addTaskBtn" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" text="Add new task" />
+                  <Button fx:id="addUser" mnemonicParsing="false" text="Add user to project" />
                </children>
             </HBox>
          </bottom>
