@@ -26,7 +26,7 @@ public class TaskOverview extends Controller {
 
     ServerCom serv = ClientLauncher.getServer();
 
-    private ArrayList<Task> list = (ArrayList<Task>) serv.getAllTasks(ClientLauncher.getCurrentProjectId());
+    private ArrayList<Task> list = (ArrayList<Task>) serv.getAllTasks(ClientLauncher.getProj().getId());
 
 
     @FXML
@@ -36,7 +36,12 @@ public class TaskOverview extends Controller {
 
     @FXML
     void back(MouseEvent event) {
-        ClientLauncher.getWindowChanger().setScene("/fxml/windows/Login.fxml");
+        ClientLauncher.getWindowChanger().setScene("fxml/windows/ProjectOverview.fxml");
+    }
+
+    @FXML
+    void turnOff(MouseEvent event) {
+        System.exit(1);
     }
 
     @FXML
@@ -48,9 +53,12 @@ public class TaskOverview extends Controller {
         centerHbox.getChildren().add(vboxLeft);
 
         vboxLeft.setAlignment(Pos.CENTER);
-
+        int tmp = 0;
+        System.out.println("Starting for loop: ");
         for (Task task: list) {
+            System.out.println(tmp++);
             taskView(task, vboxLeft);
+
         }
 
 

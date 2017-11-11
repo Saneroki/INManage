@@ -22,7 +22,7 @@ public class TaskApiServiceImpl extends TaskApiService {
     @Override
     public Response addTask(AddTaskObject addTaskObject, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
-        return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
+        return Response.ok().entity(INManageServer.get().addTaskResponse(addTaskObject)).build();
     }
     @Override
     public Response getTask(String projectID, SecurityContext securityContext) throws NotFoundException {

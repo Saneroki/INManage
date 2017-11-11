@@ -10,6 +10,7 @@ import gen.java.api.NotFoundException;
 
 import java.io.InputStream;
 
+import io.swagger.models.auth.In;
 import main.java.clientCom.INManageServer;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 
@@ -21,7 +22,7 @@ public class ProjectApiServiceImpl extends ProjectApiService {
     @Override
     public Response addProject(Project project, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
-        return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
+        return Response.ok().entity(INManageServer.get().addProjectResponse(project)).build();
     }
     @Override
     public Response getAllProjects(String userId, SecurityContext securityContext) throws NotFoundException {

@@ -44,6 +44,7 @@ public class Login {
     }
 
     public void turnOff(MouseEvent mouseEvent) {
+        System.exit(1);
     }
 }
 

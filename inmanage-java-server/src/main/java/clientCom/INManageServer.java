@@ -47,9 +47,16 @@ public class INManageServer {
         return "Succes!";
 
     }
-    public void addProjectResponse(Project project){
+    public String addProjectResponse(Project project){
         System.out.println("Adding new project: " + project.getName());
-        //sql.addProject .....
+        try {
+            sql.addProject(UUID.fromString(project.getUserid()),project.getName(),project.getDescription());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return "Succes!";
+
     }
 
     public String loginResponse(String username, String password){
@@ -82,23 +89,27 @@ public class INManageServer {
         return list;
     }
 
-    public void addTaskResponse(AddTaskObject addTask){
+    public String addTaskResponse(AddTaskObject addTask){
 
         System.out.println("Adding new task: " + addTask.getTaskName());
 
         try {
-            sql.addTaskToProject(addTask.getProjectId(),addTask.getTaskName(),addTask.getDescription(),addTask.getDueDate());
+            sql.addTaskToProject(addTask.getTaskName(),addTask.getDescription(),addTask.getDueDate(),addTask.getProjectId());
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        return "Succes!";
 
     }
 
     public List<Task> getTaskResponse(String projectId){
         List<Task> list = new ArrayList<>();
 
+        System.out.println("Getting tasks for the project: " + projectId);
+
         try {
-            sql.getAllTaskByProject(projectId);
+           list = sql.getAllTaskByProject(projectId);
         } catch (SQLException e) {
             e.printStackTrace();
         }

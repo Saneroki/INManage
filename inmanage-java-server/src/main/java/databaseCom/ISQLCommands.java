@@ -36,7 +36,7 @@ public interface ISQLCommands {
 
     //Project
 
-    boolean addProject(String name,String description) throws SQLException;
+    public boolean addProject(UUID userid, String projectname,String projectdescription) throws SQLException;
 
     boolean addUserToProject(UUID userid,UUID projectid) throws SQLException;
 
