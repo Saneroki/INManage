@@ -3,6 +3,7 @@ package main.java.databaseCom;
 import gen.java.model.Project;
 import gen.java.model.Task;
 
+import javax.xml.transform.Result;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -399,37 +400,27 @@ public class SQLCommands implements ISQLCommands {
     /**
      * Made by pepak16.
      * Adds new user to a specific project via the projectid to the database, if the user isn't already added to the project.
+     * This is done via some checks that uses the private methods getUseridFromUsername() and checkIfUserProjectExist().
      * @param username
      * @param projectid
      * @return boolean
      * @throws SQLException
      */
     @Override
-    public boolean addUserToProject(String username,UUID projectid) throws SQLException {
+    public boolean addUserToProject(String username,String projectid) throws SQLException {
         Statement statement = con.createStatement();
         try {
-            String userid;
-            ResultSet resultset = statement.executeQuery("SELECT userid FROM public.user WHERE username = '"+username+"';");
-            while (resultset.next()) {
-                userid = resultset.getString(1);
-                if (!userid.equals(null)) {
-                    boolean check = statement.execute("SELECT fk_userId, fk_projectId FROM userproject WHERE fk_userId = '"+userid+"' AND fk_projectId = '"+projectid+"';");
-                    if (!check) {
-                        System.out.println("Brugeren er allerede added til projektet i forvejen.");
-                    } else {
-                        System.out.println("Adder projektet nu.");
-
-                    }
+            String userid = getUseridFromUsername(username);
+            if (!userid.equals(null)) {
+                if (checkIfUserProjectExist(userid,projectid)) {
+                    System.err.println("Brugeren er allerede tilføjet til projektet i forvejen!");
+                    return false;
                 } else {
-                    System.err.println("Caused by: user doesn't exist.");
+                    System.out.println("Adder bruger til projektet nu.");
+                    statement.execute("INSERT INTO public.userproject VALUES ('"+UUID.randomUUID()+"','"+userid+"','"+projectid+"');");
+                    return true;
                 }
             }
-
-            //ResultSet resultset = statement.executeQuery("SELECT * FROM userProject WHERE fk_userid = '"+userid+"';");
-            //resultset.next();
-            //resultset.getString(1);
-            //statement.execute("");
-            return true;
         } catch (SQLException e) {
             e.printStackTrace();
             System.err.println("\nCaused maybe by: the user is already associated to the project.");
@@ -439,8 +430,64 @@ public class SQLCommands implements ISQLCommands {
                 statement.close();
             }
         }
+        return false;
     }
 
+    /**
+     * Made by pepak16.
+     * A private method to be used by the addUserToProject() method.
+     * Fetches the userid via the given username from argument.
+     * Temporary problem: can only fetch one row of userid associated with the username,
+     * if the username has more than one userid associations.
+     * @param username
+     * @return String
+     * @throws SQLException
+     */
+    private String getUseridFromUsername(String username) throws SQLException {
+        Statement statement = con.createStatement();
+        try {
+            ResultSet resultset = statement.executeQuery("SELECT userid FROM public.user WHERE username = '"+username+"';");
+            resultset.next();
+            return resultset.getString(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("\nCaused maybe by: the given username doesn't exist.\n");
+            return null;
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+        }
+    }
+
+    /**
+     * Made by pepak16.
+     * Checks whether the a userid and projectid is associated in userproject table,
+     * if yes then it would return true, else it would return false.
+     * It would perhaps catch a PSQLException saying that
+     * "ResultSet not positioned properly" the given userid or/and project is wrong.
+     * @param userid
+     * @param projectid
+     * @return String
+     * @throws SQLException
+     */
+    private boolean checkIfUserProjectExist(String userid, String projectid) throws SQLException {
+        Statement statement = con.createStatement();
+        try {
+            boolean check;
+            ResultSet resultset= statement.executeQuery("SELECT exists(SELECT fk_userId, fk_projectId FROM userproject WHERE fk_userId = '"+userid+"' AND fk_projectId = '"+projectid+"');");
+            resultset.next();
+            check = resultset.getBoolean(1);
+            return check;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+        }
+    }
 
 
     /**

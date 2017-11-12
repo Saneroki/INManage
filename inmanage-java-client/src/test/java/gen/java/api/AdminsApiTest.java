@@ -1,5 +1,6 @@
-package gen.java.api;
+package test.java.gen.java.api;
 
+import gen.java.api.AdminsApi;
 import gen.java.invoker.ApiException;
 import gen.java.model.User;
 import org.junit.Test;
