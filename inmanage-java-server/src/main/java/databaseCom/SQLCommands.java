@@ -3,7 +3,6 @@ package main.java.databaseCom;
 import gen.java.model.Project;
 import gen.java.model.Task;
 
-import javax.xml.transform.Result;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,10 +14,11 @@ import java.util.UUID;
 public class SQLCommands implements ISQLCommands {
 
     private static SQLCommands instance = null;
+    private SQLConnect sqlconnect;
     private Connection con;
 
     public SQLCommands() throws SQLException {
-        SQLConnect sqlconnect = new SQLConnect();
+        sqlconnect = new SQLConnect();
         con = sqlconnect.connect();
     }
 
@@ -28,22 +28,6 @@ public class SQLCommands implements ISQLCommands {
         }
         return instance;
     }
-
-
-
-
-
-
-
-//PERSHA PERSHA PERSHA PERSHA, prep statements på alle metoder nedenunder!!!
-
-
-
-
-
-
-
-
 
     /**
      * pepak16
@@ -90,7 +74,11 @@ public class SQLCommands implements ISQLCommands {
         try {
             ResultSet resultset = statement.executeQuery("SELECT password FROM public.user WHERE username = '"+username+"';");
             resultset.next();
-            return resultset.getString(1).equals(password);
+            if (resultset.getString(1).equals(password)) {
+                return true;
+            } else {
+                return false;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
@@ -308,7 +296,11 @@ public class SQLCommands implements ISQLCommands {
         try {
             ResultSet resultset = statement.executeQuery("SELECT username FROM public.user WHERE username = '"+username+"';");
             resultset.next();
-            return resultset.getString(1).equals(username);
+            if (resultset.getString(1).equals(username)) {
+                return true;
+            } else {
+                return false;
+            }
         } catch (SQLException e) {
             System.out.println("\nCaused by: username didn't exist and therefore nothing was returned in the resultset.");
             return false;
@@ -332,7 +324,11 @@ public class SQLCommands implements ISQLCommands {
         try {
             ResultSet resultset = statement.executeQuery("SELECT role FROM public.user WHERE username = '"+username+"';");
             resultset.next();
-            return resultset.getString(1).equals("admin");
+            if (resultset.getString(1).equals("admin")) {
+                return true;
+            } else {
+                return false;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
             System.err.println("\nCaused by: the entered username doesn't exist in the database.");
@@ -399,30 +395,41 @@ public class SQLCommands implements ISQLCommands {
         }
     }
 
+
     /**
      * Made by pepak16.
      * Adds new user to a specific project via the projectid to the database, if the user isn't already added to the project.
-     * This is done via some checks that uses the private methods getUseridFromUsername() and checkIfUserProjectExist().
      * @param username
      * @param projectid
      * @return boolean
      * @throws SQLException
      */
     @Override
-    public boolean addUserToProject(String username,String projectid) throws SQLException {
+    public boolean addUserToProject(String username,UUID projectid) throws SQLException {
         Statement statement = con.createStatement();
         try {
-            String userid = getUseridFromUsername(username);
-            if (!userid.equals(null)) {
-                if (checkIfUserProjectExist(userid,projectid)) {
-                    System.err.println("Brugeren er allerede tilføjet til projektet i forvejen!");
-                    return false;
+            String userid;
+            ResultSet resultset = statement.executeQuery("SELECT userid FROM public.user WHERE username = '"+username+"';");
+            while (resultset.next()) {
+                userid = resultset.getString(1);
+                if (!userid.equals(null)) {
+                    boolean check = statement.execute("SELECT fk_userId, fk_projectId FROM userproject WHERE fk_userId = '"+userid+"' AND fk_projectId = '"+projectid+"';");
+                    if (!check) {
+                        System.out.println("Brugeren er allerede added til projektet i forvejen.");
+                    } else {
+                        System.out.println("Adder projektet nu.");
+
+                    }
                 } else {
-                    System.out.println("Adder bruger til projektet nu.");
-                    statement.execute("INSERT INTO public.userproject VALUES ('"+UUID.randomUUID()+"','"+userid+"','"+projectid+"');");
-                    return true;
+                    System.err.println("Caused by: user doesn't exist.");
                 }
             }
+
+            //ResultSet resultset = statement.executeQuery("SELECT * FROM userProject WHERE fk_userid = '"+userid+"';");
+            //resultset.next();
+            //resultset.getString(1);
+            //statement.execute("");
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
             System.err.println("\nCaused maybe by: the user is already associated to the project.");
@@ -432,80 +439,8 @@ public class SQLCommands implements ISQLCommands {
                 statement.close();
             }
         }
-        return false;
     }
 
-
-
-
-
-
-
-//OMAR OMAR OMAR OMAR, prep statements på alle metoder nedenunder!!!
-
-
-
-
-
-
-
-
-
-    /**
-     * Made by pepak16.
-     * A private method to be used by the addUserToProject() method.
-     * Fetches the userid via the given username from argument.
-     * Temporary problem: can only fetch one row of userid associated with the username,
-     * if the username has more than one userid associations.
-     * @param username
-     * @return String
-     * @throws SQLException
-     */
-    private String getUseridFromUsername(String username) throws SQLException {
-        Statement statement = con.createStatement();
-        try {
-            ResultSet resultset = statement.executeQuery("SELECT userid FROM public.user WHERE username = '"+username+"';");
-            resultset.next();
-            return resultset.getString(1);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.err.println("\nCaused maybe by: the given username doesn't exist.\n");
-            return null;
-        } finally {
-            if (statement != null) {
-                statement.close();
-            }
-        }
-    }
-
-    /**
-     * Made by pepak16.
-     * Checks whether the a userid and projectid is associated in userproject table,
-     * if yes then it would return true, else it would return false.
-     * It would perhaps catch a PSQLException saying that
-     * "ResultSet not positioned properly" the given userid or/and project is wrong.
-     * @param userid
-     * @param projectid
-     * @return String
-     * @throws SQLException
-     */
-    private boolean checkIfUserProjectExist(String userid, String projectid) throws SQLException {
-        Statement statement = con.createStatement();
-        try {
-            boolean check;
-            ResultSet resultset= statement.executeQuery("SELECT exists(SELECT fk_userId, fk_projectId FROM userproject WHERE fk_userId = '"+userid+"' AND fk_projectId = '"+projectid+"');");
-            resultset.next();
-            check = resultset.getBoolean(1);
-            return check;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        } finally {
-            if (statement != null) {
-                statement.close();
-            }
-        }
-    }
 
 
     /**
@@ -905,56 +840,5 @@ public class SQLCommands implements ISQLCommands {
         System.out.println("Returning: " + tasksByProject.toString());
         return tasksByProject;
     }
-
-    //Test method
-
-    public void printUser(String userName) throws SQLException {
-        PreparedStatement ps = null;
-        Statement s = null;
-        try {
-            ps = con.prepareStatement("SELECT * FROM public.user WHERE username = ?");
-            ps.setString(1, userName);
-            ResultSet rs = ps.executeQuery();
-            rs.next();
-            System.out.println(rs.getString(1));
-            System.out.println(rs.getString(2));
-            System.out.println(rs.getString(3));
-            System.out.println(rs.getString(4));
-            System.out.println(rs.getString(5));
-            System.out.println(rs.getString(6));
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            if (ps != null) {
-                ps.close();
-            }
-        }
-    }
-
-    //Test method
-
-    public void printUserWithoutPS(String userName) throws SQLException {
-        Statement s = null;
-        try {
-            s = con.createStatement();
-            ResultSet rs = s.executeQuery("SELECT * FROM public.user WHERE username = '"+userName+"'");
-            while (rs.next()) {
-                System.out.println(rs.getString(1));
-                System.out.println(rs.getString(2));
-                System.out.println(rs.getString(3));
-                System.out.println(rs.getString(4));
-                System.out.println(rs.getString(5));
-                System.out.println(rs.getString(6));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            if (s != null) {
-                s.close();
-            }
-        }
-    }
-
-
 
 }
