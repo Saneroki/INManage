@@ -15,8 +15,9 @@ public class WindowChanger {
     public Stage setScene(String window){
         Parent root = null;
         Stage stage = ClientLauncher.getPrimaryStage();
-        setFxmlLoader(window);
+
         try {
+            setFxmlLoader(window);
             root = loader.load();
         } catch (IOException e) {
             throw new Error("The file for " + window + " could not be found!");
