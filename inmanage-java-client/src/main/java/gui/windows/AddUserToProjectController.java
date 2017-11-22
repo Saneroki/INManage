@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import main.java.gui.ClientLauncher;
 import main.java.serverCom.ServerCom;
+import org.omg.CORBA.INITIALIZE;
 
 public class AddUserToProjectController {
 
@@ -39,9 +40,13 @@ public class AddUserToProjectController {
                 //
                 serv.addUserToProject(TextFieldUsernameInput.getText().toString(),ClientLauncher.getProj().getId());
 
+                ClientLauncher.getWindowChanger().setScene("fxml/windows/ProjectOverview.fxml");
+
             }
         }
     }
+
+
 
 
 }

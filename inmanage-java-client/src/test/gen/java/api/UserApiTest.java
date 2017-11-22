@@ -1,5 +1,6 @@
-package gen.java.api;
+package test.java.gen.java.api;
 
+import gen.java.api.UserApi;
 import gen.java.invoker.ApiException;
 import gen.java.model.AddTaskObject;
 import gen.java.model.Project;

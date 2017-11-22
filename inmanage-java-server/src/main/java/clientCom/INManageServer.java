@@ -126,11 +126,11 @@ public class INManageServer {
 
     }
 
-    public String addUserToProject(String projectId, String userID){
+    public String addUserToProject(String projectId, String username){
 
         try {
             //It says userid, but it is username
-            sql.addUserToProject(userID,UUID.fromString(projectId));
+            sql.addUserToProject(username,projectId);
         } catch (SQLException e) {
             e.printStackTrace();
         }
