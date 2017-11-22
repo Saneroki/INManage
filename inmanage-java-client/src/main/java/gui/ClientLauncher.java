@@ -31,11 +31,10 @@ public class ClientLauncher extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         serv = new ServerComImpl();
-        ClientLauncher.primaryStage = primaryStage;
-        primaryStage.initStyle(StageStyle.UNDECORATED);
+        this.primaryStage = primaryStage;
         windowChanger = new WindowChanger();
-        windowChanger.setScene("/fxml/windows/Login.fxml");
-        primaryStage.isMaximized();
+        windowChanger.setScene("fxml/windows/Login.fxml");
+
     }
 
     public static WindowChanger getWindowChanger(){
