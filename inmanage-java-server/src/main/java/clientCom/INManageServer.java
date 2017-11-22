@@ -50,7 +50,7 @@ public class INManageServer {
     public String addProjectResponse(Project project){
         System.out.println("Adding new project: " + project.getName());
         try {
-            sql.addProject(project.getUserid(),project.getName(),project.getDescription());
+            sql.addProject(UUID.fromString(project.getUserid()),project.getName(),project.getDescription());
         } catch (SQLException e) {
             e.printStackTrace();
         }
