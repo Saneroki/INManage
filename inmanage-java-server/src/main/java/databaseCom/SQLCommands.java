@@ -3,14 +3,14 @@ package main.java.databaseCom;
 import gen.java.model.Project;
 import gen.java.model.Task;
 
-import javax.swing.*;
-import javax.xml.transform.Result;
-import java.awt.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * Created by omnhaww on 23/10/2017.
+ */
 public class SQLCommands implements ISQLCommands {
 
     private static SQLCommands instance = null;
@@ -30,9 +30,7 @@ public class SQLCommands implements ISQLCommands {
     }
 
     /**
-     * Author: pepak16.
-     * Inserts the values from the argument into the table user in database
-     * by executing an insert sql statement.
+     * pepak16
      * @param username
      * @param password
      * @param firstname
@@ -40,20 +38,43 @@ public class SQLCommands implements ISQLCommands {
      * @param type
      * @return boolean
      * @throws SQLException
+     *
+     * Inserts the values from the argument into the table user in database
+     * by executing an insert sql statement.
      */
     @Override
     public boolean addUser(String username, String password, String firstname, String lastname, String type) throws SQLException {
-        PreparedStatement ps = null;
+        Statement statement = con.createStatement();
         try {
-            if (!isUserExisting(username)) {
-                ps = con.prepareStatement("INSERT INTO public.user VALUES (?,?,?,?,?,?);");
-                ps.setObject(1,UUID.randomUUID());
-                ps.setString(2,username);
-                ps.setString(3,password);
-                ps.setString(4,firstname);
-                ps.setString(5,lastname);
-                ps.setString(6,type);
-                ps.execute();
+            statement.execute("INSERT INTO public.user VALUES ('"+UUID.randomUUID()+"','"+username+"','"+password+"','"+firstname+"','"+lastname+"','"+type+"');");
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+        }
+    }
+
+    /**
+     * pepak16
+     * @param username
+     * @param password
+     * @return boolean
+     * @throws SQLException
+     *
+     * Checks whether the entered username and password matches in the database or
+     * not and returns the truth values respectively.
+     */
+    @Override
+    public boolean checkUserLogin(String username, String password) throws SQLException {
+        Statement statement = con.createStatement();
+        try {
+            ResultSet resultset = statement.executeQuery("SELECT password FROM public.user WHERE username = '"+username+"';");
+            resultset.next();
+            if (resultset.getString(1).equals(password)) {
                 return true;
             } else {
                 return false;
@@ -62,66 +83,66 @@ public class SQLCommands implements ISQLCommands {
             e.printStackTrace();
             return false;
         } finally {
-            if (ps != null) {
-                ps.close();
+            if (statement != null) {
+                statement.close();
             }
         }
     }
 
     /**
-     * Author: pepak16.
-     * Gets password from the database via the username.
+     * pepak16
      * @param username
      * @return String
      * @throws SQLException
+     *
+     * Gets password from the database via the username.
      */
     @Override
     public String getPassword(String username) throws SQLException {
-        PreparedStatement ps = null;
+        Statement statement = con.createStatement();
         try {
-            ps = con.prepareStatement("SELECT password FROM public.user WHERE username = ?;");
-            ps.setString(1,username);
-            ResultSet rs = ps.executeQuery();
-            rs.next();
-            return rs.getString(1);
+            ResultSet resultset = statement.executeQuery("SELECT password FROM public.user WHERE username = '"+username+"';");
+            resultset.next();
+            return resultset.getString(1);
         } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println("Caused by: nothing was fetched from database, could perhaps be username is wrong or doesn't exist.");
             return null;
         } finally {
-            if (ps != null) {
-                ps.close();
+            if (statement != null) {
+                statement.close();
             }
         }
     }
 
     /**
-     * Author: pepak16.
-     * Gets firstname from the database via the username.
+     * pepak16
      * @param username
      * @return String
      * @throws SQLException
+     *
+     * Gets firstname from the database via the username.
      */
     @Override
     public String getFirstname(String username) throws SQLException {
-        PreparedStatement ps = null;
+        Statement statement = con.createStatement();
         try {
-            ps = con.prepareStatement("SELECT firstname FROM public.user WHERE username = ?;");
-            ps.setString(1,username);
-            ResultSet rs = ps.executeQuery();
-            rs.next();
-            return rs.getString(1);
+            ResultSet resultset = statement.executeQuery("SELECT firstname FROM public.user WHERE username = '"+username+"';");
+            resultset.next();
+            return resultset.getString(1);
         } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println("Caused by: nothing was fetched from database, could perhaps be username is wrong or doesn't exist.");
             return null;
         } finally {
-            if (ps != null) {
-                ps.close();
+            if (statement != null) {
+                statement.close();
             }
         }
     }
 
     /**
-     * Author: pepak16.
+     * Made by pepak16.
      * Gets lastname from the database via the username.
      * @param username
      * @return String
@@ -129,156 +150,139 @@ public class SQLCommands implements ISQLCommands {
      */
     @Override
     public String getLastname(String username) throws SQLException {
-        PreparedStatement ps = null;
+        Statement statement = con.createStatement();
         try {
-            ps = con.prepareStatement("SELECT lastname FROM public.user WHERE username = ?;");
-            ps.setString(1,username);
-            ResultSet rs = ps.executeQuery();
-            rs.next();
-            return rs.getString(1);
+            ResultSet resultset = statement.executeQuery("SELECT lastname FROM public.user WHERE username = '"+username+"';");
+            resultset.next();
+            return resultset.getString(1);
         } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println("Caused by: nothing was fetched from database, could perhaps be username is wrong or doesn't exist.");
             return null;
         } finally {
-            if (ps != null) {
-                ps.close();
+            if (statement != null) {
+                statement.close();
             }
         }
     }
 
     /**
-     * Author: pepak16.
+     * Made by pepak16.
      * Changes the username for the user via his username.
      * @param username
      * @return boolean
      * @throws SQLException
      */
     @Override
-    public boolean editUsername(String username) throws SQLException {
-        PreparedStatement ps = null;
+    public boolean setUsername(String username) throws SQLException {
+        Statement statement = con.createStatement();
         try {
-            ps = con.prepareStatement("UPDATE public.user SET username = ? WHERE username = ?;");
-            ps.setString(1,username);
-            ps.setString(2,username);
-            ps.execute();
+            statement.executeQuery("UPDATE public.user SET username = '"+username+"' WHERE username = '"+username+"';");
             return true;
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("\nCaused by: username doesn't exist in the database.");
             return false;
         } finally {
-            if (ps != null) {
-                ps.close();
+            if (statement != null) {
+                statement.close();
             }
         }
     }
 
     /**
-     * Author: pepak16.
+     * Made by pepak16.
      * Changes the users password via his username and password.
      * @param username
      * @return boolean
      * @throws SQLException
      */
     @Override
-    public boolean editPassword(String username, String password) throws SQLException {
-        PreparedStatement ps = null;
+    public boolean setPassword(String username, String password) throws SQLException {
+        Statement statement = con.createStatement();
         try {
-            ps = con.prepareStatement("UPDATE public.user SET password = ? WHERE username = ?;");
-            ps.setString(1,password);
-            ps.setString(2,username);
-            ps.execute();
+            statement.executeQuery("UPDATE public.user SET password = '"+password+"' WHERE username = '"+username+"';");
             return true;
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("\nCaused by: username doesn't exist in the database perhaps.");
             return false;
         } finally {
-            if (ps != null) {
-                ps.close();
+            if (statement != null) {
+                statement.close();
             }
         }
     }
 
     /**
-     * Author: pepak16.
+     * Made by pepak16.
      * Changes the users firstname via his username and firstname.
      * @param username
      * @return boolean
      * @throws SQLException
      */
     @Override
-    public boolean editFirstname(String username, String firstname) throws SQLException {
-        PreparedStatement ps = null;
+    public boolean setFirstname(String username, String firstname) throws SQLException {
+        Statement statement = con.createStatement();
         try {
-            ps = con.prepareStatement("UPDATE public.user SET firstname = ? WHERE username = ?;");
-            ps.setString(1,firstname);
-            ps.setString(2,username);
-            ps.execute();
+            statement.executeQuery("UPDATE public.user SET firstname = '"+firstname+"' WHERE username = '"+username+"';");
             return true;
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("\nCaused by: username doesn't exist in the database.");
             return false;
         } finally {
-            if (ps != null) {
-                ps.close();
+            if (statement != null) {
+                statement.close();
             }
         }
     }
 
     /**
-     * Author: pepak16.
+     * Made by pepak16.
      * Changes the users lastname via his username and lastname.
      * @param username
      * @return boolean
      * @throws SQLException
      */
     @Override
-    public boolean editLastname(String username,String lastname) throws SQLException {
-        PreparedStatement ps = null;
+    public boolean setLastname(String username,String lastname) throws SQLException {
+        Statement statement = con.createStatement();
         try {
-            ps = con.prepareStatement("UPDATE public.user SET lastname = ? WHERE username = ?;");
-            ps.setString(1,lastname);
-            ps.setString(2,username);
-            ps.execute();
+            statement.executeQuery("UPDATE public.user SET lastname = '"+lastname+"' WHERE username = '"+username+"';");
             return true;
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("\nCaused by: username doesn't exist in the database perhaps.");
             return false;
         } finally {
-            if (ps != null) {
-                ps.close();
+            if (statement != null) {
+                statement.close();
             }
         }
     }
 
     /**
-     * Author: pepak16.
-     * Changes the user type using the username and its corresponding type via the argument.
+     * Made by pepak16.
+     * Changes the user type using the username and its corresponding type via the argument
      * @param username
      * @param type
      * @return boolean
      * @throws SQLException
      */
     @Override
-    public boolean editUserType(String username,String type) throws SQLException {
-        PreparedStatement ps = null;
+    public boolean setUserType(String username,String type) throws SQLException {
+        Statement statement = con.createStatement();
         try {
-            ps = con.prepareStatement("UPDATE public.user SET role = ? WHERE username = ?;");
-            ps.setString(1,type);
-            ps.setString(2,username);
-            ps.execute();
-            return true;
+            return statement.execute("UPDATE public.user SET role = '"+type+"' WHERE username = '"+username+"';");
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
         } finally {
-            if (ps != null) {
-                ps.close();
+            if (statement != null) {
+                statement.close();
             }
         }
     }
 
     /**
-     * Author: pepak16.
+     * Made by pepak16.
      * Checking if there exists any user with the provided username via the argument.
      * If there is already an existing user in database the operation will return true,
      * else it will return true.
@@ -288,29 +292,27 @@ public class SQLCommands implements ISQLCommands {
      */
     @Override
     public boolean isUserExisting(String username) throws SQLException {
-        PreparedStatement ps = null;
+        Statement statement = con.createStatement();
         try {
-            ps = con.prepareStatement("SELECT EXISTS (SELECT username FROM public.user WHERE username = ?);");
-            ps.setString(1,username);
-            ResultSet rs = ps.executeQuery();
-            rs.next();
-            if (rs.getBoolean(1)) {
+            ResultSet resultset = statement.executeQuery("SELECT username FROM public.user WHERE username = '"+username+"';");
+            resultset.next();
+            if (resultset.getString(1).equals(username)) {
                 return true;
             } else {
                 return false;
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("\nCaused by: username didn't exist and therefore nothing was returned in the resultset.");
             return false;
         } finally {
-            if (ps != null) {
-                ps.close();
+            if (statement != null) {
+                statement.close();
             }
         }
     }
 
     /**
-     * Author: pepak16.
+     * Made by pepak16.
      * Checks whether the user is admin or not and return a truth value respectively.
      * @param username
      * @return boolean
@@ -318,63 +320,51 @@ public class SQLCommands implements ISQLCommands {
      */
     @Override
     public boolean isUserAdmin(String username) throws SQLException {
-        PreparedStatement ps = null;
+        Statement statement = con.createStatement();
         try {
-            ps = con.prepareStatement("SELECT role FROM public.user WHERE username = ?;");
-            ps.setString(1,username);
-            ResultSet rs = ps.executeQuery();
-            rs.next();
-            if (rs.getString(1).equalsIgnoreCase("admin")) {
+            ResultSet resultset = statement.executeQuery("SELECT role FROM public.user WHERE username = '"+username+"';");
+            resultset.next();
+            if (resultset.getString(1).equals("admin")) {
                 return true;
             } else {
                 return false;
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            System.err.println("\nCaused by: the entered username doesn't exist in the database.");
             return false;
         } finally {
-            if (ps != null) {
-                ps.close();
+            if (statement != null) {
+                statement.close();
             }
         }
     }
 
     /**
-     * Author: pepak16, malta16
-     * Logging the user in by returning its userid, if the user exist in the database.
-     * @param username
-     * @param password
+     * Made by pepak16.
+     * Checks whether the user is admin or not and return a truth value respectively.
+     * @param checkUsername
+     * @param checkPassword
      * @return boolean
      * @throws SQLException
      */
     @Override
-    public String loginUser(String username, String password) throws SQLException {
-        PreparedStatement ps = null;
+    public String loginUser(String checkUsername, String checkPassword) throws SQLException {
+        Statement statement = con.createStatement();
         try {
-            if (isUserExisting(username)) {
-                ps = con.prepareStatement("SELECT userid FROM public.user WHERE username = ? AND password = ?;");
-                ps.setString(1,username);
-                ps.setString(2,password);
-                ResultSet rs = ps.executeQuery();
-                rs.next();
-                return rs.getString(1);
-            } else {
-                return null;
-            }
+            ResultSet resultSet = statement.executeQuery("SELECT userid FROM public.user WHERE username = '" + checkUsername + "' AND password = '" + checkPassword + "';");
+            resultSet.next();
+            return resultSet.getString(1);
         } catch (SQLException e){
             e.printStackTrace();
-            return null;
-        } finally {
-            if (ps != null) {
-                ps.close();
-            }
         }
+        return null;
     }
 
     //Project
 
     /**
-     * Author: pepak16.
+     * Made by pepak16.
      * Adds new project to the table project and respectively its association between
      * the user and project in the userproject table to the database, if the project isn't existing already.
      * @param userid
@@ -384,140 +374,73 @@ public class SQLCommands implements ISQLCommands {
      * @throws SQLException
      */
     @Override
-    public boolean addProject(String userid, String projectname,String projectdescription) throws SQLException {
-        PreparedStatement ps1 = null;
-        PreparedStatement ps2 = null;
+    public boolean addProject(UUID userid, String projectname,String projectdescription) throws SQLException {
+        Statement statement = con.createStatement();
         try {
             UUID projectid = UUID.randomUUID();
-            ps1 = con.prepareStatement("INSERT INTO public.project VALUES (?,?,?);");
-            ps2 = con.prepareStatement("INSERT INTO public.userproject VALUES (?,?,?);");
-
-            con.setAutoCommit(false);
-
-            ps1.setObject(1,projectid);
-            ps1.setString(2,projectname);
-            ps1.setString(3,projectdescription);
-            ps1.addBatch();
-            ps1.executeBatch();
-
-            ps2.setObject(1,UUID.randomUUID());
-            ps2.setObject(2,UUID.fromString(userid));
-            ps2.setObject(3,projectid);
-            ps2.addBatch();
-            ps2.executeBatch();
-            con.commit();
-
+            boolean check = true;
+            check = statement.execute("INSERT INTO public.project VALUES ('"+projectid+"','"+projectname+"','"+projectdescription+"');");
+            if (!check) {
+                statement.execute("INSERT INTO public.userproject VALUES ('"+UUID.randomUUID()+"','"+userid+"','"+projectid+"');");
+            }
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
+            System.err.println("\nCaused maybe by: project already exists in database.");
             return false;
         } finally {
-            if (ps1 != null || ps2 != null) {
-                ps1.close();
-                ps2.close();
+            if (statement != null) {
+                statement.close();
             }
         }
     }
 
+
     /**
-     * Author: pepak16.
+     * Made by pepak16.
      * Adds new user to a specific project via the projectid to the database, if the user isn't already added to the project.
-     * This is done via some checks that uses the private methods getUseridFromUsername() and checkIfUserProjectExist().
      * @param username
      * @param projectid
      * @return boolean
      * @throws SQLException
      */
     @Override
-    public boolean addUserToProject(String username,String projectid) throws SQLException {
-        PreparedStatement ps = null;
+    public boolean addUserToProject(String username,UUID projectid) throws SQLException {
+        Statement statement = con.createStatement();
         try {
-            String userid = getUseridFromUsername(username);
-            if (!userid.equals(null)) {
-                if (checkIfUserProjectExist(userid,projectid)) {
-                    return false;
+            String userid;
+            ResultSet resultset = statement.executeQuery("SELECT userid FROM public.user WHERE username = '"+username+"';");
+            while (resultset.next()) {
+                userid = resultset.getString(1);
+                if (!userid.equals(null)) {
+                    boolean check = statement.execute("SELECT fk_userId, fk_projectId FROM userproject WHERE fk_userId = '"+userid+"' AND fk_projectId = '"+projectid+"';");
+                    if (!check) {
+                        System.out.println("Brugeren er allerede added til projektet i forvejen.");
+                    } else {
+                        System.out.println("Adder projektet nu.");
+
+                    }
                 } else {
-                    ps = con.prepareStatement("INSERT INTO public.userproject VALUES (?,?,?);");
-                    ps.setObject(1,UUID.randomUUID());
-                    ps.setObject(2,UUID.fromString(userid));
-                    ps.setObject(3,UUID.fromString(projectid));
-                    ps.execute();
-                    return true;
+                    System.err.println("Caused by: user doesn't exist.");
                 }
-            } else {
-                return false;
             }
+
+            //ResultSet resultset = statement.executeQuery("SELECT * FROM userProject WHERE fk_userid = '"+userid+"';");
+            //resultset.next();
+            //resultset.getString(1);
+            //statement.execute("");
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
+            System.err.println("\nCaused maybe by: the user is already associated to the project.");
             return false;
         } finally {
-            if (ps != null) {
-                ps.close();
+            if (statement != null) {
+                statement.close();
             }
         }
     }
 
-//OMAR OMAR OMAR OMAR, prep statements på alle metoder nedenunder!!!
-
-    /**
-     * Made by pepak16.
-     * A private method to be used by the addUserToProject() method.
-     * Fetches the userid via the given username from argument.
-     * Temporary problem: can only fetch one row of userid associated with the username,
-     * if the username has more than one userid associations.
-     * @param username
-     * @return String
-     * @throws SQLException
-     */
-    private String getUseridFromUsername(String username) throws SQLException {
-        PreparedStatement ps = null;
-        try {
-            ps = con.prepareStatement("SELECT userid FROM public.user WHERE username = ?;");
-            ps.setString(1, username);
-            ResultSet rs = ps.executeQuery();
-            rs.next();
-            return rs.getString(1);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
-        } finally {
-            if (ps != null) {
-                ps.close();
-            }
-        }
-    }
-
-    // userid, projectid
-    /**
-     * Made by pepak16.
-     * Checks whether the a userid and projectid is associated in userproject table,
-     * if yes then it would return true, else it would return false.
-     * It would perhaps catch a PSQLException saying that
-     * "ResultSet not positioned properly" the given userid or/and project is wrong.
-     * @param userid
-     * @param projectid
-     * @return String
-     * @throws SQLException
-     */
-    private boolean checkIfUserProjectExist(String userid, String projectid) throws SQLException {
-        PreparedStatement ps = null;
-        try {
-            boolean check;
-            ps = con.prepareStatement("SELECT exists(SELECT fk_userId, fk_projectId FROM userproject WHERE fk_userId = ? AND fk_projectId = ?;)");
-            ResultSet rs = ps.executeQuery();
-            ps.setString(1,userid);
-            ps.setString(2, projectid);
-            rs.next();
-            return rs.getBoolean(1);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        } finally {
-            if (ps != null) {
-                ps.close();
-            }
-        }
-    }
 
 
     /**
@@ -529,23 +452,22 @@ public class SQLCommands implements ISQLCommands {
      */
     @Override
     public String getProjectName(UUID userid) throws SQLException {
-        PreparedStatement ps = null;
+        Statement statement = con.createStatement();
         try {
-            ps = con.prepareStatement(
+            ResultSet resultset = statement.executeQuery(
                     "SELECT name from public.project" +
                             "  INNER JOIN UserProject ON projectId = fk_projectId" +
-                            "  WHERE fk_userId = ?");
-            ps.setObject(1, userid);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                return rs.getString(1);
+                            "  WHERE fk_userId = '"+userid+"'");
+            while (resultset.next()) {
+                return resultset.getString(1);
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            System.err.println("\nCaused by: project related to the userid doesn't exist in the database.");
             return null;
         } finally {
-            if (ps != null) {
-                ps.close();
+            if (statement != null) {
+                statement.close();
             }
         }
         return null;
@@ -560,20 +482,19 @@ public class SQLCommands implements ISQLCommands {
      * @throws SQLException
      */
     @Override
-    public boolean editProjectName(UUID projectid,String name) throws SQLException {
-        PreparedStatement ps = null;
+    public boolean setProjectName(UUID projectid,String name) throws SQLException {
+        Statement statement = con.createStatement();
         try {
-            ps = con.prepareStatement("UPDATE public.project SET name = ? " +
-                    "WHERE projectid = ?;");
-            ps.setString(1, name);
-            ps.setObject(2, projectid);
+            statement.execute("UPDATE public.project SET name = '"+name+"' " +
+                    "WHERE projectid = '"+projectid+"';");
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
+            System.err.println("\nCaused by: project doesn't exist in the database.");
             return false;
         } finally {
-            if (ps != null) {
-                ps.close();
+            if (statement != null) {
+                statement.close();
             }
         }
     }
@@ -587,23 +508,23 @@ public class SQLCommands implements ISQLCommands {
      */
     @Override
     public String getProjectDescription(UUID userid) throws SQLException {
-        PreparedStatement ps = null;
+        Statement statement = con.createStatement();
+        List<Project> list = new ArrayList<>();
         try {
-            ps = con.prepareStatement(
+            ResultSet resultset = statement.executeQuery(
                     "SELECT description from public.project" +
                             "  INNER JOIN UserProject ON projectId = fk_projectId\n" +
-                            "  WHERE fk_userId = ?");
-            ps.setObject(1, userid);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                return rs.getString(1);
+                            "  WHERE fk_userId = '"+userid+"'");
+            while (resultset.next()) {
+                return resultset.getString(1);
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            System.err.println("\nCaused by: project related to the userid doesn't exist in the database.");
             return null;
         } finally {
-            if (ps != null) {
-                ps.close();
+            if (statement != null) {
+                statement.close();
             }
         }
         return null;
@@ -618,20 +539,18 @@ public class SQLCommands implements ISQLCommands {
      * @throws SQLException
      */
     @Override
-    public boolean editProjectDescription(UUID projectid, String description) throws SQLException {
-        PreparedStatement ps = null;
+    public boolean setProjectDescription(UUID projectid, String description) throws SQLException {
+        Statement statement = con.createStatement();
         try {
-            ps = con.prepareStatement("UPDATE public.project SET description = ? WHERE projectid = ?;");
-            ps.setString(1, description);
-            ps.setObject(2, projectid);
-            ps.execute();
+            statement.execute("UPDATE public.project SET description = '"+description+"' WHERE projectid = '"+projectid+"';");
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
+            System.err.println("\nCaused by: project related to the userid doesn't exist in the database.");
             return false;
         } finally {
-            if (ps != null) {
-                ps.close();
+            if (statement != null) {
+                statement.close();
             }
         }
     }
@@ -645,31 +564,30 @@ public class SQLCommands implements ISQLCommands {
      */
     @Override
     public List<Project> getProject(UUID userid) throws SQLException {
-        PreparedStatement ps = null;
+        Statement statement = con.createStatement();
         List<Project> list = new ArrayList<>();
         Project project;
         try {
-            ps = con.prepareStatement(
+            ResultSet resultset = statement.executeQuery(
                     "SELECT * from public.project" +
                             "  INNER JOIN UserProject ON projectId = fk_projectId\n" +
-                            "  WHERE fk_userId = ?");
-            ps.setObject(1, userid);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
+                            "  WHERE fk_userId = '"+userid+"'");
+            while (resultset.next()) {
                 project = new Project();
-                project.setId(rs.getString(1));
-                project.name(rs.getString(2));
-                project.setDescription(rs.getString(3));
+                project.setId(resultset.getString(1));
+                project.name(resultset.getString(2));
+                project.setDescription(resultset.getString(3));
                 project.setUserid(userid.toString());
                 list.add(project);
             }
             return list;
         } catch (SQLException e) {
             e.printStackTrace();
+            System.err.println("\nCaused by: project related to the userid doesn't exist in the database.");
             return null;
         } finally {
-            if (ps != null) {
-                ps.close();
+            if (statement != null) {
+                statement.close();
             }
         }
     }
@@ -677,79 +595,69 @@ public class SQLCommands implements ISQLCommands {
     //Task
     @Override
     public boolean addTaskToProject(String taskName, String taskdescription, String taskdue, String projectid) throws SQLException {
-        PreparedStatement ps = null;
+        Statement statement = con.createStatement();
         try {
-            ps = con.prepareStatement("INSERT INTO task (taskId, taskName, taskDescription, taskStart, taskDue, fk_projectID, fk_statusId)\n" +
-                    "VALUES (?, ?, ?, 'now()', ?, ?, '1');");
-            ps.setObject(1, UUID.randomUUID());
-            ps.setString(2, taskName);
-            ps.setString(3, taskdescription);
-            ps.setString(4, taskdue);
-            ps.setObject(5, projectid);
-            ps.executeQuery();
+            statement.execute("INSERT INTO task (taskId, taskName, taskDescription, taskStart, taskDue, fk_projectID, fk_statusId)\n" +
+                    "VALUES ('"+UUID.randomUUID()+"', '"+taskName+"', '"+taskdescription+"', 'now()', '"+taskdue+"', '"+projectid+"', '1');");
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
         } finally {
-            if (ps != null) {
-                ps.close();
+            if (statement != null) {
+                statement.close();
             }
         }
     }
 
     @Override
-    public boolean editTaskStatus(String taskId, int statusId) throws SQLException {
-        PreparedStatement ps = null;
+    public boolean setTaskStatus(String taskId, int statusId) throws SQLException {
+        Statement statement = con.createStatement();
         try {
-            ps = con.prepareStatement("UPDATE task\n" +
-                    "SET taskStatus = ?\n" +
-                    "WHERE taskId = ?;");
-            ps.setObject(1, statusId);
-            ps.setObject(2, taskId);
-            ps.execute();
+            statement.executeQuery("UPDATE task\n" +
+                    "SET taskStatus = '"+statusId+"'\n" +
+                    "WHERE taskId = '"+taskId+"';");
             return true;
         } catch (SQLException e) {
+            System.out.println("\nCaused by the task not existing.");
             return false;
         } finally {
-            if (ps != null) {
-                ps.close();
+            if (statement != null) {
+                statement.close();
             }
         }
     }
 
     @Override
     public boolean deleteTask(String taskId) throws SQLException {
-        PreparedStatement ps = null;
+        Statement statement = con.createStatement();
         try {
-            ps = con.prepareStatement("DELETE FROM task\n" +
-                    "WHERE taskId = ?;");
-            ps.setObject(1, taskId);
-            ps.execute();
+            statement.executeQuery("DELETE FROM task\n" +
+                    "WHERE taskId = '"+taskId+"';");
             return true;
         } catch (SQLException e) {
+            System.out.println("\nCaused by the task not existing.");
             return false;
         } finally {
-            if (ps != null) {
-                ps.close();
+            if (statement != null) {
+                statement.close();
             }
         }
     }
 
     @Override
     public boolean deleteAllTaskForProject(String projectId) throws SQLException {
-        PreparedStatement ps = null;
+        Statement statement = con.createStatement();
         try {
-            ps = con.prepareStatement("DELETE FROM task\n" +
-                    "WHERE fk_projectId = ?;");
-            ps.setObject(1, projectId);
-            ps.execute();
+            statement.executeQuery("DELETE FROM task\n" +
+                    "WHERE fk_projectId = '"+projectId+"';");
             return true;
         } catch (SQLException e) {
+            System.out.println("\nCaused by the project not having any tasks.");
             return false;
         } finally {
-            if (ps != null) {
-                ps.close();
+            if (statement != null) {
+                statement.close();
             }
         }
     }
@@ -783,30 +691,29 @@ public class SQLCommands implements ISQLCommands {
         String taskProjectIDByStatusConv;  /* Project ID for said task. It's already in String format.
                                            * Tasks are sorted according to their status. */
 
-        PreparedStatement ps = null;        // Statement in order to use the SQL connection.
+        Statement statement = con.createStatement();        // Statement in order to use the SQL connection.
 
         try {
 
-            ps = con.prepareStatement("SELECT * FROM task\n" +
-                    "INNER JOIN taskStatus ON fk_StatusId = statusId WHERE fk_projectId = ? AND fk_statusId = ?;");
-            ps.setObject(1, projectId);
-            ps.setObject(2, statusId);
-            ResultSet rs = ps.executeQuery();
+            ResultSet getTaskByStatusrs = statement.executeQuery("SELECT * FROM task\n" +
+                    "INNER JOIN taskStatus ON fk_StatusId = statusId WHERE fk_projectId = '" + projectId + "' AND fk_statusId = '" + statusId + "';");
 
-            while (rs.next()) {
+            Task task;
 
-                Task task = new Task();
-                task.setName(rs.getString(2));               // Get task name as a String.
-                task.setDescription(rs.getString(3));      // Get task desc. as a String.
+            while (getTaskByStatusrs.next()) {
+
+                task = new Task();
+                task.setName(getTaskByStatusrs.getString(2));               // Get task name as a String.
+                task.setDescription(getTaskByStatusrs.getString(3));      // Get task desc. as a String.
 
                 //  taskStartByStatusOrig = getTaskByStatusrs.getDate(4);       // Get task's start date as a Date.
                 //  taskStartByStatusConv = taskStartByStatusOrig.toString();               // Convert taskStatus to String.
 
-                taskDueByStatusOrig = rs.getDate(5);         // Get taskDue as a Date.
+                taskDueByStatusOrig = getTaskByStatusrs.getDate(5);         // Get taskDue as a Date.
                 taskDueByStatusConv = taskDueByStatusOrig.toString();                   // Convert taskDue to String.
                 task.setDuedate(taskDueByStatusConv);                                   // Store due date (String) in the Task object.
 
-                task.setId(rs.getString(6));  // Get taskProjectID as a String.
+                task.setId(getTaskByStatusrs.getString(6));  // Get taskProjectID as a String.
 
                 // TODO ((Remove comment when task.setStatus() has been implemented in the model.Task.java.
                 //task.setStatus(getTaskByStatusrs.getInt(7));       // Get taskStatus as an int.
@@ -836,8 +743,8 @@ public class SQLCommands implements ISQLCommands {
             e.printStackTrace();
 
         } finally {
-            if (ps != null) {
-                ps.close();
+            if (statement != null) {
+                statement.close();
             }
         }
         return tasksByStatus;
@@ -848,21 +755,21 @@ public class SQLCommands implements ISQLCommands {
      * author: omhaw16
      */
     public String getTaskNameByStatus(String projectId, int statusId) throws SQLException {
-        PreparedStatement ps = null;        // Statement in order to use the SQL connection.
+
+        Statement statement = con.createStatement();        // Statement in order to use the SQL connection.
+
         try {
-            ps = con.prepareStatement("SELECT taskName FROM task WHERE fk_projectId = ? AND fk_statusId = ?;");
-            ps.setObject(1, projectId);
-            ps.setObject(2, statusId);
-            ResultSet rs = ps.executeQuery();
-            rs.next();
-            return rs.getString(1);
+            ResultSet getTaskByStatusrs = statement.executeQuery("SELECT taskName FROM task WHERE fk_projectId = '" + projectId + "' AND fk_statusId = '" + statusId + "';");
+            getTaskByStatusrs.next();
+            return getTaskByStatusrs.getString(1);
+
         } catch (SQLException e) {
             System.err.println("Error while fetching task name.");
             e.printStackTrace();
             return null;
         } finally {
-            if (ps != null) {
-                ps.close();
+            if (statement != null) {
+                statement.close();
             }
         }
     }
@@ -887,29 +794,29 @@ public class SQLCommands implements ISQLCommands {
         Date taskDueOrig;
         String taskDueConv;
 
-        PreparedStatement ps = null;        // Statement in order to use the SQL connection.
 
         try {
-            ps = con.prepareStatement("SELECT * FROM task\n" +
-                    "INNER JOIN project ON fk_projectId = projectId WHERE fk_projectId = ?;");
-            ps.setObject(1, projectId);
-            ResultSet rs = ps.executeQuery();
+
+            Statement statement = con.createStatement();
+            ResultSet getTaskByProjrs = statement.executeQuery("SELECT * FROM task\n" +
+                    "INNER JOIN project ON fk_projectId = projectId WHERE fk_projectId = '" + projectId + "';");
+
             Task task;
 
-            while (rs.next()) {
+            while (getTaskByProjrs.next()) {
                 task = new Task();
 
-                task.setName(rs.getString(2));         // Get task name as a String. Assign to Task object.
-                task.setDescription(rs.getString(3));  // Get task desc. as a String. Assign to Task object.
+                task.setName(getTaskByProjrs.getString(2));         // Get task name as a String. Assign to Task object.
+                task.setDescription(getTaskByProjrs.getString(3));  // Get task desc. as a String. Assign to Task object.
 
-                //        taskStartOrig = rs.getDate(4);                // Get the start date.
-                //        taskStartConv = taskStartOrig.toString();     // Convert start date to String. (just in case)
+                //        taskStartOrig = getTaskByProjrs.getDate(4);                // Get the start date.
+                //        taskStartConv = taskStartOrig.toString();                // Convert start date to String. (just in case)
 
-                taskDueOrig = rs.getDate(5);   // Get task date as a Date.
+                taskDueOrig = getTaskByProjrs.getDate(5);   // Get task date as a Date.
                 taskDueConv = taskDueOrig.toString();                   // Convert task date to a String.
                 task.setDuedate(taskDueConv);                           // Assign task due date (String) to the Task object.
 
-                task.setId(rs.getString(6));   // Get project ID for specified task
+                task.setId(getTaskByProjrs.getString(6));   // Get project ID for specified task
                 // & assign it to the task object.
 
 
@@ -920,23 +827,18 @@ public class SQLCommands implements ISQLCommands {
                 // TODO Remember to add elements to the list.
 
                 // TODO Remove the comment from this once task.setStatus is implemented in model.Task.java. /omhaw16
-                tasksByProject.add(task);
+                                tasksByProject.add(task);
 
             }
+
+
 
         } catch (SQLException e) {
             System.err.println("Error while getting tasks by project.");
             e.printStackTrace();
-
-        } finally {
-            if (ps != null) {
-                ps.close();
-            }
         }
         System.out.println("Returning: " + tasksByProject.toString());
         return tasksByProject;
     }
-
-
 
 }

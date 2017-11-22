@@ -6,9 +6,11 @@ import java.util.List;
 import java.sql.SQLException;
 import java.util.UUID;
 
-interface ISQLCommands {
+public interface ISQLCommands {
 
     boolean addUser(String username, String password, String firstname, String lastname, String type) throws SQLException;
+
+    boolean checkUserLogin(String username, String password) throws SQLException;
 
     String getPassword(String username) throws SQLException;
 
@@ -16,15 +18,15 @@ interface ISQLCommands {
 
     String getLastname(String username) throws SQLException;
 
-    boolean editUsername(String username) throws SQLException;
+    boolean setUsername(String username) throws SQLException;
 
-    boolean editPassword(String username, String password) throws SQLException;
+    boolean setPassword(String username, String password) throws SQLException;
 
-    boolean editFirstname(String username, String firstname) throws SQLException;
+    boolean setFirstname(String username, String firstname) throws SQLException;
 
-    boolean editLastname(String username, String lastname) throws SQLException;
+    boolean setLastname(String username, String lastname) throws SQLException;
 
-    boolean editUserType(String username, String type) throws SQLException;
+    boolean setUserType(String username, String type) throws SQLException;
 
     boolean isUserExisting(String username) throws SQLException;
 
@@ -34,17 +36,17 @@ interface ISQLCommands {
 
     //Project
 
-    public boolean addProject(String userid, String projectname,String projectdescription) throws SQLException;
+    public boolean addProject(UUID userid, String projectname,String projectdescription) throws SQLException;
 
-    boolean addUserToProject(String username,String projectid) throws SQLException;
+    boolean addUserToProject(String username,UUID projectid) throws SQLException;
 
     String getProjectName(UUID userid) throws SQLException;
 
-    boolean editProjectName(UUID projectid, String name) throws SQLException;
+    boolean setProjectName(UUID projectid, String name) throws SQLException;
 
     String getProjectDescription(UUID userid) throws SQLException;
 
-    boolean editProjectDescription(UUID projectid, String name) throws SQLException;
+    boolean setProjectDescription(UUID projectid, String name) throws SQLException;
 
     List<Project> getProject(UUID userid) throws SQLException;
 
@@ -52,7 +54,7 @@ interface ISQLCommands {
 
     boolean addTaskToProject(String taskname, String taskdescription, String taskdue, String projectid) throws SQLException;
 
-    boolean editTaskStatus(String taskid, int statusid) throws SQLException;
+    boolean setTaskStatus(String taskid, int statusid) throws SQLException;
 
     boolean deleteTask(String taskid) throws SQLException;
 
