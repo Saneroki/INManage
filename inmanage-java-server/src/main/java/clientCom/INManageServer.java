@@ -35,7 +35,7 @@ public class INManageServer {
 
 
 
-    public void addUserResponse(User user){
+    public String addUserResponse(User user){
 
         System.out.println("Adding new user: " + user.getName());
 
@@ -48,7 +48,10 @@ public class INManageServer {
             e.printStackTrace();
         }
 
+        return "Succes";
+
     }
+
     public void addProjectResponse(Project project){
         System.out.println("Adding new project: " + project.getName());
         //sql.addProject .....

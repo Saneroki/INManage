@@ -22,18 +22,19 @@ public class AdminsApiExample {
             searchUser(apiInstance);
 
         } catch (ApiException e) {
-            System.err.println("Exception when calling AdminsApi#addUser");
-            e.printStackTrace();
+            //System.err.println("Exception when calling AdminsApi#addUser");
+            //e.printStackTrace();
+            throw new Error("Exception when calling AdminsApi#addUser");
         }
     }
 
 
     private static void addUser(AdminsApi apiInstance) throws ApiException {
-       /* User user = new User(); // User | User to add
-        user.setUserId("666");
-        user.setTaskName("Malte");
+        User user = new User(); // User | User to add
+        user.setName("666");
+        user.setPassword("Malte");
         apiInstance.addUser(user);
-        System.out.println(user);*/
+        System.out.println(user);
     }
 
     private static void searchUser(AdminsApi apiInstance) throws ApiException {
