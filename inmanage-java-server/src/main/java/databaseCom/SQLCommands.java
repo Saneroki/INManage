@@ -29,6 +29,22 @@ public class SQLCommands implements ISQLCommands {
         return instance;
     }
 
+
+
+
+
+
+
+//PERSHA PERSHA PERSHA PERSHA, prep statements på alle metoder nedenunder!!!
+
+
+
+
+
+
+
+
+
     /**
      * pepak16
      * @param username
@@ -383,7 +399,6 @@ public class SQLCommands implements ISQLCommands {
         }
     }
 
-
     /**
      * Made by pepak16.
      * Adds new user to a specific project via the projectid to the database, if the user isn't already added to the project.
@@ -419,6 +434,22 @@ public class SQLCommands implements ISQLCommands {
         }
         return false;
     }
+
+
+
+
+
+
+
+//OMAR OMAR OMAR OMAR, prep statements på alle metoder nedenunder!!!
+
+
+
+
+
+
+
+
 
     /**
      * Made by pepak16.
@@ -874,5 +905,56 @@ public class SQLCommands implements ISQLCommands {
         System.out.println("Returning: " + tasksByProject.toString());
         return tasksByProject;
     }
+
+    //Test method
+
+    public void printUser(String userName) throws SQLException {
+        PreparedStatement ps = null;
+        Statement s = null;
+        try {
+            ps = con.prepareStatement("SELECT * FROM public.user WHERE username = ?");
+            ps.setString(1, userName);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            System.out.println(rs.getString(1));
+            System.out.println(rs.getString(2));
+            System.out.println(rs.getString(3));
+            System.out.println(rs.getString(4));
+            System.out.println(rs.getString(5));
+            System.out.println(rs.getString(6));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (ps != null) {
+                ps.close();
+            }
+        }
+    }
+
+    //Test method
+
+    public void printUserWithoutPS(String userName) throws SQLException {
+        Statement s = null;
+        try {
+            s = con.createStatement();
+            ResultSet rs = s.executeQuery("SELECT * FROM public.user WHERE username = '"+userName+"'");
+            while (rs.next()) {
+                System.out.println(rs.getString(1));
+                System.out.println(rs.getString(2));
+                System.out.println(rs.getString(3));
+                System.out.println(rs.getString(4));
+                System.out.println(rs.getString(5));
+                System.out.println(rs.getString(6));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (s != null) {
+                s.close();
+            }
+        }
+    }
+
+
 
 }
