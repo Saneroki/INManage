@@ -1,9 +1,13 @@
 package main.java.clientCom;
 
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import gen.java.api.Bootstrap;
 import gen.java.model.Project;
-import gen.java.model.*;
+import io.swagger.models.Response;
+import io.swagger.util.Json;
 import main.java.databaseCom.SQLCommands;
+import gen.java.model.*;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -16,9 +20,9 @@ public class INManageServer {
 
     public static INManageServer get(){
 
-        if(sql==null){
+        if (sql== null) {
             try {
-                sql=SQLCommands.getInstance();
+                sql = SQLCommands.getInstance();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -39,24 +43,18 @@ public class INManageServer {
             if(sql == null){
                 System.out.println("SQL ER NULL!!!!!");
             }
-            sql.addUser(user.getName(),user.getPassword(),"bob","Loblaw","user");
+            sql.registerUser(UUID.randomUUID(),user.getName(),user.getPassword(),"bob","Loblaw","user");
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return "Succes!";
+        return "Succes";
 
     }
-    public String addProjectResponse(Project project){
+
+    public void addProjectResponse(Project project){
         System.out.println("Adding new project: " + project.getName());
-        try {
-            sql.addProject(project.getUserid(),project.getName(),project.getDescription());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return "Succes!";
-
+        //sql.addProject .....
     }
 
     public String loginResponse(String username, String password){
@@ -76,66 +74,34 @@ public class INManageServer {
         }
     }
 
-    public List<Project> getProjectsResponse(String projectID){
+    public List<Project> getProjectsResponse(String userID){
 
         List<Project> list = new ArrayList<>();
 
-        try {
-            list = sql.getProject(UUID.fromString(projectID));
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        //sql.getAllProjects
+
+        //add projects to list
 
         return list;
     }
 
-    public String addTaskResponse(AddTaskObject addTask){
+    public void addTaskResponse(AddTaskObject addTask){
 
         System.out.println("Adding new task: " + addTask.getTaskName());
 
-        try {
-            sql.addTaskToProject(addTask.getTaskName(),addTask.getDescription(),addTask.getDueDate(),addTask.getProjectId());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return "Succes!";
+        //Sql.addTask();
 
     }
 
-    /*
-
-
-
-     */
-
-    public List<Task> getTaskResponse(String projectId){
+    public List<Task> addTaskResponse(String projectId){
         List<Task> list = new ArrayList<>();
 
-        System.out.println("Getting tasks for the project: " + projectId);
-
-        try {
-           list = sql.getAllTaskByProject(projectId);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        //sql.getTasks()
 
         //add tasks to list
 
         return list;
 
-    }
-
-    public String addUserToProject(String projectId, String username){
-
-        try {
-            //It says userid, but it is username
-            sql.addUserToProject(username,projectId);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return "Succes!";
     }
 
 }
