@@ -27,7 +27,10 @@ import java.util.UUID;
 //                System.out.println("Testing done.");
 //                System.out.println("Now exiting...");
 //                System.exit(1);
-
+                System.out.println("\n");
+                //sql.printUser("persha95");
+                System.out.println("\n");
+                //sql.printUserWithoutPS("' or '1'='1");
             }
         }
 
