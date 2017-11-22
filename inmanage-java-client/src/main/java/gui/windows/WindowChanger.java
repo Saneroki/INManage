@@ -29,6 +29,6 @@ public class WindowChanger {
     }
 
     private void setFxmlLoader(String fxmlPath){
-        loader = new FXMLLoader(getClass().getResource(fxmlPath));
+        loader = new FXMLLoader(getClass().getClassLoader().getResource(fxmlPath));
     }
 }

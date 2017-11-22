@@ -26,7 +26,7 @@ import javax.ws.rs.*;
 
 
 @io.swagger.annotations.Api(description = "the project API")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-11-08T10:54:29.881Z")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-11-10T14:39:53.890Z")
 public class ProjectApi  {
    private final ProjectApiService delegate = ProjectApiServiceFactory.getProjectApi();
 
@@ -43,6 +43,21 @@ public class ProjectApi  {
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
         return delegate.addProject(project,securityContext);
+    }
+    @POST
+    @Path("/adduser")
+    @Consumes({ "application/json" })
+    
+    @io.swagger.annotations.ApiOperation(value = "Adds a user to a project", notes = "Adds a user to a specific project", response = void.class, tags={ "User", })
+    @io.swagger.annotations.ApiResponses(value = { 
+        @io.swagger.annotations.ApiResponse(code = 201, message = "User added", response = void.class),
+        
+        @io.swagger.annotations.ApiResponse(code = 400, message = "User adding failed", response = void.class) })
+    public Response addUserToProject(@ApiParam(value = "The ID of the project getting added") @QueryParam("projectID") String projectID
+,@ApiParam(value = "The id of the user getting added.") @QueryParam("The ID of the user making the operation") String theIDOfTheUserMakingTheOperation
+,@Context SecurityContext securityContext)
+    throws NotFoundException {
+        return delegate.addUserToProject(projectID,theIDOfTheUserMakingTheOperation,securityContext);
     }
     @GET
     

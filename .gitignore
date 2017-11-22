@@ -6,6 +6,15 @@ inmanage-java-client/target/
 inmanage-java-client/.idea
 inmanage-java-server/target/
 inmanage-java-server/.idea
-out/
-
-inmanage-java-server/docs/VPN/\.Cisco AnyConnect MacInstall\.dmg\.icloud
+/inmanage-java-client/.classpath
+/inmanage-java-client/.project
+/inmanage-java-client/inmanage-java-client.eml
+/inmanage-java-server/.classpath
+/inmanage-java-server/.project
+/inmanage-java-server/inmanage-java-server.eml
+/.classpath
+/.project
+/INManage.userlibraries
+inmanage-java-client/bin/
+inmanage-java-client/src/test/java/
+inmanage-java-server/bin/

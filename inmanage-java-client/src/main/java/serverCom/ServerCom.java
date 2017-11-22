@@ -1,5 +1,6 @@
 package main.java.serverCom;
 
+import gen.java.invoker.ApiException;
 import gen.java.model.AddTaskObject;
 import gen.java.model.Project;
 import gen.java.model.Task;
@@ -19,6 +20,8 @@ public interface ServerCom {
     List<Project> getAllProjects(String userID);
 
     List<Task> getAllTasks(String projectID);
+
+    void addUserToProject(String userID, String projecID);
 
 
 

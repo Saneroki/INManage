@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import main.java.gui.ClientLauncher;
-import main.java.gui.windows.Controller;
 import main.java.serverCom.ServerCom;
 import main.java.serverCom.ServerComImpl;
 
@@ -23,7 +22,7 @@ public class SignUp{
     private ServerCom serv = new ServerComImpl();
 
     public void cancel(ActionEvent actionEvent) {
-        ClientLauncher.getWindowChanger().setScene("/fxml/windows/Login.fxml");
+        ClientLauncher.getWindowChanger().setScene("fxml/windows/Login.fxml");
     }
 
     public void signup(ActionEvent actionEvent) {
@@ -32,7 +31,7 @@ public class SignUp{
             passwordConfirmInput.setPromptText("The passwords don't match");
         } else {
             serv.addUser(checkedUsername(), checkedPassword());
-            ClientLauncher.getWindowChanger().setScene("/fxml/windows/ProjectOverview.fxml");
+            ClientLauncher.getWindowChanger().setScene("fxml/windows/ProjectDashboard.fxml");
         }
 
     }
@@ -44,6 +43,7 @@ public class SignUp{
 
     private String checkedPassword() {
         if (passwordInput.getText().equals(passwordConfirmInput.getText())) {
+            System.out.println("Confirmed!");
             return passwordConfirmInput.getText(); }
         return null;
     }

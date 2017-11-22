@@ -1,11 +1,14 @@
 package main.java.databaseCom;
 
+import gen.java.model.Project;
+
+import java.util.List;
 import java.sql.SQLException;
 import java.util.UUID;
 
 public interface ISQLCommands {
 
-    boolean registerUser(UUID id, String username, String password, String firstname, String lastname, String type) throws SQLException;
+    boolean addUser(String username, String password, String firstname, String lastname, String type) throws SQLException;
 
     boolean checkUserLogin(String username, String password) throws SQLException;
 
@@ -15,7 +18,7 @@ public interface ISQLCommands {
 
     String getLastname(String username) throws SQLException;
 
-    public boolean setUsername(String username) throws SQLException;
+    boolean setUsername(String username) throws SQLException;
 
     boolean setPassword(String username, String password) throws SQLException;
 
@@ -31,6 +34,34 @@ public interface ISQLCommands {
 
     String loginUser(String username, String password) throws SQLException;
 
+    //Project
 
+    public boolean addProject(UUID userid, String projectname,String projectdescription) throws SQLException;
 
+    boolean addUserToProject(String username,UUID projectid) throws SQLException;
+
+    String getProjectName(UUID userid) throws SQLException;
+
+    boolean setProjectName(UUID projectid, String name) throws SQLException;
+
+    String getProjectDescription(UUID userid) throws SQLException;
+
+    boolean setProjectDescription(UUID projectid, String name) throws SQLException;
+
+    List<Project> getProject(UUID userid) throws SQLException;
+
+    //Task
+
+    boolean addTaskToProject(String taskname, String taskdescription, String taskdue, String projectid) throws SQLException;
+
+    boolean setTaskStatus(String taskid, int statusid) throws SQLException;
+
+    boolean deleteTask(String taskid) throws SQLException;
+
+    boolean deleteAllTaskForProject(String projectid) throws SQLException;
+
+    List getTaskByStatus(String projectid, int statusid) throws SQLException;
+
+    List getAllTaskByProject(String projectid) throws SQLException;
+    
 }
