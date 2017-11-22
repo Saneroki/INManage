@@ -38,6 +38,6 @@ public class ProjectApiServiceImpl extends ProjectApiService {
     public Response addUserToProject(String projectID, String theIDOfTheUserMakingTheOperation, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
         //It says user id but it is username NEEDS TO BE CHANGED IN NEXT API VERSION!
-        return Response.ok().entity(INManageServer.get().addUserToProject(projectID,theIDOfTheUserMakingTheOperation)).build();
+        return Response.ok().entity(INManageServer.get().addUserToProject(theIDOfTheUserMakingTheOperation,projectID)).build();
     }
 }

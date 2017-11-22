@@ -6,7 +6,7 @@ import java.util.List;
 import java.sql.SQLException;
 import java.util.UUID;
 
-interface ISQLCommands {
+public interface ISQLCommands {
 
     boolean addUser(String username, String password, String firstname, String lastname, String type) throws SQLException;
 
@@ -36,9 +36,9 @@ interface ISQLCommands {
 
     //Project
 
-    boolean addProject(UUID userid, String projectname, String projectdescription) throws SQLException;
+    public boolean addProject(UUID userid, String projectname,String projectdescription) throws SQLException;
 
-    boolean addUserToProject(String username,String projectid) throws SQLException;
+    boolean addUserToProject(String username,UUID projectid) throws SQLException;
 
     String getProjectName(UUID userid) throws SQLException;
 
