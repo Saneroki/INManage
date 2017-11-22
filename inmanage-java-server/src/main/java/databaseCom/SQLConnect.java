@@ -19,6 +19,7 @@ public class SQLConnect {
         String user = "si3_2017_group_1";
         String password = "Mach901&blow";
         Connection db = DriverManager.getConnection(url, user, password);
+        System.out.println("Connection to DB successful!");
         try {
             db = DriverManager.getConnection(url, user, password);
         } catch (SQLException ex) {
