@@ -1,4 +1,6 @@
-package main.java.databaseCom;
+package main.java;
+
+import main.java.databaseCom.SQLCommands;
 
 import java.sql.SQLException;
 import java.util.UUID;
