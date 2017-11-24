@@ -12,21 +12,17 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="root" focusTraversable="true" minHeight="400.0" minWidth="600.0" prefHeight="768.0" prefWidth="1024.0" stylesheets="@/fxml/Style.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.gui.windows.Login">
+<AnchorPane id="root" focusTraversable="true" minHeight="400.0" minWidth="600.0" prefHeight="768.0" prefWidth="1024.0" stylesheets="@/fxml/Style.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.gui.layouts.Login">
    <BorderPane id="root" style="-fx-background-color: #84AF9E;" styleClass="root" stylesheets="@/fxml/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <center>
          <VBox maxHeight="398.0" prefHeight="398.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
             <HBox alignment="CENTER" prefHeight="344.0" prefWidth="1024.0">
-               <children>
-                  <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                     <HBox.margin>
-                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-                     </HBox.margin>
-                     <image>
-                        <Image url="@../../img/inManageLogoNew_150px.png" />
-                     </image>
-                  </ImageView>
-               </children>
+               <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                  <HBox.margin>
+                     <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+                  </HBox.margin>
+                  <Image url="@../../img/inManageLogoNew_150px.png"/>
+               </ImageView>
             </HBox>
             <HBox alignment="CENTER" minHeight="62.0" minWidth="200.0" prefHeight="62.0" prefWidth="1024.0">
                <TextField fx:id="usernameInput" promptText="Username" />

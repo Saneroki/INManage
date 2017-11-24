@@ -1,6 +1,5 @@
-package main.java.gui.windows;
+package main.java.gui.layouts;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -8,7 +7,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import main.java.gui.ClientLauncher;
 import main.java.serverCom.ServerCom;
-import main.java.serverCom.ServerComImpl;
 
 
 public class Login {
@@ -19,10 +17,10 @@ public class Login {
     @FXML
     private TextField passwordInput;
 
-    private ServerCom serv = ClientLauncher.getServer();
+    private final ServerCom serv = ClientLauncher.getServer();
 
     public void signUp(ActionEvent actionEvent) {
-        ClientLauncher.getWindowChanger().setScene("fxml/windows/SignUp.fxml");
+        ClientLauncher.getWindowChanger().setScene("SignUp");
     }
 
     public void SignIn(ActionEvent actionEvent) {
@@ -31,7 +29,7 @@ public class Login {
         System.out.println(resp);
         ClientLauncher.setUserId(resp);
         if((resp)!=null){
-            ClientLauncher.getWindowChanger().setScene("fxml/windows/ProjectDashboard.fxml");
+            ClientLauncher.getWindowChanger().setScene("ProjectDashboard");
         }else{
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Error logging in");

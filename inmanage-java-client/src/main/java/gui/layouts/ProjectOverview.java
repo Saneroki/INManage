@@ -1,4 +1,4 @@
-package main.java.gui.windows;
+package main.java.gui.layouts;
 
 import gen.java.model.Project;
 import javafx.fxml.FXML;
@@ -14,6 +14,7 @@ import main.java.serverCom.ServerCom;
 
 public class ProjectOverview {
 
+    public Text dueDateText;
     @FXML
     private VBox mainVbox;
 
@@ -53,16 +54,12 @@ public class ProjectOverview {
 
         goToTasks.setOnAction(event -> {
             System.out.println("Current proj id: " + ClientLauncher.getProj().getId());
-            ClientLauncher.getWindowChanger().setScene("fxml/windows/TaskOverview.fxml");
+            ClientLauncher.getWindowChanger().setScene("fxml/layouts/TaskOverview.fxml");
         });
 
-        addTaskBtn.setOnAction(event -> {
-            ClientLauncher.getWindowChanger().setScene("fxml/windows/AddTask.fxml");
-        });
+        addTaskBtn.setOnAction(event -> ClientLauncher.getWindowChanger().setScene("fxml/layouts/AddTask.fxml"));
 
-        addUser.setOnAction(event -> {
-            ClientLauncher.getWindowChanger().setScene("fxml/windows/AddUserToProject.fxml");
-        });
+        addUser.setOnAction(event -> ClientLauncher.getWindowChanger().setScene("fxml/layouts/AddUserToProject.fxml"));
     }
 
     @FXML
@@ -72,7 +69,7 @@ public class ProjectOverview {
 
     @FXML
     void back(MouseEvent event) {
-        ClientLauncher.getWindowChanger().setScene("fxml/windows/ProjectDashboard.fxml");
+        ClientLauncher.getWindowChanger().setScene("fxml/layouts/ProjectDashboard.fxml");
     }
 
     @FXML

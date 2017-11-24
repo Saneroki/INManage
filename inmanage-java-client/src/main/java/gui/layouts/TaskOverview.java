@@ -1,4 +1,4 @@
-package main.java.gui.windows;
+package main.java.gui.layouts;
 
 import gen.java.model.Task;
 import javafx.fxml.FXML;
@@ -21,9 +21,9 @@ public class TaskOverview extends Controller {
     @FXML
     private HBox centerHbox;
 
-    ServerCom serv = ClientLauncher.getServer();
+    private final ServerCom serv = ClientLauncher.getServer();
 
-    private ArrayList<Task> list = (ArrayList<Task>) serv.getAllTasks(ClientLauncher.getProj().getId());
+    private final ArrayList<Task> list = (ArrayList<Task>) serv.getAllTasks(ClientLauncher.getProj().getId());
 
 
     @FXML
@@ -33,7 +33,7 @@ public class TaskOverview extends Controller {
 
     @FXML
     void back(MouseEvent event) {
-        ClientLauncher.getWindowChanger().setScene("fxml/windows/ProjectOverview.fxml");
+        ClientLauncher.getWindowChanger().setScene("fxml/layouts/ProjectOverview.fxml");
     }
 
     @FXML

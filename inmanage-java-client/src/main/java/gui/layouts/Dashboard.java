@@ -1,5 +1,5 @@
 
-package main.java.gui.windows;
+package main.java.gui.layouts;
 
         import gen.java.model.Project;
         import javafx.application.Platform;
@@ -39,7 +39,7 @@ public class Dashboard extends Controller {
 
     private List<Project> list = FXCollections.observableArrayList();
 
-    ServerCom serv = ClientLauncher.getServer();
+    private final ServerCom serv = ClientLauncher.getServer();
 
     public Dashboard(){
         try {
