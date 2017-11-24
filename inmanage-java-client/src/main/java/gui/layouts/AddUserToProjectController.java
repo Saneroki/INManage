@@ -1,14 +1,14 @@
-package main.java.gui.windows;
+package main.java.gui.layouts;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import main.java.gui.ClientLauncher;
 import main.java.serverCom.ServerCom;
-import org.omg.CORBA.INITIALIZE;
+
+import java.util.Objects;
 
 public class AddUserToProjectController {
 
@@ -24,23 +24,23 @@ public class AddUserToProjectController {
     @FXML
     private Button ButtonClose;
 
-    ServerCom serv = ClientLauncher.getServer();
+    private final ServerCom serv = ClientLauncher.getServer();
 
     @FXML
     void onClickAdd(ActionEvent event) {
         if(event.getSource() == ButtonClose){
-            ClientLauncher.getWindowChanger().setScene("fxml/windows/ProjectOverview.fxml");
+            ClientLauncher.getWindowChanger().setScene("fxml/layouts/ProjectOverview.fxml");
         }
         if(event.getSource()== ButtonAdd){
-            if(!(TextFieldUsernameInput.getText()=="")){
+            if(!(Objects.equals(TextFieldUsernameInput.getText(), ""))){
 
                 //implement add user method/ call to class
                 //responsible for searching database and connects user to current project
                 //
                 //
-                serv.addUserToProject(TextFieldUsernameInput.getText().toString(),ClientLauncher.getProj().getId());
+                serv.addUserToProject(TextFieldUsernameInput.getText(),ClientLauncher.getProj().getId());
 
-                ClientLauncher.getWindowChanger().setScene("fxml/windows/ProjectOverview.fxml");
+                ClientLauncher.getWindowChanger().setScene("fxml/layouts/ProjectOverview.fxml");
 
             }
         }

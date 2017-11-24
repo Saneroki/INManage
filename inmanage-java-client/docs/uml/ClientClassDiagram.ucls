@@ -10,7 +10,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="main.java.gui.windows.WindowChanger" project="inmanage-java-client" 
+  <class id="2" language="java" name="main.java.gui.GUIManager" project="inmanage-java-client"
     file="/inmanage-java-client/src/main/java/gui/windows/WindowChanger.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="213" y="-96"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -28,7 +28,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="4" language="java" name="main.java.gui.windows.AddProject" project="inmanage-java-client" 
+  <class id="4" language="java" name="main.java.gui.layouts.AddProject" project="inmanage-java-client"
     file="/inmanage-java-client/src/main/java/gui/windows/AddProject.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="409" y="674"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -37,7 +37,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="main.java.gui.windows.AddTask" project="inmanage-java-client" 
+  <class id="5" language="java" name="main.java.gui.layouts.AddTask" project="inmanage-java-client"
     file="/inmanage-java-client/src/main/java/gui/windows/AddTask.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="642" y="693"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -46,7 +46,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="main.java.gui.windows.AddUserToProjectController" project="inmanage-java-client" 
+  <class id="6" language="java" name="main.java.gui.layouts.AddUserToProjectController" project="inmanage-java-client"
     file="/inmanage-java-client/src/main/java/gui/windows/AddUserToProjectController.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="856" y="647"/>    
@@ -56,7 +56,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="main.java.gui.windows.Login" project="inmanage-java-client" 
+  <class id="7" language="java" name="main.java.gui.layouts.Login" project="inmanage-java-client"
     file="/inmanage-java-client/src/main/java/gui/windows/Login.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="175" y="466"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -65,7 +65,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="main.java.gui.windows.SignUp" project="inmanage-java-client" 
+  <class id="8" language="java" name="main.java.gui.layouts.SignUp" project="inmanage-java-client"
     file="/inmanage-java-client/src/main/java/gui/windows/SignUp.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="194" y="672"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -74,7 +74,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="main.java.gui.windows.ProjectDashboard" project="inmanage-java-client" 
+  <class id="9" language="java" name="main.java.gui.layouts.ProjectDashboard" project="inmanage-java-client"
     file="/inmanage-java-client/src/main/java/gui/windows/ProjectDashboard.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="714" y="38"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -83,7 +83,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="main.java.gui.windows.ProjectOverview" project="inmanage-java-client" 
+  <class id="10" language="java" name="main.java.gui.layouts.ProjectOverview" project="inmanage-java-client"
     file="/inmanage-java-client/src/main/java/gui/windows/ProjectOverview.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="925" y="136"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -92,7 +92,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="main.java.gui.windows.TaskOverview" project="inmanage-java-client" 
+  <class id="11" language="java" name="main.java.gui.layouts.TaskOverview" project="inmanage-java-client"
     file="/inmanage-java-client/src/main/java/gui/windows/TaskOverview.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="888" y="423"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

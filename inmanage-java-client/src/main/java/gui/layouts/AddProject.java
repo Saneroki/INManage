@@ -1,4 +1,4 @@
-package main.java.gui.windows;
+package main.java.gui.layouts;
 
 import gen.java.model.Project;
 import javafx.event.ActionEvent;
@@ -27,12 +27,12 @@ public class AddProject {
     @FXML
     private Button addProjCancelBtn;
 
-    ServerCom serv = ClientLauncher.getServer();
+    private final ServerCom serv = ClientLauncher.getServer();
 
     @FXML
     void addProjectCancelButton(ActionEvent event) {
 
-        ClientLauncher.getWindowChanger().setScene("fxml/windows/ProjectDashboard.fxml");
+        ClientLauncher.getWindowChanger().setScene("fxml/layouts/ProjectDashboard.fxml");
 
     }
 
@@ -48,7 +48,7 @@ public class AddProject {
 
         serv.addProject(proj);
 
-        ClientLauncher.getWindowChanger().setScene("fxml/windows/ProjectDashboard.fxml");
+        ClientLauncher.getWindowChanger().setScene("fxml/layouts/ProjectDashboard.fxml");
 
         // Remember to auto-bind the project to the user who creates it
         // Use the user info from when he/she logged in.

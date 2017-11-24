@@ -12,14 +12,18 @@ import java.util.List;
 
 public class ServerComImpl implements ServerCom {
 
-    private final UserApi userApi = new UserApi();
-    private final AdminsApi adminsApi = new AdminsApi();
+    private UserApi userApi = new UserApi();
+    private AdminsApi adminsApi = new AdminsApi();
 
+    public ServerComImpl(){
+    }
 
     @Override
     public void addUser(String username, String password){
 
-        if (adminsApi == null) {
+        //TODO: English please?
+        //TODO: Why is this allways Null still?
+        if (null == adminsApi) {
             System.out.println("APIEN ER NULL AF EN ELLER ANDEN GRUND!!");
         } else {
             System.out.println("_____APIEN ER ikke NULL");
@@ -43,8 +47,7 @@ public class ServerComImpl implements ServerCom {
     @Override
     public String loginUser(String userName, String password) {
         try {
-            String uuid = userApi.loginUser(userName, password);
-            return uuid;
+            return userApi.loginUser(userName, password);
         } catch (ApiException e) {
             e.printStackTrace();
         }
@@ -74,9 +77,8 @@ public class ServerComImpl implements ServerCom {
     @Override
     public List<Project> getAllProjects(String userID) {
 
-        /*
-        It says userID but we use Prohect ID, needs to be changed in next version of the API.
-         */
+
+        //TODO: It says userID but we use Prohect ID, needs to be changed in next version of the API.
 
         try {
             return userApi.getAllProjects(userID);
