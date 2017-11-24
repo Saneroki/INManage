@@ -34,12 +34,6 @@ public class AddTask {
     @FXML
     private DatePicker dueDateField;
 
-    private String taskName;
-
-    private String taskDesc;
-
-    private LocalDate taskDueDate;
-
     ServerCom serv = ClientLauncher.getServer();
 
     @FXML
@@ -51,9 +45,9 @@ public class AddTask {
 
     @FXML
     void addTaskConfirmAction(ActionEvent event) {
-        taskName = addTaskNameField.getText();
-        taskDesc = addTaskDescField.getText();
-        taskDueDate = dueDateField.getValue();
+        String taskName = addTaskNameField.getText();
+        String taskDesc = addTaskDescField.getText();
+        LocalDate taskDueDate = dueDateField.getValue();
 
         AddTaskObject task = new AddTaskObject();
         task.setTaskName(taskName);

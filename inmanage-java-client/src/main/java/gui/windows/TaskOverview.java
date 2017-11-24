@@ -1,6 +1,5 @@
 package main.java.gui.windows;
 
-import gen.java.model.Project;
 import gen.java.model.Task;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
@@ -9,9 +8,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 import main.java.gui.ClientLauncher;
-import main.java.gui.windows.Controller;
 import main.java.serverCom.ServerCom;
 
 import java.util.ArrayList;
