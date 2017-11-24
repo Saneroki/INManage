@@ -1,19 +1,20 @@
 package main.java.gui;
 
-/*
-  Created by Glenn on 25/10/2017.
-*/
 import gen.java.model.Project;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import main.java.gui.windows.WindowChanger;
 import main.java.serverCom.ServerCom;
 import main.java.serverCom.ServerComImpl;
 
+/**
+ * This class is meant to start the Gui Client
+ *
+ * @author Glenn
+ */
 public class ClientLauncher extends Application {
-    private static WindowChanger windowChanger;
+    private static GUIManager guiManager;
     private static Stage primaryStage;
     private static ServerCom serv;
     private static String userID;
@@ -22,24 +23,38 @@ public class ClientLauncher extends Application {
     //I think that in the future i will have use a sql command to get it for the specific projects
     private static Project proj;
 
+
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         serv = new ServerComImpl();
-        ClientLauncher.primaryStage = primaryStage;
-        primaryStage.getIcons().add(new Image("img/Logo.jpg"));
-        windowChanger = new WindowChanger();
-        windowChanger.setScene("fxml/windows/Login.fxml");
+        setupStartGui(primaryStage);
 
     }
 
-    public static WindowChanger getWindowChanger(){
-        return windowChanger;
+    /**
+     * Sets up the basics of the starting Gui
+     * @author Glenn
+     */
+    private static void setupStartGui(Stage primaryStage){
+        ClientLauncher.primaryStage = primaryStage;
+        primaryStage.getIcons().add(new Image("img/Logo.jpg"));
+        guiManager = new GUIManager();
+        guiManager.setScene("fxml/layouts/Login.fxml");
+        primaryStage.setMaximized(true);
+    }
+
+    public static GUIManager getWindowChanger(){
+        return guiManager;
     }
 
     public static Stage getPrimaryStage(){
         return primaryStage;
     }
 
+    /**
+     * Will exit the whole Client.
+     */
     public void turnOff(){
         Platform.exit();
     }

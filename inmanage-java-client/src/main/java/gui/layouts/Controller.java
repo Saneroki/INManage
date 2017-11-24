@@ -1,8 +1,8 @@
-package main.java.gui.windows;
+package main.java.gui.layouts;
 
 import javafx.application.Platform;
 
-public class Controller {
+class Controller {
 
     public void turnOff(){
         Platform.exit();

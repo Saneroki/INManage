@@ -1,4 +1,4 @@
-package main.java.gui.windows;
+package main.java.gui.layouts;
 
 import gen.java.model.AddTaskObject;
 import javafx.event.ActionEvent;
@@ -34,12 +34,12 @@ public class AddTask {
     @FXML
     private DatePicker dueDateField;
 
-    ServerCom serv = ClientLauncher.getServer();
+    private final ServerCom serv = ClientLauncher.getServer();
 
     @FXML
     void addTaskCancelButton(ActionEvent event) {
 
-        ClientLauncher.getWindowChanger().setScene("fxml/windows/ProjectOverview.fxml");
+        ClientLauncher.getWindowChanger().setScene("fxml/layouts/ProjectOverview.fxml");
 
     }
 
@@ -58,7 +58,7 @@ public class AddTask {
 
         serv.addTask(task);
 
-        ClientLauncher.getWindowChanger().setScene("fxml/windows/ProjectOverview.fxml");
+        ClientLauncher.getWindowChanger().setScene("fxml/layouts/ProjectOverview.fxml");
 
         // When implementing this with SQL we have to check whether LocalDate can be used, or whether we need
         // another solution. /omhaw16

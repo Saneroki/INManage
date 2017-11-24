@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="768.0"
+            prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="main.java.gui.layouts.Dashboard">
+   <BorderPane prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+               AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <top>
+         <Pane fx:id="topPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER"/>
+      </top>
+      <left>
+         <Pane fx:id="leftPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER"/>
+      </left>
+      <center>
+         <Pane fx:id="centerPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <ListView fx:id="projects" prefHeight="369.0" prefWidth="625.0"/>
+         </Pane>
+      </center>
+      <right>
+         <Pane fx:id="rightPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER"/>
+      </right>
+      <bottom>
+         <Pane fx:id="bottomPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER"/>
+      </bottom>
+   </BorderPane>
+</AnchorPane>
