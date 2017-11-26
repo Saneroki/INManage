@@ -3,7 +3,8 @@ package main.java.databaseCom;
 import gen.java.model.Project;
 import gen.java.model.Task;
 
-import javax.xml.transform.Result;
+import javax.swing.*;
+import java.awt.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,15 +44,19 @@ public class SQLCommands implements ISQLCommands {
     public boolean addUser(String username, String password, String firstname, String lastname, String type) throws SQLException {
         PreparedStatement ps = null;
         try {
-            ps = con.prepareStatement("INSERT INTO public.user VALUES (?,?,?,?,?,?);");
-            ps.setObject(1,UUID.randomUUID());
-            ps.setString(2,username);
-            ps.setString(3,password);
-            ps.setString(4,firstname);
-            ps.setString(5,lastname);
-            ps.setString(6,type);
-            ps.execute();
-            return true;
+            if (!isUserExisting(username)) {
+                ps = con.prepareStatement("INSERT INTO public.user VALUES (?,?,?,?,?,?);");
+                ps.setObject(1,UUID.randomUUID());
+                ps.setString(2,username);
+                ps.setString(3,password);
+                ps.setString(4,firstname);
+                ps.setString(5,lastname);
+                ps.setString(6,type);
+                ps.execute();
+                return true;
+            } else {
+                return false;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
@@ -345,12 +350,16 @@ public class SQLCommands implements ISQLCommands {
     public String loginUser(String username, String password) throws SQLException {
         PreparedStatement ps = null;
         try {
-            ps = con.prepareStatement("SELECT userid FROM public.user WHERE username = ? AND password = ?;");
-            ps.setString(1,username);
-            ps.setString(2,password);
-            ResultSet rs = ps.executeQuery();
-            rs.next();
-            return rs.getString(1);
+            if (isUserExisting(username)) {
+                ps = con.prepareStatement("SELECT userid FROM public.user WHERE username = ? AND password = ?;");
+                ps.setString(1,username);
+                ps.setString(2,password);
+                ResultSet rs = ps.executeQuery();
+                rs.next();
+                return rs.getString(1);
+            } else {
+                return null;
+            }
         } catch (SQLException e){
             e.printStackTrace();
             return null;
@@ -420,30 +429,34 @@ public class SQLCommands implements ISQLCommands {
      */
     @Override
     public boolean addUserToProject(String username,String projectid) throws SQLException {
-        Statement statement = con.createStatement();
+        PreparedStatement ps = null;
         try {
             String userid = getUseridFromUsername(username);
             if (!userid.equals(null)) {
                 if (checkIfUserProjectExist(userid,projectid)) {
-                    System.err.println("Brugeren er allerede tilføjet til projektet i forvejen!");
                     return false;
                 } else {
-                    System.out.println("Adder bruger til projektet nu.");
-                    statement.execute("INSERT INTO public.userproject VALUES ('"+UUID.randomUUID()+"','"+userid+"','"+projectid+"');");
+                    ps = con.prepareStatement("INSERT INTO public.userproject VALUES (?,?,?);");
+                    ps.setObject(1,UUID.randomUUID());
+                    ps.setObject(2,UUID.fromString(userid));
+                    ps.setObject(3,UUID.fromString(projectid));
+                    ps.execute();
                     return true;
                 }
+            } else {
+                return false;
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            System.err.println("\nCaused maybe by: the user is already associated to the project.");
             return false;
         } finally {
-            if (statement != null) {
-                statement.close();
+            if (ps != null) {
+                ps.close();
             }
         }
-        return false;
     }
+
+
 
 
 
