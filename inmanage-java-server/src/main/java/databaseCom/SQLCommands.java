@@ -457,6 +457,8 @@ public class SQLCommands implements ISQLCommands {
         }
     }
 
+//OMAR OMAR OMAR OMAR, prep statements på alle metoder nedenunder!!!
+
     /**
      * Made by pepak16.
      * A private method to be used by the addUserToProject() method.
@@ -526,14 +528,14 @@ public class SQLCommands implements ISQLCommands {
      * @throws SQLException
      */
     @Override
-    public String getProjectName(UUID userid) throws SQLException {
+    public String getProjectName(String userid) throws SQLException {
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement(
                     "SELECT name from public.project" +
                             "  INNER JOIN UserProject ON projectId = fk_projectId" +
                             "  WHERE fk_userId = ?");
-            ps.setObject(1, userid);
+            ps.setObject(1, UUID.fromString(userid));
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 return rs.getString(1);
@@ -558,13 +560,13 @@ public class SQLCommands implements ISQLCommands {
      * @throws SQLException
      */
     @Override
-    public boolean editProjectName(UUID projectid,String name) throws SQLException {
+    public boolean editProjectName(String projectid, String name) throws SQLException {
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement("UPDATE public.project SET name = ? " +
                     "WHERE projectid = ?;");
             ps.setString(1, name);
-            ps.setObject(2, projectid);
+            ps.setObject(2, UUID.fromString(projectid));
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -584,14 +586,14 @@ public class SQLCommands implements ISQLCommands {
      * @throws SQLException
      */
     @Override
-    public String getProjectDescription(UUID userid) throws SQLException {
+    public String getProjectDescription(String userid) throws SQLException {
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement(
                     "SELECT description from public.project" +
                             "  INNER JOIN UserProject ON projectId = fk_projectId\n" +
                             "  WHERE fk_userId = ?");
-            ps.setObject(1, userid);
+            ps.setObject(1, UUID.fromString(userid));
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 return rs.getString(1);
@@ -616,12 +618,12 @@ public class SQLCommands implements ISQLCommands {
      * @throws SQLException
      */
     @Override
-    public boolean editProjectDescription(UUID projectid, String description) throws SQLException {
+    public boolean editProjectDescription(String projectid, String description) throws SQLException {
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement("UPDATE public.project SET description = ? WHERE projectid = ?;");
             ps.setString(1, description);
-            ps.setObject(2, projectid);
+            ps.setObject(2, UUID.fromString(projectid));
             ps.execute();
             return true;
         } catch (SQLException e) {
@@ -642,7 +644,7 @@ public class SQLCommands implements ISQLCommands {
      * @throws SQLException
      */
     @Override
-    public List<Project> getProject(UUID userid) throws SQLException {
+    public List<Project> getProject(String userid) throws SQLException {
         PreparedStatement ps = null;
         List<Project> list = new ArrayList<>();
         Project project;
@@ -651,7 +653,7 @@ public class SQLCommands implements ISQLCommands {
                     "SELECT * from public.project" +
                             "  INNER JOIN UserProject ON projectId = fk_projectId\n" +
                             "  WHERE fk_userId = ?");
-            ps.setObject(1, userid);
+            ps.setObject(1, UUID.fromString(userid));
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 project = new Project();

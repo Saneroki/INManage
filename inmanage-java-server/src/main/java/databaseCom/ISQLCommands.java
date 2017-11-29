@@ -38,15 +38,15 @@ interface ISQLCommands {
 
     boolean addUserToProject(String username,String projectid) throws SQLException;
 
-    String getProjectName(UUID userid) throws SQLException;
+    String getProjectName(String userid) throws SQLException;
 
-    boolean editProjectName(UUID projectid, String name) throws SQLException;
+    boolean editProjectName(String projectid, String name) throws SQLException;
 
-    String getProjectDescription(UUID userid) throws SQLException;
+    String getProjectDescription(String userid) throws SQLException;
 
-    boolean editProjectDescription(UUID projectid, String name) throws SQLException;
+    boolean editProjectDescription(String projectid, String description) throws SQLException;
 
-    List<Project> getProject(UUID userid) throws SQLException;
+    List<Project> getProject(String userid) throws SQLException;
 
     //Task
 
