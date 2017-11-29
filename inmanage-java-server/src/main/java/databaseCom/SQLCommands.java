@@ -457,8 +457,6 @@ public class SQLCommands implements ISQLCommands {
         }
     }
 
-//OMAR OMAR OMAR OMAR, prep statements på alle metoder nedenunder!!!
-
     /**
      * Made by pepak16.
      * A private method to be used by the addUserToProject() method.
