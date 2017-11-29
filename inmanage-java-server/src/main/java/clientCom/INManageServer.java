@@ -81,7 +81,7 @@ public class INManageServer {
         List<Project> list = new ArrayList<>();
 
         try {
-            list = sql.getProject(UUID.fromString(projectID));
+            list = sql.getProject(projectID);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -126,11 +126,11 @@ public class INManageServer {
 
     }
 
-    public String addUserToProject(String projectId, String username){
+    public String addUserToProject(String projectId, String userID){
 
         try {
             //It says userid, but it is username
-            sql.addUserToProject(username,projectId);
+            sql.addUserToProject(userID,projectId);
         } catch (SQLException e) {
             e.printStackTrace();
         }

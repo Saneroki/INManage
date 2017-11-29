@@ -1,5 +1,5 @@
 
-*.idea
+.idea
 *.iml
 out
 inmanage-java-client/target/
