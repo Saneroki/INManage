@@ -16,15 +16,12 @@ import java.util.ArrayList;
 public class ProjectDashboard {
 
     @FXML
-    private ListView<Project> projectList;
-
-    @FXML
     private VBox vboxLeft;
 
     @FXML
     private Button addNewProjectBtn;
 
-    public ArrayList<Project> list = (ArrayList<Project>) ClientLauncher.getServer().getAllProjects(ClientLauncher.getUserID());
+    public ArrayList<Project> list;
 
 
     ServerCom serv = ClientLauncher.getServer();
@@ -33,6 +30,9 @@ public class ProjectDashboard {
 
     @FXML
     public void initialize(){
+        System.out.println("System tried to call initialize here");
+
+        list = (ArrayList<Project>) ClientLauncher.getServer().getAllProjects(ClientLauncher.getUserID());
         vboxLeft.getChildren().add(new Text("Projects:"));
         for (Project proj : list) {
             addProjectView(proj);
