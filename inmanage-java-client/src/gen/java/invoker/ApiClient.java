@@ -53,6 +53,7 @@ import java.text.ParseException;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.KeyManager;
+import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
@@ -993,7 +994,7 @@ public class ApiClient {
             public void onResponse(Response response) throws IOException {
                 T result;
                 try {
-                    result = handleResponse(response, returnType);
+                    result = (T) handleResponse(response, returnType);
                 } catch (ApiException e) {
                     callback.onFailure(e, response.code(), response.headers().toMultimap());
                     return;
@@ -1056,7 +1057,7 @@ public class ApiClient {
         final Request.Builder reqBuilder = new Request.Builder().url(url);
         processHeaderParams(headerParams, reqBuilder);
 
-        String contentType = headerParams.get("Content-Type");
+        String contentType = (String) headerParams.get("Content-Type");
         // ensuring a default content type
         if (contentType == null) {
             contentType = "application/json";
