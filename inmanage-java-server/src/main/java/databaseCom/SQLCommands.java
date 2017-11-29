@@ -15,11 +15,10 @@ import java.util.UUID;
 public class SQLCommands implements ISQLCommands {
 
     private static SQLCommands instance = null;
-    private SQLConnect sqlconnect;
     private Connection con;
 
     public SQLCommands() throws SQLException {
-        sqlconnect = new SQLConnect();
+        SQLConnect sqlconnect = new SQLConnect();
         con = sqlconnect.connect();
     }
 
@@ -75,11 +74,7 @@ public class SQLCommands implements ISQLCommands {
         try {
             ResultSet resultset = statement.executeQuery("SELECT password FROM public.user WHERE username = '"+username+"';");
             resultset.next();
-            if (resultset.getString(1).equals(password)) {
-                return true;
-            } else {
-                return false;
-            }
+            return resultset.getString(1).equals(password);
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
@@ -297,11 +292,7 @@ public class SQLCommands implements ISQLCommands {
         try {
             ResultSet resultset = statement.executeQuery("SELECT username FROM public.user WHERE username = '"+username+"';");
             resultset.next();
-            if (resultset.getString(1).equals(username)) {
-                return true;
-            } else {
-                return false;
-            }
+            return resultset.getString(1).equals(username);
         } catch (SQLException e) {
             System.out.println("\nCaused by: username didn't exist and therefore nothing was returned in the resultset.");
             return false;
@@ -325,11 +316,7 @@ public class SQLCommands implements ISQLCommands {
         try {
             ResultSet resultset = statement.executeQuery("SELECT role FROM public.user WHERE username = '"+username+"';");
             resultset.next();
-            if (resultset.getString(1).equals("admin")) {
-                return true;
-            } else {
-                return false;
-            }
+            return resultset.getString(1).equals("admin");
         } catch (SQLException e) {
             e.printStackTrace();
             System.err.println("\nCaused by: the entered username doesn't exist in the database.");

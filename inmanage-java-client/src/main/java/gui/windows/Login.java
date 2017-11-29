@@ -47,7 +47,3 @@ public class Login {
         System.exit(1);
     }
 }
-
-
-
-

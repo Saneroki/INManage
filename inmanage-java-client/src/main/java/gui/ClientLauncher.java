@@ -4,19 +4,13 @@ package main.java.gui;
   Created by Glenn on 25/10/2017.
 */
 import gen.java.model.Project;
-import gen.java.model.User;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.application.Platform;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import main.java.gui.windows.WindowChanger;
 import main.java.serverCom.ServerCom;
 import main.java.serverCom.ServerComImpl;
-
-import java.io.IOException;
 
 public class ClientLauncher extends Application {
     private static WindowChanger windowChanger;
@@ -31,7 +25,8 @@ public class ClientLauncher extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         serv = new ServerComImpl();
-        this.primaryStage = primaryStage;
+        ClientLauncher.primaryStage = primaryStage;
+        primaryStage.getIcons().add(new Image("img/Logo.jpg"));
         windowChanger = new WindowChanger();
         windowChanger.setScene("fxml/windows/Login.fxml");
 

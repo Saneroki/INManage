@@ -27,10 +27,6 @@ public class AddProject {
     @FXML
     private Button addProjCancelBtn;
 
-    private String projName;
-
-    private String projDesc;
-
     ServerCom serv = ClientLauncher.getServer();
 
     @FXML
@@ -42,8 +38,8 @@ public class AddProject {
 
     @FXML
     void addProjectConfirmAction(ActionEvent event) {
-        projName = addProjNameField.getText();
-        projDesc = addProjDescField.getText();
+        String projName = addProjNameField.getText();
+        String projDesc = addProjDescField.getText();
 
         Project proj = new Project();
         proj.setName(projName);

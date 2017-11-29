@@ -4,7 +4,6 @@ package main.java.gui.windows;
         import gen.java.model.Project;
         import javafx.application.Platform;
         import javafx.collections.FXCollections;
-        import javafx.collections.ObservableArray;
         import javafx.collections.ObservableList;
         import javafx.fxml.FXML;
         import javafx.fxml.FXMLLoader;
@@ -40,8 +39,6 @@ public class Dashboard extends Controller {
 
     private List<Project> list = FXCollections.observableArrayList();
 
-    private ObservableList list2 = FXCollections.observableArrayList();
-
     ServerCom serv = ClientLauncher.getServer();
 
     public Dashboard(){
@@ -71,7 +68,7 @@ public class Dashboard extends Controller {
 
     private void populateListView(){
         //list = serv.getAllProjects(ClientLauncher.getUserID());
-        list2 = (ObservableList) serv.getAllProjects(ClientLauncher.getUserID());
+        ObservableList list2 = (ObservableList) serv.getAllProjects(ClientLauncher.getUserID());
 
         projects.setCellFactory(ComboBoxListCell.forListView(list2));
     }
