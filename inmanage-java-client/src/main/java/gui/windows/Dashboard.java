@@ -58,7 +58,6 @@ public class Dashboard extends Controller {
             e.printStackTrace();
             throw new Error();
         }
-        populateListView();
     }
 
     @FXML
@@ -66,11 +65,5 @@ public class Dashboard extends Controller {
         Platform.exit();
     }
 
-    private void populateListView(){
-        //list = serv.getAllProjects(ClientLauncher.getUserID());
-        ObservableList list2 = (ObservableList) serv.getAllProjects(ClientLauncher.getUserID());
-
-        projects.setCellFactory(ComboBoxListCell.forListView(list2));
-    }
 
 }
