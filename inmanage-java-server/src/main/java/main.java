@@ -10,6 +10,7 @@ import java.util.UUID;
             // Main method, mainly for testing purposes. /omhaw16,pepak16
             public static void main(String[] args) throws SQLException {
                 //SQLCommands sql = new SQLCommands().getInstance();
+                //System.out.println(sql.editProjectDescription(UUID.fromString("98117835-2803-4961-95e9-ba2ac0153644"),"The thing doesn't go skraa"));
                 //System.out.println(sql.addUser("singh007","dingding","ding","ing","member"));
                 //String userid = sql.loginUser("singh007","dingding");
                 //System.out.println("The userid: "+userid);
