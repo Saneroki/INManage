@@ -3,15 +3,13 @@ package main.java.databaseCom;
 import gen.java.model.Project;
 import gen.java.model.Task;
 
-import javax.xml.transform.Result;
+import javax.swing.*;
+import java.awt.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * Created by omnhaww on 23/10/2017.
- */
 public class SQLCommands implements ISQLCommands {
 
     private static SQLCommands instance = null;
@@ -30,7 +28,9 @@ public class SQLCommands implements ISQLCommands {
     }
 
     /**
-     * pepak16
+     * Author: pepak16.
+     * Inserts the values from the argument into the table user in database
+     * by executing an insert sql statement.
      * @param username
      * @param password
      * @param firstname
@@ -38,107 +38,88 @@ public class SQLCommands implements ISQLCommands {
      * @param type
      * @return boolean
      * @throws SQLException
-     *
-     * Inserts the values from the argument into the table user in database
-     * by executing an insert sql statement.
      */
     @Override
     public boolean addUser(String username, String password, String firstname, String lastname, String type) throws SQLException {
-        Statement statement = con.createStatement();
+        PreparedStatement ps = null;
         try {
-            statement.execute("INSERT INTO public.user VALUES ('"+UUID.randomUUID()+"','"+username+"','"+password+"','"+firstname+"','"+lastname+"','"+type+"');");
-            return true;
+            if (!isUserExisting(username)) {
+                ps = con.prepareStatement("INSERT INTO public.user VALUES (?,?,?,?,?,?);");
+                ps.setObject(1,UUID.randomUUID());
+                ps.setString(2,username);
+                ps.setString(3,password);
+                ps.setString(4,firstname);
+                ps.setString(5,lastname);
+                ps.setString(6,type);
+                ps.execute();
+                return true;
+            } else {
+                return false;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
         } finally {
-            if (statement != null) {
-                statement.close();
+            if (ps != null) {
+                ps.close();
             }
         }
     }
 
     /**
-     * pepak16
-     * @param username
-     * @param password
-     * @return boolean
-     * @throws SQLException
-     *
-     * Checks whether the entered username and password matches in the database or
-     * not and returns the truth values respectively.
-     */
-    @Override
-    public boolean checkUserLogin(String username, String password) throws SQLException {
-        Statement statement = con.createStatement();
-        try {
-            ResultSet resultset = statement.executeQuery("SELECT password FROM public.user WHERE username = '"+username+"';");
-            resultset.next();
-            return resultset.getString(1).equals(password);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        } finally {
-            if (statement != null) {
-                statement.close();
-            }
-        }
-    }
-
-    /**
-     * pepak16
+     * Author: pepak16.
+     * Gets password from the database via the username.
      * @param username
      * @return String
      * @throws SQLException
-     *
-     * Gets password from the database via the username.
      */
     @Override
     public String getPassword(String username) throws SQLException {
-        Statement statement = con.createStatement();
+        PreparedStatement ps = null;
         try {
-            ResultSet resultset = statement.executeQuery("SELECT password FROM public.user WHERE username = '"+username+"';");
-            resultset.next();
-            return resultset.getString(1);
+            ps = con.prepareStatement("SELECT password FROM public.user WHERE username = ?;");
+            ps.setString(1,username);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            return rs.getString(1);
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Caused by: nothing was fetched from database, could perhaps be username is wrong or doesn't exist.");
             return null;
         } finally {
-            if (statement != null) {
-                statement.close();
+            if (ps != null) {
+                ps.close();
             }
         }
     }
 
     /**
-     * pepak16
+     * Author: pepak16.
+     * Gets firstname from the database via the username.
      * @param username
      * @return String
      * @throws SQLException
-     *
-     * Gets firstname from the database via the username.
      */
     @Override
     public String getFirstname(String username) throws SQLException {
-        Statement statement = con.createStatement();
+        PreparedStatement ps = null;
         try {
-            ResultSet resultset = statement.executeQuery("SELECT firstname FROM public.user WHERE username = '"+username+"';");
-            resultset.next();
-            return resultset.getString(1);
+            ps = con.prepareStatement("SELECT firstname FROM public.user WHERE username = ?;");
+            ps.setString(1,username);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            return rs.getString(1);
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Caused by: nothing was fetched from database, could perhaps be username is wrong or doesn't exist.");
             return null;
         } finally {
-            if (statement != null) {
-                statement.close();
+            if (ps != null) {
+                ps.close();
             }
         }
     }
 
     /**
-     * Made by pepak16.
+     * Author: pepak16.
      * Gets lastname from the database via the username.
      * @param username
      * @return String
@@ -146,139 +127,156 @@ public class SQLCommands implements ISQLCommands {
      */
     @Override
     public String getLastname(String username) throws SQLException {
-        Statement statement = con.createStatement();
+        PreparedStatement ps = null;
         try {
-            ResultSet resultset = statement.executeQuery("SELECT lastname FROM public.user WHERE username = '"+username+"';");
-            resultset.next();
-            return resultset.getString(1);
+            ps = con.prepareStatement("SELECT lastname FROM public.user WHERE username = ?;");
+            ps.setString(1,username);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            return rs.getString(1);
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Caused by: nothing was fetched from database, could perhaps be username is wrong or doesn't exist.");
             return null;
         } finally {
-            if (statement != null) {
-                statement.close();
+            if (ps != null) {
+                ps.close();
             }
         }
     }
 
     /**
-     * Made by pepak16.
+     * Author: pepak16.
      * Changes the username for the user via his username.
      * @param username
      * @return boolean
      * @throws SQLException
      */
     @Override
-    public boolean setUsername(String username) throws SQLException {
-        Statement statement = con.createStatement();
+    public boolean editUsername(String username) throws SQLException {
+        PreparedStatement ps = null;
         try {
-            statement.executeQuery("UPDATE public.user SET username = '"+username+"' WHERE username = '"+username+"';");
+            ps = con.prepareStatement("UPDATE public.user SET username = ? WHERE username = ?;");
+            ps.setString(1,username);
+            ps.setString(2,username);
+            ps.execute();
             return true;
         } catch (SQLException e) {
-            System.out.println("\nCaused by: username doesn't exist in the database.");
+            e.printStackTrace();
             return false;
         } finally {
-            if (statement != null) {
-                statement.close();
+            if (ps != null) {
+                ps.close();
             }
         }
     }
 
     /**
-     * Made by pepak16.
+     * Author: pepak16.
      * Changes the users password via his username and password.
      * @param username
      * @return boolean
      * @throws SQLException
      */
     @Override
-    public boolean setPassword(String username, String password) throws SQLException {
-        Statement statement = con.createStatement();
+    public boolean editPassword(String username, String password) throws SQLException {
+        PreparedStatement ps = null;
         try {
-            statement.executeQuery("UPDATE public.user SET password = '"+password+"' WHERE username = '"+username+"';");
+            ps = con.prepareStatement("UPDATE public.user SET password = ? WHERE username = ?;");
+            ps.setString(1,password);
+            ps.setString(2,username);
+            ps.execute();
             return true;
         } catch (SQLException e) {
-            System.out.println("\nCaused by: username doesn't exist in the database perhaps.");
+            e.printStackTrace();
             return false;
         } finally {
-            if (statement != null) {
-                statement.close();
+            if (ps != null) {
+                ps.close();
             }
         }
     }
 
     /**
-     * Made by pepak16.
+     * Author: pepak16.
      * Changes the users firstname via his username and firstname.
      * @param username
      * @return boolean
      * @throws SQLException
      */
     @Override
-    public boolean setFirstname(String username, String firstname) throws SQLException {
-        Statement statement = con.createStatement();
+    public boolean editFirstname(String username, String firstname) throws SQLException {
+        PreparedStatement ps = null;
         try {
-            statement.executeQuery("UPDATE public.user SET firstname = '"+firstname+"' WHERE username = '"+username+"';");
+            ps = con.prepareStatement("UPDATE public.user SET firstname = ? WHERE username = ?;");
+            ps.setString(1,firstname);
+            ps.setString(2,username);
+            ps.execute();
             return true;
         } catch (SQLException e) {
-            System.out.println("\nCaused by: username doesn't exist in the database.");
+            e.printStackTrace();
             return false;
         } finally {
-            if (statement != null) {
-                statement.close();
+            if (ps != null) {
+                ps.close();
             }
         }
     }
 
     /**
-     * Made by pepak16.
+     * Author: pepak16.
      * Changes the users lastname via his username and lastname.
      * @param username
      * @return boolean
      * @throws SQLException
      */
     @Override
-    public boolean setLastname(String username,String lastname) throws SQLException {
-        Statement statement = con.createStatement();
+    public boolean editLastname(String username,String lastname) throws SQLException {
+        PreparedStatement ps = null;
         try {
-            statement.executeQuery("UPDATE public.user SET lastname = '"+lastname+"' WHERE username = '"+username+"';");
+            ps = con.prepareStatement("UPDATE public.user SET lastname = ? WHERE username = ?;");
+            ps.setString(1,lastname);
+            ps.setString(2,username);
+            ps.execute();
             return true;
         } catch (SQLException e) {
-            System.out.println("\nCaused by: username doesn't exist in the database perhaps.");
+            e.printStackTrace();
             return false;
         } finally {
-            if (statement != null) {
-                statement.close();
+            if (ps != null) {
+                ps.close();
             }
         }
     }
 
     /**
-     * Made by pepak16.
-     * Changes the user type using the username and its corresponding type via the argument
+     * Author: pepak16.
+     * Changes the user type using the username and its corresponding type via the argument.
      * @param username
      * @param type
      * @return boolean
      * @throws SQLException
      */
     @Override
-    public boolean setUserType(String username,String type) throws SQLException {
-        Statement statement = con.createStatement();
+    public boolean editUserType(String username,String type) throws SQLException {
+        PreparedStatement ps = null;
         try {
-            return statement.execute("UPDATE public.user SET role = '"+type+"' WHERE username = '"+username+"';");
+            ps = con.prepareStatement("UPDATE public.user SET role = ? WHERE username = ?;");
+            ps.setString(1,type);
+            ps.setString(2,username);
+            ps.execute();
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
         } finally {
-            if (statement != null) {
-                statement.close();
+            if (ps != null) {
+                ps.close();
             }
         }
     }
 
     /**
-     * Made by pepak16.
+     * Author: pepak16.
      * Checking if there exists any user with the provided username via the argument.
      * If there is already an existing user in database the operation will return true,
      * else it will return true.
@@ -288,23 +286,29 @@ public class SQLCommands implements ISQLCommands {
      */
     @Override
     public boolean isUserExisting(String username) throws SQLException {
-        Statement statement = con.createStatement();
+        PreparedStatement ps = null;
         try {
-            ResultSet resultset = statement.executeQuery("SELECT username FROM public.user WHERE username = '"+username+"';");
-            resultset.next();
-            return resultset.getString(1).equals(username);
+            ps = con.prepareStatement("SELECT EXISTS (SELECT username FROM public.user WHERE username = ?);");
+            ps.setString(1,username);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            if (rs.getBoolean(1)) {
+                return true;
+            } else {
+                return false;
+            }
         } catch (SQLException e) {
-            System.out.println("\nCaused by: username didn't exist and therefore nothing was returned in the resultset.");
+            e.printStackTrace();
             return false;
         } finally {
-            if (statement != null) {
-                statement.close();
+            if (ps != null) {
+                ps.close();
             }
         }
     }
 
     /**
-     * Made by pepak16.
+     * Author: pepak16.
      * Checks whether the user is admin or not and return a truth value respectively.
      * @param username
      * @return boolean
@@ -312,47 +316,63 @@ public class SQLCommands implements ISQLCommands {
      */
     @Override
     public boolean isUserAdmin(String username) throws SQLException {
-        Statement statement = con.createStatement();
+        PreparedStatement ps = null;
         try {
-            ResultSet resultset = statement.executeQuery("SELECT role FROM public.user WHERE username = '"+username+"';");
-            resultset.next();
-            return resultset.getString(1).equals("admin");
+            ps = con.prepareStatement("SELECT role FROM public.user WHERE username = ?;");
+            ps.setString(1,username);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            if (rs.getString(1).equalsIgnoreCase("admin")) {
+                return true;
+            } else {
+                return false;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
-            System.err.println("\nCaused by: the entered username doesn't exist in the database.");
             return false;
         } finally {
-            if (statement != null) {
-                statement.close();
+            if (ps != null) {
+                ps.close();
             }
         }
     }
 
     /**
-     * Made by pepak16.
-     * Checks whether the user is admin or not and return a truth value respectively.
-     * @param checkUsername
-     * @param checkPassword
+     * Author: pepak16, malta16
+     * Logging the user in by returning its userid, if the user exist in the database.
+     * @param username
+     * @param password
      * @return boolean
      * @throws SQLException
      */
     @Override
-    public String loginUser(String checkUsername, String checkPassword) throws SQLException {
-        Statement statement = con.createStatement();
+    public String loginUser(String username, String password) throws SQLException {
+        PreparedStatement ps = null;
         try {
-            ResultSet resultSet = statement.executeQuery("SELECT userid FROM public.user WHERE username = '" + checkUsername + "' AND password = '" + checkPassword + "';");
-            resultSet.next();
-            return resultSet.getString(1);
+            if (isUserExisting(username)) {
+                ps = con.prepareStatement("SELECT userid FROM public.user WHERE username = ? AND password = ?;");
+                ps.setString(1,username);
+                ps.setString(2,password);
+                ResultSet rs = ps.executeQuery();
+                rs.next();
+                return rs.getString(1);
+            } else {
+                return null;
+            }
         } catch (SQLException e){
             e.printStackTrace();
+            return null;
+        } finally {
+            if (ps != null) {
+                ps.close();
+            }
         }
-        return null;
     }
 
     //Project
 
     /**
-     * Made by pepak16.
+     * Author: pepak16.
      * Adds new project to the table project and respectively its association between
      * the user and project in the userproject table to the database, if the project isn't existing already.
      * @param userid
@@ -362,30 +382,43 @@ public class SQLCommands implements ISQLCommands {
      * @throws SQLException
      */
     @Override
-    public boolean addProject(UUID userid, String projectname,String projectdescription) throws SQLException {
-        Statement statement = con.createStatement();
+    public boolean addProject(String userid, String projectname,String projectdescription) throws SQLException {
+        PreparedStatement ps1 = null;
+        PreparedStatement ps2 = null;
         try {
             UUID projectid = UUID.randomUUID();
-            boolean check = true;
-            check = statement.execute("INSERT INTO public.project VALUES ('"+projectid+"','"+projectname+"','"+projectdescription+"');");
-            if (!check) {
-                statement.execute("INSERT INTO public.userproject VALUES ('"+UUID.randomUUID()+"','"+userid+"','"+projectid+"');");
-            }
+            ps1 = con.prepareStatement("INSERT INTO public.project VALUES (?,?,?);");
+            ps2 = con.prepareStatement("INSERT INTO public.userproject VALUES (?,?,?);");
+
+            con.setAutoCommit(false);
+
+            ps1.setObject(1,projectid);
+            ps1.setString(2,projectname);
+            ps1.setString(3,projectdescription);
+            ps1.addBatch();
+            ps1.executeBatch();
+
+            ps2.setObject(1,UUID.randomUUID());
+            ps2.setObject(2,UUID.fromString(userid));
+            ps2.setObject(3,projectid);
+            ps2.addBatch();
+            ps2.executeBatch();
+            con.commit();
+
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
-            System.err.println("\nCaused maybe by: project already exists in database.");
             return false;
         } finally {
-            if (statement != null) {
-                statement.close();
+            if (ps1 != null || ps2 != null) {
+                ps1.close();
+                ps2.close();
             }
         }
     }
 
-
     /**
-     * Made by pepak16.
+     * Author: pepak16.
      * Adds new user to a specific project via the projectid to the database, if the user isn't already added to the project.
      * This is done via some checks that uses the private methods getUseridFromUsername() and checkIfUserProjectExist().
      * @param username
@@ -395,30 +428,49 @@ public class SQLCommands implements ISQLCommands {
      */
     @Override
     public boolean addUserToProject(String username,String projectid) throws SQLException {
-        Statement statement = con.createStatement();
+        PreparedStatement ps = null;
         try {
             String userid = getUseridFromUsername(username);
             if (!userid.equals(null)) {
                 if (checkIfUserProjectExist(userid,projectid)) {
-                    System.err.println("Brugeren er allerede tilføjet til projektet i forvejen!");
                     return false;
                 } else {
-                    System.out.println("Adder bruger til projektet nu.");
-                    statement.execute("INSERT INTO public.userproject VALUES ('"+UUID.randomUUID()+"','"+userid+"','"+projectid+"');");
+                    ps = con.prepareStatement("INSERT INTO public.userproject VALUES (?,?,?);");
+                    ps.setObject(1,UUID.randomUUID());
+                    ps.setObject(2,UUID.fromString(userid));
+                    ps.setObject(3,UUID.fromString(projectid));
+                    ps.execute();
                     return true;
                 }
+            } else {
+                return false;
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            System.err.println("\nCaused maybe by: the user is already associated to the project.");
             return false;
         } finally {
-            if (statement != null) {
-                statement.close();
+            if (ps != null) {
+                ps.close();
             }
         }
-        return false;
     }
+
+
+
+
+
+
+
+
+//OMAR OMAR OMAR OMAR, prep statements på alle metoder nedenunder!!!
+
+
+
+
+
+
+
+
 
     /**
      * Made by pepak16.
@@ -516,7 +568,7 @@ public class SQLCommands implements ISQLCommands {
      * @throws SQLException
      */
     @Override
-    public boolean setProjectName(UUID projectid,String name) throws SQLException {
+    public boolean editProjectName(UUID projectid,String name) throws SQLException {
         Statement statement = con.createStatement();
         try {
             statement.execute("UPDATE public.project SET name = '"+name+"' " +
@@ -573,7 +625,7 @@ public class SQLCommands implements ISQLCommands {
      * @throws SQLException
      */
     @Override
-    public boolean setProjectDescription(UUID projectid, String description) throws SQLException {
+    public boolean editProjectDescription(UUID projectid, String description) throws SQLException {
         Statement statement = con.createStatement();
         try {
             statement.execute("UPDATE public.project SET description = '"+description+"' WHERE projectid = '"+projectid+"';");
@@ -645,7 +697,7 @@ public class SQLCommands implements ISQLCommands {
     }
 
     @Override
-    public boolean setTaskStatus(String taskId, int statusId) throws SQLException {
+    public boolean editTaskStatus(String taskId, int statusId) throws SQLException {
         Statement statement = con.createStatement();
         try {
             statement.executeQuery("UPDATE task\n" +
@@ -874,5 +926,4 @@ public class SQLCommands implements ISQLCommands {
         System.out.println("Returning: " + tasksByProject.toString());
         return tasksByProject;
     }
-
 }
