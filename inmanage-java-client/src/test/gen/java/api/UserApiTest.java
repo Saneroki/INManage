@@ -1,10 +1,8 @@
-package test.java.gen.java.api;
+package gen.java.api;
 
-import gen.java.api.UserApi;
 import gen.java.invoker.ApiException;
 import gen.java.model.AddTaskObject;
-import gen.java.model.Project;
-import gen.java.model.Task;
+import gen.java.model.User;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -19,22 +17,6 @@ public class UserApiTest {
 
     private final UserApi api = new UserApi();
 
-    
-    /**
-     * Adds a project
-     *
-     * A user creates a new project
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void addProjectTest() throws ApiException {
-        Project project = null;
-        // api.addProject(project);
-
-        // TODO: test validations
-    }
     
     /**
      * Adds a new task to a project
@@ -53,50 +35,66 @@ public class UserApiTest {
     }
     
     /**
-     * Adds a user to a project
+     * adds a user
      *
-     * Adds a user to a specific project
+     * Adds a User to the system
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void addUserToProjectTest() throws ApiException {
-        String projectID = null;
-        String theIDOfTheUserMakingTheOperation = null;
-        // api.addUserToProject(projectID, theIDOfTheUserMakingTheOperation);
+    public void addUserTest() throws ApiException {
+        User user = null;
+        // api.addUser(user);
 
         // TODO: test validations
     }
     
     /**
-     * Get&#39;s all projects for a user
+     * Deletes the chosen user
      *
-     * Get&#39;s all the projects a user participates in
+     * Deletes the given user based on the userID
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void getAllProjectsTest() throws ApiException {
+    public void deleteUserTest() throws ApiException {
+        String userID = null;
+        String password = null;
+        // api.deleteUser(userID, password);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Edit the user
+     *
+     * Edit the user, changing the information.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void editUserTest() throws ApiException {
+        User userObject = null;
+        // api.editUser(userObject);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get the details of a user
+     *
+     * Gets the details of a user based on the ID provided
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getUserTest() throws ApiException {
         String userId = null;
-        // List<Project> response = api.getAllProjects(userId);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Gets the tasks based on project id
-     *
-     * Retrevies a task based on the project the task is in with the project ID
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getTaskTest() throws ApiException {
-        String projectID = null;
-        // List<Task> response = api.getTask(projectID);
+        // Object response = api.getUser(userId);
 
         // TODO: test validations
     }
@@ -114,6 +112,23 @@ public class UserApiTest {
         String username = null;
         String password = null;
         // String response = api.loginUser(username, password);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * searches Users
+     *
+     * By passing in the appropriate options, you can search for available User in the system 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void searchUserTest() throws ApiException {
+        String searchUsername = null;
+        Integer limit = null;
+        // List<User> response = api.searchUser(searchUsername, limit);
 
         // TODO: test validations
     }
