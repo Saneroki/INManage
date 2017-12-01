@@ -16,17 +16,21 @@ public class UserApiImpl extends UsersApiService {
 
     @Override
     public Response deleteUser(String userID, String password, SecurityContext securityContext) throws NotFoundException {
-        return null;
+
+        //TODO: implement here when sql is done
+        return Response.ok().entity(INManageServer.get()).build();
     }
 
     @Override
     public Response editUser(User userObject, SecurityContext securityContext) throws NotFoundException {
+        //TODO: Immplement when sql is done
         return null;
     }
 
     @Override
     public Response getUser(String userId, SecurityContext securityContext) throws NotFoundException {
-        return null;
+        //TODO: Immplement when sql is done
+        return Response.ok().entity(INManageServer.get()).build();
     }
 
     @Override
@@ -36,6 +40,7 @@ public class UserApiImpl extends UsersApiService {
 
     @Override
     public Response searchUser(String searchUsername, Integer limit, SecurityContext securityContext) throws NotFoundException {
+        //TODO: Immplement when sql is done
         return null;
     }
 }
