@@ -138,4 +138,73 @@ public class INManageServer {
         return "Succes!";
     }
 
+    public String deleteUser (String userId, String password){
+        //TODO: Sql delete user
+
+        return null;
+    }
+
+    public String editUser (User user){
+        try {
+            sql.editFirstname(user.getName(),user.getFirstName());
+            sql.editLastname(user.getName(),user.getLastName());
+            sql.editPassword(user.getName(),user.getPassword());
+            //TODO: How is this supposed to work????
+            //sql.editUsername(user.getName());
+            return "Succes!";
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return "Unsuccesful...";
+    }
+
+    public String getUser(String userID){
+        //TODO: Add get user to sql
+
+        return null;
+    }
+
+    public List<User> SearchUsers(String name, Integer limit){
+        //TODO: add search user to API, should return list of users that have the string in their username
+        return null;
+    }
+
+    public String editTask(Task task){
+        //TODO: Implement edit task in sql
+        return null;
+    }
+
+    public String deleteProject(String projectId, String password){
+        //TODO: implement delete project in sql
+        return null;
+    }
+
+    public String editProject(Project project){
+
+        try {
+            sql.editProjectDescription(project.getId(),project.getDescription());
+            sql.editProjectName(project.getId(),project.getName());
+            return "Succes!";
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return "no succes";
+    }
+
+    public Project getSpecificProject(String projectID){
+        //TODO: Implement getSpecificProject in sql, get one project from one project ID
+        return null;
+    }
+
+    public Integer getUserAmount(String projectID){
+        //TODO: Implement get userAmount in sql
+        return null;
+    }
+
+    public Integer getTaskAmount(String projectID){
+        //TODO: Implement get taskAmount in SQL
+        return null;
+    }
+
+
 }
