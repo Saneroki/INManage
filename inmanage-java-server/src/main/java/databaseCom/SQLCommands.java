@@ -2,6 +2,7 @@ package main.java.databaseCom;
 
 import gen.java.model.Project;
 import gen.java.model.Task;
+import gen.java.model.User;
 
 import javax.swing.*;
 import javax.xml.transform.Result;
@@ -917,7 +918,6 @@ public class SQLCommands implements ISQLCommands {
                 //task.setStatus(getTaskByProjrs.getInt(7));       // Get taskStatus as an int.
 
                 // Add all elements to an ArrayList, which will then be returned.
-                // TODO Remember to add elements to the list.
 
                 // TODO Remove the comment from this once task.setStatus is implemented in model.Task.java. /omhaw16
                 tasksByProject.add(task);
@@ -935,6 +935,28 @@ public class SQLCommands implements ISQLCommands {
         }
         System.out.println("Returning: " + tasksByProject.toString());
         return tasksByProject;
+    }
+
+    public User getUser(String userid) throws SQLException {
+        PreparedStatement ps = null;
+        User user = null;
+        try {
+            ps = con.prepareStatement(
+                    "SELECT * from public.user WHERE userId = ?");
+            ps.setObject(1, UUID.fromString(userid));
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+                user = new User();
+            System.out.println("Returning user");
+                return user;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            if (ps != null) {
+                ps.close();
+            }
+        }
     }
 
 
