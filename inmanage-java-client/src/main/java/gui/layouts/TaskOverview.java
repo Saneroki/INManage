@@ -33,7 +33,7 @@ public class TaskOverview extends Controller {
 
     @FXML
     void back(MouseEvent event) {
-        ClientLauncher.getWindowChanger().setScene("fxml/layouts/ProjectOverview.fxml");
+        ClientLauncher.getWindowChanger().setLayout("ProjectOverview");
     }
 
     @FXML

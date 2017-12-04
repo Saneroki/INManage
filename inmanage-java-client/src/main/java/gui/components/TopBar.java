@@ -12,12 +12,12 @@ public class TopBar {
 
     //Goes back to Dashboard(projectView)
     public void GoHome(ActionEvent actionEvent) {
-        ClientLauncher.getWindowChanger().setScene("fxml/layouts/Dashboard.fxml");
+        ClientLauncher.getWindowChanger().setLayout("Dashboard");
     }
 
     //Opens up chat
     public void GoChat(ActionEvent actionEvent) {
-        ClientLauncher.getWindowChanger().setScene("fxml/components/Chat.fxml");
+        ClientLauncher.getWindowChanger().setLayout("Chat");
     }
 
     //Shows the users profile
@@ -28,7 +28,7 @@ public class TopBar {
     //Logs the user out, and then sends them back to login screen.
     public void SignOut(ActionEvent actionEvent) {
         //NOT DONE YET
-        ClientLauncher.getWindowChanger().setScene("fxml/layouts/Login.fxml");
+        ClientLauncher.getWindowChanger().setLayout("Login");
     }
 
     public void turnOff(MouseEvent mouseEvent) {

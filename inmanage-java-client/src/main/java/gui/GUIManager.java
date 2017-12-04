@@ -8,15 +8,14 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.ArrayList;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * This Class does all the work for changing scenes and content of them
  */
 public class GUIManager {
-    private FXMLLoader loader;
     private HashMap<String, String> layouts;
     private HashMap<String, String> components;
 
@@ -30,28 +29,29 @@ public class GUIManager {
         components = getFxmlRes("fxml/components");
     }
 
-    public void setLayout(String layout) {
+    public void setLayout(String fxml) {
         Stage stage = ClientLauncher.getPrimaryStage();
-        Parent position;
-        setFxmlLoader(layout);
-        try {
-            position = loader.load();
-        } catch (IOException e) {
-            throw new Error("The file for " + layout + " could not be found!");
-        }
+        System.out.println(layouts.get(fxml));
+        Parent position = getFXMLParent(layouts.get(fxml));
         stage.setTitle("INManage");
         stage.setScene(new Scene(position));
         stage.show();
     }
 
     /**
-     * Sets the fxml loader depending on the requested path
-     * Used by setScene
+     * Creates the Parent for a fxml file
+     * Used by setLayout
      *
-     * @param fxmlPath
+     * @param fxml The fxml file name. It can either be a layout or a domain.
      */
-    private void setFxmlLoader(String fxmlPath) {
-        loader = new FXMLLoader(getClass().getClassLoader().getResource(fxmlPath));
+    private Parent getFXMLParent(String fxml) {
+        try {
+            URL fxmlUrl = Paths.get(fxml).toUri().toURL();
+            Parent root = new FXMLLoader().load(fxmlUrl);
+            return root;
+        } catch (IOException e) {
+            throw new Error("The file " + fxml + " was not found");
+        }
     }
 
     /**

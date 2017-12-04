@@ -20,7 +20,7 @@ public class Login {
     private final ServerCom serv = ClientLauncher.getServer();
 
     public void signUp(ActionEvent actionEvent) {
-        ClientLauncher.getWindowChanger().setScene("SignUp");
+        ClientLauncher.getWindowChanger().setLayout("SignUp");
     }
 
     public void SignIn(ActionEvent actionEvent) {
@@ -29,7 +29,7 @@ public class Login {
         System.out.println(resp);
         ClientLauncher.setUserId(resp);
         if((resp)!=null){
-            ClientLauncher.getWindowChanger().setScene("ProjectDashboard");
+            ClientLauncher.getWindowChanger().setLayout("ProjectDashboard");
         }else{
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Error logging in");

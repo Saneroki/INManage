@@ -54,12 +54,12 @@ public class ProjectOverview {
 
         goToTasks.setOnAction(event -> {
             System.out.println("Current proj id: " + ClientLauncher.getProj().getId());
-            ClientLauncher.getWindowChanger().setScene("fxml/layouts/TaskOverview.fxml");
+            ClientLauncher.getWindowChanger().setLayout("TaskOverview");
         });
 
-        addTaskBtn.setOnAction(event -> ClientLauncher.getWindowChanger().setScene("fxml/layouts/AddTask.fxml"));
+        addTaskBtn.setOnAction(event -> ClientLauncher.getWindowChanger().setLayout("AddTask"));
 
-        addUser.setOnAction(event -> ClientLauncher.getWindowChanger().setScene("fxml/layouts/AddUserToProject.fxml"));
+        addUser.setOnAction(event -> ClientLauncher.getWindowChanger().setLayout("AddUserToProject"));
     }
 
     @FXML
@@ -69,7 +69,7 @@ public class ProjectOverview {
 
     @FXML
     void back(MouseEvent event) {
-        ClientLauncher.getWindowChanger().setScene("fxml/layouts/ProjectDashboard.fxml");
+        ClientLauncher.getWindowChanger().setLayout("ProjectDashboard");
     }
 
     @FXML
