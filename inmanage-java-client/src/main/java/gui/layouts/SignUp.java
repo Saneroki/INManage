@@ -22,7 +22,7 @@ public class SignUp{
     private final ServerCom serv = new ServerComImpl();
 
     public void cancel(ActionEvent actionEvent) {
-        ClientLauncher.getWindowChanger().setScene("fxml/layouts/Login.fxml");
+        ClientLauncher.getWindowChanger().setLayout("Login");
     }
 
     public void signup(ActionEvent actionEvent) {
@@ -31,7 +31,7 @@ public class SignUp{
             passwordConfirmInput.setPromptText("The passwords don't match");
         } else {
             serv.addUser(checkedUsername(), checkedPassword());
-            ClientLauncher.getWindowChanger().setScene("fxml/layouts/Login.fxml");
+            ClientLauncher.getWindowChanger().setLayout("Login");
         }
 
     }

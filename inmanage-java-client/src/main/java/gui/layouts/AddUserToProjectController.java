@@ -29,7 +29,7 @@ public class AddUserToProjectController {
     @FXML
     void onClickAdd(ActionEvent event) {
         if(event.getSource() == ButtonClose){
-            ClientLauncher.getWindowChanger().setScene("fxml/layouts/ProjectOverview.fxml");
+            ClientLauncher.getWindowChanger().setLayout("ProjectOverview");
         }
         if(event.getSource()== ButtonAdd){
             if(!(Objects.equals(TextFieldUsernameInput.getText(), ""))){
@@ -40,7 +40,7 @@ public class AddUserToProjectController {
                 //
                 serv.addUserToProject(TextFieldUsernameInput.getText(),ClientLauncher.getProj().getId());
 
-                ClientLauncher.getWindowChanger().setScene("fxml/layouts/ProjectOverview.fxml");
+                ClientLauncher.getWindowChanger().setLayout("ProjectOverview");
 
             }
         }

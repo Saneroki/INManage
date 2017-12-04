@@ -32,7 +32,7 @@ public class AddProject {
     @FXML
     void addProjectCancelButton(ActionEvent event) {
 
-        ClientLauncher.getWindowChanger().setScene("fxml/layouts/ProjectDashboard.fxml");
+        ClientLauncher.getWindowChanger().setLayout("ProjectDashboard");
 
     }
 
@@ -48,7 +48,7 @@ public class AddProject {
 
         serv.addProject(proj);
 
-        ClientLauncher.getWindowChanger().setScene("fxml/layouts/ProjectDashboard.fxml");
+        ClientLauncher.getWindowChanger().setLayout("ProjectDashboard");
 
         // Remember to auto-bind the project to the user who creates it
         // Use the user info from when he/she logged in.

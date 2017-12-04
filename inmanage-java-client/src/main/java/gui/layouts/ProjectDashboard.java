@@ -38,7 +38,7 @@ public class ProjectDashboard {
             addProjectView(proj);
         }
 
-        addNewProjectBtn.setOnAction(event -> ClientLauncher.getWindowChanger().setScene("fxml/layouts/AddProject.fxml"));
+        addNewProjectBtn.setOnAction(event -> ClientLauncher.getWindowChanger().setLayout("AddProject"));
 
     }
 
@@ -49,7 +49,7 @@ public class ProjectDashboard {
 
     @FXML
     void back(MouseEvent event) {
-        ClientLauncher.getWindowChanger().setScene("fxml/layouts/Login.fxml");
+        ClientLauncher.getWindowChanger().setLayout("Login");
     }
 
     @FXML
@@ -78,7 +78,7 @@ public class ProjectDashboard {
             ClientLauncher.setCurrentProjectId(proj.getId());
             //delete later
             ClientLauncher.setProj(proj);
-            ClientLauncher.getWindowChanger().setScene("fxml/layouts/ProjectOverview.fxml");
+            ClientLauncher.getWindowChanger().setLayout("ProjectOverview");
         });
         vboxLeft.getChildren().add(btn);
     }
