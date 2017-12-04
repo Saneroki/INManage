@@ -667,7 +667,7 @@ public class SQLCommands implements ISQLCommands {
      * @throws SQLException
      */
     @Override
-    public List<Project> getProject(String userid) throws SQLException {
+    public List<Project> getProjectByUser(String userid) throws SQLException {
         PreparedStatement ps = null;
         List<Project> list = new ArrayList<>();
         Project project;
@@ -870,6 +870,7 @@ public class SQLCommands implements ISQLCommands {
     /**
      * author: omhaw16
      */
+    @Override
     public String getTaskNameByStatus(String projectId, int statusId) throws SQLException {
         PreparedStatement ps = null;        // Statement in order to use the SQL connection.
         try {
@@ -893,6 +894,7 @@ public class SQLCommands implements ISQLCommands {
     /**
      * author: omhaw16
      */
+    @Override
     public List getAllTaskByProject(String projectId) throws SQLException {
         List<Task> tasksByProject = new ArrayList<>();        // ArrayList to hold tasks sorted by project.
 
@@ -962,6 +964,7 @@ public class SQLCommands implements ISQLCommands {
     /**
      * author: omhaw16
      */
+    @Override
     public User getUser(String userid) throws SQLException {
 
         PreparedStatement ps = null;
@@ -991,6 +994,7 @@ public class SQLCommands implements ISQLCommands {
     /**
      * author: omhaw16
      */
+    @Override
     public int getTaskAmount(String projectId) throws SQLException {
 
         PreparedStatement ps = null;
@@ -1017,6 +1021,10 @@ public class SQLCommands implements ISQLCommands {
         return count;
     }
 
+    /**
+    * author: omhaw16
+     */
+    @Override
     public int getUserAmount(String projectId) throws SQLException {
 
         PreparedStatement ps = null;
@@ -1028,7 +1036,7 @@ public class SQLCommands implements ISQLCommands {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-              count = rs.getInt("count_users");
+                count = rs.getInt("count_users");
                 System.out.println("Count: " + count);
             }
             return count;
@@ -1044,5 +1052,35 @@ public class SQLCommands implements ISQLCommands {
         }
 
         return count;
+    }
+
+    /**
+     * author: omhaw16
+     */
+    @Override
+    public Project getSpecificProject(String projectId) throws SQLException {
+        PreparedStatement ps = null;
+        Project project = null;
+        try {
+
+            ps = con.prepareStatement("SELECT * FROM public.project WHERE projectid = ?");
+            ps.setObject(1, UUID.fromString(projectId));
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            project = new Project();
+            project.setName(rs.getString(2));
+            project.setDescription(rs.getString(3));
+
+            return project;
+
+        } catch (SQLException e) {
+            System.err.println("Error fetching specific project through project ID.");
+            e.printStackTrace();
+        } finally {
+            if (ps != null) {
+                ps.close();
+            }
+        }
+        return project;
     }
 }

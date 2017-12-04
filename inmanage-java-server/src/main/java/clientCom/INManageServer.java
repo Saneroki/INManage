@@ -81,7 +81,7 @@ public class INManageServer {
         List<Project> list = new ArrayList<>();
 
         try {
-            list = sql.getProject(projectID);
+            list = sql.getProjectByUser(projectID);
         } catch (SQLException e) {
             e.printStackTrace();
         }
