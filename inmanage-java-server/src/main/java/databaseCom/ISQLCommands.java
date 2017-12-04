@@ -51,7 +51,7 @@ interface ISQLCommands {
 
     boolean editProjectDescription(String projectid, String description) throws SQLException;
 
-    List<Project> getProjectByUser(String userid) throws SQLException;
+    List<Project> getProject(String userid) throws SQLException;
 
     Project getSpecificProject(String projectId) throws SQLException;
 

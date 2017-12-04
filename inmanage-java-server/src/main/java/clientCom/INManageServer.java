@@ -8,7 +8,6 @@ import main.java.databaseCom.SQLCommands;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 public class INManageServer {
 
@@ -81,7 +80,7 @@ public class INManageServer {
         List<Project> list = new ArrayList<>();
 
         try {
-            list = sql.getProjectByUser(projectID);
+            list = sql.getProject(projectID);
         } catch (SQLException e) {
             e.printStackTrace();
         }

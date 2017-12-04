@@ -667,7 +667,7 @@ public class SQLCommands implements ISQLCommands {
      * @throws SQLException
      */
     @Override
-    public List<Project> getProjectByUser(String userid) throws SQLException {
+    public List<Project> getProject(String userid) throws SQLException {
         PreparedStatement ps = null;
         List<Project> list = new ArrayList<>();
         Project project;
