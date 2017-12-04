@@ -39,7 +39,7 @@ public class AddTask {
     @FXML
     void addTaskCancelButton(ActionEvent event) {
 
-        ClientLauncher.getWindowChanger().setScene("fxml/layouts/ProjectOverview.fxml");
+        ClientLauncher.getWindowChanger().setLayout("ProjectOverview");
 
     }
 
@@ -58,7 +58,7 @@ public class AddTask {
 
         serv.addTask(task);
 
-        ClientLauncher.getWindowChanger().setScene("fxml/layouts/ProjectOverview.fxml");
+        ClientLauncher.getWindowChanger().setLayout("ProjectOverview");
 
         // When implementing this with SQL we have to check whether LocalDate can be used, or whether we need
         // another solution. /omhaw16

@@ -40,9 +40,9 @@ public class ClientLauncher extends Application {
      */
     private static void setupStartGui(Stage primaryStage){
         ClientLauncher.primaryStage = primaryStage;
-        primaryStage.getIcons().add(new Image("img/Logo.jpg"));
+        primaryStage.getIcons().add(new Image("img/inManage_150px.png"));
         guiManager = new GUIManager();
-        guiManager.setScene("fxml/layouts/Login.fxml");
+        guiManager.setLayout("Login");
         primaryStage.setMaximized(true);
     }
 
