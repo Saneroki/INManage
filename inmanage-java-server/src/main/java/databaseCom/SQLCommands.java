@@ -963,8 +963,10 @@ public class SQLCommands implements ISQLCommands {
      * author: omhaw16
      */
     public User getUser(String userid) throws SQLException {
+
         PreparedStatement ps = null;
         User user = null;
+
         try {
             ps = con.prepareStatement(
                     "SELECT * from public.user WHERE userId = ?");
@@ -974,9 +976,11 @@ public class SQLCommands implements ISQLCommands {
             user = new User();
             System.out.println("Returning user");
             return user;
+
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
+
         } finally {
             if (ps != null) {
                 ps.close();
@@ -988,8 +992,10 @@ public class SQLCommands implements ISQLCommands {
      * author: omhaw16
      */
     public int getTaskAmount(String projectId) throws SQLException {
+
         PreparedStatement ps = null;
         int count = 0;
+
         try {
             ps = con.prepareStatement("SELECT COUNT(*) AS count_task from public.task WHERE fk_projectId = ?");
             ps.setObject(1, UUID.fromString(projectId));
@@ -998,13 +1004,45 @@ public class SQLCommands implements ISQLCommands {
             count = rs.getInt("count_task");
             System.out.println("Count: " + count);
             return count;
+
         } catch (SQLException e) {
+            System.err.println("Error getting taskAmount count.");
             e.printStackTrace();
+
         } finally {
             if (ps != null) {
                 ps.close();
             }
         }
+        return count;
+    }
+
+    public int getUserAmount(String projectId) throws SQLException {
+
+        PreparedStatement ps = null;
+        int count = 0;
+
+        try {
+            ps = con.prepareStatement("SELECT COUNT(fk_userid) AS count_users FROM public.userproject WHERE fk_projectId = ?");
+            ps.setObject(1, UUID.fromString(projectId));
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+              count = rs.getInt("count_users");
+                System.out.println("Count: " + count);
+            }
+            return count;
+
+        } catch (SQLException e) {
+            System.err.println("Error getting userAmount count.");
+            e.printStackTrace();
+
+        } finally {
+            if (ps != null) {
+                ps.close();
+            }
+        }
+
         return count;
     }
 }
