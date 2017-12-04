@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 import main.java.serverCom.ServerCom;
 import main.java.serverCom.ServerComImpl;
 
+import java.io.IOException;
+
 /**
  * This class is meant to start the Gui Client
  *
