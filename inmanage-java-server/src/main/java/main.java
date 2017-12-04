@@ -1,5 +1,6 @@
 package main.java;
 
+import gen.java.model.User;
 import main.java.databaseCom.SQLCommands;
 
 import java.sql.SQLException;
@@ -10,6 +11,13 @@ import java.util.UUID;
             // Main method, mainly for testing purposes. /omhaw16,pepak16
             public static void main(String[] args) throws SQLException {
                 //SQLCommands sql = new SQLCommands().getInstance();
+                //System.out.println(sql.deleteProject("d268b7e9-2fe8-4e2c-ab95-9d3eea1c02c4"));
+                //System.out.println(sql.checkIfProjectTaskExist("ff6ab209-fbf5-4a68-af88-16b36d08cee8"));
+                //System.out.println(sql.deleteUser("4fdff57b-7c8f-4545-95f1-83f66968ff1b","password123"));
+                //for (User user : sql.searchUser("malte")) {
+                //    System.out.println(user.getName()+", "+user.getFirstName()+", "+user.getLastName());
+                //}
+                //System.out.println(sql.editTaskName("5ac5d28b-c7cd-4b1b-990c-300bb1b656ec","fjollettest"));
                 //System.out.println(sql.editProjectDescription(UUID.fromString("98117835-2803-4961-95e9-ba2ac0153644"),"The thing doesn't go skraa"));
                 //System.out.println(sql.addUser("singh007","dingding","ding","ing","member"));
                 //String userid = sql.loginUser("singh007","dingding");

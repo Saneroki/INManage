@@ -1,6 +1,7 @@
 package main.java.databaseCom;
 
 import gen.java.model.Project;
+import gen.java.model.User;
 
 import java.util.List;
 import java.sql.SQLException;
@@ -9,6 +10,10 @@ import java.util.UUID;
 interface ISQLCommands {
 
     boolean addUser(String username, String password, String firstname, String lastname, String type) throws SQLException;
+
+    boolean deleteUser(String userid, String password) throws SQLException;
+
+    List<User> searchUser(String searchString) throws SQLException;
 
     String getPassword(String username) throws SQLException;
 
@@ -36,7 +41,9 @@ interface ISQLCommands {
 
     public boolean addProject(String userid, String projectname,String projectdescription) throws SQLException;
 
-    boolean addUserToProject(String username,String projectid) throws SQLException;
+    boolean deleteProject(String projectid) throws SQLException;
+
+    boolean addUserToProject(String username, String projectid) throws SQLException;
 
     String getProjectName(String userid) throws SQLException;
 
@@ -51,6 +58,16 @@ interface ISQLCommands {
     //Task
 
     boolean addTaskToProject(String taskname, String taskdescription, String taskdue, String projectid) throws SQLException;
+
+    boolean editTaskName(String taskid,String taskname) throws SQLException;
+
+    boolean editTaskDescription(String taskid,String taskdescription) throws SQLException;
+
+    boolean editTaskStart(String taskid,String taskstart) throws SQLException;
+
+    boolean editTaskDue(String taskid,String taskdue) throws SQLException;
+
+    boolean editTaskToProject(String taskid,String projectid) throws SQLException;
 
     boolean editTaskStatus(String taskid, int statusid) throws SQLException;
 
