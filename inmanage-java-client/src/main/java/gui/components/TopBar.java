@@ -8,6 +8,10 @@ import main.java.gui.ClientLauncher;
 
 public class TopBar {
 
+    /*
+    * Changes to functionality is still missing, due to logic of fui being changed.
+    * */
+
     public ListView projectList;
 
     //Goes back to Dashboard(projectView)
