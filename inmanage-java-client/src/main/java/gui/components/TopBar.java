@@ -10,6 +10,7 @@ public class TopBar {
 
     /*
     * Changes to functionality is still missing, due to logic of fui being changed.
+    * GUI
     * */
 
     public ListView projectList;
