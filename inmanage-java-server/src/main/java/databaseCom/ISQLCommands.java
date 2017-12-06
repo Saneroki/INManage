@@ -37,6 +37,10 @@ interface ISQLCommands {
 
     String loginUser(String username, String password) throws SQLException;
 
+    User getUser (String userId) throws SQLException;
+
+    int getUserAmount(String projectId) throws SQLException;
+
     //Project
 
     public boolean addProject(String userid, String projectname,String projectdescription) throws SQLException;
@@ -54,6 +58,8 @@ interface ISQLCommands {
     boolean editProjectDescription(String projectid, String description) throws SQLException;
 
     List<Project> getProject(String userid) throws SQLException;
+
+    Project getSpecificProject(String projectId) throws SQLException;
 
     //Task
 
@@ -78,5 +84,9 @@ interface ISQLCommands {
     List getTaskByStatus(String projectid, int statusid) throws SQLException;
 
     List getAllTaskByProject(String projectid) throws SQLException;
+
+    int getTaskAmount(String projectId) throws SQLException;
+
+    String getTaskNameByStatus(String projectId, int statusId) throws SQLException;
 
 }

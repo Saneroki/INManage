@@ -8,7 +8,6 @@ import main.java.databaseCom.SQLCommands;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 public class INManageServer {
 

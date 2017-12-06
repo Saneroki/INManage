@@ -1232,6 +1232,7 @@ public class SQLCommands implements ISQLCommands {
     /**
      * author: omhaw16
      */
+    @Override
     public String getTaskNameByStatus(String projectId, int statusId) throws SQLException {
         PreparedStatement ps = null;        // Statement in order to use the SQL connection.
         try {
@@ -1255,6 +1256,7 @@ public class SQLCommands implements ISQLCommands {
     /**
      * author: omhaw16
      */
+    @Override
     public List getAllTaskByProject(String projectId) throws SQLException {
         List<Task> tasksByProject = new ArrayList<>();        // ArrayList to hold tasks sorted by project.
 
@@ -1321,4 +1323,126 @@ public class SQLCommands implements ISQLCommands {
         return tasksByProject;
     }
 
+    /**
+     * author: omhaw16
+     */
+    @Override
+    public User getUser(String userid) throws SQLException {
+
+        PreparedStatement ps = null;
+        User user = null;
+
+        try {
+            ps = con.prepareStatement(
+                    "SELECT * from public.user WHERE userId = ?");
+            ps.setObject(1, UUID.fromString(userid));
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            user = new User();
+            System.out.println("Returning user");
+            return user;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+
+        } finally {
+            if (ps != null) {
+                ps.close();
+            }
+        }
+    }
+
+    /**
+     * author: omhaw16
+     */
+    @Override
+    public int getTaskAmount(String projectId) throws SQLException {
+
+        PreparedStatement ps = null;
+        int count = 0;
+
+        try {
+            ps = con.prepareStatement("SELECT COUNT(*) AS count_task from public.task WHERE fk_projectId = ?");
+            ps.setObject(1, UUID.fromString(projectId));
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            count = rs.getInt("count_task");
+            System.out.println("Count: " + count);
+            return count;
+
+        } catch (SQLException e) {
+            System.err.println("Error getting taskAmount count.");
+            e.printStackTrace();
+
+        } finally {
+            if (ps != null) {
+                ps.close();
+            }
+        }
+        return count;
+    }
+
+    /**
+    * author: omhaw16
+     */
+    @Override
+    public int getUserAmount(String projectId) throws SQLException {
+
+        PreparedStatement ps = null;
+        int count = 0;
+
+        try {
+            ps = con.prepareStatement("SELECT COUNT(fk_userid) AS count_users FROM public.userproject WHERE fk_projectId = ?");
+            ps.setObject(1, UUID.fromString(projectId));
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                count = rs.getInt("count_users");
+                System.out.println("Count: " + count);
+            }
+            return count;
+
+        } catch (SQLException e) {
+            System.err.println("Error getting userAmount count.");
+            e.printStackTrace();
+
+        } finally {
+            if (ps != null) {
+                ps.close();
+            }
+        }
+
+        return count;
+    }
+
+    /**
+     * author: omhaw16
+     */
+    @Override
+    public Project getSpecificProject(String projectId) throws SQLException {
+        PreparedStatement ps = null;
+        Project project = null;
+        try {
+
+            ps = con.prepareStatement("SELECT * FROM public.project WHERE projectid = ?");
+            ps.setObject(1, UUID.fromString(projectId));
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            project = new Project();
+            project.setName(rs.getString(2));
+            project.setDescription(rs.getString(3));
+
+            return project;
+
+        } catch (SQLException e) {
+            System.err.println("Error fetching specific project through project ID.");
+            e.printStackTrace();
+        } finally {
+            if (ps != null) {
+                ps.close();
+            }
+        }
+        return project;
+    }
 }
