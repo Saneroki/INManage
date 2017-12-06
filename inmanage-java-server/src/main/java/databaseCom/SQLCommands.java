@@ -1257,8 +1257,8 @@ public class SQLCommands implements ISQLCommands {
      * author: omhaw16
      */
     @Override
-    public List getAllTaskByProject(String projectId) throws SQLException {
-        List<Task> tasksByProject = new ArrayList<>();        // ArrayList to hold tasks sorted by project.
+    public List<Task> getAllTaskByProject(String projectId) throws SQLException {
+        List<Task> taskList;       // ArrayList to hold tasks sorted by project.
 
         /** Explanation of the naming convention: **/
         /* 'Conv' at the end of the attribute name means it either
@@ -1267,60 +1267,45 @@ public class SQLCommands implements ISQLCommands {
         * 2. It's been converted to a String, hence CONV (short for 'converted).
         * /omhaw16
         */
-
-        Date taskStartOrig;
-        String taskStartConv; // just in case /omhaw16
-
         Date taskDueOrig;
         String taskDueConv;
 
         PreparedStatement ps = null;        // Statement in order to use the SQL connection.
 
         try {
-            ps = con.prepareStatement("SELECT * FROM task\n" +
-                    "INNER JOIN project ON fk_projectId = projectId WHERE fk_projectId = ?;");
-            ps.setObject(1, projectId);
+            taskList = new ArrayList<>();
+            ps = con.prepareStatement("SELECT * FROM task INNER JOIN project ON fk_projectId = projectId WHERE fk_projectId = ?;");
+            ps.setObject(1, UUID.fromString(projectId));
             ResultSet rs = ps.executeQuery();
             Task task;
 
             while (rs.next()) {
                 task = new Task();
-
                 task.setName(rs.getString(2));         // Get task name as a String. Assign to Task object.
                 task.setDescription(rs.getString(3));  // Get task desc. as a String. Assign to Task object.
-
-                //        taskStartOrig = rs.getDate(4);                // Get the start date.
-                //        taskStartConv = taskStartOrig.toString();     // Convert start date to String. (just in case)
-
                 taskDueOrig = rs.getDate(5);   // Get task date as a Date.
                 taskDueConv = taskDueOrig.toString();                   // Convert task date to a String.
                 task.setDuedate(taskDueConv);                           // Assign task due date (String) to the Task object.
 
                 task.setId(rs.getString(6));   // Get project ID for specified task
+                task.setStatus(rs.getString(7));
                 // & assign it to the task object.
 
-
-                // TODO ((Remove comment when task.setStatus() has been implemented in model.Task.java. /omhaw16
                 //task.setStatus(getTaskByProjrs.getInt(7));       // Get taskStatus as an int.
 
                 // Add all elements to an ArrayList, which will then be returned.
 
-                // TODO Remove the comment from this once task.setStatus is implemented in model.Task.java. /omhaw16
-                tasksByProject.add(task);
-
+                taskList.add(task);
             }
-
+            return taskList;
         } catch (SQLException e) {
-            System.err.println("Error while getting tasks by project.");
             e.printStackTrace();
-
+            return null;
         } finally {
             if (ps != null) {
                 ps.close();
             }
         }
-        System.out.println("Returning: " + tasksByProject.toString());
-        return tasksByProject;
     }
 
     /**
