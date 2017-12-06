@@ -1,5 +1,6 @@
 package main.java;
 
+import gen.java.model.User;
 import main.java.databaseCom.SQLCommands;
 import main.java.databaseCom.SQLConnect;
 
