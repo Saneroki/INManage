@@ -2,13 +2,14 @@ package gen.java.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 
 /**
  * Task
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-29T09:48:03.566Z")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-10T14:40:11.771Z")
 public class Task implements Serializable {
   @SerializedName("id")
   private String id = null;
@@ -21,9 +22,6 @@ public class Task implements Serializable {
 
   @SerializedName("duedate")
   private String duedate = null;
-
-  @SerializedName("status")
-  private String status = null;
 
   public Task id(String id) {
     this.id = id;
@@ -97,24 +95,6 @@ public class Task implements Serializable {
     this.duedate = duedate;
   }
 
-  public Task status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  @ApiModelProperty(example = "in progress", value = "")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -128,13 +108,12 @@ public class Task implements Serializable {
     return Objects.equals(this.id, task.id) &&
         Objects.equals(this.name, task.name) &&
         Objects.equals(this.description, task.description) &&
-        Objects.equals(this.duedate, task.duedate) &&
-        Objects.equals(this.status, task.status);
+        Objects.equals(this.duedate, task.duedate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, description, duedate, status);
+    return Objects.hash(id, name, description, duedate);
   }
 
 
@@ -147,7 +126,6 @@ public class Task implements Serializable {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    duedate: ").append(toIndentedString(duedate)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -1,22 +1,25 @@
 package main.java.gui;
 
+/*
+  Created by Glenn on 25/10/2017.
+*/
 import gen.java.model.Project;
+import gen.java.model.User;
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.application.Platform;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import main.java.gui.windows.WindowChanger;
 import main.java.serverCom.ServerCom;
 import main.java.serverCom.ServerComImpl;
 
 import java.io.IOException;
 
-/**
- * This class is meant to start the Gui Client
- *
- * @author Glenn
- */
 public class ClientLauncher extends Application {
-    private static GUIManager guiManager;
+    private static WindowChanger windowChanger;
     private static Stage primaryStage;
     private static ServerCom serv;
     private static String userID;
@@ -25,45 +28,30 @@ public class ClientLauncher extends Application {
     //I think that in the future i will have use a sql command to get it for the specific projects
     private static Project proj;
 
-
-
     @Override
     public void start(Stage primaryStage) throws Exception{
         serv = new ServerComImpl();
-        setupStartGui(primaryStage);
+        this.primaryStage = primaryStage;
+        windowChanger = new WindowChanger();
+        windowChanger.setScene("fxml/windows/Login.fxml");
 
     }
 
-    /**
-     * Sets up the basics of the starting Gui
-     * @author Glenn
-     */
-    private static void setupStartGui(Stage primaryStage){
-        ClientLauncher.primaryStage = primaryStage;
-        primaryStage.getIcons().add(new Image("img/inManage_150px.png"));
-        guiManager = new GUIManager();
-        guiManager.setLayout("Login");
-        primaryStage.setMaximized(true);
-    }
-
-    public static GUIManager getWindowChanger(){
-        return guiManager;
+    public static WindowChanger getWindowChanger(){
+        return windowChanger;
     }
 
     public static Stage getPrimaryStage(){
         return primaryStage;
     }
 
-    /**
-     * Will exit the whole Client.
-     */
     public void turnOff(){
         Platform.exit();
     }
 
 
     public static void main(String[] args) {
-        launch();
+        launch(args);
     }
 
     public static ServerCom getServer(){ return serv; }
