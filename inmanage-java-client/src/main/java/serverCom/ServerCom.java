@@ -1,12 +1,14 @@
 package main.java.serverCom;
 
-import gen.java.invoker.ApiException;
 import gen.java.model.AddTaskObject;
 import gen.java.model.Project;
 import gen.java.model.Task;
 
 import java.util.List;
 
+/**
+ * Interface to communicate to the Server
+ */
 public interface ServerCom {
 
     void addUser(String username, String password);

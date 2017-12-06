@@ -8,7 +8,6 @@ import main.java.databaseCom.SQLCommands;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 public class INManageServer {
 
@@ -50,7 +49,7 @@ public class INManageServer {
     public String addProjectResponse(Project project){
         System.out.println("Adding new project: " + project.getName());
         try {
-            sql.addProject(UUID.fromString(project.getUserid()),project.getName(),project.getDescription());
+            sql.addProject(project.getUserid(),project.getName(),project.getDescription());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -81,7 +80,7 @@ public class INManageServer {
         List<Project> list = new ArrayList<>();
 
         try {
-            list = sql.getProject(UUID.fromString(projectID));
+            list = sql.getProject(projectID);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -126,16 +125,85 @@ public class INManageServer {
 
     }
 
-    public String addUserToProject(String projectId, String username){
+    public String addUserToProject(String projectId, String userID){
 
         try {
             //It says userid, but it is username
-            sql.addUserToProject(username,projectId);
+            sql.addUserToProject(userID,projectId);
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         return "Succes!";
     }
+
+    public String deleteUser (String userId, String password){
+        //TODO: Sql delete user
+
+        return null;
+    }
+
+    public String editUser (User user){
+        try {
+            sql.editFirstname(user.getName(),user.getFirstName());
+            sql.editLastname(user.getName(),user.getLastName());
+            sql.editPassword(user.getName(),user.getPassword());
+            //TODO: How is this supposed to work????
+            //sql.editUsername(user.getName());
+            return "Succes!";
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return "Unsuccesful...";
+    }
+
+    public String getUser(String userID){
+        //TODO: Add get user to sql
+
+        return null;
+    }
+
+    public List<User> SearchUsers(String name, Integer limit){
+        //TODO: add search user to API, should return list of users that have the string in their username
+        return null;
+    }
+
+    public String editTask(Task task){
+        //TODO: Implement edit task in sql
+        return null;
+    }
+
+    public String deleteProject(String projectId, String password){
+        //TODO: implement delete project in sql
+        return null;
+    }
+
+    public String editProject(Project project){
+
+        try {
+            sql.editProjectDescription(project.getId(),project.getDescription());
+            sql.editProjectName(project.getId(),project.getName());
+            return "Succes!";
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return "no succes";
+    }
+
+    public Project getSpecificProject(String projectID){
+        //TODO: Implement getSpecificProject in sql, get one project from one project ID
+        return null;
+    }
+
+    public Integer getUserAmount(String projectID){
+        //TODO: Implement get userAmount in sql
+        return null;
+    }
+
+    public Integer getTaskAmount(String projectID){
+        //TODO: Implement get taskAmount in SQL
+        return null;
+    }
+
 
 }
