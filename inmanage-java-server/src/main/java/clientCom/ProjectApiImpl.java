@@ -16,18 +16,17 @@ public class ProjectApiImpl extends ProjectApiService {
 
     @Override
     public Response addUserToProject(String projectID, String theIDOfTheUserMakingTheOperation, SecurityContext securityContext) throws NotFoundException {
-        return Response.ok().entity(INManageServer.get().addUserToProject(projectID,theIDOfTheUserMakingTheOperation)).build();
+        return Response.ok().entity(INManageServer.get().addUserToProjectResponse(projectID,theIDOfTheUserMakingTheOperation)).build();
     }
 
     @Override
     public Response deleteProject(String projectId, String passWord, SecurityContext securityContext) throws NotFoundException {
-        //TODO: Immplement when sql is done
-        return Response.ok().entity(INManageServer.get()).build();
+        return Response.ok().entity(INManageServer.get().deleteProjectResponse(projectId,passWord)).build();
     }
 
     @Override
     public Response editProject(Project projectObject, SecurityContext securityContext) throws NotFoundException {
-        return Response.ok().entity(INManageServer.get().editProject(projectObject)).build();
+        return Response.ok().entity(INManageServer.get().editProjectResponse(projectObject)).build();
     }
 
     @Override
@@ -40,13 +39,11 @@ public class ProjectApiImpl extends ProjectApiService {
     //Says task but is project... should be changed in next api update
     @Override
     public Response getSpecificTask(String projectID, SecurityContext securityContext) throws NotFoundException {
-        //TODO: Immplement when sql is done
-        return Response.ok().entity(INManageServer.get()).build();
+        return Response.ok().entity(INManageServer.get().getSpecificProjectResponse(projectID)).build();
     }
 
     @Override
     public Response getUserAmount(String projectId, SecurityContext securityContext) throws NotFoundException {
-        //TODO: Immplement when sql is done
-        return Response.ok().entity(INManageServer.get()).build();
+        return Response.ok().entity(INManageServer.get().getUserAmountResponse(projectId)).build();
     }
 }

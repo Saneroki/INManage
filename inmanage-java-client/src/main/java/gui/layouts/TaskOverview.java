@@ -23,7 +23,7 @@ public class TaskOverview extends Controller {
 
     private final ServerCom serv = ClientLauncher.getServer();
 
-    private final ArrayList<Task> list = (ArrayList<Task>) serv.getAllTasks(ClientLauncher.getProj().getId());
+    private ArrayList<Task> list;
 
 
     @FXML
@@ -43,6 +43,12 @@ public class TaskOverview extends Controller {
 
     @FXML
     public void initialize(){
+
+        list = (ArrayList<Task>) serv.getAllTasks(ClientLauncher.getProj().getId());
+
+        if(list==null){
+            System.out.println("There is nothing the list....");
+        }
         //Make for loop that loops through task statusses and makes one VBOX for each
         //for now we just have one VBOX
 
@@ -53,9 +59,9 @@ public class TaskOverview extends Controller {
         int tmp = 0;
         System.out.println("Starting for loop: ");
         for (Task task: list) {
+            System.out.println("List item here");
             System.out.println(tmp++);
             taskView(task, vboxLeft);
-
         }
 
 
