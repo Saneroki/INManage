@@ -1333,7 +1333,7 @@ public class SQLCommands implements ISQLCommands {
      * @throws SQLException
      */
     @Override
-    public User getUser(String userid) throws SQLException {
+    public User getSpecificUser(String userid) throws SQLException {
         PreparedStatement ps = null;
         User user;
         try {

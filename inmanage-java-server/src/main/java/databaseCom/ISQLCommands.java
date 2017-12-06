@@ -39,7 +39,7 @@ interface ISQLCommands {
 
     String loginUser(String username, String password) throws SQLException;
 
-    User getUser (String userId) throws SQLException;
+    User getSpecificUser (String userId) throws SQLException;
 
     int getUserAmount(String projectId) throws SQLException;
 
