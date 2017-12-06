@@ -24,6 +24,7 @@ public class AddUserToProjectController {
     private Button ButtonClose;
 
     ServerCom serv = ClientLauncher.getServer();
+    //stuff
 
     @FXML
     void onClickAdd(ActionEvent event) {
