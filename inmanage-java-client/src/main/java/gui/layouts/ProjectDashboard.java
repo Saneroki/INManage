@@ -1,4 +1,4 @@
-package main.java.gui.windows;
+package main.java.gui.layouts;
 
 import gen.java.model.Project;
 import javafx.fxml.FXML;
@@ -39,7 +39,7 @@ public class ProjectDashboard {
         }
 
         addNewProjectBtn.setOnAction(event -> {
-            ClientLauncher.getWindowChanger().setScene("fxml/windows/AddProject.fxml");
+            ClientLauncher.getWindowChanger().setLayout("fxml/windows/AddProject.fxml");
         });
 
     }
@@ -51,7 +51,7 @@ public class ProjectDashboard {
 
     @FXML
     void back(MouseEvent event) {
-        ClientLauncher.getWindowChanger().setScene("fxml/windows/Login.fxml");
+        ClientLauncher.getWindowChanger().setLayout("fxml/windows/Login.fxml");
     }
 
     @FXML
@@ -80,7 +80,7 @@ public class ProjectDashboard {
             ClientLauncher.setCurrentProjectId(proj.getId());
             //delete later
             ClientLauncher.setProj(proj);
-            ClientLauncher.getWindowChanger().setScene("fxml/windows/ProjectOverview.fxml");
+            ClientLauncher.getWindowChanger().setLayout("fxml/windows/ProjectOverview.fxml");
         });
         vboxLeft.getChildren().add(btn);
     }

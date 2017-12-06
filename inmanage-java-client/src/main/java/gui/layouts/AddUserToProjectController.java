@@ -1,4 +1,4 @@
-package main.java.gui.windows;
+package main.java.gui.layouts;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,7 +28,7 @@ public class AddUserToProjectController {
     @FXML
     void onClickAdd(ActionEvent event) {
         if(event.getSource() == ButtonClose){
-            ClientLauncher.getWindowChanger().setScene("fxml/windows/ProjectOverview.fxml");
+            ClientLauncher.getWindowChanger().setLayout("fxml/windows/ProjectOverview.fxml");
         }
         if(event.getSource()== ButtonAdd){
             if(!(TextFieldUsernameInput.getText()=="")){

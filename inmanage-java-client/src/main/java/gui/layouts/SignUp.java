@@ -1,4 +1,4 @@
-package main.java.gui.windows;
+package main.java.gui.layouts;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -22,7 +22,7 @@ public class SignUp{
     private ServerCom serv = new ServerComImpl();
 
     public void cancel(ActionEvent actionEvent) {
-        ClientLauncher.getWindowChanger().setScene("fxml/windows/Login.fxml");
+        ClientLauncher.getWindowChanger().setLayout("fxml/windows/Login.fxml");
     }
 
     public void signup(ActionEvent actionEvent) {
@@ -31,7 +31,7 @@ public class SignUp{
             passwordConfirmInput.setPromptText("The passwords don't match");
         } else {
             serv.addUser(checkedUsername(), checkedPassword());
-            ClientLauncher.getWindowChanger().setScene("fxml/windows/ProjectDashboard.fxml");
+            ClientLauncher.getWindowChanger().setLayout("fxml/windows/ProjectDashboard.fxml");
         }
 
     }
