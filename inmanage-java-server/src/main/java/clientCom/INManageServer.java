@@ -125,7 +125,7 @@ public class INManageServer {
 
     }
 
-    public String addUserToProject(String projectId, String userID){
+    public String addUserToProjectResponse(String projectId, String userID){
 
         try {
             //It says userid, but it is username
@@ -137,13 +137,16 @@ public class INManageServer {
         return "Succes!";
     }
 
-    public String deleteUser (String userId, String password){
-        //TODO: Sql delete user
-
-        return null;
+    public String deleteUserResponse (String userId, String password){
+        try {
+            sql.deleteUser(userId,password);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return "Succes!";
     }
 
-    public String editUser (User user){
+    public String editUserResponse (User user){
         try {
             sql.editFirstname(user.getName(),user.getFirstName());
             sql.editLastname(user.getName(),user.getLastName());
@@ -157,28 +160,47 @@ public class INManageServer {
         return "Unsuccesful...";
     }
 
-    public String getUser(String userID){
-        //TODO: Add get user to sql
-
+    public User getUserResponse(String userID){
+        try {
+            sql.getUser(userID);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
-    public List<User> SearchUsers(String name, Integer limit){
-        //TODO: add search user to API, should return list of users that have the string in their username
+    public List<User> SearchUsersResponse(String name, Integer limit){
+        try {
+            sql.searchUser(name);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
-    public String editTask(Task task){
-        //TODO: Implement edit task in sql
-        return null;
+    public String editTaskResponse(Task task){
+        try {
+            sql.editTaskDescription(task.getId(),task.getDescription());
+            sql.editTaskName(task.getId(),task.getName());
+            sql.editTaskDue(task.getId(),task.getDuedate());
+            return "Succes!";
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return "No succes";
     }
 
-    public String deleteProject(String projectId, String password){
-        //TODO: implement delete project in sql
-        return null;
+    public String deleteProjectResponse(String projectId, String password){
+        try {
+            sql.deleteProject(projectId);
+            return "Succes!";
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return "No succes";
     }
 
-    public String editProject(Project project){
+    public String editProjectResponse(Project project){
 
         try {
             sql.editProjectDescription(project.getId(),project.getDescription());
@@ -190,19 +212,43 @@ public class INManageServer {
         return "no succes";
     }
 
-    public Project getSpecificProject(String projectID){
-        //TODO: Implement getSpecificProject in sql, get one project from one project ID
+    public Project getSpecificProjectResponse(String projectID){
+        try {
+            return sql.getSpecificProject(projectID);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         return null;
     }
 
-    public Integer getUserAmount(String projectID){
-        //TODO: Implement get userAmount in sql
+    public Integer getUserAmountResponse(String projectID){
+        try {
+            return sql.getUserAmount(projectID);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
-    public Integer getTaskAmount(String projectID){
-        //TODO: Implement get taskAmount in SQL
+    public Integer getTaskAmountResponse(String projectID){
+        try {
+            return sql.getTaskAmount(projectID);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
+
+    }
+
+    public String deleteTaskResponse(String taskId){
+        try {
+            sql.deleteTask(taskId);
+            return "Succes!";
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return "No succes";
     }
 
 

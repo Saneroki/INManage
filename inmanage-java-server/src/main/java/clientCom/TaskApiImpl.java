@@ -17,17 +17,15 @@ public class TaskApiImpl extends TaskApiService{
         return Response.ok().entity(INManageServer.get().addTaskResponse(addTaskObject)).build();
     }
 
+    //Says projectID but it should be task ID change it in the next iteration.
     @Override
     public Response deleteTask(String projectId, SecurityContext securityContext) throws NotFoundException {
-
-        //TODO: Immplement when sql is done
-        return Response.ok().entity(INManageServer.get()).build();
+        return Response.ok().entity(INManageServer.get().deleteTaskResponse(projectId)).build();
     }
 
     @Override
     public Response editTask(Task taskObject, SecurityContext securityContext) throws NotFoundException {
-        //TODO: Immplement when sql is done
-        return Response.ok().entity(INManageServer.get()).build();
+        return Response.ok().entity(INManageServer.get().editTaskResponse(taskObject)).build();
     }
 
     @Override
@@ -35,9 +33,10 @@ public class TaskApiImpl extends TaskApiService{
         return Response.ok().entity(INManageServer.get().getTaskResponse(projectID)).build();
     }
 
+    //Says projectID but it should be task ID change it in the next iteration.
     @Override
     public Response getTaskAmount(String projectId, SecurityContext securityContext) throws NotFoundException {
         //TODO: Immplement when sql is done
-        return Response.ok().entity(INManageServer.get()).build();
+        return Response.ok().entity(INManageServer.get().getTaskAmountResponse(projectId)).build();
     }
 }
