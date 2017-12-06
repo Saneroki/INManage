@@ -63,7 +63,7 @@ public class ClientLauncher extends Application {
 
 
     public static void main(String[] args) {
-        launch(args);
+        launch();
     }
 
     public static ServerCom getServer(){ return serv; }
