@@ -17,6 +17,8 @@ public class ServerComImpl implements ServerCom {
     private final ProjectApi projectApi = new ProjectApi();
     private final TaskApi taskApi = new TaskApi();
 
+    public ServerComImpl(){
+    }
 
 
     @Override
@@ -40,8 +42,7 @@ public class ServerComImpl implements ServerCom {
     @Override
     public String loginUser(String userName, String password) {
         try {
-            String uuid = userApi.loginUser(userName, password);
-            return uuid;
+            return userApi.loginUser(userName, password);
         } catch (ApiException e) {
             e.printStackTrace();
         }
@@ -73,9 +74,8 @@ public class ServerComImpl implements ServerCom {
     @Override
     public List<Project> getAllProjects(String userID) {
 
-        /*
-        It says userID but we use Prohect ID, needs to be changed in next version of the API.
-         */
+
+        //TODO: It says userID but we use Prohect ID, needs to be changed in next version of the API.
 
         try {
             return projectApi.getAllProjects(userID);

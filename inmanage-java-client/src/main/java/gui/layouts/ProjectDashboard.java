@@ -1,4 +1,4 @@
-package main.java.gui.windows;
+package main.java.gui.layouts;
 
 import gen.java.model.Project;
 import javafx.fxml.FXML;
@@ -16,12 +16,15 @@ import java.util.ArrayList;
 public class ProjectDashboard {
 
     @FXML
+    private ListView<Project> projectList;
+
+    @FXML
     private VBox vboxLeft;
 
     @FXML
     private Button addNewProjectBtn;
 
-    public ArrayList<Project> list;
+    private final ArrayList<Project> list = (ArrayList<Project>) ClientLauncher.getServer().getAllProjects(ClientLauncher.getUserID());
 
 
     ServerCom serv = ClientLauncher.getServer();
@@ -30,17 +33,12 @@ public class ProjectDashboard {
 
     @FXML
     public void initialize(){
-        System.out.println("System tried to call initialize here");
-
-        list = (ArrayList<Project>) ClientLauncher.getServer().getAllProjects(ClientLauncher.getUserID());
         vboxLeft.getChildren().add(new Text("Projects:"));
         for (Project proj : list) {
             addProjectView(proj);
         }
 
-        addNewProjectBtn.setOnAction(event -> {
-            ClientLauncher.getWindowChanger().setScene("fxml/windows/AddProject.fxml");
-        });
+        addNewProjectBtn.setOnAction(event -> ClientLauncher.getWindowChanger().setLayout("AddProject"));
 
     }
 
@@ -51,7 +49,7 @@ public class ProjectDashboard {
 
     @FXML
     void back(MouseEvent event) {
-        ClientLauncher.getWindowChanger().setScene("fxml/windows/Login.fxml");
+        ClientLauncher.getWindowChanger().setLayout("Login");
     }
 
     @FXML
@@ -80,7 +78,7 @@ public class ProjectDashboard {
             ClientLauncher.setCurrentProjectId(proj.getId());
             //delete later
             ClientLauncher.setProj(proj);
-            ClientLauncher.getWindowChanger().setScene("fxml/windows/ProjectOverview.fxml");
+            ClientLauncher.getWindowChanger().setLayout("ProjectOverview");
         });
         vboxLeft.getChildren().add(btn);
     }
