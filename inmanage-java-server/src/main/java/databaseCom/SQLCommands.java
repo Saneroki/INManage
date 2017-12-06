@@ -2,6 +2,7 @@ package main.java.databaseCom;
 
 import gen.java.model.Project;
 import gen.java.model.Task;
+import gen.java.model.User;
 
 import javax.swing.*;
 import javax.xml.transform.Result;
@@ -33,6 +34,7 @@ public class SQLCommands implements ISQLCommands {
      * Author: pepak16.
      * Inserts the values from the argument into the table user in database
      * by executing an insert sql statement.
+     *
      * @param username
      * @param password
      * @param firstname
@@ -47,12 +49,12 @@ public class SQLCommands implements ISQLCommands {
         try {
             if (!isUserExisting(username)) {
                 ps = con.prepareStatement("INSERT INTO public.user VALUES (?,?,?,?,?,?);");
-                ps.setObject(1,UUID.randomUUID());
-                ps.setString(2,username);
-                ps.setString(3,password);
-                ps.setString(4,firstname);
-                ps.setString(5,lastname);
-                ps.setString(6,type);
+                ps.setObject(1, UUID.randomUUID());
+                ps.setString(2, username);
+                ps.setString(3, password);
+                ps.setString(4, firstname);
+                ps.setString(5, lastname);
+                ps.setString(6, type);
                 ps.execute();
                 return true;
             } else {
@@ -71,6 +73,7 @@ public class SQLCommands implements ISQLCommands {
     /**
      * Author: pepak16.
      * Gets password from the database via the username.
+     *
      * @param username
      * @return String
      * @throws SQLException
@@ -80,7 +83,7 @@ public class SQLCommands implements ISQLCommands {
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement("SELECT password FROM public.user WHERE username = ?;");
-            ps.setString(1,username);
+            ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
             rs.next();
             return rs.getString(1);
@@ -97,6 +100,7 @@ public class SQLCommands implements ISQLCommands {
     /**
      * Author: pepak16.
      * Gets firstname from the database via the username.
+     *
      * @param username
      * @return String
      * @throws SQLException
@@ -106,7 +110,7 @@ public class SQLCommands implements ISQLCommands {
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement("SELECT firstname FROM public.user WHERE username = ?;");
-            ps.setString(1,username);
+            ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
             rs.next();
             return rs.getString(1);
@@ -123,6 +127,7 @@ public class SQLCommands implements ISQLCommands {
     /**
      * Author: pepak16.
      * Gets lastname from the database via the username.
+     *
      * @param username
      * @return String
      * @throws SQLException
@@ -132,7 +137,7 @@ public class SQLCommands implements ISQLCommands {
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement("SELECT lastname FROM public.user WHERE username = ?;");
-            ps.setString(1,username);
+            ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
             rs.next();
             return rs.getString(1);
@@ -149,6 +154,7 @@ public class SQLCommands implements ISQLCommands {
     /**
      * Author: pepak16.
      * Changes the username for the user via his username.
+     *
      * @param username
      * @return boolean
      * @throws SQLException
@@ -158,8 +164,8 @@ public class SQLCommands implements ISQLCommands {
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement("UPDATE public.user SET username = ? WHERE username = ?;");
-            ps.setString(1,username);
-            ps.setString(2,username);
+            ps.setString(1, username);
+            ps.setString(2, username);
             ps.execute();
             return true;
         } catch (SQLException e) {
@@ -175,6 +181,7 @@ public class SQLCommands implements ISQLCommands {
     /**
      * Author: pepak16.
      * Changes the users password via his username and password.
+     *
      * @param username
      * @return boolean
      * @throws SQLException
@@ -184,8 +191,8 @@ public class SQLCommands implements ISQLCommands {
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement("UPDATE public.user SET password = ? WHERE username = ?;");
-            ps.setString(1,password);
-            ps.setString(2,username);
+            ps.setString(1, password);
+            ps.setString(2, username);
             ps.execute();
             return true;
         } catch (SQLException e) {
@@ -201,6 +208,7 @@ public class SQLCommands implements ISQLCommands {
     /**
      * Author: pepak16.
      * Changes the users firstname via his username and firstname.
+     *
      * @param username
      * @return boolean
      * @throws SQLException
@@ -210,8 +218,8 @@ public class SQLCommands implements ISQLCommands {
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement("UPDATE public.user SET firstname = ? WHERE username = ?;");
-            ps.setString(1,firstname);
-            ps.setString(2,username);
+            ps.setString(1, firstname);
+            ps.setString(2, username);
             ps.execute();
             return true;
         } catch (SQLException e) {
@@ -227,17 +235,18 @@ public class SQLCommands implements ISQLCommands {
     /**
      * Author: pepak16.
      * Changes the users lastname via his username and lastname.
+     *
      * @param username
      * @return boolean
      * @throws SQLException
      */
     @Override
-    public boolean editLastname(String username,String lastname) throws SQLException {
+    public boolean editLastname(String username, String lastname) throws SQLException {
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement("UPDATE public.user SET lastname = ? WHERE username = ?;");
-            ps.setString(1,lastname);
-            ps.setString(2,username);
+            ps.setString(1, lastname);
+            ps.setString(2, username);
             ps.execute();
             return true;
         } catch (SQLException e) {
@@ -253,18 +262,19 @@ public class SQLCommands implements ISQLCommands {
     /**
      * Author: pepak16.
      * Changes the user type using the username and its corresponding type via the argument.
+     *
      * @param username
      * @param type
      * @return boolean
      * @throws SQLException
      */
     @Override
-    public boolean editUserType(String username,String type) throws SQLException {
+    public boolean editUserType(String username, String type) throws SQLException {
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement("UPDATE public.user SET role = ? WHERE username = ?;");
-            ps.setString(1,type);
-            ps.setString(2,username);
+            ps.setString(1, type);
+            ps.setString(2, username);
             ps.execute();
             return true;
         } catch (SQLException e) {
@@ -282,6 +292,7 @@ public class SQLCommands implements ISQLCommands {
      * Checking if there exists any user with the provided username via the argument.
      * If there is already an existing user in database the operation will return true,
      * else it will return true.
+     *
      * @param username
      * @return boolean
      * @throws SQLException
@@ -291,7 +302,7 @@ public class SQLCommands implements ISQLCommands {
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement("SELECT EXISTS (SELECT username FROM public.user WHERE username = ?);");
-            ps.setString(1,username);
+            ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
             rs.next();
             if (rs.getBoolean(1)) {
@@ -312,6 +323,7 @@ public class SQLCommands implements ISQLCommands {
     /**
      * Author: pepak16.
      * Checks whether the user is admin or not and return a truth value respectively.
+     *
      * @param username
      * @return boolean
      * @throws SQLException
@@ -321,7 +333,7 @@ public class SQLCommands implements ISQLCommands {
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement("SELECT role FROM public.user WHERE username = ?;");
-            ps.setString(1,username);
+            ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
             rs.next();
             if (rs.getString(1).equalsIgnoreCase("admin")) {
@@ -342,6 +354,7 @@ public class SQLCommands implements ISQLCommands {
     /**
      * Author: pepak16, malta16
      * Logging the user in by returning its userid, if the user exist in the database.
+     *
      * @param username
      * @param password
      * @return boolean
@@ -353,15 +366,15 @@ public class SQLCommands implements ISQLCommands {
         try {
             if (isUserExisting(username)) {
                 ps = con.prepareStatement("SELECT userid FROM public.user WHERE username = ? AND password = ?;");
-                ps.setString(1,username);
-                ps.setString(2,password);
+                ps.setString(1, username);
+                ps.setString(2, password);
                 ResultSet rs = ps.executeQuery();
                 rs.next();
                 return rs.getString(1);
             } else {
                 return null;
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
             return null;
         } finally {
@@ -377,6 +390,7 @@ public class SQLCommands implements ISQLCommands {
      * Author: pepak16.
      * Adds new project to the table project and respectively its association between
      * the user and project in the userproject table to the database, if the project isn't existing already.
+     *
      * @param userid
      * @param projectname
      * @param projectdescription
@@ -384,7 +398,7 @@ public class SQLCommands implements ISQLCommands {
      * @throws SQLException
      */
     @Override
-    public boolean addProject(String userid, String projectname,String projectdescription) throws SQLException {
+    public boolean addProject(String userid, String projectname, String projectdescription) throws SQLException {
         PreparedStatement ps1 = null;
         PreparedStatement ps2 = null;
         try {
@@ -394,15 +408,15 @@ public class SQLCommands implements ISQLCommands {
 
             con.setAutoCommit(false);
 
-            ps1.setObject(1,projectid);
-            ps1.setString(2,projectname);
-            ps1.setString(3,projectdescription);
+            ps1.setObject(1, projectid);
+            ps1.setString(2, projectname);
+            ps1.setString(3, projectdescription);
             ps1.addBatch();
             ps1.executeBatch();
 
-            ps2.setObject(1,UUID.randomUUID());
-            ps2.setObject(2,UUID.fromString(userid));
-            ps2.setObject(3,projectid);
+            ps2.setObject(1, UUID.randomUUID());
+            ps2.setObject(2, UUID.fromString(userid));
+            ps2.setObject(3, projectid);
             ps2.addBatch();
             ps2.executeBatch();
             con.commit();
@@ -423,24 +437,25 @@ public class SQLCommands implements ISQLCommands {
      * Author: pepak16.
      * Adds new user to a specific project via the projectid to the database, if the user isn't already added to the project.
      * This is done via some checks that uses the private methods getUseridFromUsername() and checkIfUserProjectExist().
+     *
      * @param username
      * @param projectid
      * @return boolean
      * @throws SQLException
      */
     @Override
-    public boolean addUserToProject(String username,String projectid) throws SQLException {
+    public boolean addUserToProject(String username, String projectid) throws SQLException {
         PreparedStatement ps = null;
         try {
             String userid = getUseridFromUsername(username);
             if (!userid.equals(null)) {
-                if (checkIfUserProjectExist(userid,projectid)) {
+                if (checkIfUserProjectExist(userid, projectid)) {
                     return false;
                 } else {
                     ps = con.prepareStatement("INSERT INTO public.userproject VALUES (?,?,?);");
-                    ps.setObject(1,UUID.randomUUID());
-                    ps.setObject(2,UUID.fromString(userid));
-                    ps.setObject(3,UUID.fromString(projectid));
+                    ps.setObject(1, UUID.randomUUID());
+                    ps.setObject(2, UUID.fromString(userid));
+                    ps.setObject(3, UUID.fromString(projectid));
                     ps.execute();
                     return true;
                 }
@@ -465,6 +480,7 @@ public class SQLCommands implements ISQLCommands {
      * Fetches the userid via the given username from argument.
      * Temporary problem: can only fetch one row of userid associated with the username,
      * if the username has more than one userid associations.
+     *
      * @param username
      * @return String
      * @throws SQLException
@@ -488,12 +504,14 @@ public class SQLCommands implements ISQLCommands {
     }
 
     // userid, projectid
+
     /**
      * Made by pepak16.
      * Checks whether the a userid and projectid is associated in userproject table,
      * if yes then it would return true, else it would return false.
      * It would perhaps catch a PSQLException saying that
      * "ResultSet not positioned properly" the given userid or/and project is wrong.
+     *
      * @param userid
      * @param projectid
      * @return String
@@ -505,7 +523,7 @@ public class SQLCommands implements ISQLCommands {
             boolean check;
             ps = con.prepareStatement("SELECT exists(SELECT fk_userId, fk_projectId FROM userproject WHERE fk_userId = ? AND fk_projectId = ?;)");
             ResultSet rs = ps.executeQuery();
-            ps.setString(1,userid);
+            ps.setString(1, userid);
             ps.setString(2, projectid);
             rs.next();
             return rs.getBoolean(1);
@@ -523,6 +541,7 @@ public class SQLCommands implements ISQLCommands {
     /**
      * Made by pepak16.
      * Fetches the project name via the given userid.
+     *
      * @param userid
      * @return boolean
      * @throws SQLException
@@ -554,6 +573,7 @@ public class SQLCommands implements ISQLCommands {
     /**
      * Made by pepak16.
      * Fetches the project name via the given userid and name as argument.
+     *
      * @param projectid
      * @param name
      * @return boolean
@@ -581,6 +601,7 @@ public class SQLCommands implements ISQLCommands {
     /**
      * Made by pepak16.
      * Fetches the project description via the given userid.
+     *
      * @param userid
      * @return boolean
      * @throws SQLException
@@ -612,6 +633,7 @@ public class SQLCommands implements ISQLCommands {
     /**
      * Made by pepak16.
      * Changes the project description via the given userid and description as argument.
+     *
      * @param projectid
      * @param description
      * @return boolean
@@ -639,6 +661,7 @@ public class SQLCommands implements ISQLCommands {
     /**
      * Made by pepak16.
      * Fetches the project description via the given userid.
+     *
      * @param userid
      * @return boolean
      * @throws SQLException
@@ -917,7 +940,6 @@ public class SQLCommands implements ISQLCommands {
                 //task.setStatus(getTaskByProjrs.getInt(7));       // Get taskStatus as an int.
 
                 // Add all elements to an ArrayList, which will then be returned.
-                // TODO Remember to add elements to the list.
 
                 // TODO Remove the comment from this once task.setStatus is implemented in model.Task.java. /omhaw16
                 tasksByProject.add(task);
@@ -937,6 +959,92 @@ public class SQLCommands implements ISQLCommands {
         return tasksByProject;
     }
 
+    /**
+     * author: omhaw16
+     */
+    public User getUser(String userid) throws SQLException {
 
+        PreparedStatement ps = null;
+        User user = null;
 
+        try {
+            ps = con.prepareStatement(
+                    "SELECT * from public.user WHERE userId = ?");
+            ps.setObject(1, UUID.fromString(userid));
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            user = new User();
+            System.out.println("Returning user");
+            return user;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+
+        } finally {
+            if (ps != null) {
+                ps.close();
+            }
+        }
+        System.out.println("Returning: " + tasksByProject.toString());
+        return tasksByProject;
+    }
+
+    /**
+     * author: omhaw16
+     */
+    public int getTaskAmount(String projectId) throws SQLException {
+
+        PreparedStatement ps = null;
+        int count = 0;
+
+        try {
+            ps = con.prepareStatement("SELECT COUNT(*) AS count_task from public.task WHERE fk_projectId = ?");
+            ps.setObject(1, UUID.fromString(projectId));
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            count = rs.getInt("count_task");
+            System.out.println("Count: " + count);
+            return count;
+
+        } catch (SQLException e) {
+            System.err.println("Error getting taskAmount count.");
+            e.printStackTrace();
+
+        } finally {
+            if (ps != null) {
+                ps.close();
+            }
+        }
+        return count;
+    }
+
+    public int getUserAmount(String projectId) throws SQLException {
+
+        PreparedStatement ps = null;
+        int count = 0;
+
+        try {
+            ps = con.prepareStatement("SELECT COUNT(fk_userid) AS count_users FROM public.userproject WHERE fk_projectId = ?");
+            ps.setObject(1, UUID.fromString(projectId));
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+              count = rs.getInt("count_users");
+                System.out.println("Count: " + count);
+            }
+            return count;
+
+        } catch (SQLException e) {
+            System.err.println("Error getting userAmount count.");
+            e.printStackTrace();
+
+        } finally {
+            if (ps != null) {
+                ps.close();
+            }
+        }
+
+        return count;
+    }
 }

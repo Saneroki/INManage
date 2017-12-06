@@ -6,6 +6,9 @@ import gen.java.model.Task;
 
 import java.util.List;
 
+/**
+ * Interface to communicate to the Server
+ */
 public interface ServerCom {
 
     void addUser(String username, String password);
