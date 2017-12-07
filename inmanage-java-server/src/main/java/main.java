@@ -6,16 +6,24 @@ import main.java.databaseCom.SQLCommands;
 import main.java.databaseCom.SQLConnect;
 
 import java.sql.SQLException;
+import java.sql.Time;
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.UUID;
 
         public class main {
 
             // Main method, mainly for testing purposes. /omhaw16,pepak16
-            public static void main(String[] args) throws SQLException {
-//                SQLCommands sql = new SQLCommands().getInstance();
-//                for (Task t : sql.getAllTaskByProject("f5975415-370b-40d9-9562-a2b0cbadc2bf")) {
-//                    System.out.println(t.toString());
-//                }
+            public static void main(String[] args) throws SQLException, ParseException {
+                SQLCommands sql = new SQLCommands().getInstance();
+                System.out.println(sql.deleteTask("3cd81416-b401-4001-806d-0e5d95c222a7"));
+                //System.out.println(sql.addTaskToProject("LOLLERN","en lang description men også sjov :)","2013-11-30","123e4567-e89b-12d3-a456-426655440000"));
+            //    for (Task t : sql.getAllTaskByProject("f5975415-370b-40d9-9562-a2b0cbadc2bf")) {
+            //        System.out.println(t.toString());
+            //    }
 
                 //System.out.println(sql.editProjectDescription(UUID.fromString("98117835-2803-4961-95e9-ba2ac0153644"),"The thing doesn't go skraa"));
                 //System.out.println(sql.addUser("singh007","dingding","ding","ing","member"));
