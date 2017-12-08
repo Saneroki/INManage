@@ -169,7 +169,7 @@ public class INManageServer {
         return null;
     }
 
-    public List<User> SearchUsersResponse(String name, Integer limit){
+    public List<User> searchUsersResponse(String name, Integer limit){
         try {
             sql.searchUser(name);
         } catch (SQLException e) {

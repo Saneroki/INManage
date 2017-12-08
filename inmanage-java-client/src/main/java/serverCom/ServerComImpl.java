@@ -107,5 +107,109 @@ public class ServerComImpl implements ServerCom {
         }
     }
 
+    @Override
+    public void deleteUsers(String userID, String password) {
+        try {
+            userApi.deleteUser(userID, password);
+        } catch (ApiException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void editUser(User user) {
+        try {
+            userApi.editUser(user);
+        } catch (ApiException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public List<User> searchUser(String name, Integer limit) {
+        try {
+            return userApi.searchUser(name,limit);
+        } catch (ApiException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public User getSpecificUser(String userID) {
+        try {
+            return (User)userApi.getUser(userID);
+        } catch (ApiException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public void deleteProject(String projectID, String password) {
+        try {
+            projectApi.deleteProject(projectID,password);
+        } catch (ApiException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void editProject(Project proj) {
+        try {
+            projectApi.editProject(proj);
+        } catch (ApiException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public Project getSpecificProject(String projID) {
+        try {
+            return projectApi.getSpecificTask(projID);
+        } catch (ApiException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public Integer getUserAmount(String projID) {
+        try {
+            return projectApi.getUserAmount(projID) ;
+        } catch (ApiException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public void deleteTask(String taskID) {
+        try {
+            taskApi.deleteTask(taskID);
+        } catch (ApiException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void editTask(Task task) {
+        try {
+            taskApi.editTask(task);
+        } catch (ApiException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public Integer getTaskAmount(String taskID) {
+        try {
+            return taskApi.getTaskAmount(taskID);
+        } catch (ApiException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
 }
