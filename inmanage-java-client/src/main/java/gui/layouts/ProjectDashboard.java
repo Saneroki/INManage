@@ -9,6 +9,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import main.java.gui.ClientLauncher;
+import main.java.gui.components.ProjectView;
 import main.java.serverCom.ServerCom;
 
 import java.util.ArrayList;
@@ -34,8 +35,12 @@ public class ProjectDashboard {
     @FXML
     public void initialize(){
         vboxLeft.getChildren().add(new Text("Projects:"));
+        vboxLeft.setSpacing(15);
+        vboxLeft.setMinWidth(250);
+        vboxLeft.setMaxHeight(250);
+
         for (Project proj : list) {
-            addProjectView(proj);
+            new ProjectView(proj,serv.getUserAmount(proj.getId()),serv.getTaskAmount(proj.getId()),vboxLeft);
         }
 
         addNewProjectBtn.setOnAction(event -> ClientLauncher.getWindowChanger().setLayout("AddProject"));
