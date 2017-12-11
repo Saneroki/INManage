@@ -5,13 +5,16 @@ package main.java.gui.components;
  */
 
 
+import Logic.ChatMessage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TitledPane;
 import javafx.stage.Stage;
-import main.java.Logic.Components.ChatLogic;
+import main.java.serverCom.ServerCom;
+import main.java.serverCom.ServerComImpl;
+//import main.java.Logic.Components.ChatLogic;//file moved
 
 public class Chat {
 
@@ -33,21 +36,18 @@ public class Chat {
     @FXML // fx:id="textAreaWriteMessage"
     private TextArea textAreaWriteMessage; // Value injected by FXMLLoader
 
-    ChatLogic chatLogic = new ChatLogic();
-
-    //continually get/recieve messages
-    //put this in logic
-    /*while(connection){
-
-    }
-    */
+    //ChatLogic chatLogic = new ChatLogic();
+    //call Chatlogic via server connection
 
 
+    ServerComImpl serverCom = new ServerComImpl();
     @FXML
     void OnButtonClicked(ActionEvent event) {
+        ChatMessage message = null;
         if (event.getSource() == ButtonSend) {
             if (!(textAreaWriteMessage.getText() == null || textAreaWriteMessage.getText() == ""))
-                chatLogic.sendMessage(textAreaWriteMessage.getText());
+                message = new ChatMessage(textAreaWriteMessage.getText(), null , null);
+                serverCom.sendChatMessage(message);
             textAreaWriteMessage.clear();
 
         }

@@ -1,5 +1,6 @@
 package main.java.serverCom;
 
+import Logic.ChatMessage;
 import gen.java.api.AdminsApi;
 import gen.java.api.UserApi;
 import gen.java.invoker.ApiException;
@@ -108,5 +109,14 @@ public class ServerComImpl implements ServerCom {
         }
     }
 
+    @Override
+    public void sendChatMessage(ChatMessage message) {
+
+    }
+
+    @Override
+    public String[] recieveChatMessage(String ChatRoom) {
+        return new String[0];
+    }
 
 }

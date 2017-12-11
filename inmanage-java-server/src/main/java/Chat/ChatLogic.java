@@ -1,6 +1,13 @@
-package main.java.Logic.Components;
+package main.java.Chat;
+
+
+import main.java.databaseCom.SQLCommands;
+
+import java.sql.SQLException;
 
 public class ChatLogic {
+
+
     public void sendMessage(String text) {
         //make connection to server
         //send message to appropiate chatroom
@@ -14,8 +21,9 @@ public class ChatLogic {
      * @param lastUpdated
      * @return
      */
-    public String[] fetchMessage(String chatRoom, int lastUpdated){
+    public String[] fetchMessage(String chatRoom, int lastUpdated) throws SQLException {
         //make connection to server
+        SQLCommands sql = new SQLCommands();
 
         String[] result = {"not implemented"};//implement method
         return result;

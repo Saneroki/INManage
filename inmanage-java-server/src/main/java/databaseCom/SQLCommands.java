@@ -888,4 +888,16 @@ public class SQLCommands implements ISQLCommands {
         return tasksByProject;
     }
 
+    @Override
+    public String RecieveMessage(String ChatRoom) throws SQLException {
+        return null;
+    }
+
+    @Override
+    public void SendMessage(String ChatRoom) throws SQLException {
+
+    }
+
+
+    //Chat
 }

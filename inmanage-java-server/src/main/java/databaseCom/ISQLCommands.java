@@ -63,5 +63,11 @@ interface ISQLCommands {
     List getTaskByStatus(String projectid, int statusid) throws SQLException;
 
     List getAllTaskByProject(String projectid) throws SQLException;
-    
+
+    //Chat
+
+    String RecieveMessage(String userID, String ChatRoom) throws SQLException;
+
+    void SendMessage(String message, String userID, String ChatRoom) throws SQLException;
+
 }
