@@ -9,7 +9,7 @@ import main.java.gui.ClientLauncher;
 import main.java.serverCom.ServerCom;
 import main.java.serverCom.ServerComImpl;
 
-public class SignUp{
+public class SignUp extends Controller{
     @FXML
     private TextField usernameInput;
 
@@ -41,13 +41,12 @@ public class SignUp{
         return usernameInput.getText();
     }
 
+
+    //TODO: Better check needed. Like if the Password is null or to short etc.
     private String checkedPassword() {
         if (passwordInput.getText().equals(passwordConfirmInput.getText())) {
             return passwordConfirmInput.getText(); }
         return null;
     }
 
-    public void turnOff(MouseEvent mouseEvent) {
-        Platform.exit();
-    }
 }

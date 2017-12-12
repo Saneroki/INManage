@@ -1,6 +1,7 @@
 package main.java.gui.layouts;
 
 import gen.java.model.Task;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -70,4 +71,15 @@ public class TaskOverview extends Controller {
         vbox.getChildren().add(btn);
     }
 
+    public void GoHome(ActionEvent actionEvent) {ClientLauncher.getWindowChanger().setLayout("ProjectDashboard");
+    }
+
+    public void GoChat(ActionEvent actionEvent) {
+    }
+
+    public void ShowProfile(ActionEvent actionEvent) {
+    }
+
+    public void SignOut(ActionEvent actionEvent) {ClientLauncher.getWindowChanger().setLayout("Login");
+    }
 }

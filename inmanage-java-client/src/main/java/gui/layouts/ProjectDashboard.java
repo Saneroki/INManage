@@ -1,6 +1,7 @@
 package main.java.gui.layouts;
 
 import gen.java.model.Project;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -13,7 +14,7 @@ import main.java.serverCom.ServerCom;
 
 import java.util.ArrayList;
 
-public class ProjectDashboard {
+public class ProjectDashboard extends Controller {
 
     @FXML
     private ListView<Project> projectList;
@@ -24,7 +25,8 @@ public class ProjectDashboard {
     @FXML
     private Button addNewProjectBtn;
 
-    private final ArrayList<Project> list = (ArrayList<Project>) ClientLauncher.getServer().getAllProjects(ClientLauncher.getUserID());
+    private final ArrayList<Project> list =
+            (ArrayList<Project>) ClientLauncher.getServer().getAllProjects(ClientLauncher.getUserID());
 
 
     ServerCom serv = ClientLauncher.getServer();
@@ -33,7 +35,7 @@ public class ProjectDashboard {
 
     @FXML
     public void initialize(){
-        vboxLeft.getChildren().add(new Text("Projects:"));
+        //vboxLeft.getChildren().add(new Text("Projects:"));
         for (Project proj : list) {
             addProjectView(proj);
         }
@@ -84,4 +86,17 @@ public class ProjectDashboard {
     }
 
 
+    public void GoHome(ActionEvent actionEvent) {
+        ClientLauncher.getWindowChanger().setLayout("ProjectDashboard");
+    }
+
+    public void GoChat(ActionEvent actionEvent) {
+    }
+
+    public void ShowProfile(ActionEvent actionEvent) {
+    }
+
+    public void SignOut(ActionEvent actionEvent) {
+        ClientLauncher.getWindowChanger().setLayout("Login");
+    }
 }
