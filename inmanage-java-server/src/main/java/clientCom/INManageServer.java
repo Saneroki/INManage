@@ -106,12 +106,6 @@ public class INManageServer {
 
     }
 
-    /*
-
-
-
-     */
-
     public List<Task> getTaskResponse(String projectId){
         List<Task> list = new ArrayList<>();
 
@@ -166,7 +160,7 @@ public class INManageServer {
 
     public User getUserResponse(String userID){
         try {
-            sql.getUser(userID);
+            sql.getSpecificUser(userID);
         } catch (SQLException e) {
             e.printStackTrace();
         }

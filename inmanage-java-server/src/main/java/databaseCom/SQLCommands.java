@@ -1349,7 +1349,6 @@ public class SQLCommands implements ISQLCommands {
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
-
         } finally {
             if (ps != null) {
                 ps.close();
