@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="4320.0" maxWidth="7680.0" minHeight="400.0" minWidth="600.0" prefHeight="768.0"
+            prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="main.java.gui.layouts.TaskOverview">
+    <BorderPane prefHeight="768.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <top>
+            <GridPane prefHeight="60.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="60.0"/>
+                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="60.0" minWidth="60.0"
+                                       prefWidth="60.0"/>
+                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="300.0"/>
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="60.0" prefWidth="60.0"/>
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="60.0" prefWidth="60.0"/>
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints maxHeight="60.0" minHeight="60.0" valignment="CENTER" vgrow="SOMETIMES"/>
+                </rowConstraints>
+                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                    <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </GridPane.margin>
+                    <Image url="@../../img/inManage_150px.png"/>
+                </ImageView>
+                <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#turnOff" pickOnBounds="true"
+                           preserveRatio="true" GridPane.columnIndex="4">
+                    <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </GridPane.margin>
+                    <Image url="@../../img/power-button-off.png"/>
+                </ImageView>
+                <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#arrowDown" pickOnBounds="true"
+                           preserveRatio="true" GridPane.columnIndex="3">
+                    <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </GridPane.margin>
+                    <Image url="@../../img/ArrowDown.png"/>
+                </ImageView>
+                <Label text="Task Overview" textFill="#1780d7" GridPane.columnIndex="2">
+                  <font>
+                      <Font size="51.0"/>
+                  </font>
+                </Label>
+                <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#back" pickOnBounds="true"
+                           preserveRatio="true" rotate="90.0" GridPane.columnIndex="1">
+                    <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </GridPane.margin>
+                    <Image url="@../../img/ArrowDown.png"/>
+                </ImageView>
+            </GridPane>
+        </top>
+        <center>
+          <HBox fx:id="centerHbox" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER"/>
+        </center>
+    </BorderPane>
+</AnchorPane>

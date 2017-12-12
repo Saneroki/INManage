@@ -8,7 +8,6 @@ import main.java.databaseCom.SQLCommands;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 public class INManageServer {
 
@@ -47,9 +46,16 @@ public class INManageServer {
         return "Succes!";
 
     }
-    public void addProjectResponse(Project project){
+    public String addProjectResponse(Project project){
         System.out.println("Adding new project: " + project.getName());
-        //sql.addProject .....
+        try {
+            sql.addProject(project.getUserid(),project.getName(),project.getDescription());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return "Succes!";
+
     }
 
     public String loginResponse(String username, String password){
@@ -74,7 +80,7 @@ public class INManageServer {
         List<Project> list = new ArrayList<>();
 
         try {
-            list = sql.getProject(UUID.fromString(projectID));
+            list = sql.getProject(projectID);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -82,23 +88,33 @@ public class INManageServer {
         return list;
     }
 
-    public void addTaskResponse(AddTaskObject addTask){
+    public String addTaskResponse(AddTaskObject addTask){
 
         System.out.println("Adding new task: " + addTask.getTaskName());
 
         try {
-            sql.addTaskToProject(addTask.getProjectId(),addTask.getTaskName(),addTask.getDescription(),addTask.getDueDate());
+            sql.addTaskToProject(addTask.getTaskName(),addTask.getDescription(),addTask.getDueDate(),addTask.getProjectId());
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
+        return "Succes!";
+
     }
+
+    /*
+
+
+
+     */
 
     public List<Task> getTaskResponse(String projectId){
         List<Task> list = new ArrayList<>();
 
+        System.out.println("Getting tasks for the project: " + projectId);
+
         try {
-            sql.getAllTaskByProject(projectId);
+           list = sql.getAllTaskByProject(projectId);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -108,5 +124,132 @@ public class INManageServer {
         return list;
 
     }
+
+    public String addUserToProjectResponse(String projectId, String userID){
+
+        try {
+            //It says userid, but it is username
+            sql.addUserToProject(userID,projectId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return "Succes!";
+    }
+
+    public String deleteUserResponse (String userId, String password){
+        try {
+            sql.deleteUser(userId,password);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return "Succes!";
+    }
+
+    public String editUserResponse (User user){
+        try {
+            sql.editFirstname(user.getName(),user.getFirstName());
+            sql.editLastname(user.getName(),user.getLastName());
+            sql.editPassword(user.getName(),user.getPassword());
+            //TODO: How is this supposed to work????
+            //sql.editUsername(user.getName());
+            return "Succes!";
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return "Unsuccesful...";
+    }
+
+    public User getUserResponse(String userID){
+        try {
+            sql.getUser(userID);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<User> searchUsersResponse(String name, Integer limit){
+        try {
+            sql.searchUser(name);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public String editTaskResponse(Task task){
+        try {
+            sql.editTaskDescription(task.getId(),task.getDescription());
+            sql.editTaskName(task.getId(),task.getName());
+            sql.editTaskDue(task.getId(),task.getDuedate());
+            return "Succes!";
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return "No succes";
+    }
+
+    public String deleteProjectResponse(String projectId, String password){
+        try {
+            sql.deleteProject(projectId);
+            return "Succes!";
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return "No succes";
+    }
+
+    public String editProjectResponse(Project project){
+
+        try {
+            sql.editProjectDescription(project.getId(),project.getDescription());
+            sql.editProjectName(project.getId(),project.getName());
+            return "Succes!";
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return "no succes";
+    }
+
+    public Project getSpecificProjectResponse(String projectID){
+        try {
+            return sql.getSpecificProject(projectID);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public Integer getUserAmountResponse(String projectID){
+        try {
+            return sql.getUserAmount(projectID);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public Integer getTaskAmountResponse(String projectID){
+        try {
+            return sql.getTaskAmount(projectID);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+
+    }
+
+    public String deleteTaskResponse(String taskId){
+        try {
+            sql.deleteTask(taskId);
+            return "Succes!";
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return "No succes";
+    }
+
 
 }

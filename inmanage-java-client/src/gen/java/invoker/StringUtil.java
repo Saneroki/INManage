@@ -1,6 +1,6 @@
 package gen.java.invoker;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-09T14:05:23.786Z")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-29T09:48:03.566Z")
 public class StringUtil {
   /**
    * Check if the given array contains the given value (with case-insensitive comparison).
