@@ -27,7 +27,7 @@ import javax.ws.rs.*;
 
 
 @io.swagger.annotations.Api(description = "the task API")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-11-29T09:47:06.589Z")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-11-09T14:04:57.864Z")
 public class TaskApi  {
    private final TaskApiService delegate = TaskApiServiceFactory.getTaskApi();
 
@@ -45,43 +45,11 @@ public class TaskApi  {
     throws NotFoundException {
         return delegate.addTask(addTaskObject,securityContext);
     }
-    @DELETE
-    
-    
-    @Produces({ "application/json" })
-    @io.swagger.annotations.ApiOperation(value = "Deletes a given task", notes = "Deletes a given task, if the given id matches", response = void.class, tags={ "Task", })
-    @io.swagger.annotations.ApiResponses(value = { 
-        @io.swagger.annotations.ApiResponse(code = 200, message = "Task was deleted", response = void.class),
-        
-        @io.swagger.annotations.ApiResponse(code = 400, message = "Something went wrong", response = void.class),
-        
-        @io.swagger.annotations.ApiResponse(code = 401, message = "Task ID not found", response = void.class) })
-    public Response deleteTask(@ApiParam(value = "The ID of the project you want to delete",required=true) @QueryParam("projectId") String projectId
-,@Context SecurityContext securityContext)
-    throws NotFoundException {
-        return delegate.deleteTask(projectId,securityContext);
-    }
-    @PUT
-    
-    
-    @Produces({ "application/json" })
-    @io.swagger.annotations.ApiOperation(value = "Edit the values for a task", notes = "Edits the values for a task given the task ID", response = void.class, tags={ "Task", })
-    @io.swagger.annotations.ApiResponses(value = { 
-        @io.swagger.annotations.ApiResponse(code = 200, message = "Values was EDITED", response = void.class),
-        
-        @io.swagger.annotations.ApiResponse(code = 400, message = "Something went wrong", response = void.class),
-        
-        @io.swagger.annotations.ApiResponse(code = 401, message = "ID not found", response = void.class) })
-    public Response editTask(@ApiParam(value = "The task object with the updated values" ) Task taskObject
-,@Context SecurityContext securityContext)
-    throws NotFoundException {
-        return delegate.editTask(taskObject,securityContext);
-    }
     @GET
     
     
     @Produces({ "application/json" })
-    @io.swagger.annotations.ApiOperation(value = "Gets the tasks based on project id", notes = "Retrevies a task based on the project the task is in with the project ID", response = Task.class, responseContainer = "List", tags={ "Task", })
+    @io.swagger.annotations.ApiOperation(value = "Gets the tasks based on project id", notes = "Retrevies a task based on the project the task is in with the project ID", response = Task.class, responseContainer = "List", tags={ "User", })
     @io.swagger.annotations.ApiResponses(value = { 
         @io.swagger.annotations.ApiResponse(code = 200, message = "The tasks was received!", response = Task.class, responseContainer = "List"),
         
@@ -90,17 +58,5 @@ public class TaskApi  {
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
         return delegate.getTask(projectID,securityContext);
-    }
-    @GET
-    @Path("/getTaskAmount")
-    
-    @Produces({ "application/json" })
-    @io.swagger.annotations.ApiOperation(value = "get the amount of task for a project", notes = "Get the amount of tasks for a project given a project ID", response = Integer.class, tags={ "Task", })
-    @io.swagger.annotations.ApiResponses(value = { 
-        @io.swagger.annotations.ApiResponse(code = 200, message = "Here you go", response = Integer.class) })
-    public Response getTaskAmount(@ApiParam(value = "") @QueryParam("projectId") String projectId
-,@Context SecurityContext securityContext)
-    throws NotFoundException {
-        return delegate.getTaskAmount(projectId,securityContext);
     }
 }

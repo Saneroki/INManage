@@ -26,7 +26,7 @@ import javax.ws.rs.*;
 
 
 @io.swagger.annotations.Api(description = "the users API")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-11-29T09:47:06.589Z")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-11-09T14:04:57.864Z")
 public class UsersApi  {
    private final UsersApiService delegate = UsersApiServiceFactory.getUsersApi();
 
@@ -34,7 +34,7 @@ public class UsersApi  {
     
     @Consumes({ "application/json" })
     @Produces({ "application/json" })
-    @io.swagger.annotations.ApiOperation(value = "adds a user", notes = "Adds a User to the system", response = void.class, tags={ "User", })
+    @io.swagger.annotations.ApiOperation(value = "adds a user", notes = "Adds a User to the system", response = void.class, tags={ "Admins", })
     @io.swagger.annotations.ApiResponses(value = { 
         @io.swagger.annotations.ApiResponse(code = 201, message = "User created", response = void.class),
         
@@ -45,47 +45,6 @@ public class UsersApi  {
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
         return delegate.addUser(user,securityContext);
-    }
-    @DELETE
-    
-    
-    @Produces({ "application/json" })
-    @io.swagger.annotations.ApiOperation(value = "Deletes the chosen user", notes = "Deletes the given user based on the userID", response = void.class, tags={ "User", })
-    @io.swagger.annotations.ApiResponses(value = { 
-        @io.swagger.annotations.ApiResponse(code = 200, message = "User deleted succefully", response = void.class),
-        
-        @io.swagger.annotations.ApiResponse(code = 400, message = "Something went wrong", response = void.class),
-        
-        @io.swagger.annotations.ApiResponse(code = 401, message = "Wrong password", response = void.class) })
-    public Response deleteUser(@ApiParam(value = "The ID of the user to delete",required=true) @QueryParam("userID") String userID
-,@ApiParam(value = "The password of the user",required=true) @QueryParam("password") String password
-,@Context SecurityContext securityContext)
-    throws NotFoundException {
-        return delegate.deleteUser(userID,password,securityContext);
-    }
-    @PUT
-    
-    
-    @Produces({ "application/json" })
-    @io.swagger.annotations.ApiOperation(value = "Edit the user", notes = "Edit the user, changing the information.", response = void.class, tags={ "User", })
-    @io.swagger.annotations.ApiResponses(value = { 
-        @io.swagger.annotations.ApiResponse(code = 200, message = "OK", response = void.class) })
-    public Response editUser(@ApiParam(value = "The user object" ) User userObject
-,@Context SecurityContext securityContext)
-    throws NotFoundException {
-        return delegate.editUser(userObject,securityContext);
-    }
-    @GET
-    @Path("/details")
-    
-    @Produces({ "application/json" })
-    @io.swagger.annotations.ApiOperation(value = "Get the details of a user", notes = "Gets the details of a user based on the ID provided", response = Object.class, tags={ "User", })
-    @io.swagger.annotations.ApiResponses(value = { 
-        @io.swagger.annotations.ApiResponse(code = 200, message = "You get the details", response = Object.class) })
-    public Response getUser(@ApiParam(value = "The id of the user you want",required=true) @QueryParam("userId") String userId
-,@Context SecurityContext securityContext)
-    throws NotFoundException {
-        return delegate.getUser(userId,securityContext);
     }
     @GET
     @Path("/login")
@@ -106,15 +65,16 @@ public class UsersApi  {
     
     
     @Produces({ "application/json" })
-    @io.swagger.annotations.ApiOperation(value = "searches Users", notes = "By passing in the appropriate options, you can search for available User in the system ", response = User.class, responseContainer = "List", tags={ "User", })
+    @io.swagger.annotations.ApiOperation(value = "searches Users", notes = "By passing in the appropriate options, you can search for available User in the system ", response = Object.class, tags={ "Admins", })
     @io.swagger.annotations.ApiResponses(value = { 
-        @io.swagger.annotations.ApiResponse(code = 200, message = "search results matching criteria", response = User.class, responseContainer = "List"),
+        @io.swagger.annotations.ApiResponse(code = 200, message = "search results matching criteria", response = Object.class),
         
-        @io.swagger.annotations.ApiResponse(code = 400, message = "bad input parameter", response = User.class, responseContainer = "List") })
+        @io.swagger.annotations.ApiResponse(code = 400, message = "bad input parameter", response = Object.class) })
     public Response searchUser(@ApiParam(value = "pass a search string for looking up User",required=true) @QueryParam("searchUsername") String searchUsername
+,@ApiParam(value = "number of records to skip for pagination") @QueryParam("skip") Integer skip
 ,@ApiParam(value = "maximum number of records to return") @QueryParam("limit") Integer limit
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
-        return delegate.searchUser(searchUsername,limit,securityContext);
+        return delegate.searchUser(searchUsername,skip,limit,securityContext);
     }
 }

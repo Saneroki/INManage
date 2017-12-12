@@ -1,7 +1,6 @@
 package main.java.serverCom;
 
-import gen.java.api.ProjectApi;
-import gen.java.api.TaskApi;
+import gen.java.api.AdminsApi;
 import gen.java.api.UserApi;
 import gen.java.invoker.ApiException;
 import gen.java.model.AddTaskObject;
@@ -14,15 +13,17 @@ import java.util.List;
 public class ServerComImpl implements ServerCom {
 
     private final UserApi userApi = new UserApi();
-    private final ProjectApi projectApi = new ProjectApi();
-    private final TaskApi taskApi = new TaskApi();
-
-    public ServerComImpl(){
-    }
+    private final AdminsApi adminsApi = new AdminsApi();
 
 
     @Override
     public void addUser(String username, String password){
+
+        if (adminsApi == null) {
+            System.out.println("APIEN ER NULL AF EN ELLER ANDEN GRUND!!");
+        } else {
+            System.out.println("_____APIEN ER ikke NULL");
+        }
 
         User tempUser = new User();
 
@@ -33,7 +34,7 @@ public class ServerComImpl implements ServerCom {
 
 
         try {
-            userApi.addUser(tempUser);
+            adminsApi.addUser(tempUser);
         } catch (ApiException e) {
             e.printStackTrace();
         }
@@ -42,7 +43,8 @@ public class ServerComImpl implements ServerCom {
     @Override
     public String loginUser(String userName, String password) {
         try {
-            return userApi.loginUser(userName, password);
+            String uuid = userApi.loginUser(userName, password);
+            return uuid;
         } catch (ApiException e) {
             e.printStackTrace();
         }
@@ -53,7 +55,7 @@ public class ServerComImpl implements ServerCom {
     @Override
     public void addProject(Project project) {
         try {
-            projectApi.addProject(project);
+            userApi.addProject(project);
         } catch (ApiException e) {
             e.printStackTrace();
         }
@@ -62,8 +64,6 @@ public class ServerComImpl implements ServerCom {
 
     @Override
     public void addTask(AddTaskObject task) {
-
-        //We should change this to be under the project API because we add the task to a project
         try {
             userApi.addTask(task);
         } catch (ApiException e) {
@@ -74,11 +74,12 @@ public class ServerComImpl implements ServerCom {
     @Override
     public List<Project> getAllProjects(String userID) {
 
-
-        //TODO: It says userID but we use Prohect ID, needs to be changed in next version of the API.
+        /*
+        It says userID but we use Prohect ID, needs to be changed in next version of the API.
+         */
 
         try {
-            return projectApi.getAllProjects(userID);
+            return userApi.getAllProjects(userID);
         } catch (ApiException e) {
             e.printStackTrace();
         }
@@ -89,127 +90,10 @@ public class ServerComImpl implements ServerCom {
     @Override
     public List<Task> getAllTasks(String projectID) {
         try {
-            return taskApi.getTask(projectID);
+            return userApi.getTask(projectID);
         } catch (ApiException e) {
             e.printStackTrace();
         }
         return null;
     }
-
-    @Override
-    public void addUserToProject(String userID, String projecID) {
-
-        //It says id but it is username
-        try {
-            projectApi.addUserToProject(projecID,userID);
-        } catch (ApiException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public void deleteUsers(String userID, String password) {
-        try {
-            userApi.deleteUser(userID, password);
-        } catch (ApiException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public void editUser(User user) {
-        try {
-            userApi.editUser(user);
-        } catch (ApiException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public List<User> searchUser(String name, Integer limit) {
-        try {
-            return userApi.searchUser(name,limit);
-        } catch (ApiException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    @Override
-    public User getSpecificUser(String userID) {
-        try {
-            return (User)userApi.getUser(userID);
-        } catch (ApiException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    @Override
-    public void deleteProject(String projectID, String password) {
-        try {
-            projectApi.deleteProject(projectID,password);
-        } catch (ApiException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public void editProject(Project proj) {
-        try {
-            projectApi.editProject(proj);
-        } catch (ApiException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public Project getSpecificProject(String projID) {
-        try {
-            return projectApi.getSpecificTask(projID);
-        } catch (ApiException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    @Override
-    public Integer getUserAmount(String projID) {
-        try {
-            return projectApi.getUserAmount(projID) ;
-        } catch (ApiException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    @Override
-    public void deleteTask(String taskID) {
-        try {
-            taskApi.deleteTask(taskID);
-        } catch (ApiException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public void editTask(Task task) {
-        try {
-            taskApi.editTask(task);
-        } catch (ApiException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public Integer getTaskAmount(String taskID) {
-        try {
-            return taskApi.getTaskAmount(taskID);
-        } catch (ApiException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-
 }

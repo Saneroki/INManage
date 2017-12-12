@@ -1,31 +1,3 @@
-/* All */
-.root .topBar {
-    -fx-background-color: #84AF9E;
-}
-
-/* Login */
-
-.lognBtn {
-    -fx-background-color: #648674;
-}
-
-/* Top bar */
-
-.topBar {
-    -fx-border-color: #648674;
-    -fx-border-width:  0 0 1px 0;
-    -fx-border-style: solid;
-}
-
-.topUser .topMenu {
-    -fx-background-color: None;
-}
-
-.topUser {
-    -fx-mark-color: white;
-}
-
-.topUserDown {
-    -fx-background-color: #648674;
-    -fx-color: white;
+.root {
+    -fx-background-image: url("/img/Leather-Surface-Background-54.jpg");
 }
