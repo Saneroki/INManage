@@ -3,19 +3,20 @@ package main.java.gui.layouts;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import main.java.gui.ClientLauncher;
 import main.java.serverCom.ServerCom;
 
 
-public class Login {
+public class Login extends Controller {
 
     @FXML
     private TextField usernameInput;
 
     @FXML
-    private TextField passwordInput;
+    private PasswordField passwordInput;
 
     private final ServerCom serv = ClientLauncher.getServer();
 
@@ -43,5 +44,8 @@ public class Login {
 
     public void turnOff(MouseEvent mouseEvent) {
         System.exit(1);
+    }
+
+    public void open(MouseEvent mouseEvent) {
     }
 }

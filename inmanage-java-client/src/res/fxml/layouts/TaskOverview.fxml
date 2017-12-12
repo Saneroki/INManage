@@ -12,56 +12,58 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <AnchorPane maxHeight="4320.0" maxWidth="7680.0" minHeight="400.0" minWidth="600.0" prefHeight="768.0"
             prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="main.java.gui.layouts.TaskOverview">
     <BorderPane prefHeight="768.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
                 AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <top>
-            <GridPane prefHeight="60.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <GridPane prefHeight="60.0" prefWidth="800.0" styleClass="topBar" stylesheets="@../Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                 <columnConstraints>
-                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="60.0"/>
-                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="60.0" minWidth="60.0"
-                                       prefWidth="60.0"/>
-                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="300.0"/>
-                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="60.0" prefWidth="60.0"/>
-                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="60.0" prefWidth="60.0"/>
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="73.0" minWidth="60.0" prefWidth="71.0" />
+                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="229.0" minWidth="44.0" prefWidth="64.0" />
+                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="455.0" minWidth="70.0" prefWidth="98.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="443.0" minWidth="60.0" prefWidth="407.0" />
                 </columnConstraints>
                 <rowConstraints>
-                    <RowConstraints maxHeight="60.0" minHeight="60.0" valignment="CENTER" vgrow="SOMETIMES"/>
+                    <RowConstraints maxHeight="60.0" minHeight="60.0" valignment="CENTER" vgrow="SOMETIMES" />
                 </rowConstraints>
-                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                    <GridPane.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
-                    </GridPane.margin>
-                    <Image url="@../../img/inManage_150px.png"/>
-                </ImageView>
-                <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#turnOff" pickOnBounds="true"
-                           preserveRatio="true" GridPane.columnIndex="4">
-                    <GridPane.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
-                    </GridPane.margin>
-                    <Image url="@../../img/power-button-off.png"/>
-                </ImageView>
-                <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#arrowDown" pickOnBounds="true"
-                           preserveRatio="true" GridPane.columnIndex="3">
-                    <GridPane.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
-                    </GridPane.margin>
-                    <Image url="@../../img/ArrowDown.png"/>
-                </ImageView>
-                <Label text="Task Overview" textFill="#1780d7" GridPane.columnIndex="2">
-                  <font>
-                      <Font size="51.0"/>
-                  </font>
-                </Label>
-                <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#back" pickOnBounds="true"
-                           preserveRatio="true" rotate="90.0" GridPane.columnIndex="1">
-                    <GridPane.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
-                    </GridPane.margin>
-                    <Image url="@../../img/ArrowDown.png"/>
-                </ImageView>
+
+                <children>
+                    <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <GridPane.margin>
+                            <Insets bottom="12.0" />
+                        </GridPane.margin>
+                        <image>
+                            <Image url="@../../img/inManageLogoNew.png" />
+                        </image>
+                    </ImageView>
+                    <Button fx:id="HomeBtn" defaultButton="true" mnemonicParsing="false" onAction="#GoHome" style="-fx-background-color: None;" styleClass="topMenu" stylesheets="@../Style.css" text="HOME" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT">
+                        <font>
+                            <Font name="Segoe UI" size="12.0" />
+                        </font>
+                    </Button>
+                    <Button fx:id="ChatBtn" mnemonicParsing="false" onAction="#GoChat" style="-fx-background-color: None;" styleClass="topMenu" stylesheets="@../Style.css" text="CHAT" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="LEFT">
+                        <font>
+                            <Font name="Segoe UI" size="12.0" />
+                        </font>
+                    </Button>
+                    <MenuButton fx:id="UserProfile" mnemonicParsing="false" style="-fx-background-color: None; -fx-mark-color: white;" styleClass="topUser" stylesheets="@../Style.css" text="UserName" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="RIGHT">
+                        <items>
+                            <MenuItem fx:id="MyProfile" mnemonicParsing="false" onAction="#ShowProfile" styleClass="topUserDown" text="My Profile" />
+                            <MenuItem fx:id="SignOut" mnemonicParsing="false" onAction="#SignOut" styleClass="topUserDown" text="Sign Out" />
+                        </items>
+                        <font>
+                            <Font name="Segoe UI" size="12.0" />
+                        </font>
+                    </MenuButton>
+                </children>
+                <padding>
+                    <Insets bottom="15.0" left="80.0" right="80.0" />
+                </padding>
             </GridPane>
         </top>
         <center>

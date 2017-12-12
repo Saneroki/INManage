@@ -1,14 +1,15 @@
 package main.java.gui;
 
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 
@@ -16,8 +17,9 @@ import java.util.HashMap;
  * This Class does all the work for changing scenes and content of them
  */
 public class GUIManager {
-    private HashMap<String, String> layouts;
-    private HashMap<String, String> components;
+    private static main.java.gui.layouts.Controller mainController;
+    private static HashMap<String, String> layouts;
+    private static HashMap<String, String> components;
 
     /**
      * Loads all the correct fxml file paths and makes them available via the filename
@@ -29,13 +31,16 @@ public class GUIManager {
         components = getFxmlRes("fxml/components");
     }
 
+    /**
+     * Initial setup of the gui
+     * @param fxml is usually Login
+     */
     public void setLayout(String fxml) {
         Stage stage = ClientLauncher.getPrimaryStage();
         Parent position = getFXMLParent(layouts.get(fxml));
-        stage.setTitle("INManage");
         stage.setScene(new Scene(position));
-        stage.show();
     }
+
 
     /**
      * Creates the Parent for a fxml file

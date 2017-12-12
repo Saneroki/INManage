@@ -1,5 +1,5 @@
 
-.idea
+*.idea
 *.iml
 out
 src
@@ -13,9 +13,10 @@ inmanage-java-server/.idea
 /inmanage-java-server/.classpath
 /inmanage-java-server/.project
 /inmanage-java-server/inmanage-java-server.eml
-/.classpath
-/.project
+*.classpath
+*.project
 /INManage.userlibraries
 inmanage-java-client/bin/
 inmanage-java-client/src/test/java/
 inmanage-java-server/bin/
+*.eml
