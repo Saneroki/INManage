@@ -1,15 +1,23 @@
 package gen.java.model;
 
 import java.util.Objects;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.io.Serializable;
 
 /**
  * AddTaskObject
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-29T09:48:03.566Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-13T12:54:42.086Z")
 public class AddTaskObject implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @SerializedName("taskName")
   private String taskName = null;
 
@@ -185,6 +193,6 @@ public class AddTaskObject implements Serializable {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

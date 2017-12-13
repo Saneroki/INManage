@@ -3,9 +3,11 @@ package main.java.gui.layouts;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.HBox;
+import javafx.scene.text.Text;
 import main.java.gui.ClientLauncher;
 
 public class TaskDetail extends Controller {
@@ -29,8 +31,25 @@ public class TaskDetail extends Controller {
     private HBox centerHbox;
 
     @FXML
+    private Text taskDesc;
+
+    @FXML
+    private Label taskDue;
+
+    @FXML
+    private Label taskTitle;
+
+
+    @FXML
     void GoChat(ActionEvent event) {
 
+    }
+
+    @FXML
+    public void initialize(){
+        taskTitle.setText(ClientLauncher.getTask().getName());
+        taskDesc.setText(ClientLauncher.getTask().getDescription());
+        taskDue.setText(ClientLauncher.getTask().getDuedate());
     }
 
     @FXML

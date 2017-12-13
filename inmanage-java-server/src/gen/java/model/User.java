@@ -31,11 +31,12 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
+import javax.validation.constraints.*;
 
 /**
  * User
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-11-29T09:47:06.589Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-12-13T12:54:45.303Z")
 public class User  implements Serializable {
   @JsonProperty("name")
   private String name = null;
@@ -54,11 +55,13 @@ public class User  implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
+   **/
+  @JsonProperty("name")
   @ApiModelProperty(example = "Apple", required = true, value = "")
+  @NotNull
   public String getName() {
     return name;
   }
@@ -72,11 +75,13 @@ public class User  implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get password
    * @return password
-  **/
+   **/
+  @JsonProperty("password")
   @ApiModelProperty(example = "superSecretPassword", required = true, value = "")
+  @NotNull
   public String getPassword() {
     return password;
   }
@@ -90,10 +95,11 @@ public class User  implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get firstName
    * @return firstName
-  **/
+   **/
+  @JsonProperty("firstName")
   @ApiModelProperty(example = "Bob", value = "")
   public String getFirstName() {
     return firstName;
@@ -108,10 +114,11 @@ public class User  implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get lastName
    * @return lastName
-  **/
+   **/
+  @JsonProperty("lastName")
   @ApiModelProperty(example = "Loblaw", value = "")
   public String getLastName() {
     return lastName;

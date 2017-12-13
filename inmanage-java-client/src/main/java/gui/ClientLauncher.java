@@ -1,6 +1,7 @@
 package main.java.gui;
 
 import gen.java.model.Project;
+import gen.java.model.Task;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.image.Image;
@@ -24,6 +25,7 @@ public class ClientLauncher extends Application {
     //Here i will save the project locally and use it,
     //I think that in the future i will have use a sql command to get it for the specific projects
     private static Project proj;
+    private static Task task;
 
 
 
@@ -89,5 +91,13 @@ public class ClientLauncher extends Application {
 
     public static void setProj(Project proj) {
         ClientLauncher.proj = proj;
+    }
+
+    public static Task getTask() {
+        return task;
+    }
+
+    public static void setTask(Task task) {
+        ClientLauncher.task = task;
     }
 }

@@ -1210,7 +1210,7 @@ public class SQLCommands implements ISQLCommands {
                 taskDueByStatusConv = taskDueByStatusOrig.toString();                   // Convert taskDue to String.
                 task.setDuedate(taskDueByStatusConv);                                   // Store due date (String) in the Task object.
 
-                task.setId(rs.getString(6));  // Get taskProjectID as a String.
+                task.setId(UUID.fromString(rs.getString(6)));  // Get taskProjectID as a String.
 
                 // TODO ((Remove comment when task.setStatus() has been implemented in the model.Task.java.
                 //task.setStatus(getTaskByStatusrs.getInt(7));       // Get taskStatus as an int.
@@ -1304,7 +1304,7 @@ public class SQLCommands implements ISQLCommands {
                 taskDueOrig = rs.getDate(5);   // Get task date as a Date.
                 taskDueConv = taskDueOrig.toString();                   // Convert task date to a String.
                 task.setDuedate(taskDueConv);                           // Assign task due date (String) to the Task object.
-                task.setId(rs.getString(6));   // Get project ID for specified task
+                task.setId(UUID.fromString(rs.getString(6)));   // Get project ID for specified task
                 task.setStatus(rs.getString(7));
                 // & assign it to the task object.
 
