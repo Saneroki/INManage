@@ -16,7 +16,7 @@ public class Login extends Controller {
     private TextField usernameInput;
 
     @FXML
-    private PasswordField passwordInput;
+    private PasswordField password;
 
     private final ServerCom serv = ClientLauncher.getServer();
 
@@ -25,7 +25,7 @@ public class Login extends Controller {
     }
 
     public void SignIn(ActionEvent actionEvent) {
-        String resp = serv.loginUser(usernameInput.getText(),passwordInput.getText());
+        String resp = serv.loginUser(usernameInput.getText(),password.getText());
         //Store resp which is the user UUID in a local user object variable so we can use it later to acces the other data
         System.out.println(resp);
         ClientLauncher.setUserId(resp);
