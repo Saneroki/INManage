@@ -10,7 +10,7 @@ import main.java.serverCom.ServerCom;
 
 import java.util.Objects;
 
-public class AddUserToProjectController {
+public class AddUserToProjectController extends Controller {
 
     @FXML
     private TextArea TextAreaAddedPersons;
@@ -47,6 +47,7 @@ public class AddUserToProjectController {
     }
 
 
-
-
+    public void ButtonClose(ActionEvent actionEvent) {
+        ClientLauncher.getWindowChanger().setLayout("ProjectOverview");
+    }
 }

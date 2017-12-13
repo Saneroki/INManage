@@ -43,7 +43,8 @@ public class ClientLauncher extends Application {
         primaryStage.getIcons().add(new Image("img/inManage_150px.png"));
         guiManager = new GUIManager();
         guiManager.setLayout("Login");
-        primaryStage.setMaximized(true);
+        primaryStage.setTitle("INManage");
+        primaryStage.show();
     }
 
     public static GUIManager getWindowChanger(){
