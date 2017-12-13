@@ -3,15 +3,17 @@ package main.java.clientCom;
 
 import gen.java.model.Project;
 import gen.java.model.*;
+import main.java.databaseCom.ISQLCommands;
 import main.java.databaseCom.SQLCommands;
 
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class INManageServer {
 
-    private static SQLCommands sql;
+    private static ISQLCommands sql;
 
     public static INManageServer get(){
 
@@ -88,7 +90,7 @@ public class INManageServer {
         return list;
     }
 
-    public String addTaskResponse(AddTaskObject addTask){
+    public String addTaskResponse(AddTaskObject addTask) {
 
         System.out.println("Adding new task: " + addTask.getTaskName());
 
@@ -96,17 +98,13 @@ public class INManageServer {
             sql.addTaskToProject(addTask.getTaskName(),addTask.getDescription(),addTask.getDueDate(),addTask.getProjectId());
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
 
         return "Succes!";
 
     }
-
-    /*
-
-
-
-     */
 
     public List<Task> getTaskResponse(String projectId){
         List<Task> list = new ArrayList<>();
@@ -162,7 +160,7 @@ public class INManageServer {
 
     public User getUserResponse(String userID){
         try {
-            sql.getUser(userID);
+            sql.getSpecificUser(userID);
         } catch (SQLException e) {
             e.printStackTrace();
         }

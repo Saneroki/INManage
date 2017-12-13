@@ -9,7 +9,7 @@ import java.util.List;
 import java.sql.SQLException;
 import java.util.UUID;
 
-interface ISQLCommands {
+public interface ISQLCommands {
 
     boolean addUser(String username, String password, String firstname, String lastname, String type) throws SQLException;
 
@@ -39,7 +39,7 @@ interface ISQLCommands {
 
     String loginUser(String username, String password) throws SQLException;
 
-    User getUser (String userId) throws SQLException;
+    User getSpecificUser (String userId) throws SQLException;
 
     int getUserAmount(String projectId) throws SQLException;
 
