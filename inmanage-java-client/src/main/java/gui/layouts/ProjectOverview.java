@@ -1,6 +1,7 @@
 package main.java.gui.layouts;
 
 import gen.java.model.Project;
+import gen.java.model.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
@@ -13,7 +14,10 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextFlow;
 import main.java.gui.ClientLauncher;
+import main.java.gui.components.TaskView;
 import main.java.serverCom.ServerCom;
+
+import java.util.ArrayList;
 
 public class ProjectOverview extends Controller{
 
@@ -42,9 +46,12 @@ public class ProjectOverview extends Controller{
 
     ServerCom serv = ClientLauncher.getServer();
 
+    private ArrayList<Task> list;
+
     @FXML
     public void initialize(){
 
+        list = (ArrayList<Task>) serv.getAllTasks(ClientLauncher.getProj().getId());
 
         Project proj = ClientLauncher.getProj();
 
@@ -64,6 +71,11 @@ public class ProjectOverview extends Controller{
         addTaskBtn.setOnAction(event -> ClientLauncher.getWindowChanger().setLayout("AddTask"));
 
         addUser.setOnAction(event -> ClientLauncher.getWindowChanger().setLayout("AddUserToProject"));
+
+        for (Task task:list) {
+            new TaskView(task,mainVbox);
+        }
+
     }
 
     @FXML

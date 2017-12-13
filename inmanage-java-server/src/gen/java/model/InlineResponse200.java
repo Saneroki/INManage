@@ -31,11 +31,12 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
+import javax.validation.constraints.*;
 
 /**
  * InlineResponse200
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-11-29T09:47:06.589Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-12-13T12:54:45.303Z")
 public class InlineResponse200  implements Serializable {
   @JsonProperty("msg")
   private String msg = null;
@@ -48,10 +49,11 @@ public class InlineResponse200  implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get msg
    * @return msg
-  **/
+   **/
+  @JsonProperty("msg")
   @ApiModelProperty(value = "")
   public String getMsg() {
     return msg;
@@ -66,10 +68,11 @@ public class InlineResponse200  implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get timeStamp
    * @return timeStamp
-  **/
+   **/
+  @JsonProperty("timeStamp")
   @ApiModelProperty(value = "")
   public String getTimeStamp() {
     return timeStamp;

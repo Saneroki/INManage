@@ -10,6 +10,7 @@ import gen.java.model.Task;
 import gen.java.model.User;
 
 import java.util.List;
+import java.util.UUID;
 
 public class ServerComImpl implements ServerCom {
 
@@ -89,7 +90,7 @@ public class ServerComImpl implements ServerCom {
     @Override
     public List<Task> getAllTasks(String projectID) {
         try {
-            return taskApi.getTask(projectID);
+            return taskApi.getTask(UUID.fromString(projectID));
         } catch (ApiException e) {
             e.printStackTrace();
         }
@@ -166,7 +167,7 @@ public class ServerComImpl implements ServerCom {
     @Override
     public Project getSpecificProject(String projID) {
         try {
-            return projectApi.getSpecificTask(projID);
+            return projectApi.getSpecificProject(projID);
         } catch (ApiException e) {
             e.printStackTrace();
         }
@@ -186,7 +187,7 @@ public class ServerComImpl implements ServerCom {
     @Override
     public void deleteTask(String taskID) {
         try {
-            taskApi.deleteTask(taskID);
+            taskApi.deleteTask(UUID.fromString(taskID));
         } catch (ApiException e) {
             e.printStackTrace();
         }
@@ -204,7 +205,7 @@ public class ServerComImpl implements ServerCom {
     @Override
     public Integer getTaskAmount(String taskID) {
         try {
-            return taskApi.getTaskAmount(taskID);
+            return taskApi.getTaskAmount(UUID.fromString(taskID));
         } catch (ApiException e) {
             e.printStackTrace();
         }

@@ -36,7 +36,6 @@ public class ProjectDashboard extends Controller {
 
     @FXML
     public void initialize(){
-        vboxLeft.getChildren().add(new Text("Projects:"));
         vboxLeft.setSpacing(15);
         vboxLeft.setMinWidth(250);
         vboxLeft.setMaxHeight(250);

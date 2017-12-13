@@ -35,12 +35,11 @@ public class ProjectApiImpl extends ProjectApiService {
 
     }
 
-
-    //Says task but is project... should be changed in next api update
     @Override
-    public Response getSpecificTask(String projectID, SecurityContext securityContext) throws NotFoundException {
+    public Response getSpecificProject(String projectID, SecurityContext securityContext) throws NotFoundException {
         return Response.ok().entity(INManageServer.get().getSpecificProjectResponse(projectID)).build();
     }
+
 
     @Override
     public Response getUserAmount(String projectId, SecurityContext securityContext) throws NotFoundException {

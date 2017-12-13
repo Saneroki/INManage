@@ -1,17 +1,26 @@
 package gen.java.model;
 
 import java.util.Objects;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
+import java.util.UUID;
 import java.io.Serializable;
 
 /**
  * Task
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-29T09:48:03.566Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-13T12:54:42.086Z")
 public class Task implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @SerializedName("id")
-  private String id = null;
+  private UUID id = null;
 
   @SerializedName("name")
   private String name = null;
@@ -25,7 +34,7 @@ public class Task implements Serializable {
   @SerializedName("status")
   private String status = null;
 
-  public Task id(String id) {
+  public Task id(UUID id) {
     this.id = id;
     return this;
   }
@@ -35,11 +44,11 @@ public class Task implements Serializable {
    * @return id
   **/
   @ApiModelProperty(example = "d290f1ee-6c54-4b01-90e6-d701748f0851", required = true, value = "")
-  public String getId() {
+  public UUID getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
@@ -162,6 +171,6 @@ public class Task implements Serializable {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

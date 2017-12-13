@@ -30,15 +30,17 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.UUID;
 import java.io.Serializable;
+import javax.validation.constraints.*;
 
 /**
  * Task
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-11-29T09:47:06.589Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-12-13T12:54:45.303Z")
 public class Task  implements Serializable {
   @JsonProperty("id")
-  private String id = null;
+  private UUID id = null;
 
   @JsonProperty("name")
   private String name = null;
@@ -52,21 +54,23 @@ public class Task  implements Serializable {
   @JsonProperty("status")
   private String status = null;
 
-  public Task id(String id) {
+  public Task id(UUID id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   **/
+  @JsonProperty("id")
   @ApiModelProperty(example = "d290f1ee-6c54-4b01-90e6-d701748f0851", required = true, value = "")
-  public String getId() {
+  @NotNull
+  public UUID getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
@@ -75,10 +79,11 @@ public class Task  implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
+   **/
+  @JsonProperty("name")
   @ApiModelProperty(example = "Make UML diagrams", value = "")
   public String getName() {
     return name;
@@ -93,10 +98,11 @@ public class Task  implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get description
    * @return description
-  **/
+   **/
+  @JsonProperty("description")
   @ApiModelProperty(example = "Do the UML", value = "")
   public String getDescription() {
     return description;
@@ -111,10 +117,11 @@ public class Task  implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get duedate
    * @return duedate
-  **/
+   **/
+  @JsonProperty("duedate")
   @ApiModelProperty(example = "1985-04-12T23:20:50.520Z", value = "")
   public String getDuedate() {
     return duedate;
@@ -129,10 +136,11 @@ public class Task  implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
-  **/
+   **/
+  @JsonProperty("status")
   @ApiModelProperty(example = "in progress", value = "")
   public String getStatus() {
     return status;

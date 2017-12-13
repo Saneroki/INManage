@@ -178,9 +178,9 @@ public class INManageServer {
 
     public String editTaskResponse(Task task){
         try {
-            sql.editTaskDescription(task.getId(),task.getDescription());
-            sql.editTaskName(task.getId(),task.getName());
-            sql.editTaskDue(task.getId(),task.getDuedate());
+            sql.editTaskDescription(task.getId().toString(),task.getDescription());
+            sql.editTaskName(task.getId().toString(),task.getName());
+            sql.editTaskDue(task.getId().toString(),task.getDuedate());
             return "Succes!";
         } catch (SQLException e) {
             e.printStackTrace();

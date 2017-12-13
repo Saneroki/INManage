@@ -5,8 +5,10 @@ import gen.java.api.TaskApiService;
 import gen.java.model.AddTaskObject;
 import gen.java.model.Task;
 
+import javax.validation.constraints.NotNull;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
+import java.util.UUID;
 
 /**
  * Created by Malte on 01-12-2017.
@@ -17,11 +19,12 @@ public class TaskApiImpl extends TaskApiService{
         return Response.ok().entity(INManageServer.get().addTaskResponse(addTaskObject)).build();
     }
 
-    //Says projectID but it should be task ID change it in the next iteration.
     @Override
-    public Response deleteTask(String projectId, SecurityContext securityContext) throws NotFoundException {
-        return Response.ok().entity(INManageServer.get().deleteTaskResponse(projectId)).build();
+    public Response deleteTask(@NotNull UUID taskId, SecurityContext securityContext) throws NotFoundException {
+        return Response.ok().entity(INManageServer.get().deleteTaskResponse(taskId.toString())).build();
     }
+
+
 
     @Override
     public Response editTask(Task taskObject, SecurityContext securityContext) throws NotFoundException {
@@ -29,14 +32,14 @@ public class TaskApiImpl extends TaskApiService{
     }
 
     @Override
-    public Response getTask(String projectID, SecurityContext securityContext) throws NotFoundException {
-        return Response.ok().entity(INManageServer.get().getTaskResponse(projectID)).build();
+    public Response getTask(@NotNull UUID projectID, SecurityContext securityContext) throws NotFoundException {
+        return Response.ok().entity(INManageServer.get().getTaskResponse(projectID.toString())).build();
     }
 
-    //Says projectID but it should be task ID change it in the next iteration.
     @Override
-    public Response getTaskAmount(String projectId, SecurityContext securityContext) throws NotFoundException {
-        //TODO: Immplement when sql is done
-        return Response.ok().entity(INManageServer.get().getTaskAmountResponse(projectId)).build();
+    public Response getTaskAmount(UUID taskId, SecurityContext securityContext) throws NotFoundException {
+        return Response.ok().entity(INManageServer.get().getTaskAmountResponse(taskId.toString())).build();
     }
+
+
 }
