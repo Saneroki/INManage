@@ -98,6 +98,9 @@
                </children>
                </GridPane>
            </center>
+         <bottom>
+            <Button id="editprojconfirmbtn" fx:id="editTaskBtn" mnemonicParsing="false" stylesheets="@../Style.css" text="Edit task" BorderPane.alignment="CENTER" />
+         </bottom>
        </BorderPane>
    </children>
 </AnchorPane>

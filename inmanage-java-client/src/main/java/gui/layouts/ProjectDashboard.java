@@ -18,21 +18,19 @@ import java.util.ArrayList;
 public class ProjectDashboard extends Controller {
 
     @FXML
-    private ListView<Project> projectList;
-
-    @FXML
     private VBox vboxLeft;
 
     @FXML
     private Button addNewProjectBtn;
 
+    @FXML
+    private Button editUserBtn;
+
     private final ArrayList<Project> list =
             (ArrayList<Project>) ClientLauncher.getServer().getAllProjects(ClientLauncher.getUserID());
 
 
-    ServerCom serv = ClientLauncher.getServer();
-
-
+    private ServerCom serv = ClientLauncher.getServer();
 
     @FXML
     public void initialize(){
@@ -46,6 +44,7 @@ public class ProjectDashboard extends Controller {
 
         addNewProjectBtn.setOnAction(event -> ClientLauncher.getWindowChanger().setLayout("AddProject"));
 
+        editUserBtn.setOnAction(event -> ClientLauncher.getWindowChanger().setLayout("EditUser"));
     }
 
     @FXML
@@ -71,24 +70,6 @@ public class ProjectDashboard extends Controller {
         //projectList = new ListView<Project>();
 
     }
-
-    private void addProjectView(Project proj){
-        String btnText = proj.getName() + "\n " + proj.getDescription();
-        Button btn = new Button(btnText);
-        btn.setMinWidth(300);
-        btn.setMaxWidth(300);
-        btn.setAlignment(Pos.CENTER);
-        vboxLeft.setAlignment(Pos.CENTER);
-        vboxLeft.setStyle("-fx-font-size: 20px");
-        btn.setOnAction(event -> {
-            ClientLauncher.setCurrentProjectId(proj.getId());
-            //delete later
-            ClientLauncher.setProj(proj);
-            ClientLauncher.getWindowChanger().setLayout("ProjectOverview");
-        });
-        vboxLeft.getChildren().add(btn);
-    }
-
 
     public void GoHome(ActionEvent actionEvent) {
         ClientLauncher.getWindowChanger().setLayout("ProjectDashboard");

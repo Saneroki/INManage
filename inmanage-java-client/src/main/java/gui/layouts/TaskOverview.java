@@ -66,6 +66,7 @@ public class TaskOverview extends Controller {
         }
 
 
+
     }
 
     private void taskView(Task task, VBox vbox){

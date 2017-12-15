@@ -160,7 +160,7 @@ public class INManageServer {
 
     public User getUserResponse(String userID){
         try {
-            sql.getSpecificUser(userID);
+            return sql.getSpecificUser(userID);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -169,7 +169,7 @@ public class INManageServer {
 
     public List<User> searchUsersResponse(String name, Integer limit){
         try {
-            sql.searchUser(name);
+            return sql.searchUser(name);
         } catch (SQLException e) {
             e.printStackTrace();
         }

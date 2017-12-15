@@ -39,6 +39,9 @@ public class TaskDetail extends Controller {
     @FXML
     private Label taskTitle;
 
+    @FXML
+    private Button editTaskBtn;
+
 
     @FXML
     void GoChat(ActionEvent event) {
@@ -50,6 +53,8 @@ public class TaskDetail extends Controller {
         taskTitle.setText(ClientLauncher.getTask().getName());
         taskDesc.setText(ClientLauncher.getTask().getDescription());
         taskDue.setText(ClientLauncher.getTask().getDuedate());
+
+        editTaskBtn.setOnAction(event -> ClientLauncher.getWindowChanger().setLayout("EditTask"));
     }
 
     @FXML

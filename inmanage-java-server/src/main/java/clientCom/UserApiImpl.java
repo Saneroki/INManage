@@ -26,6 +26,7 @@ public class UserApiImpl extends UsersApiService {
 
     @Override
     public Response getUser(String userId, SecurityContext securityContext) throws NotFoundException {
+        System.out.println("Returning user from API");
         return Response.ok().entity(INManageServer.get().getUserResponse(userId)).build();
     }
 

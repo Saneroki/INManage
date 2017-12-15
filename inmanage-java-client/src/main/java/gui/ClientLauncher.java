@@ -2,6 +2,7 @@ package main.java.gui;
 
 import gen.java.model.Project;
 import gen.java.model.Task;
+import gen.java.model.User;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.image.Image;
@@ -26,7 +27,7 @@ public class ClientLauncher extends Application {
     //I think that in the future i will have use a sql command to get it for the specific projects
     private static Project proj;
     private static Task task;
-
+    private static User user = null;
 
 
     @Override
@@ -99,5 +100,13 @@ public class ClientLauncher extends Application {
 
     public static void setTask(Task task) {
         ClientLauncher.task = task;
+    }
+
+    public static User getUser() {
+        return user;
+    }
+
+    public static void setUser(User user) {
+        ClientLauncher.user = user;
     }
 }

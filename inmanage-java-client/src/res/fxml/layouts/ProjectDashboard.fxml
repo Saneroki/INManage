@@ -57,7 +57,7 @@
                        </Button>
                        <MenuButton fx:id="UserProfile" mnemonicParsing="false" style="-fx-background-color: None; -fx-mark-color: white;" styleClass="topUser" stylesheets="@../Style.css" text="UserName" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="RIGHT">
                            <items>
-                               <MenuItem fx:id="MyProfile" mnemonicParsing="false" onAction="#ShowProfile" styleClass="topUserDown" text="My Profile" />
+                               <MenuItem fx:id="MyProfile" mnemonicParsing="false" onAction="#ShowProfile" styleClass="topUserDown" text="Show profile" />
                                <MenuItem fx:id="SignOut" mnemonicParsing="false" onAction="#SignOut" styleClass="topUserDown" text="Sign Out" />
                            </items>
                            <font>
@@ -99,11 +99,22 @@
             </VBox>
          </left>
          <bottom>
-                <Button fx:id="addNewProjectBtn" alignment="CENTER" contentDisplay="CENTER" maxHeight="27.0" mnemonicParsing="false" prefHeight="27.0" stylesheets="@../Style.css" text="Add new Project" BorderPane.alignment="CENTER">
+            <HBox alignment="CENTER">
+               <children>
+                      <Button fx:id="addNewProjectBtn" alignment="CENTER" contentDisplay="CENTER" maxHeight="27.0" mnemonicParsing="false" prefHeight="27.0" stylesheets="@../Style.css" text="Add new Project" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </BorderPane.margin>
+                     <HBox.margin>
+                        <Insets right="15.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="editUserBtn" alignment="CENTER" contentDisplay="CENTER" maxHeight="27.0" mnemonicParsing="false" prefHeight="27.0" stylesheets="@../Style.css" text="Edit user" />
+               </children>
                <BorderPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  <Insets right="15.0" />
                </BorderPane.margin>
-            </Button>
+            </HBox>
          </bottom>
        </BorderPane>
    </children>

@@ -42,6 +42,9 @@ public class ProjectOverview extends Controller{
     private Button addTaskBtn;
 
     @FXML
+    private Button editProj;
+
+    @FXML
     private Button addUser;
 
     ServerCom serv = ClientLauncher.getServer();
@@ -66,6 +69,10 @@ public class ProjectOverview extends Controller{
         goToTasks.setOnAction(event -> {
             System.out.println("Current proj id: " + ClientLauncher.getProj().getId());
             ClientLauncher.getWindowChanger().setLayout("TaskOverview");
+        });
+
+        editProj.setOnAction(event -> {
+            ClientLauncher.getWindowChanger().setLayout("EditProject");
         });
 
         addTaskBtn.setOnAction(event -> ClientLauncher.getWindowChanger().setLayout("AddTask"));

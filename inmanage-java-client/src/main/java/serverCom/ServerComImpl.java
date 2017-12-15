@@ -139,7 +139,7 @@ public class ServerComImpl implements ServerCom {
     @Override
     public User getSpecificUser(String userID) {
         try {
-            return (User)userApi.getUser(userID);
+            return userApi.getUser(userID);
         } catch (ApiException e) {
             e.printStackTrace();
         }

@@ -796,6 +796,8 @@ public class SQLCommands implements ISQLCommands {
                     "WHERE projectid = ?;");
             ps.setString(1, name);
             ps.setObject(2, UUID.fromString(projectid));
+            ps.execute();
+            System.out.println("Edited project name: " + name);
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -981,9 +983,12 @@ public class SQLCommands implements ISQLCommands {
     public boolean editTaskDescription(String taskid, String taskdescription) throws SQLException {
         PreparedStatement ps = null;
         try {
+            System.out.println("taskid: " + taskid);
+            System.out.println("task desc: " + taskdescription);
             ps = con.prepareStatement("UPDATE task SET taskdescription = ? WHERE taskid = ?;");
             ps.setString(1,taskdescription);
             ps.setObject(2,UUID.fromString(taskid));
+            System.out.println("Task edited");
             ps.execute();
             return true;
         } catch (SQLException e) {
@@ -1345,6 +1350,8 @@ public class SQLCommands implements ISQLCommands {
             user.setName(rs.getString(2));
             user.setFirstName(rs.getString(4));
             user.setLastName(rs.getString(5));
+            user.setPassword(rs.getString(3));
+            System.out.println("Returning user: " + user.getName());
             return user;
         } catch (SQLException e) {
             e.printStackTrace();
