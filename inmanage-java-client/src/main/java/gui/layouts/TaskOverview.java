@@ -65,6 +65,7 @@ public class TaskOverview extends Controller {
             ClientLauncher.getWindowChanger().setLayout("ProjectOverview");
         });
 
+
     }
 
     private void taskView(Task task, VBox vbox){

@@ -26,7 +26,6 @@ public class ProjectDashboard extends Controller {
     @FXML
     private Button editUserBtn;
 
-
     private final ArrayList<Project> list =
             (ArrayList<Project>) ClientLauncher.getServer().getAllProjects(ClientLauncher.getUserID());
 
@@ -39,9 +38,9 @@ public class ProjectDashboard extends Controller {
         vboxLeft.setMinWidth(250);
         vboxLeft.setMaxHeight(250);
 
-        list.parallelStream().forEach(proj -> new ProjectView(proj,serv.getUserAmount(proj.getId()),serv.getTaskAmount(proj.getId()),vboxLeft));
-
-
+        for (Project proj : list) {
+            new ProjectView(proj,serv.getUserAmount(proj.getId()),serv.getTaskAmount(proj.getId()),vboxLeft);
+        }
 
         addNewProjectBtn.setOnAction(event -> ClientLauncher.getWindowChanger().setLayout("AddProject"));
 
@@ -74,6 +73,9 @@ public class ProjectDashboard extends Controller {
 
     public void GoHome(ActionEvent actionEvent) {
         ClientLauncher.getWindowChanger().setLayout("ProjectDashboard");
+    }
+
+    public void GoChat(ActionEvent actionEvent) {
     }
 
     public void ShowProfile(ActionEvent actionEvent) {
