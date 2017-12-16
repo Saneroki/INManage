@@ -59,13 +59,7 @@ public class TaskOverview extends Controller {
         centerHbox.getChildren().add(vboxLeft);
 
         vboxLeft.setAlignment(Pos.CENTER);
-        int tmp = 0;
-        System.out.println("Starting for loop: ");
-        for (Task task: list) {
-            System.out.println("List item here");
-            System.out.println(tmp++);
-            taskView(task, vboxLeft);
-        }
+        list.parallelStream().forEach(task -> taskView(task, vboxLeft));
 
         backBtn.setOnAction(event -> {
             ClientLauncher.getWindowChanger().setLayout("ProjectOverview");

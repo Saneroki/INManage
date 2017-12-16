@@ -10,6 +10,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import main.java.gui.ClientLauncher;
 
+import java.util.UUID;
+
 public class TaskDetail extends Controller {
 
     @FXML
@@ -46,6 +48,9 @@ public class TaskDetail extends Controller {
     private Button backBtn;
 
     @FXML
+    private Button deleteTaskBtn;
+
+    @FXML
     void GoChat(ActionEvent event) {
 
     }
@@ -59,6 +64,11 @@ public class TaskDetail extends Controller {
         editTaskBtn.setOnAction(event -> ClientLauncher.getWindowChanger().setLayout("EditTask"));
 
         backBtn.setOnAction(event -> {
+            ClientLauncher.getWindowChanger().setLayout("ProjectOverview");
+        });
+
+        deleteTaskBtn.setOnAction(event -> {
+            ClientLauncher.getServer().deleteTask(ClientLauncher.getTask().getId().toString());
             ClientLauncher.getWindowChanger().setLayout("ProjectOverview");
         });
     }
