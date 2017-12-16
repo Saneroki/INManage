@@ -51,6 +51,7 @@ public class EditTask {
         if(dueDateField.getValue()!=null){
             task.setDuedate(dueDateField.getValue().toString());
         }
+
         System.out.println(task.getDescription());
         serv.editTask(task);
         ClientLauncher.getWindowChanger().setLayout("TaskDetails");
