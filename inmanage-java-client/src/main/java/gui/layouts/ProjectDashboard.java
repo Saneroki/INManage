@@ -26,6 +26,7 @@ public class ProjectDashboard extends Controller {
     @FXML
     private Button editUserBtn;
 
+
     private final ArrayList<Project> list =
             (ArrayList<Project>) ClientLauncher.getServer().getAllProjects(ClientLauncher.getUserID());
 
@@ -45,6 +46,8 @@ public class ProjectDashboard extends Controller {
         addNewProjectBtn.setOnAction(event -> ClientLauncher.getWindowChanger().setLayout("AddProject"));
 
         editUserBtn.setOnAction(event -> ClientLauncher.getWindowChanger().setLayout("EditUser"));
+
+
     }
 
     @FXML
