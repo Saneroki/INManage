@@ -49,18 +49,7 @@ public class INManageServer {
     }
     public void addProjectResponse(Project project){
         System.out.println("Adding new project: " + project.getName());
-<<<<<<< HEAD
-        try {
-            sql.addProject(UUID.fromString(project.getUserid()),project.getName(),project.getDescription());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return "Succes!";
-
-=======
         //sql.addProject .....
->>>>>>> Malte
     }
 
     public String loginResponse(String username, String password){
