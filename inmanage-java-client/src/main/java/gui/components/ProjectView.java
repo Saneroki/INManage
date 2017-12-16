@@ -87,7 +87,11 @@ public class ProjectView {
         hb.getChildren().add(grid);
         hb.getChildren().add(grid2);
 
-        vb.getChildren().add(hb);
+        //Important to have thos synced because it otherwise causes errors.
+        synchronized (vb){
+            vb.getChildren().add(hb);
+        }
+
         System.out.println("view generated!");
     }
 

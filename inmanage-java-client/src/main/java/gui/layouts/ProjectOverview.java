@@ -82,9 +82,7 @@ public class ProjectOverview extends Controller{
 
         addUser.setOnAction(event -> ClientLauncher.getWindowChanger().setLayout("AddUserToProject"));
 
-        for (Task task:list) {
-            new TaskView(task,mainVbox);
-        }
+        list.parallelStream().forEach(task -> new TaskView(task,mainVbox));
 
         backBtn.setOnAction(event -> {
             ClientLauncher.getWindowChanger().setLayout("ProjectDashboard");
