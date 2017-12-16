@@ -47,6 +47,9 @@ public class ProjectOverview extends Controller{
     @FXML
     private Button addUser;
 
+    @FXML
+    private Button backBtn;
+
     ServerCom serv = ClientLauncher.getServer();
 
     private ArrayList<Task> list;
@@ -83,6 +86,9 @@ public class ProjectOverview extends Controller{
             new TaskView(task,mainVbox);
         }
 
+        backBtn.setOnAction(event -> {
+            ClientLauncher.getWindowChanger().setLayout("ProjectDashboard");
+        });
     }
 
     @FXML
