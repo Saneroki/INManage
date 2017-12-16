@@ -1,5 +1,6 @@
 package main.java.serverCom;
 
+import gen.java.api.ChatApi;
 import gen.java.api.ProjectApi;
 import gen.java.api.TaskApi;
 import gen.java.api.UserApi;
@@ -17,6 +18,7 @@ public class ServerComImpl implements ServerCom {
     private final UserApi userApi = new UserApi();
     private final ProjectApi projectApi = new ProjectApi();
     private final TaskApi taskApi = new TaskApi();
+    private final ChatApi chatApi = new ChatApi();
 
     public ServerComImpl(){
     }
@@ -142,8 +144,9 @@ public class ServerComImpl implements ServerCom {
             return userApi.getUser(userID);
         } catch (ApiException e) {
             e.printStackTrace();
+            return null;
         }
-        return null;
+
     }
 
     @Override

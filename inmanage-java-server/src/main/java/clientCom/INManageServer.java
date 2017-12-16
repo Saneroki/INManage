@@ -163,8 +163,9 @@ public class INManageServer {
             return sql.getSpecificUser(userID);
         } catch (SQLException e) {
             e.printStackTrace();
+            return null;
         }
-        return null;
+
     }
 
     public List<User> searchUsersResponse(String name, Integer limit){
