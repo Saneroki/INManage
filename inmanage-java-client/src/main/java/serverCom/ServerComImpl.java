@@ -111,7 +111,7 @@ public class ServerComImpl implements ServerCom {
     }
 
     @Override
-    public void deleteUsers(String userID, String password) {
+    public void deleteUser(String userID, String password) {
         try {
             userApi.deleteUser(userID, password);
         } catch (ApiException e) {

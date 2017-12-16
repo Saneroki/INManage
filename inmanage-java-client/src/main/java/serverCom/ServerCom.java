@@ -26,7 +26,7 @@ public interface ServerCom {
 
     void addUserToProject(String userID, String projecID);
 
-    void deleteUsers(String userID, String password);
+    void deleteUser(String userID, String password);
 
     void editUser(User user);
 
