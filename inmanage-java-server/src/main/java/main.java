@@ -26,7 +26,8 @@ import java.util.UUID;
             //        System.out.println(t.toString());
             //    }
                 System.out.println(" Editing task desc");
-                sql.editTaskName("89410a86-9e45-4dd2-a0ab-740ab0bcba6a","New task title");
+                sql.editTaskDescription("a86e1b79-3893-40cf-be14-d97b25dd4433","New task title");
+
 
                 //System.out.println(sql.editProjectDescription(UUID.fromString("98117835-2803-4961-95e9-ba2ac0153644"),"The thing doesn't go skraa"));
                 //System.out.println(sql.addUser("singh007","dingding","ding","ing","member"));

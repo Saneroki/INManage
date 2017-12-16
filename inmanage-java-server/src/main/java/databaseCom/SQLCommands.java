@@ -1104,6 +1104,7 @@ public class SQLCommands implements ISQLCommands {
             ps = con.prepareStatement("DELETE FROM task WHERE taskId = ?;");
             ps.setObject(1, UUID.fromString(taskId));
             ps.execute();
+            System.out.println("Task deleted, id: " + taskId);
             return true;
         } catch (SQLException e) {
             return false;
@@ -1309,7 +1310,7 @@ public class SQLCommands implements ISQLCommands {
                 taskDueOrig = rs.getDate(5);   // Get task date as a Date.
                 taskDueConv = taskDueOrig.toString();                   // Convert task date to a String.
                 task.setDuedate(taskDueConv);                           // Assign task due date (String) to the Task object.
-                task.setId(UUID.fromString(rs.getString(6)));   // Get project ID for specified task
+                task.setId(UUID.fromString(rs.getString(1)));   // Get task ID for specified task
                 task.setStatus(rs.getString(7));
                 // & assign it to the task object.
 
