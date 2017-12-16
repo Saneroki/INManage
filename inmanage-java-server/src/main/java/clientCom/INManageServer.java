@@ -47,8 +47,9 @@ public class INManageServer {
         return "Succes!";
 
     }
-    public String addProjectResponse(Project project){
+    public void addProjectResponse(Project project){
         System.out.println("Adding new project: " + project.getName());
+<<<<<<< HEAD
         try {
             sql.addProject(UUID.fromString(project.getUserid()),project.getName(),project.getDescription());
         } catch (SQLException e) {
@@ -57,6 +58,9 @@ public class INManageServer {
 
         return "Succes!";
 
+=======
+        //sql.addProject .....
+>>>>>>> Malte
     }
 
     public String loginResponse(String username, String password){
@@ -89,33 +93,23 @@ public class INManageServer {
         return list;
     }
 
-    public String addTaskResponse(AddTaskObject addTask){
+    public void addTaskResponse(AddTaskObject addTask){
 
         System.out.println("Adding new task: " + addTask.getTaskName());
 
         try {
-            sql.addTaskToProject(addTask.getTaskName(),addTask.getDescription(),addTask.getDueDate(),addTask.getProjectId());
+            sql.addTaskToProject(addTask.getProjectId(),addTask.getTaskName(),addTask.getDescription(),addTask.getDueDate());
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return "Succes!";
-
     }
-
-    /*
-
-
-
-     */
 
     public List<Task> getTaskResponse(String projectId){
         List<Task> list = new ArrayList<>();
 
-        System.out.println("Getting tasks for the project: " + projectId);
-
         try {
-           list = sql.getAllTaskByProject(projectId);
+            sql.getAllTaskByProject(projectId);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -124,18 +118,6 @@ public class INManageServer {
 
         return list;
 
-    }
-
-    public String addUserToProject(String projectId, String username){
-
-        try {
-            //It says userid, but it is username
-            sql.addUserToProject(username,projectId);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return "Succes!";
     }
 
 }

@@ -1,11 +1,11 @@
 package gen.java.api.factories;
 
 import gen.java.api.UsersApiService;
-import gen.java.api.impl.UsersApiServiceImpl;
+import main.java.clientCom.UserApiImpl;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-11-10T14:39:53.890Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-12-13T12:54:45.303Z")
 public class UsersApiServiceFactory {
-    private final static UsersApiService service = new UsersApiServiceImpl();
+    private final static UsersApiService service = new UserApiImpl();
 
     public static UsersApiService getUsersApi() {
         return service;

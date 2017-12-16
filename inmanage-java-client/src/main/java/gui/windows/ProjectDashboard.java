@@ -21,15 +21,11 @@ public class ProjectDashboard {
     @FXML
     private VBox vboxLeft;
 
-    @FXML
-    private Button addNewProjectBtn;
 
     public ArrayList<Project> list = (ArrayList<Project>) ClientLauncher.getServer().getAllProjects(ClientLauncher.getUserID());
 
 
     ServerCom serv = ClientLauncher.getServer();
-
-
 
     @FXML
     public void initialize(){
@@ -37,10 +33,6 @@ public class ProjectDashboard {
         for (Project proj : list) {
             addProjectView(proj);
         }
-
-        addNewProjectBtn.setOnAction(event -> {
-            ClientLauncher.getWindowChanger().setScene("fxml/windows/AddProject.fxml");
-        });
 
     }
 
@@ -51,12 +43,12 @@ public class ProjectDashboard {
 
     @FXML
     void back(MouseEvent event) {
-        ClientLauncher.getWindowChanger().setScene("fxml/windows/Login.fxml");
+
     }
 
     @FXML
     void turnOff(MouseEvent event) {
-        System.exit(1);
+
     }
 
 
@@ -78,9 +70,10 @@ public class ProjectDashboard {
         vboxLeft.setStyle("-fx-font-size: 20px");
         btn.setOnAction(event -> {
             ClientLauncher.setCurrentProjectId(proj.getId());
-            //delete later
+            //delte later
             ClientLauncher.setProj(proj);
-            ClientLauncher.getWindowChanger().setScene("fxml/windows/ProjectOverview.fxml");
+
+            ClientLauncher.getWindowChanger().setScene("fxml/windows/TaskOverview.fxml");
         });
         vboxLeft.getChildren().add(btn);
     }

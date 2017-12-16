@@ -1,6 +1,9 @@
 package main.java.serverCom;
 
+<<<<<<< HEAD
 import Logic.ChatMessage;
+=======
+>>>>>>> Malte
 import gen.java.api.AdminsApi;
 import gen.java.api.UserApi;
 import gen.java.invoker.ApiException;
@@ -97,26 +100,4 @@ public class ServerComImpl implements ServerCom {
         }
         return null;
     }
-
-    @Override
-    public void addUserToProject(String userID, String projecID) {
-
-        //It says id but it is username
-        try {
-            userApi.addUserToProject(projecID,userID);
-        } catch (ApiException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public void sendChatMessage(ChatMessage message) {
-
-    }
-
-    @Override
-    public String[] recieveChatMessage(String ChatRoom) {
-        return new String[0];
-    }
-
 }

@@ -11,13 +11,12 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="4320.0" maxWidth="7680.0" minHeight="400.0" minWidth="600.0" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.gui.windows.ProjectOverview">
+<AnchorPane maxHeight="4320.0" maxWidth="7680.0" minHeight="400.0" minWidth="600.0" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.gui.components.TopBar">
    <children>
       <BorderPane prefHeight="768.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -57,7 +56,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
                   </ImageView>
-                  <Label text="Project Overview" textFill="#1780d7" GridPane.columnIndex="2">
+                  <Label text="Task Overview" textFill="#1780d7" GridPane.columnIndex="2">
                      <font>
                         <Font size="51.0" />
                      </font>
@@ -76,12 +75,15 @@
          <center>
             <VBox fx:id="mainVbox" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
-                  <Text fx:id="projectNameText" strokeType="OUTSIDE" strokeWidth="0.0" text="Default" textAlignment="CENTER" />
-                  <Text fx:id="projectDescText" strokeType="OUTSIDE" strokeWidth="0.0" text="Default" textAlignment="CENTER" />
+                  <Text fx:id="projectNameText" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" />
+                  <Text fx:id="projectDescText" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" />
                   <Text fx:id="dueDateText" strokeType="OUTSIDE" strokeWidth="0.0" />
                </children>
             </VBox>
          </center>
+         <bottom>
+            <Button fx:id="goToTasks" mnemonicParsing="false" text="View tasks" BorderPane.alignment="CENTER" />
+         </bottom>
          <left>
             <TableView fx:id="userList" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
               <columns>
@@ -89,15 +91,6 @@
               </columns>
             </TableView>
          </left>
-         <bottom>
-            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Button fx:id="goToTasks" mnemonicParsing="false" text="View tasks" />
-                  <Button fx:id="addTaskBtn" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" text="Add new task" />
-                  <Button fx:id="addUser" mnemonicParsing="false" text="Add user to project" />
-               </children>
-            </HBox>
-         </bottom>
       </BorderPane>
    </children>
 </AnchorPane>

@@ -10,7 +10,10 @@ import gen.java.api.NotFoundException;
 
 import java.io.InputStream;
 
+<<<<<<< HEAD
 import io.swagger.models.auth.In;
+=======
+>>>>>>> Malte
 import main.java.clientCom.INManageServer;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 
@@ -22,7 +25,11 @@ public class ProjectApiServiceImpl extends ProjectApiService {
     @Override
     public Response addProject(Project project, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
+<<<<<<< HEAD
         return Response.ok().entity(INManageServer.get().addProjectResponse(project)).build();
+=======
+        return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
+>>>>>>> Malte
     }
     @Override
     public Response getAllProjects(String userId, SecurityContext securityContext) throws NotFoundException {
@@ -33,6 +40,7 @@ public class ProjectApiServiceImpl extends ProjectApiService {
          */
         return Response.ok().entity(INManageServer.get().getProjectsResponse(userId)).build();
     }
+<<<<<<< HEAD
 
     @Override
     public Response addUserToProject(String projectID, String theIDOfTheUserMakingTheOperation, SecurityContext securityContext) throws NotFoundException {
@@ -40,4 +48,6 @@ public class ProjectApiServiceImpl extends ProjectApiService {
         //It says user id but it is username NEEDS TO BE CHANGED IN NEXT API VERSION!
         return Response.ok().entity(INManageServer.get().addUserToProject(projectID,theIDOfTheUserMakingTheOperation)).build();
     }
+=======
+>>>>>>> Malte
 }

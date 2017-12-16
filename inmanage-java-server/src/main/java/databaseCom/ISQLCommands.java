@@ -6,7 +6,7 @@ import java.util.List;
 import java.sql.SQLException;
 import java.util.UUID;
 
-interface ISQLCommands {
+public interface ISQLCommands {
 
     boolean addUser(String username, String password, String firstname, String lastname, String type) throws SQLException;
 
@@ -36,15 +36,16 @@ interface ISQLCommands {
 
     //Project
 
-    public boolean addProject(UUID userid, String projectname,String projectdescription) throws SQLException;
+    boolean addProject(String name,String description) throws SQLException;
 
-    boolean addUserToProject(String username,String projectid) throws SQLException;
+    boolean addUserToProject(UUID userid,UUID projectid) throws SQLException;
 
     String getProjectName(UUID userid) throws SQLException;
 
     boolean setProjectName(UUID projectid, String name) throws SQLException;
 
     String getProjectDescription(UUID userid) throws SQLException;
+    List getTaskByStatus(String projectId, int statusId) throws SQLException;
 
     boolean setProjectDescription(UUID projectid, String name) throws SQLException;
 
@@ -63,11 +64,4 @@ interface ISQLCommands {
     List getTaskByStatus(String projectid, int statusid) throws SQLException;
 
     List getAllTaskByProject(String projectid) throws SQLException;
-
-    //Chat
-
-    String RecieveMessage(String userID, String ChatRoom) throws SQLException;
-
-    void SendMessage(String message, String userID, String ChatRoom) throws SQLException;
-
 }

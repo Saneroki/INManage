@@ -19,3 +19,5 @@ inmanage-java-client/bin/
 inmanage-java-client/src/test/java/
 inmanage-java-server/bin/
 *.DS_Store
+out/
+

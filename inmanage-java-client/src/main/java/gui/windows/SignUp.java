@@ -31,7 +31,8 @@ public class SignUp{
             passwordConfirmInput.setPromptText("The passwords don't match");
         } else {
             serv.addUser(checkedUsername(), checkedPassword());
-            ClientLauncher.getWindowChanger().setScene("fxml/windows/Login.fxml");
+
+            ClientLauncher.getWindowChanger().setScene("Dashboard");
         }
 
     }

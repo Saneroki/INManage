@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -70,7 +69,7 @@
             </GridPane>
          </top>
          <center>
-            <GridPane alignment="CENTER" BorderPane.alignment="CENTER">
+            <GridPane BorderPane.alignment="CENTER">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -80,7 +79,6 @@
               </rowConstraints>
                <children>
                   <VBox fx:id="vboxLeft" prefHeight="200.0" prefWidth="100.0" />
-                  <Button fx:id="addNewProjectBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Add new Project" GridPane.columnIndex="1" />
                </children>
             </GridPane>
          </center>
