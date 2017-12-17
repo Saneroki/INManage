@@ -49,13 +49,13 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1024.0">
                      <children>
-                        <Button cancelButton="true" mnemonicParsing="false" onAction="#signUp" style="-fx-background-color: #648674;" styleClass="lognBtn" stylesheets="@../Style.css" text="Sign up" textFill="WHITE">
+                        <Button cancelButton="true" mnemonicParsing="false" onAction="#signUp" prefHeight="50.0" prefWidth="59.0" style="-fx-background-color: #648674;" styleClass="lognBtn" stylesheets="@../Style.css" text="Sign up" textFill="WHITE">
                            <font>
                               <Font name="Segoe UI" size="12.0" />
                            </font>
                         </Button>
                         <Pane prefWidth="50.0" />
-                        <Button defaultButton="true" mnemonicParsing="false" onAction="#SignIn" style="-fx-background-color: #648674;" styleClass="lognBtn" stylesheets="@../Style.css" text="Sign in" textFill="WHITE" />
+                        <Button defaultButton="true" mnemonicParsing="false" onAction="#SignIn" style="-fx-background-color: #648674;" styleClass="lognBtn" stylesheets="@../Style.css" text="Login" textFill="WHITE" />
                      </children>
                   </HBox>
                </children>
