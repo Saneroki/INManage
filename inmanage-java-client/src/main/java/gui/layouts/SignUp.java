@@ -3,6 +3,7 @@ package main.java.gui.layouts;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import main.java.gui.ClientLauncher;
@@ -26,9 +27,15 @@ public class SignUp extends Controller{
     }
 
     public void signup(ActionEvent actionEvent) {
+        Alert alert;
         if (checkedPassword() == null) {
+            passwordInput.setText("");
             passwordConfirmInput.setText("");
-            passwordConfirmInput.setPromptText("The passwords don't match");
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error with Password field");
+            alert.setContentText("The passwords do not match,\n " +
+                    "please try again.");
+            alert.showAndWait();
         } else {
             serv.addUser(checkedUsername(), checkedPassword());
             ClientLauncher.getWindowChanger().setLayout("Login");
