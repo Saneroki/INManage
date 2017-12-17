@@ -9,30 +9,30 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.gui.layouts.EditTask">
-   <children>
-      <AnchorPane minHeight="400.0" minWidth="600.0" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../Style.css">
-          <AnchorPane>
-              <Label layoutX="14.0" layoutY="31.0" styleClass="text" stylesheets="@../Style.css" text="Task title">
-                  <font>
-                      <Font name="Calibri" size="21.0" />
-                  </font>
-              </Label>
-              <TextField id="edittaskname" fx:id="editTaskNameField" layoutX="14.0" layoutY="55.0" prefHeight="27.0" prefWidth="314.0" promptText="Task title" />
-              <TextArea id="editprojdesc" fx:id="editTaskDescField" layoutX="14.0" layoutY="134.0" prefHeight="137.0" prefWidth="314.0" promptText="Task description" wrapText="true" />
-              <Label layoutX="16.0" layoutY="110.0" styleClass="text" stylesheets="@../Style.css" text="Task description">
-                  <font>
-                      <Font name="Calibri" size="21.0" />
-                  </font>
-              </Label>
-              <Button id="editprojconfirmbtn" fx:id="editTaskConfirmBtn" layoutX="17.0" layoutY="284.0" mnemonicParsing="false" onAction="#editTaskConfirmAction" stylesheets="@../Style.css" text="Confirm" />
-              <Button id="editprojectcancelbtn" fx:id="editTaskCancelBtn" layoutX="110.0" layoutY="284.0" mnemonicParsing="false" onAction="#editTaskCancelButton" stylesheets="@../Style.css" text="Cancel" />
-              <DatePicker fx:id="dueDateField" layoutX="337.0" layoutY="55.0" prefHeight="27.0" prefWidth="138.0" promptText="Pick a date" />
-              <Label layoutX="337.0" layoutY="31.0" styleClass="text" stylesheets="@../Style.css" text="Due date">
-               <font>
-                  <Font name="Calibri" size="21.0" />
-               </font>
-            </Label>
-          </AnchorPane>
-      </AnchorPane>
-   </children>
+    <children>
+        <AnchorPane minHeight="400.0" minWidth="600.0" prefHeight="768.0" prefWidth="1024.0" styleClass="root" stylesheets="@../Style.css">
+            <AnchorPane>
+                <Label layoutX="14.0" layoutY="31.0" styleClass="text" stylesheets="@../Style.css" text="Task title">
+                    <font>
+                        <Font name="Avenir Next Condensed Regular" size="17.0" />
+                    </font>
+                </Label>
+                <TextField id="edittaskname" fx:id="editTaskNameField" layoutX="14.0" layoutY="55.0" prefHeight="27.0" prefWidth="314.0" promptText="Task title" />
+                <TextArea id="editprojdesc" fx:id="editTaskDescField" layoutX="14.0" layoutY="134.0" prefHeight="137.0" prefWidth="314.0" promptText="Task description" wrapText="true" />
+                <Label layoutX="16.0" layoutY="110.0" styleClass="text" stylesheets="@../Style.css" text="Task description">
+                    <font>
+                        <Font name="Avenir Next Condensed Regular" size="17.0" />
+                    </font>
+                </Label>
+                <Button id="editprojconfirmbtn" fx:id="editTaskConfirmBtn" layoutX="17.0" layoutY="284.0" mnemonicParsing="false" onAction="#editTaskConfirmAction" stylesheets="@../Style.css" text="Confirm" />
+                <Button id="editprojectcancelbtn" fx:id="editTaskCancelBtn" layoutX="110.0" layoutY="284.0" mnemonicParsing="false" onAction="#editTaskCancelButton" stylesheets="@../Style.css" text="Cancel" />
+                <DatePicker fx:id="dueDateField" layoutX="337.0" layoutY="55.0" prefHeight="27.0" prefWidth="138.0" promptText="Pick a date" />
+                <Label layoutX="337.0" layoutY="31.0" styleClass="text" stylesheets="@../Style.css" text="Due date">
+                    <font>
+                        <Font name="Avenir Next Condensed Regular" size="17.0" />
+                    </font>
+                </Label>
+            </AnchorPane>
+        </AnchorPane>
+    </children>
 </AnchorPane>
