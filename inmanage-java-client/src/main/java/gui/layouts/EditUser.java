@@ -97,6 +97,7 @@ public class EditUser {
             serv.deleteUser(ClientLauncher.getUserID(),ClientLauncher.getUser().getPassword());
             alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Account deleted!");
+            alert.setHeaderText("Account deleted!");
             alert.setContentText("Your account has been deleted,\n " +
                     "you will now be redirected to the login page.");
 
