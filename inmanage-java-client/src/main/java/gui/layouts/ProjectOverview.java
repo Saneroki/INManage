@@ -5,9 +5,7 @@ import gen.java.model.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -53,9 +51,14 @@ public class ProjectOverview extends Controller{
     @FXML
     private Button backBtn;
 
+    @FXML
+    private Label welcomeText;
+
     ServerCom serv = ClientLauncher.getServer();
 
     private ArrayList<Task> list;
+
+    private Alert alert;
 
     @FXML
     public void initialize(){
@@ -71,11 +74,6 @@ public class ProjectOverview extends Controller{
         projectName.setText(proj.getName());
         projectDescText.setStyle("-fx-font-size: 15px");
         projectDescText.setText(proj.getDescription());
-
-        goToTasks.setOnAction(event -> {
-            System.out.println("Current proj id: " + ClientLauncher.getProj().getId());
-            ClientLauncher.getWindowChanger().setLayout("TaskOverview");
-        });
 
         editProj.setOnAction(event -> {
             ClientLauncher.getWindowChanger().setLayout("EditProject");
@@ -94,6 +92,8 @@ public class ProjectOverview extends Controller{
         deleteProjBtn.setOnAction(event -> {
             ClientLauncher.getWindowChanger().setLayout("DeleteProject");
         });
+
+        welcomeText.setText("You're logged in as: " + ClientLauncher.getUser().getName());
     }
 
     @FXML
@@ -122,7 +122,24 @@ public class ProjectOverview extends Controller{
     public void ShowProfile(ActionEvent actionEvent) {
     }
 
+    @FXML
     public void SignOut(ActionEvent actionEvent) {
-        ClientLauncher.getWindowChanger().setLayout("Login");
+        alert = new Alert(Alert.AlertType.CONFIRMATION);
+
+        alert.setTitle("Sign out?");
+        alert.setContentText("Are you sure you'd like to sign out?");
+
+        alert.showAndWait();
+
+        if (alert.getResult() == ButtonType.OK) {
+            ClientLauncher.setUserId("");
+            ClientLauncher.getUser().setName("");
+            ClientLauncher.getUser().setPassword("");
+            welcomeText.setText("");
+            ClientLauncher.getWindowChanger().setLayout("Login");
+
+        } if (alert.getResult() == ButtonType.CANCEL) {
+            alert.close();
+        }
     }
 }

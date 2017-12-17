@@ -53,7 +53,7 @@ public class ProjectDashboard extends Controller {
 
         editUserBtn.setOnAction(event -> ClientLauncher.getWindowChanger().setLayout("EditUser"));
 
-        welcomeText.setText("Welcome " + ClientLauncher.getUser().getName());
+        welcomeText.setText("You're logged in as: " + ClientLauncher.getUser().getName());
 
     }
 

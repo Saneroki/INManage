@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -17,17 +23,12 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="4320.0" maxWidth="7680.0" minHeight="400.0" minWidth="600.0" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.gui.layouts.ProjectOverview">
+<AnchorPane maxHeight="4320.0" maxWidth="7680.0" minHeight="400.0" minWidth="600.0" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.gui.layouts.ProjectOverview">
    <children>
        <BorderPane prefHeight="768.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
            <bottom>
                <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" styleClass="root" stylesheets="@../Style.css" BorderPane.alignment="CENTER">
                   <children>
-                      <Button fx:id="goToTasks" mnemonicParsing="false" stylesheets="@../Style.css" text="View tasks">
-                     <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </HBox.margin>
-                  </Button>
                       <Button fx:id="addTaskBtn" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" stylesheets="@../Style.css" text="Add new task">
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -52,9 +53,10 @@
                      <GridPane styleClass="topBar" stylesheets="@../Style.css">
                          <columnConstraints>
                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="73.0" minWidth="60.0" prefWidth="71.0" />
-                             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="229.0" minWidth="44.0" prefWidth="64.0" />
-                             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="455.0" minWidth="70.0" prefWidth="98.0" />
-                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="443.0" minWidth="60.0" prefWidth="407.0" />
+                             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="229.0" minWidth="41.0" prefWidth="54.0" />
+                             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="455.0" minWidth="36.0" prefWidth="59.0" />
+                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="678.0" minWidth="60.0" prefWidth="617.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="678.0" minWidth="35.0" prefWidth="70.0" />
                          </columnConstraints>
                          <rowConstraints>
                              <RowConstraints maxHeight="60.0" minHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
@@ -74,23 +76,16 @@
                                      <Font name="Segoe UI" size="12.0" />
                                  </font>
                              </Button>
-                             <MenuButton fx:id="UserProfile" mnemonicParsing="false" style="-fx-background-color: None; -fx-mark-color: white;" styleClass="topUser" stylesheets="@../Style.css" text="UserName" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="RIGHT">
-                                 <items>
-                                     <MenuItem fx:id="MyProfile" mnemonicParsing="false" onAction="#ShowProfile" styleClass="topUserDown" text="My Profile" />
-                                     <MenuItem fx:id="SignOut" mnemonicParsing="false" onAction="#SignOut" styleClass="topUserDown" text="Sign Out" />
-                                 </items>
-                                 <font>
-                                     <Font name="Segoe UI" size="12.0" />
-                                 </font>
-                             </MenuButton>
-                        <Button fx:id="backBtn" mnemonicParsing="false" style="-fx-background-color: None;" styleClass="topMenu" stylesheets="@../Style.css" text="BACK" textFill="WHITE" GridPane.columnIndex="3">
+                        <Button fx:id="backBtn" mnemonicParsing="false" style="-fx-background-color: None;" styleClass="topMenu" stylesheets="@../Style.css" text="BACK" textFill="WHITE" GridPane.columnIndex="2">
                            <font>
                               <Font name="Segoe UI" size="12.0" />
                            </font>
                         </Button>
+                        <Hyperlink onAction="#SignOut" text="Sign out" textFill="WHITE" GridPane.columnIndex="4" />
+                        <Label fx:id="welcomeText" nodeOrientation="RIGHT_TO_LEFT" prefHeight="17.0" prefWidth="550.0" textFill="WHITE" GridPane.columnIndex="3" />
                          </children>
                          <padding>
-                             <Insets bottom="15.0" left="80.0" right="80.0" />
+                             <Insets left="80.0" right="80.0" />
                          </padding>
                      </GridPane>
                   <Label fx:id="projectName" styleClass="text" stylesheets="@../Style.css" text="Project Name" textAlignment="CENTER">
