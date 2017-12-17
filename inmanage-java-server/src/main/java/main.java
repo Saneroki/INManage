@@ -1,5 +1,6 @@
 package main.java;
 
+import com.fasterxml.jackson.databind.deser.std.UUIDDeserializer;
 import gen.java.model.Task;
 import gen.java.model.User;
 import main.java.databaseCom.SQLCommands;
@@ -24,6 +25,9 @@ import java.util.UUID;
             //    for (Task t : sql.getAllTaskByProject("f5975415-370b-40d9-9562-a2b0cbadc2bf")) {
             //        System.out.println(t.toString());
             //    }
+                System.out.println(" Editing task desc");
+                sql.editTaskDescription("a86e1b79-3893-40cf-be14-d97b25dd4433","New task title");
+
 
                 //System.out.println(sql.editProjectDescription(UUID.fromString("98117835-2803-4961-95e9-ba2ac0153644"),"The thing doesn't go skraa"));
                 //System.out.println(sql.addUser("singh007","dingding","ding","ing","member"));

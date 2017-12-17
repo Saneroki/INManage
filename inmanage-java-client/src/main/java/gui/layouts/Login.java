@@ -29,6 +29,7 @@ public class Login extends Controller {
         //Store resp which is the user UUID in a local user object variable so we can use it later to acces the other data
         System.out.println(resp);
         ClientLauncher.setUserId(resp);
+        ClientLauncher.setUser(serv.getSpecificUser(resp));
         if((resp)!=null){
             ClientLauncher.getWindowChanger().setLayout("ProjectDashboard");
         }else{

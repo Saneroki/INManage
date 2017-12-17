@@ -588,6 +588,8 @@ public class UserApi {
      */
     public User getUser(String userId) throws ApiException {
         ApiResponse<User> resp = getUserWithHttpInfo(userId);
+        System.out.println("User received from server");
+        System.out.println(resp.getData().getName());
         return resp.getData();
     }
 

@@ -1,6 +1,7 @@
 package main.java.gui.layouts;
 
 import gen.java.model.Project;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -14,10 +15,7 @@ import main.java.serverCom.ServerCom;
 
 import java.util.ArrayList;
 
-public class ProjectDashboard {
-
-    @FXML
-    private ListView<Project> projectList;
+public class ProjectDashboard extends Controller {
 
     @FXML
     private VBox vboxLeft;
@@ -25,12 +23,15 @@ public class ProjectDashboard {
     @FXML
     private Button addNewProjectBtn;
 
-    private final ArrayList<Project> list = (ArrayList<Project>) ClientLauncher.getServer().getAllProjects(ClientLauncher.getUserID());
+    @FXML
+    private Button editUserBtn;
 
 
-    ServerCom serv = ClientLauncher.getServer();
+    private final ArrayList<Project> list =
+            (ArrayList<Project>) ClientLauncher.getServer().getAllProjects(ClientLauncher.getUserID());
 
 
+    private ServerCom serv = ClientLauncher.getServer();
 
     @FXML
     public void initialize(){
@@ -38,12 +39,13 @@ public class ProjectDashboard {
         vboxLeft.setMinWidth(250);
         vboxLeft.setMaxHeight(250);
 
-        for (Project proj : list) {
-            new ProjectView(proj,serv.getUserAmount(proj.getId()),serv.getTaskAmount(proj.getId()),vboxLeft);
-        }
+        list.parallelStream().forEach(proj -> new ProjectView(proj,serv.getUserAmount(proj.getId()),serv.getTaskAmount(proj.getId()),vboxLeft));
+
+
 
         addNewProjectBtn.setOnAction(event -> ClientLauncher.getWindowChanger().setLayout("AddProject"));
 
+        editUserBtn.setOnAction(event -> ClientLauncher.getWindowChanger().setLayout("EditUser"));
     }
 
     @FXML
@@ -70,22 +72,14 @@ public class ProjectDashboard {
 
     }
 
-    private void addProjectView(Project proj){
-        String btnText = proj.getName() + "\n " + proj.getDescription();
-        Button btn = new Button(btnText);
-        btn.setMinWidth(300);
-        btn.setMaxWidth(300);
-        btn.setAlignment(Pos.CENTER);
-        vboxLeft.setAlignment(Pos.CENTER);
-        vboxLeft.setStyle("-fx-font-size: 20px");
-        btn.setOnAction(event -> {
-            ClientLauncher.setCurrentProjectId(proj.getId());
-            //delete later
-            ClientLauncher.setProj(proj);
-            ClientLauncher.getWindowChanger().setLayout("ProjectOverview");
-        });
-        vboxLeft.getChildren().add(btn);
+    public void GoHome(ActionEvent actionEvent) {
+        ClientLauncher.getWindowChanger().setLayout("ProjectDashboard");
     }
 
+    public void ShowProfile(ActionEvent actionEvent) {
+    }
 
+    public void SignOut(ActionEvent actionEvent) {
+        ClientLauncher.getWindowChanger().setLayout("Login");
+    }
 }

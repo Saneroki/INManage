@@ -796,6 +796,8 @@ public class SQLCommands implements ISQLCommands {
                     "WHERE projectid = ?;");
             ps.setString(1, name);
             ps.setObject(2, UUID.fromString(projectid));
+            ps.execute();
+            System.out.println("Edited project name: " + name);
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -981,9 +983,12 @@ public class SQLCommands implements ISQLCommands {
     public boolean editTaskDescription(String taskid, String taskdescription) throws SQLException {
         PreparedStatement ps = null;
         try {
+            System.out.println("taskid: " + taskid);
+            System.out.println("task desc: " + taskdescription);
             ps = con.prepareStatement("UPDATE task SET taskdescription = ? WHERE taskid = ?;");
             ps.setString(1,taskdescription);
             ps.setObject(2,UUID.fromString(taskid));
+            System.out.println("Task edited");
             ps.execute();
             return true;
         } catch (SQLException e) {
@@ -1099,6 +1104,7 @@ public class SQLCommands implements ISQLCommands {
             ps = con.prepareStatement("DELETE FROM task WHERE taskId = ?;");
             ps.setObject(1, UUID.fromString(taskId));
             ps.execute();
+            System.out.println("Task deleted, id: " + taskId);
             return true;
         } catch (SQLException e) {
             return false;
@@ -1304,7 +1310,7 @@ public class SQLCommands implements ISQLCommands {
                 taskDueOrig = rs.getDate(5);   // Get task date as a Date.
                 taskDueConv = taskDueOrig.toString();                   // Convert task date to a String.
                 task.setDuedate(taskDueConv);                           // Assign task due date (String) to the Task object.
-                task.setId(UUID.fromString(rs.getString(6)));   // Get project ID for specified task
+                task.setId(UUID.fromString(rs.getString(1)));   // Get task ID for specified task
                 task.setStatus(rs.getString(7));
                 // & assign it to the task object.
 
@@ -1345,6 +1351,8 @@ public class SQLCommands implements ISQLCommands {
             user.setName(rs.getString(2));
             user.setFirstName(rs.getString(4));
             user.setLastName(rs.getString(5));
+            user.setPassword(rs.getString(3));
+            System.out.println("Returning user: " + user.getName());
             return user;
         } catch (SQLException e) {
             e.printStackTrace();

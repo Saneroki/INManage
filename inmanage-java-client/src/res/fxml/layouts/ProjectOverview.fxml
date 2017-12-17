@@ -44,6 +44,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
                   </Button>
+                  <Button fx:id="editProj" mnemonicParsing="false" stylesheets="@../Style.css" text="Edit project" />
                   </children>
                </HBox>
            </bottom>
@@ -75,11 +76,6 @@
                                      <Font name="Segoe UI" size="12.0" />
                                  </font>
                              </Button>
-                             <Button fx:id="ChatBtn" mnemonicParsing="false" onAction="#GoChat" style="-fx-background-color: None;" styleClass="topMenu" stylesheets="@../Style.css" text="CHAT" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="LEFT">
-                                 <font>
-                                     <Font name="Segoe UI" size="12.0" />
-                                 </font>
-                             </Button>
                              <MenuButton fx:id="UserProfile" mnemonicParsing="false" style="-fx-background-color: None; -fx-mark-color: white;" styleClass="topUser" stylesheets="@../Style.css" text="UserName" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="RIGHT">
                                  <items>
                                      <MenuItem fx:id="MyProfile" mnemonicParsing="false" onAction="#ShowProfile" styleClass="topUserDown" text="My Profile" />
@@ -89,6 +85,11 @@
                                      <Font name="Segoe UI" size="12.0" />
                                  </font>
                              </MenuButton>
+                        <Button fx:id="backBtn" mnemonicParsing="false" style="-fx-background-color: None;" styleClass="topMenu" stylesheets="@../Style.css" text="BACK" textFill="WHITE" GridPane.columnIndex="3">
+                           <font>
+                              <Font name="Segoe UI" size="12.0" />
+                           </font>
+                        </Button>
                          </children>
                          <padding>
                              <Insets bottom="15.0" left="80.0" right="80.0" />

@@ -65,13 +65,11 @@ public class TaskView {
             ClientLauncher.setTask(task);
             ClientLauncher.getWindowChanger().setLayout("TaskDetails");
         });
-        try {
 
+        //Important to have thos synced because it otherwise causes errors.
+        synchronized (vBox){
             vBox.getChildren().add(hBox);
-        }catch (NullPointerException e){
-            System.out.println("Problemet er i bunden af task view");
         }
-
 
     }
 

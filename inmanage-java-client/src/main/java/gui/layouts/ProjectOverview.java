@@ -42,7 +42,13 @@ public class ProjectOverview extends Controller{
     private Button addTaskBtn;
 
     @FXML
+    private Button editProj;
+
+    @FXML
     private Button addUser;
+
+    @FXML
+    private Button backBtn;
 
     ServerCom serv = ClientLauncher.getServer();
 
@@ -68,14 +74,19 @@ public class ProjectOverview extends Controller{
             ClientLauncher.getWindowChanger().setLayout("TaskOverview");
         });
 
+        editProj.setOnAction(event -> {
+            ClientLauncher.getWindowChanger().setLayout("EditProject");
+        });
+
         addTaskBtn.setOnAction(event -> ClientLauncher.getWindowChanger().setLayout("AddTask"));
 
         addUser.setOnAction(event -> ClientLauncher.getWindowChanger().setLayout("AddUserToProject"));
 
-        for (Task task:list) {
-            new TaskView(task,mainVbox);
-        }
+        list.parallelStream().forEach(task -> new TaskView(task,mainVbox));
 
+        backBtn.setOnAction(event -> {
+            ClientLauncher.getWindowChanger().setLayout("ProjectDashboard");
+        });
     }
 
     @FXML
