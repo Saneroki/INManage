@@ -12,7 +12,10 @@ import main.java.serverCom.ServerCom;
 
 /**
  * Created by omnhaww on 14/12/2017.
+ *
+ * Controller for the EditProject fxml file
  */
+
 public class EditProject {
 
 

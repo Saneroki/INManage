@@ -12,6 +12,10 @@ import main.java.serverCom.ServerCom;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Controller of the AddUserToProjectController fxml file
+ */
+
 public class AddUserToProjectController extends Controller {
 
     @FXML

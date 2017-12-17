@@ -15,16 +15,14 @@ import java.io.IOException;
 /**
  * This class is meant to start the Gui Client
  *
- * @author Glenn
+ * This class is used for keeping track of important variables that are shared across the gui
+ * these include the current user, project and task. All of this is static to make it accesible
+ * from everywhere.
  */
 public class ClientLauncher extends Application {
     private static GUIManager guiManager;
     private static Stage primaryStage;
     private static ServerCom serv;
-    private static String userID;
-    private static String currentProjectId;
-    //Here i will save the project locally and use it,
-    //I think that in the future i will have use a sql command to get it for the specific projects
     private static Project proj;
     private static Task task;
     private static User user = null;
@@ -71,20 +69,6 @@ public class ClientLauncher extends Application {
     }
 
     public static ServerCom getServer(){ return serv; }
-
-    public static void setUserId(String setUserID){
-        userID = setUserID;
-    }
-
-    public static String getUserID(){return userID;}
-
-    public static String getCurrentProjectId() {
-        return currentProjectId;
-    }
-
-    public static void setCurrentProjectId(String currentProjectId) {
-        ClientLauncher.currentProjectId = currentProjectId;
-    }
 
     public static Project getProj() {
         return proj;

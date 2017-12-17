@@ -19,6 +19,10 @@ import main.java.serverCom.ServerCom;
 
 import java.util.ArrayList;
 
+/**
+ * Here you get the overview of the project displaying the full title, description and a list of all tasks
+ */
+
 public class ProjectOverview extends Controller{
 
     public Text dueDateText;
@@ -59,19 +63,26 @@ public class ProjectOverview extends Controller{
 
     @FXML
     public void initialize(){
-
+        //Get a list of all tasks for this project
         list = (ArrayList<Task>) serv.getAllTasks(ClientLauncher.getProj().getId());
 
         Project proj = ClientLauncher.getProj();
-
         mainVbox.setAlignment(Pos.CENTER);
-
         projectName.setTextAlignment(TextAlignment.CENTER);
         projectName.setStyle("-fx-font-size: 30px");
         projectName.setText(proj.getName());
         projectDescText.setStyle("-fx-font-size: 15px");
         projectDescText.setText(proj.getDescription());
 
+
+        addTaskBtn.setOnAction(event -> ClientLauncher.getWindowChanger().setLayout("AddTask"));
+
+        addUser.setOnAction(event -> ClientLauncher.getWindowChanger().setLayout("AddUserToProject"));
+
+        //Iterate through the list of tasks for this specific project
+        list.parallelStream().forEach(task -> new TaskView(task,mainVbox));
+
+        //Set actions of the buttons,
         goToTasks.setOnAction(event -> {
             System.out.println("Current proj id: " + ClientLauncher.getProj().getId());
             ClientLauncher.getWindowChanger().setLayout("TaskOverview");
@@ -80,12 +91,6 @@ public class ProjectOverview extends Controller{
         editProj.setOnAction(event -> {
             ClientLauncher.getWindowChanger().setLayout("EditProject");
         });
-
-        addTaskBtn.setOnAction(event -> ClientLauncher.getWindowChanger().setLayout("AddTask"));
-
-        addUser.setOnAction(event -> ClientLauncher.getWindowChanger().setLayout("AddUserToProject"));
-
-        list.parallelStream().forEach(task -> new TaskView(task,mainVbox));
 
         backBtn.setOnAction(event -> {
             ClientLauncher.getWindowChanger().setLayout("ProjectDashboard");

@@ -47,17 +47,13 @@ public class TaskOverview extends Controller {
     @FXML
     public void initialize(){
 
+        //Get the list of all the tasks for this project
         list = (ArrayList<Task>) serv.getAllTasks(ClientLauncher.getProj().getId());
 
-        if(list==null){
-            System.out.println("There is nothing the list....");
-        }
-        //Make for loop that loops through task statusses and makes one VBOX for each
-        //for now we just have one VBOX
-
+        //Make new VBox and iterate through the list of tasks, adding them to the VBox with a taskview one by one.
+        //an example of threading in out program
         VBox vboxLeft = new VBox();
         centerHbox.getChildren().add(vboxLeft);
-
         vboxLeft.setAlignment(Pos.CENTER);
         list.parallelStream().forEach(task -> taskView(task, vboxLeft));
 

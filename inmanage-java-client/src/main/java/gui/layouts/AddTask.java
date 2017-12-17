@@ -15,6 +15,9 @@ import java.time.LocalDate;
 
 /**
  * Created by omnhaww on 10/11/2017.
+ *
+ * Controller for the AddTask fxml file
+ *
  */
 
 public class AddTask {
@@ -54,7 +57,7 @@ public class AddTask {
         task.setDescription(taskDesc);
         task.setDueDate(taskDueDate.toString());
         task.setProjectId(ClientLauncher.getProj().getId());
-        task.setUserId(ClientLauncher.getUserID());
+        task.setUserId(ClientLauncher.getUser().getId().toString());
 
         serv.addTask(task);
 

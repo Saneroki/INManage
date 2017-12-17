@@ -15,6 +15,10 @@ import javafx.scene.control.TextField;
 import main.java.gui.ClientLauncher;
 import main.java.serverCom.ServerCom;
 
+/**
+ * Controller for the EditTaks fxml file
+ */
+
 public class EditTask {
 
     @FXML

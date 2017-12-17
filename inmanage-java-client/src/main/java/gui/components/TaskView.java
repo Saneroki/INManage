@@ -12,6 +12,9 @@ import main.java.gui.ClientLauncher;
 
 /**
  * Created by Malte on 13-12-2017.
+ *
+ * Taskview created to make a "view" of a task.
+ *
  */
 public class TaskView {
 
@@ -27,7 +30,6 @@ public class TaskView {
 
         hBox.setMinWidth(250);
         hBox.setMaxWidth(250);
-
 
         vBox.setSpacing(5);
 
@@ -45,8 +47,6 @@ public class TaskView {
         taskTitle.setOnMouseExited((event -> {
             hBox.setStyle("-fx-font-size: 18; -fx-border-color: #84AF9E; -fx-border-width: 3px;");
         }));
-
-
 
         try {
             Pane imageHolder = new Pane();
@@ -66,7 +66,7 @@ public class TaskView {
             ClientLauncher.getWindowChanger().setLayout("TaskDetails");
         });
 
-        //Important to have thos synced because it otherwise causes errors.
+        //Important to have this synced because it otherwise causes errors.
         synchronized (vBox){
             vBox.getChildren().add(hBox);
         }
