@@ -50,16 +50,16 @@
                             <Insets left="20.0" right="20.0" top="20.0" />
                         </VBox.margin>
                       </TextField>
-                      <TextField fx:id="passwordInput" layoutX="10.0" layoutY="10.0" promptText="Desired Password">
+                      <PasswordField fx:id="passwordInput" layoutX="10.0" layoutY="10.0" promptText="Desired Password">
                         <VBox.margin>
                             <Insets left="20.0" right="20.0" top="20.0" />
                         </VBox.margin>
-                      </TextField>
-                      <TextField fx:id="passwordConfirmInput" layoutX="10.0" layoutY="35.0" promptText="Confirm Password">
+                      </PasswordField>
+                      <PasswordField fx:id="passwordConfirmInput" layoutX="10.0" layoutY="35.0" promptText="Confirm Password">
                         <VBox.margin>
                             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                         </VBox.margin>
-                      </TextField>
+                      </PasswordField>
                       <HBox alignment="CENTER" prefHeight="47.0" prefWidth="296.0">
                          <children>
                              <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#signup" prefHeight="27.0" prefWidth="82.0" stylesheets="@../Style.css" text="Sign up">
