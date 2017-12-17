@@ -48,6 +48,9 @@ public class ProjectOverview extends Controller{
     private Button addUser;
 
     @FXML
+    private Button deleteProjBtn;
+
+    @FXML
     private Button backBtn;
 
     ServerCom serv = ClientLauncher.getServer();
@@ -86,6 +89,10 @@ public class ProjectOverview extends Controller{
 
         backBtn.setOnAction(event -> {
             ClientLauncher.getWindowChanger().setLayout("ProjectDashboard");
+        });
+
+        deleteProjBtn.setOnAction(event -> {
+            ClientLauncher.getWindowChanger().setLayout("DeleteProject");
         });
     }
 

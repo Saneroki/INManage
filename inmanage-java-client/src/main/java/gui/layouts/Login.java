@@ -37,7 +37,6 @@ public class Login extends Controller {
             alert.setTitle("Error logging in");
             alert.setHeaderText("There was an error logging in");
             alert.setContentText("Are you sure your login information is correct?");
-
             alert.showAndWait();
         }
 

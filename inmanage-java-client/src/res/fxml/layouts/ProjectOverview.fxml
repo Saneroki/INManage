@@ -44,7 +44,11 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="editProj" mnemonicParsing="false" stylesheets="@../Style.css" text="Edit project" />
+                  <Button fx:id="editProj" mnemonicParsing="false" stylesheets="@../Style.css" text="Edit project">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin></Button>
+                  <Button fx:id="deleteProjBtn" mnemonicParsing="false" stylesheets="@../Style.css" text="Delete project" />
                   </children>
                </HBox>
            </bottom>

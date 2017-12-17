@@ -30,14 +30,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.UUID;
 import java.io.Serializable;
 import javax.validation.constraints.*;
 
 /**
  * User
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-12-13T12:54:45.303Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-12-17T13:13:34.302Z")
 public class User  implements Serializable {
+  @JsonProperty("id")
+  private UUID id = null;
+
   @JsonProperty("name")
   private String name = null;
 
@@ -49,6 +53,25 @@ public class User  implements Serializable {
 
   @JsonProperty("lastName")
   private String lastName = null;
+
+  public User id(UUID id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+   **/
+  @JsonProperty("id")
+  @ApiModelProperty(value = "")
+  public UUID getId() {
+    return id;
+  }
+
+  public void setId(UUID id) {
+    this.id = id;
+  }
 
   public User name(String name) {
     this.name = name;
@@ -138,7 +161,8 @@ public class User  implements Serializable {
       return false;
     }
     User user = (User) o;
-    return Objects.equals(this.name, user.name) &&
+    return Objects.equals(this.id, user.id) &&
+        Objects.equals(this.name, user.name) &&
         Objects.equals(this.password, user.password) &&
         Objects.equals(this.firstName, user.firstName) &&
         Objects.equals(this.lastName, user.lastName);
@@ -146,7 +170,7 @@ public class User  implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, password, firstName, lastName);
+    return Objects.hash(id, name, password, firstName, lastName);
   }
 
 
@@ -155,6 +179,7 @@ public class User  implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class User {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");

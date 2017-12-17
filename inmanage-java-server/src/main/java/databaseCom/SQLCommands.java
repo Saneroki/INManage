@@ -259,18 +259,18 @@ public class SQLCommands implements ISQLCommands {
     /**
      * Author: pepak16.
      * Changes the username of the user via his username.
-     * @param username
+     * @param userid
      * @return boolean
      * @throws SQLException
      */
     @Override
-    public boolean editUsername(String username, String newUsername) throws SQLException {
+    public boolean editUsername(String userid, String newUsername) throws SQLException {
         PreparedStatement ps = null;
         try {
             if (!checkIfUsernameExist(newUsername)) {
-                ps = con.prepareStatement("UPDATE public.user SET username = ? WHERE username = ?;");
+                ps = con.prepareStatement("UPDATE public.user SET username = ? WHERE userid = ?;");
                 ps.setString(1, newUsername);
-                ps.setString(2, username);
+                ps.setString(2, userid);
                 ps.execute();
                 return true;
             } else {

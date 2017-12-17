@@ -8,6 +8,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import main.java.gui.ClientLauncher;
 import main.java.serverCom.ServerCom;
@@ -78,7 +79,11 @@ public class ProjectView {
             System.out.println("The image url is not valid...");
         }
 
+        Text taskAmountText = new Text(taskAmount.toString());
+        Text userAmountText = new Text(userAmount.toString());
 
+        taskAmountText.setFill(Color.WHITE);
+        userAmountText.setFill(Color.WHITE);
 
         grid2.add(new Text(taskAmount.toString()),1,0);
         grid2.add(new Text(userAmount.toString()),1,1);

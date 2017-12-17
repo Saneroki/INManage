@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class INManageServer {
@@ -163,8 +164,7 @@ public class INManageServer {
             sql.editFirstname(user.getName(),user.getFirstName());
             sql.editLastname(user.getName(),user.getLastName());
             sql.editPassword(user.getName(),user.getPassword());
-            //TODO: How is this supposed to work????
-            //sql.editUsername(user.getName());
+            sql.editUsername(user.getId().toString(),user.getName());
             return "Succes!";
         } catch (SQLException e) {
             e.printStackTrace();
