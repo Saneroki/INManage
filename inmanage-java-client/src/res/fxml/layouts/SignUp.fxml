@@ -62,7 +62,7 @@
                       </PasswordField>
                       <HBox alignment="CENTER" prefHeight="47.0" prefWidth="296.0">
                          <children>
-                             <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#signup" prefHeight="27.0" prefWidth="82.0" stylesheets="@../Style.css" text="Sign up">
+                             <Button fx:id="signUpBtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#signup" prefHeight="27.0" prefWidth="82.0" stylesheets="@../Style.css" text="Sign up">
                                  <HBox.margin>
                                      <Insets bottom="20.0" left="20.0" right="20.0" />
                                  </HBox.margin>

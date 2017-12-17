@@ -1,10 +1,14 @@
 package main.java.gui.layouts;
 
+import com.sun.scenario.animation.shared.ClipInterpolator;
 import gen.java.model.Project;
+import gen.java.model.User;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
@@ -26,6 +30,9 @@ public class ProjectDashboard extends Controller {
     @FXML
     private Button editUserBtn;
 
+    @FXML
+    private Label welcomeText;
+
 
     private final ArrayList<Project> list =
             (ArrayList<Project>) ClientLauncher.getServer().getAllProjects(ClientLauncher.getUserID());
@@ -46,6 +53,9 @@ public class ProjectDashboard extends Controller {
         addNewProjectBtn.setOnAction(event -> ClientLauncher.getWindowChanger().setLayout("AddProject"));
 
         editUserBtn.setOnAction(event -> ClientLauncher.getWindowChanger().setLayout("EditUser"));
+
+        welcomeText.setText("Welcome "+ClientLauncher.getUser().getName());
+
     }
 
     @FXML
@@ -76,10 +86,13 @@ public class ProjectDashboard extends Controller {
         ClientLauncher.getWindowChanger().setLayout("ProjectDashboard");
     }
 
-    public void ShowProfile(ActionEvent actionEvent) {
-    }
-
+    @FXML
     public void SignOut(ActionEvent actionEvent) {
+        ClientLauncher.setUserId("");
+        ClientLauncher.getUser().setName("");
+        ClientLauncher.getUser().setPassword("");
+        welcomeText.setText("");
+
         ClientLauncher.getWindowChanger().setLayout("Login");
     }
 }
