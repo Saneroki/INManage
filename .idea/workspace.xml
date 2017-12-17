@@ -2,35 +2,111 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09a1278c-3f08-40fa-85d6-07c56f294b41" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen.old/java/api/ApiException.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen.old/java/api/ApiOriginFilter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen.old/java/api/ApiResponseMessage.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen.old/java/api/Bootstrap.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen.old/java/api/JacksonJsonProvider.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen.old/java/api/NotFoundException.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen.old/java/api/ProjectApi.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen.old/java/api/ProjectApiService.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen.old/java/api/RFC3339DateFormat.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen.old/java/api/StringUtil.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen.old/java/api/TaskApi.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen.old/java/api/TaskApiService.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen.old/java/api/UsersApi.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen.old/java/api/UsersApiService.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen.old/java/api/factories/ProjectApiServiceFactory.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen.old/java/api/factories/TaskApiServiceFactory.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen.old/java/api/factories/UsersApiServiceFactory.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen.old/java/api/impl/ProjectApiServiceImpl.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen.old/java/api/impl/TaskApiServiceImpl.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen.old/java/api/impl/UsersApiServiceImpl.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen.old/java/model/AddTaskObject.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen.old/java/model/Project.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen.old/java/model/Task.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen.old/java/model/User.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/docs/manuals/READMEfromSwagger.md" afterPath="$PROJECT_DIR$/inmanage-java-client/docs/manuals/READMEfromSwagger.md" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/docs/models/AdminsApi.md" afterPath="$PROJECT_DIR$/inmanage-java-client/docs/models/AdminsApi.md" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/docs/models/User.md" afterPath="$PROJECT_DIR$/inmanage-java-client/docs/models/User.md" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/docs/uml/ClientClassDiagram.ucls" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/pom.xml" afterPath="$PROJECT_DIR$/inmanage-java-client/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/Logic/ChatMassMessages.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/Logic/ChatMessage.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/api/AdminsApi.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/api/UserApi.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/api/UserApi.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/ApiCallback.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/ApiCallback.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/ApiClient.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/ApiClient.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/ApiException.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/ApiException.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/ApiResponse.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/ApiResponse.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/Configuration.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/Configuration.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/JSON.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/JSON.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/Pair.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/Pair.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/ProgressRequestBody.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/ProgressRequestBody.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/ProgressResponseBody.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/ProgressResponseBody.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/StringUtil.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/StringUtil.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/auth/ApiKeyAuth.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/auth/ApiKeyAuth.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/auth/Authentication.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/auth/Authentication.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/auth/HttpBasicAuth.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/auth/HttpBasicAuth.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/auth/OAuth.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/auth/OAuth.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/auth/OAuthFlow.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/auth/OAuthFlow.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/model/AddTaskObject.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/model/AddTaskObject.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/model/Project.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/model/Project.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/model/Task.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/model/Task.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/model/User.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/gen/java/model/User.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/ClientLauncher.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/ClientLauncher.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/components/Chat.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/components/Chat.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/components/ChatWindow.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/components/TopBar.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/components/TopBar.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/AddProject.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/AddTask.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/AddUserToProjectController.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/Controller.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/Dashboard.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/Login.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/ProjectDashboard.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/ProjectOverview.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/SignUp.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/TaskDetail.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/TaskOverview.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/main/java/gui/windows/WindowChanger.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/main/java/serverCom/ServerCom.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/main/java/serverCom/ServerCom.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/main/java/serverCom/ServerComImpl.java" afterPath="$PROJECT_DIR$/inmanage-java-client/src/main/java/serverCom/ServerComImpl.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/res/Style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/Style.css" afterPath="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/Style.css" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/components/Chat.fxml" afterPath="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/components/Chat.fxml" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/components/ChatWindow.fxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/components/TopBar.fxml" afterPath="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/components/TopBar.fxml" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/AddProject.fxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/AddTask.fxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/AddUserToProject.fxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/Dashboard.fxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/Login.fxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/ProjectDashboard.fxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/ProjectOverview.fxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/SignUp.fxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/TaskDetails.fxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/TaskOverview.fxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/res/fxml/windows/TopBarOnly.fxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/res/img/Archive/ArrowDown.fxml" afterPath="$PROJECT_DIR$/inmanage-java-client/src/res/img/Archive/ArrowDown.fxml" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/res/img/Archive/ArrowDown.svg" afterPath="$PROJECT_DIR$/inmanage-java-client/src/res/img/Archive/ArrowDown.svg" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/test/gen/java/api/AdminsApiTest.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/test/gen/java/api/UserApiTest.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/test/java/gen/java/api/AdminsApiTest.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-client/src/test/java/gen/java/api/UserApiTest.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-server/docs/UML/classdiagramsql.ucls" afterPath="$PROJECT_DIR$/inmanage-java-server/docs/UML/classdiagramsql.ucls" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-server/docs/VPN/VPNGuide.rtf" afterPath="$PROJECT_DIR$/inmanage-java-server/docs/VPN/VPNGuide.rtf" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-server/docs/manuals/READMEfromSwagger.md" afterPath="$PROJECT_DIR$/inmanage-java-server/docs/manuals/READMEfromSwagger.md" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-server/pom.xml" afterPath="$PROJECT_DIR$/inmanage-java-server/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/ApiException.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/ApiException.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/ApiOriginFilter.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/ApiOriginFilter.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/ApiResponseMessage.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/ApiResponseMessage.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/ChatApi.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/ChatApi.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/ChatApiService.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/ChatApiService.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/JacksonJsonProvider.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/JacksonJsonProvider.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/NotFoundException.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/NotFoundException.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/ProjectApi.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/ProjectApi.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/ProjectApiService.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/ProjectApiService.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/StringUtil.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/StringUtil.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/TaskApi.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/TaskApi.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/TaskApiService.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/TaskApiService.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/UsersApi.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/UsersApi.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/UsersApiService.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/UsersApiService.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/factories/ChatApiServiceFactory.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/factories/ChatApiServiceFactory.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/factories/ProjectApiServiceFactory.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/factories/ProjectApiServiceFactory.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/factories/TaskApiServiceFactory.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/factories/TaskApiServiceFactory.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/factories/UsersApiServiceFactory.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/factories/UsersApiServiceFactory.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/impl/ChatApiServiceImpl.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/impl/ChatApiServiceImpl.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/model/AddTaskObject.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/model/AddTaskObject.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/model/InlineResponse200.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/model/InlineResponse200.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/model/Project.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/model/Project.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/model/Task.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/model/Task.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/model/User.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/gen/java/model/User.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/main/java/Chat/ChatLogic.java" afterPath="" />
       <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/main/java/clientCom/INManageServer.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/main/java/clientCom/INManageServer.java" />
       <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/ISQLCommands.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/ISQLCommands.java" />
       <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/SQLCommands.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/SQLCommands.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/SQLConnect.java" afterPath="$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/SQLConnect.java" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/main.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/inmanage-java-server/src/main/webapp/WEB-INF/web.xml" />
+      <change beforePath="$PROJECT_DIR$/inmanage-java-server/src/recources/postgresql-42.1.4.jar" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/inmanage-java-client/target/" />
     <ignored path="$PROJECT_DIR$/inmanage-java-server/target/" />
@@ -42,7 +118,28 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file leaf-file-name="ChatApi.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/gen/java/api/ChatApi.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserApi.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/gen/java/api/UserApi.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="626">
+              <caret line="248" column="0" lean-forward="true" selection-start-line="248" selection-start-column="0" selection-end-line="248" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -123,10 +220,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="247" />
-    <option name="y" value="158" />
-    <option name="width" value="1552" />
-    <option name="height" value="840" />
+    <option name="x" value="753" />
+    <option name="width" value="1174" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -144,6 +240,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -160,98 +259,37 @@
               <item name="INManage" type="b2602c69:ProjectViewProjectNode" />
               <item name="INManage" type="462c0819:PsiDirectoryNode" />
               <item name="inmanage-java-client" type="462c0819:PsiDirectoryNode" />
-              <item name="docs" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="INManage" type="b2602c69:ProjectViewProjectNode" />
               <item name="INManage" type="462c0819:PsiDirectoryNode" />
               <item name="inmanage-java-client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gen" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="INManage" type="b2602c69:ProjectViewProjectNode" />
               <item name="INManage" type="462c0819:PsiDirectoryNode" />
-              <item name="inmanage-java-server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="INManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="INManage" type="462c0819:PsiDirectoryNode" />
-              <item name="inmanage-java-server" type="462c0819:PsiDirectoryNode" />
+              <item name="inmanage-java-client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="INManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="INManage" type="462c0819:PsiDirectoryNode" />
-              <item name="inmanage-java-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gen" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="INManage" type="b2602c69:ProjectViewProjectNode" />
               <item name="INManage" type="462c0819:PsiDirectoryNode" />
-              <item name="inmanage-java-server" type="462c0819:PsiDirectoryNode" />
+              <item name="inmanage-java-client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gen" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="INManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="INManage" type="462c0819:PsiDirectoryNode" />
-              <item name="inmanage-java-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="factories" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="INManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="INManage" type="462c0819:PsiDirectoryNode" />
-              <item name="inmanage-java-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="INManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="INManage" type="462c0819:PsiDirectoryNode" />
-              <item name="inmanage-java-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="INManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="INManage" type="462c0819:PsiDirectoryNode" />
-              <item name="inmanage-java-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="clientCom" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="INManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="INManage" type="462c0819:PsiDirectoryNode" />
-              <item name="inmanage-java-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="databaseCom" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="INManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="INManage" type="462c0819:PsiDirectoryNode" />
-              <item name="inmanage-java-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -451,7 +489,8 @@
     <option name="totallyTimeSpent" value="7186000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="247" y="158" width="1552" height="840" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -459,13 +498,14 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24147727" sideWeight="0.50402147" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22922252" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4090909" sideWeight="0.49597856" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.108208954" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26136363" sideWeight="0.49597856" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38210228" sideWeight="0.49731904" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25871313" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1988273" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25543478" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -473,16 +513,35 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24147727" sideWeight="0.50402147" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22922252" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19906166" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328125" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4090909" sideWeight="0.49597856" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38210228" sideWeight="0.49731904" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25871313" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -507,13 +566,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/gen/java/model/AddTaskObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1224">
-          <caret line="47" column="26" lean-forward="false" selection-start-line="47" selection-start-column="26" selection-end-line="47" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/RFC3339DateFormat.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -561,7 +613,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2125">
           <caret line="125" column="16" lean-forward="false" selection-start-line="125" selection-start-column="16" selection-end-line="125" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -586,36 +637,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="21" lean-forward="false" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/impl/UsersApiServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="21" column="85" lean-forward="false" selection-start-line="21" selection-start-column="85" selection-end-line="21" selection-end-column="85" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/gen/java/api/impl/UsersApiServiceImpl.java" />
     <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/gen/java/model/Task.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="25" column="8" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/res/login.fxml" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/javafx-src.zip!/javafx/application/Application.java" />
-    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/gen/java/api/UserApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3723">
-          <caret line="248" column="9" lean-forward="false" selection-start-line="248" selection-start-column="9" selection-end-line="248" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/gen/java/invoker/ApiException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-301">
@@ -628,7 +662,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="9" column="126" lean-forward="false" selection-start-line="9" selection-start-column="126" selection-end-line="9" selection-end-column="126" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -636,7 +669,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="9" column="126" lean-forward="false" selection-start-line="9" selection-start-column="126" selection-end-line="9" selection-end-column="126" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -708,7 +740,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="10" column="32" lean-forward="true" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -716,7 +747,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="668">
           <caret line="75" column="89" lean-forward="false" selection-start-line="75" selection-start-column="89" selection-end-line="75" selection-end-column="89" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -724,7 +754,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -732,9 +761,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="447">
           <caret line="34" column="68" lean-forward="false" selection-start-line="34" selection-start-column="68" selection-end-line="34" selection-end-column="68" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -742,9 +768,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
           <caret line="37" column="33" lean-forward="false" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
-          <folding>
-            <element signature="e#981#982#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -752,7 +775,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -760,9 +782,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="22" column="4" lean-forward="false" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -778,7 +797,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="608">
           <caret line="80" column="80" lean-forward="false" selection-start-line="80" selection-start-column="80" selection-end-line="80" selection-end-column="80" />
-          <folding />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
@@ -789,7 +807,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1581">
           <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
@@ -800,7 +817,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="353">
           <caret line="55" column="93" lean-forward="false" selection-start-line="55" selection-start-column="93" selection-end-line="55" selection-end-column="93" />
-          <folding />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
@@ -811,7 +827,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1037">
           <caret line="65" column="67" lean-forward="false" selection-start-line="65" selection-start-column="67" selection-end-line="65" selection-end-column="67" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -819,41 +834,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="816">
           <caret line="48" column="1" lean-forward="false" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/gen.old/java/api/TaskApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-242">
-          <caret line="28" column="57" lean-forward="false" selection-start-line="28" selection-start-column="57" selection-end-line="28" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/gen.old/java/api/TaskApi.java" />
     <entry file="file://$PROJECT_DIR$/../../../Desktop/ISQLCommands.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/gen.old/java/api/UsersApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="28" column="132" lean-forward="false" selection-start-line="28" selection-start-column="132" selection-end-line="28" selection-end-column="132" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/gen.old/java/api/UsersApi.java" />
     <entry file="file://$PROJECT_DIR$/inmanage-java-server/src/main/java/databaseCom/SQLCommands.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="522">
           <caret line="1251" column="22" lean-forward="false" selection-start-line="1251" selection-start-column="22" selection-end-line="1251" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -861,7 +857,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="7" column="57" lean-forward="false" selection-start-line="7" selection-start-column="57" selection-end-line="7" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -869,7 +864,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="122">
           <caret line="76" column="39" lean-forward="true" selection-start-line="76" selection-start-column="39" selection-end-line="76" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -877,9 +871,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/gen/java/api/ChatApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inmanage-java-client/src/gen/java/api/UserApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="626">
+          <caret line="248" column="0" lean-forward="true" selection-start-line="248" selection-start-column="0" selection-end-line="248" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -1,16 +1,23 @@
 package gen.java.model;
 
 import java.util.Objects;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.io.Serializable;
 
 /**
  * AddTaskObject
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-09T14:05:23.786Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-13T12:54:42.086Z")
 public class AddTaskObject implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @SerializedName("taskName")
   private String taskName = null;
 
@@ -22,6 +29,9 @@ public class AddTaskObject implements Serializable {
 
   @SerializedName("dueDate")
   private String dueDate = null;
+
+  @SerializedName("taskStatus")
+  private String taskStatus = null;
 
   @SerializedName("projectId")
   private String projectId = null;
@@ -98,6 +108,24 @@ public class AddTaskObject implements Serializable {
     this.dueDate = dueDate;
   }
 
+  public AddTaskObject taskStatus(String taskStatus) {
+    this.taskStatus = taskStatus;
+    return this;
+  }
+
+   /**
+   * Get taskStatus
+   * @return taskStatus
+  **/
+  @ApiModelProperty(value = "")
+  public String getTaskStatus() {
+    return taskStatus;
+  }
+
+  public void setTaskStatus(String taskStatus) {
+    this.taskStatus = taskStatus;
+  }
+
   public AddTaskObject projectId(String projectId) {
     this.projectId = projectId;
     return this;
@@ -130,12 +158,13 @@ public class AddTaskObject implements Serializable {
         Objects.equals(this.userId, addTaskObject.userId) &&
         Objects.equals(this.description, addTaskObject.description) &&
         Objects.equals(this.dueDate, addTaskObject.dueDate) &&
+        Objects.equals(this.taskStatus, addTaskObject.taskStatus) &&
         Objects.equals(this.projectId, addTaskObject.projectId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(taskName, userId, description, dueDate, projectId);
+    return Objects.hash(taskName, userId, description, dueDate, taskStatus, projectId);
   }
 
 
@@ -148,6 +177,7 @@ public class AddTaskObject implements Serializable {
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dueDate: ").append(toIndentedString(dueDate)).append("\n");
+    sb.append("    taskStatus: ").append(toIndentedString(taskStatus)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -163,6 +193,6 @@ public class AddTaskObject implements Serializable {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

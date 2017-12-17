@@ -1,7 +1,6 @@
 package gen.java.invoker;
 
-
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-11-09T14:05:23.786Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-13T12:54:42.086Z")
 public class Configuration {
     private static ApiClient defaultApiClient = new ApiClient();
 

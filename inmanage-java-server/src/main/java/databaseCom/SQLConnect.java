@@ -15,15 +15,12 @@ public class SQLConnect {
      * @throws SQLException
      */
     public Connection connect() throws SQLException {
-        System.out.println("well hello there!");
         String url = "jdbc:postgresql://tek-mmmi-db0a.tek.c.sdu.dk/si3_2017_group_1_db";
         String user = "si3_2017_group_1";
         String password = "Mach901&blow";
         Connection db = DriverManager.getConnection(url, user, password);
         try {
             db = DriverManager.getConnection(url, user, password);
-            System.out.println("Connection to database successful!");
-            System.out.println("Welcome!");
         } catch (SQLException ex) {
             Logger lgr = Logger.getLogger(SQLConnect.class.getName());
             lgr.log(Level.WARNING, ex.getMessage(), ex);
