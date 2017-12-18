@@ -142,7 +142,7 @@ public class ProjectOverview extends Controller{
         alert.showAndWait();
 
         if (alert.getResult() == ButtonType.OK) {
-            ClientLauncher.setUserId("");
+            ClientLauncher.setUser(null);
             ClientLauncher.getUser().setName("");
             ClientLauncher.getUser().setPassword("");
             welcomeText.setText("");
