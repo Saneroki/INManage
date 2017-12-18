@@ -270,7 +270,7 @@ public class SQLCommands implements ISQLCommands {
             if (!checkIfUsernameExist(newUsername)) {
                 ps = con.prepareStatement("UPDATE public.user SET username = ? WHERE userid = ?;");
                 ps.setString(1, newUsername);
-                ps.setString(2, userid);
+                ps.setObject(2, UUID.fromString(userid));
                 ps.execute();
                 return true;
             } else {
