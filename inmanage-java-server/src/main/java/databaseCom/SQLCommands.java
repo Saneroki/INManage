@@ -267,15 +267,11 @@ public class SQLCommands implements ISQLCommands {
     public boolean editUsername(String userId, String newUsername) throws SQLException {
         PreparedStatement ps = null;
         try {
-            if (!checkIfUsernameExist(newUsername)) {
                 ps = con.prepareStatement("UPDATE public.user SET username = ? WHERE userid = ?;");
                 ps.setString(1, newUsername);
                 ps.setObject(2, UUID.fromString(userId));
                 ps.execute();
                 return true;
-            } else {
-                return false;
-            }
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
