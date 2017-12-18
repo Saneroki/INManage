@@ -4,6 +4,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/inmanage-java-server/pom.xml" />
+        <option value="$PROJECT_DIR$/inmanage-java-client/pom.xml" />
       </list>
     </option>
   </component>
