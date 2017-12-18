@@ -12,6 +12,12 @@ import main.java.gui.ClientLauncher;
 import main.java.serverCom.ServerCom;
 import main.java.serverCom.ServerComImpl;
 
+/**
+ *
+ * Controller for the SignUp fxml file
+ *
+ */
+
 public class SignUp extends Controller{
 
     Alert alert;

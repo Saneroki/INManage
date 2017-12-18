@@ -14,6 +14,12 @@ import main.java.serverCom.ServerCom;
 
 import java.util.ArrayList;
 
+/**
+ *
+ * Controller for the TaskDetail fxml controller.
+ *
+ */
+
 public class TaskOverview extends Controller {
 
     @FXML
