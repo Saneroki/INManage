@@ -2,6 +2,9 @@ package main.java.gui.layouts;
 
 /**
  * Created by Malte on 17-12-2017.
+ *
+ * Controller for the DeleteProject fxml file
+ *
  */
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

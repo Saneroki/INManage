@@ -17,6 +17,10 @@ import main.java.serverCom.ServerCom;
 
 import java.util.ArrayList;
 
+/**
+ * The controller for the fxml where you land after logging in, displays the projects and some basic functionality.
+ */
+
 public class ProjectDashboard extends Controller {
 
     @FXML
@@ -35,7 +39,7 @@ public class ProjectDashboard extends Controller {
 
 
     private final ArrayList<Project> list =
-            (ArrayList<Project>) ClientLauncher.getServer().getAllProjects(ClientLauncher.getUserID());
+            (ArrayList<Project>) ClientLauncher.getServer().getAllProjects(ClientLauncher.getUser().getId().toString());
 
 
     private ServerCom serv = ClientLauncher.getServer();
@@ -80,6 +84,7 @@ public class ProjectDashboard extends Controller {
 
     }
 
+    @FXML
     public void GoHome(ActionEvent actionEvent) {
         ClientLauncher.getWindowChanger().setLayout("ProjectDashboard");
     }
@@ -90,13 +95,10 @@ public class ProjectDashboard extends Controller {
 
         alert.setTitle("Sign out?");
         alert.setContentText("Are you sure you'd like to sign out?");
-
         alert.showAndWait();
 
         if (alert.getResult() == ButtonType.OK) {
-            ClientLauncher.setUserId("");
-            ClientLauncher.getUser().setName("");
-            ClientLauncher.getUser().setPassword("");
+            ClientLauncher.setUser(null);
             welcomeText.setText("");
             ClientLauncher.getWindowChanger().setLayout("Login");
 

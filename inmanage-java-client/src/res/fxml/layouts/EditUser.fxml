@@ -41,9 +41,9 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
                         </Button>
-                        <TextField id="editusercurrentpw" fx:id="editUserCurrentPWField" layoutX="356.0" layoutY="354.0" prefHeight="27.0" prefWidth="314.0" promptText="Current password" />
-                        <TextField id="editusernewpw" fx:id="editUserNewPWField" layoutX="356.0" layoutY="392.0" prefHeight="27.0" prefWidth="314.0" promptText="New password" />
-                        <TextField id="edituserconfirmpw" fx:id="editUserConfirmPWField" layoutX="356.0" layoutY="430.0" prefHeight="27.0" prefWidth="314.0" promptText="Confirm new password" />
+                        <PasswordField id="editusercurrentpw" fx:id="editUserCurrentPWField" layoutX="356.0" layoutY="354.0" prefHeight="27.0" prefWidth="314.0" promptText="Current password" />
+                        <PasswordField id="editusernewpw" fx:id="editUserNewPWField" layoutX="356.0" layoutY="392.0" prefHeight="27.0" prefWidth="314.0" promptText="New password" />
+                        <PasswordField id="edituserconfirmpw" fx:id="editUserConfirmPWField" layoutX="356.0" layoutY="430.0" prefHeight="27.0" prefWidth="314.0" promptText="Confirm new password" />
                         <Button id="addprojcancelbtn" fx:id="editUserDeleteBtn" layoutX="472.0" layoutY="497.0" mnemonicParsing="false" onAction="#editUserDeleteAction" stylesheets="@../Style.css" text="Delete User">
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

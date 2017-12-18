@@ -13,6 +13,18 @@ import gen.java.model.User;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * This class is the main acces point used to connect the client to the server
+ * it has all the API's as variables and uses the methods exposed through them
+ * to send request to the server.
+ *
+ * The class is implmented through an interface so we could change out the server
+ * and use the same client for another server.
+ *
+ * The methods is mostly self explanatory, they all use a command from an api and
+ * uses the methods parameters for the api method.
+ */
+
 public class ServerComImpl implements ServerCom {
 
     private final UserApi userApi = new UserApi();
@@ -23,17 +35,14 @@ public class ServerComImpl implements ServerCom {
     public ServerComImpl(){
     }
 
-
     @Override
     public void addUser(String username, String password){
 
         User tempUser = new User();
-
         System.out.println("username: " + username);
         tempUser.setName(username);
         System.out.println("password: " + password);
         tempUser.setPassword(password);
-
 
         try {
             userApi.addUser(tempUser);

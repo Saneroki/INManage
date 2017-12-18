@@ -59,52 +59,46 @@
                    </padding>
                </GridPane>
            </top>
-           <center>
+         <bottom>
+            <HBox alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets right="15.0" />
+               </BorderPane.margin>
+               <children>
+                      <Button fx:id="addNewProjectBtn" alignment="CENTER" contentDisplay="CENTER" maxHeight="27.0" mnemonicParsing="false" prefHeight="27.0" stylesheets="@../Style.css" text="Add new Project" />
+                  <Label prefHeight="17.0" prefWidth="42.0" />
+                  <Button fx:id="editUserBtn" alignment="CENTER" contentDisplay="CENTER" maxHeight="27.0" mnemonicParsing="false" prefHeight="27.0" stylesheets="@../Style.css" text="Edit user" />
+               </children>
+            </HBox>
+         </bottom>
+         <left>
                <GridPane alignment="CENTER" BorderPane.alignment="CENTER">
                    <columnConstraints>
-                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                    </columnConstraints>
                    <rowConstraints>
                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                    </rowConstraints>
                </GridPane>
-           </center>
-         <left>
-            <VBox fx:id="vboxLeft" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" stylesheets="@../Style.css" BorderPane.alignment="CENTER">
-               <children>
-                  <Label styleClass="text; root" stylesheets="@../Style.css" text="Projects" textAlignment="CENTER">
-                     <font>
-                        <Font name="Calibri" size="22.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </VBox.margin>
-                  </Label>
-               </children>
-               <BorderPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </BorderPane.margin>
-            </VBox>
          </left>
-         <bottom>
-            <HBox alignment="CENTER">
+         <center>
+            <AnchorPane prefHeight="620.0" prefWidth="924.0" BorderPane.alignment="CENTER">
                <children>
-                      <Button fx:id="addNewProjectBtn" alignment="CENTER" contentDisplay="CENTER" maxHeight="27.0" mnemonicParsing="false" prefHeight="27.0" stylesheets="@../Style.css" text="Add new Project" BorderPane.alignment="CENTER">
-                     <BorderPane.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </BorderPane.margin>
-                     <HBox.margin>
-                        <Insets right="15.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button fx:id="editUserBtn" alignment="CENTER" contentDisplay="CENTER" maxHeight="27.0" mnemonicParsing="false" prefHeight="27.0" stylesheets="@../Style.css" text="Edit user" />
+                  <VBox fx:id="vboxLeft" alignment="TOP_CENTER" layoutX="251.0" layoutY="34.0" prefHeight="535.0" prefWidth="331.0" stylesheets="@../Style.css">
+                     <children>
+                        <Label prefHeight="71.0" prefWidth="86.0" styleClass="text; root" stylesheets="@../Style.css" text="Projects" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri" size="22.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
                </children>
-               <BorderPane.margin>
-                  <Insets right="15.0" />
-               </BorderPane.margin>
-            </HBox>
-         </bottom>
+            </AnchorPane>
+         </center>
        </BorderPane>
    </children>
 </AnchorPane>

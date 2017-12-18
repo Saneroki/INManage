@@ -97,7 +97,7 @@ public class TaskDetail extends Controller {
         alert.showAndWait();
 
         if (alert.getResult() == ButtonType.OK) {
-            ClientLauncher.setUserId("");
+            ClientLauncher.setUser(null);
             ClientLauncher.getUser().setName("");
             ClientLauncher.getUser().setPassword("");
             welcomeText.setText("");

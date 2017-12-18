@@ -17,6 +17,10 @@ import java.awt.event.MouseEvent;
 
 /**
  * Created by Malte on 07-12-2017.
+ *
+ * The project view class, this is created to make a "view" of a project.
+ * most of the code here is styling.
+ *
  */
 public class ProjectView {
 
@@ -37,6 +41,7 @@ public class ProjectView {
         hb.setSpacing(5);
         hb.setMinWidth(250);
         hb.setMaxWidth(250);
+
         hb.setOnMouseClicked((event -> {
             ClientLauncher.setProj(this.proj);
             ClientLauncher.getWindowChanger().setLayout("ProjectOverview");
@@ -61,7 +66,6 @@ public class ProjectView {
         desc.setWrappingWidth(250);
         grid.setStyle("-fx-border-color: #84AF9E; -fx-border-width: 1px");
         grid.add((desc),0,1);
-
 
         GridPane grid2 = new GridPane();
         grid2.setHgap(5);
@@ -92,7 +96,7 @@ public class ProjectView {
         hb.getChildren().add(grid);
         hb.getChildren().add(grid2);
 
-        //Important to have thos synced because it otherwise causes errors.
+        //Important to have this synced because it otherwise causes errors when 2 tries to add views at the same time.
         synchronized (vb){
             vb.getChildren().add(hb);
         }

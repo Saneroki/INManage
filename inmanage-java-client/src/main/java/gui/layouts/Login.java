@@ -9,6 +9,11 @@ import javafx.scene.input.MouseEvent;
 import main.java.gui.ClientLauncher;
 import main.java.serverCom.ServerCom;
 
+/**
+ * The controller for the login page fxml, this is the page you land on when you start the program jar file
+ *
+ * This give you the option to log in to an existing user or sign up as a new user.
+ */
 
 public class Login extends Controller {
 
@@ -25,10 +30,9 @@ public class Login extends Controller {
     }
 
     public void SignIn(ActionEvent actionEvent) {
-        String resp = serv.loginUser(usernameInput.getText(),password.getText());
+        String resp = serv.loginUser(usernameInput.getText().toLowerCase(),password.getText());
         //Store resp which is the user UUID in a local user object variable so we can use it later to acces the other data
         System.out.println(resp);
-        ClientLauncher.setUserId(resp);
         ClientLauncher.setUser(serv.getSpecificUser(resp));
         if((resp)!=null){
             ClientLauncher.getWindowChanger().setLayout("ProjectDashboard");

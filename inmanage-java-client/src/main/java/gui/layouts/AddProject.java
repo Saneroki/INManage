@@ -11,6 +11,9 @@ import main.java.serverCom.ServerCom;
 
 /**
  * Created by omnhaww on 10/11/2017.
+ *
+ * Controller for the Add Project FXML controller
+ *
  */
 
 public class AddProject {
@@ -44,14 +47,11 @@ public class AddProject {
         Project proj = new Project();
         proj.setName(projName);
         proj.setDescription(projDesc);
-        proj.setUserid(ClientLauncher.getUserID());
+        proj.setUserid(ClientLauncher.getUser().getId().toString());
 
         serv.addProject(proj);
 
         ClientLauncher.getWindowChanger().setLayout("ProjectDashboard");
-
-        // Remember to auto-bind the project to the user who creates it
-        // Use the user info from when he/she logged in.
     }
 
 }

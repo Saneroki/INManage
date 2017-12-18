@@ -6,11 +6,18 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import main.java.gui.ClientLauncher;
 import main.java.serverCom.ServerCom;
 import main.java.serverCom.ServerComImpl;
+
+/**
+ *
+ * Controller for the SignUp fxml file
+ *
+ */
 
 public class SignUp extends Controller{
 
@@ -36,10 +43,16 @@ public class SignUp extends Controller{
 
     public void signup(ActionEvent actionEvent) {
         if (checkedPassword().length() > 0 && checkedUsername() != null) {
-            serv.addUser(checkedUsername(), checkedPassword());
-            ClientLauncher.getWindowChanger().setLayout("Login");
+            serv.addUser(checkedUsername().toLowerCase(), checkedPassword());
+            alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Signed up!");
+            alert.setHeaderText("Account created!");
+            alert.setContentText("You are now signed up to INManage!");
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.OK) {
+                ClientLauncher.getWindowChanger().setLayout("Login");
+            }
         }
-
     }
 
     private String checkedUsername() {

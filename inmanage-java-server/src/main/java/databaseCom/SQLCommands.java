@@ -735,10 +735,10 @@ public class SQLCommands implements ISQLCommands {
     private boolean checkIfUserProjectExist(String userid, String projectid) throws SQLException {
         PreparedStatement ps = null;
         try {
-            ps = con.prepareStatement("SELECT exists(SELECT * FROM userproject WHERE fk_userId = ? AND fk_projectId = ?;)");
+            ps = con.prepareStatement("SELECT exists(SELECT * FROM userproject WHERE fk_userId = ? AND fk_projectId = ?);");
+            ps.setObject(1, UUID.fromString(userid));
+            ps.setObject(2, UUID.fromString(projectid));
             ResultSet rs = ps.executeQuery();
-            ps.setString(1, userid);
-            ps.setString(2, projectid);
             rs.next();
             return rs.getBoolean(1);
         } catch (SQLException e) {
@@ -1348,6 +1348,7 @@ public class SQLCommands implements ISQLCommands {
             ResultSet rs = ps.executeQuery();
             rs.next();
             user = new User();
+            user.setId(UUID.fromString(rs.getString(1)));
             user.setName(rs.getString(2));
             user.setFirstName(rs.getString(4));
             user.setLastName(rs.getString(5));

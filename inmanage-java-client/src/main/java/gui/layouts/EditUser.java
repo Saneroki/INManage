@@ -3,6 +3,9 @@ package main.java.gui.layouts;
 
 /**
  * Created by omnhaww on 14/12/2017.
+ *
+ * Controller for the edit user fxml
+ *
  */
 
 import gen.java.model.User;
@@ -94,7 +97,7 @@ public class EditUser {
 
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK){
-            serv.deleteUser(ClientLauncher.getUserID(),ClientLauncher.getUser().getPassword());
+            serv.deleteUser(ClientLauncher.getUser().getId().toString(),ClientLauncher.getUser().getPassword());
             alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Account deleted!");
             alert.setHeaderText("Account deleted!");

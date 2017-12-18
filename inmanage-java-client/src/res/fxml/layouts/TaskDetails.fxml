@@ -65,24 +65,28 @@
                </GridPane>
            </top>
            <center>
-               <GridPane alignment="TOP_CENTER" BorderPane.alignment="CENTER">
+               <GridPane alignment="TOP_CENTER" prefHeight="609.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
                    <columnConstraints>
                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="503.0" minWidth="10.0" prefWidth="365.0" />
-                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="684.0" minWidth="10.0" prefWidth="659.0" />
                    </columnConstraints>
                    <rowConstraints>
                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                    </rowConstraints>
                <children>
-                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                  <VBox alignment="TOP_CENTER" prefHeight="727.0" prefWidth="503.0">
                      <children>
-                        <Label fx:id="taskTitle" alignment="TOP_CENTER" text="TaskTitle:">
+                        <Label fx:id="taskTitle" alignment="CENTER" prefHeight="111.0" prefWidth="493.0" text="TaskTitle:" textAlignment="CENTER">
                            <font>
                               <Font size="27.0" />
                            </font>
                         </Label>
-                        <Text fx:id="taskDesc" strokeType="OUTSIDE" strokeWidth="0.0" text="TaskDescription" wrappingWidth="103.0" />
-                        <Label fx:id="taskDue" text="taskDue:" textFill="#2c2c2c">
+                        <Text fx:id="taskDesc" strokeType="OUTSIDE" strokeWidth="0.0" text="TaskDescription" textAlignment="CENTER" wrappingWidth="103.0" />
+                        <Label prefHeight="45.0" prefWidth="101.0" text="Task Due at:" textAlignment="CENTER" textFill="#2c2c2c" underline="true">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="taskDue" alignment="CENTER" layoutX="226.0" layoutY="60.0" text="taskDue:" textAlignment="CENTER" textFill="#2c2c2c">
                            <font>
                               <Font name="Bell MT" size="17.0" />
                            </font>
