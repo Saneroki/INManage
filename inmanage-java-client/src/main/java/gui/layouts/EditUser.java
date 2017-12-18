@@ -63,6 +63,7 @@ public class EditUser {
             if(editUserNewPWField.getText().equals(editUserConfirmPWField.getText())){
                 user.setName(editUsernameField.getText());
                 user.setPassword(editUserConfirmPWField.getText());
+                user.setId(user.getId());
                 serv.editUser(user);
                 ClientLauncher.getWindowChanger().setLayout("ProjectDashboard");
             }else{
