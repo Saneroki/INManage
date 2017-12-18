@@ -32,7 +32,7 @@ public class ProjectOverview extends Controller{
     private Text projectNameText;
 
     @FXML
-    private Text projectDescText;
+    private TextArea projectDescText;
 
     @FXML
     private Button goToTasks;
@@ -86,11 +86,6 @@ public class ProjectOverview extends Controller{
         list.parallelStream().forEach(task -> new TaskView(task,mainVbox));
 
         //Set actions of the buttons,
-        goToTasks.setOnAction(event -> {
-            System.out.println("Current proj id: " + ClientLauncher.getProj().getId());
-            ClientLauncher.getWindowChanger().setLayout("TaskOverview");
-        });
-
         editProj.setOnAction(event -> {
             ClientLauncher.getWindowChanger().setLayout("EditProject");
         });
@@ -121,7 +116,7 @@ public class ProjectOverview extends Controller{
         System.exit(1);
     }
 
-
+    @FXML
     public void GoHome(ActionEvent actionEvent) {
         ClientLauncher.getWindowChanger().setLayout("ProjectDashboard");
     }

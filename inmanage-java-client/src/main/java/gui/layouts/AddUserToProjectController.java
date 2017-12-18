@@ -45,7 +45,7 @@ public class AddUserToProjectController extends Controller {
     public void initialize(){
         searchBtn.setOnAction(event -> {
             String results = "";
-            List<User> list = serv.searchUser(searchInput.getText(),100);
+            List<User> list = serv.searchUser(searchInput.getText().toLowerCase(),100);
             for (User user:list) {
                 results = results + user.getName() + "\n";
             }
@@ -60,7 +60,7 @@ public class AddUserToProjectController extends Controller {
         }
         if(event.getSource()== ButtonAdd){
             if(!(Objects.equals(TextFieldUsernameInput.getText(), ""))){
-                serv.addUserToProject(TextFieldUsernameInput.getText(),ClientLauncher.getProj().getId());
+                serv.addUserToProject(TextFieldUsernameInput.getText().toLowerCase(),ClientLauncher.getProj().getId());
 
                 ClientLauncher.getWindowChanger().setLayout("ProjectOverview");
 
