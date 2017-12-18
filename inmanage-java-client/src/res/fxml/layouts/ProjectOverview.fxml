@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -88,7 +90,7 @@
                              <Insets left="80.0" right="80.0" />
                          </padding>
                      </GridPane>
-                  <Label fx:id="projectName" styleClass="text" stylesheets="@../Style.css" text="Project Name" textAlignment="CENTER">
+                  <Label fx:id="projectName" contentDisplay="CENTER" prefHeight="29.0" prefWidth="711.0" styleClass="text" stylesheets="@../Style.css" text="Project Name" textAlignment="CENTER">
                      <font>
                         <Font name="Calibri" size="24.0" />
                      </font>
@@ -99,19 +101,16 @@
          <right>
             <VBox maxWidth="400.0" minWidth="200.0" prefHeight="200.0" prefWidth="300.0" styleClass="root" stylesheets="@../Style.css" BorderPane.alignment="CENTER">
                <children>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Project Description">
+                  <Text fill="WHITE" strokeWidth="0.0" text="Project Description" textAlignment="CENTER" wrappingWidth="299.62548828125">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Text>
-                  <Text fx:id="projectDescText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text">
-                     <font>
-                        <Font name="Calibri" size="20.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </VBox.margin>
-                  </Text>
+                  <AnchorPane prefHeight="522.0" prefWidth="300.0">
+                     <children>
+                        <TextArea fx:id="projectDescText" blendMode="MULTIPLY" editable="false" layoutX="19.0" layoutY="12.0" prefHeight="494.0" prefWidth="263.0" />
+                     </children>
+                  </AnchorPane>
                </children>
             </VBox>
          </right>

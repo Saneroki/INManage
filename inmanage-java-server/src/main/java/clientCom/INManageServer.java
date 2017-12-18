@@ -50,7 +50,7 @@ public class INManageServer {
 
         lock.writeLock().lock();
         try {
-            sql.addUser(user.getName(),user.getPassword(),"bob","Loblaw","user");
+            sql.addUser(user.getName(),user.getPassword(),"","","user");
             return "Succes!";
         } catch (SQLException e) {
             e.printStackTrace();
