@@ -3,9 +3,7 @@ package main.java.gui.layouts;
 import gen.java.model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import main.java.gui.ClientLauncher;
 import main.java.serverCom.ServerCom;
 
@@ -39,6 +37,8 @@ public class AddUserToProjectController extends Controller {
     @FXML
     private Button searchBtn;
 
+    private Alert alert;
+
     private final ServerCom serv = ClientLauncher.getServer();
 
     @FXML
@@ -62,7 +62,12 @@ public class AddUserToProjectController extends Controller {
             if(!(Objects.equals(TextFieldUsernameInput.getText(), ""))){
                 serv.addUserToProject(TextFieldUsernameInput.getText().toLowerCase(),ClientLauncher.getProj().getId());
 
-                ClientLauncher.getWindowChanger().setLayout("ProjectOverview");
+                alert = new Alert(Alert.AlertType.INFORMATION);
+
+                alert.setTitle("User added!");
+                alert.setHeaderText("User added!");
+                alert.setContentText("The selected user " + TextFieldUsernameInput.getText() + " has been added to your project!");
+                alert.showAndWait();
 
             }
         }
