@@ -29,25 +29,7 @@
    <children>
        <BorderPane prefHeight="768.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
            <bottom>
-               <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" styleClass="root" stylesheets="@../Style.css" BorderPane.alignment="CENTER">
-                  <children>
-                      <Button fx:id="addTaskBtn" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" stylesheets="@../Style.css" text="Add new task">
-                     <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </HBox.margin>
-                  </Button>
-                      <Button fx:id="addUser" mnemonicParsing="false" stylesheets="@../Style.css" text="Add user to project">
-                     <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button fx:id="editProj" mnemonicParsing="false" stylesheets="@../Style.css" text="Edit project">
-                     <HBox.margin>
-                        <Insets right="5.0" />
-                     </HBox.margin></Button>
-                  <Button fx:id="deleteProjBtn" mnemonicParsing="false" stylesheets="@../Style.css" text="Delete project" />
-                  </children>
-               </HBox>
+               <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" styleClass="root" stylesheets="@../Style.css" BorderPane.alignment="CENTER" />
            </bottom>
          <top>
             <VBox alignment="CENTER" styleClass="root" stylesheets="@../Style.css" BorderPane.alignment="CENTER">
@@ -55,9 +37,10 @@
                      <GridPane styleClass="topBar" stylesheets="@../Style.css">
                          <columnConstraints>
                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="73.0" minWidth="60.0" prefWidth="71.0" />
-                             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="229.0" minWidth="41.0" prefWidth="54.0" />
-                             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="455.0" minWidth="36.0" prefWidth="59.0" />
-                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="678.0" minWidth="60.0" prefWidth="617.0" />
+                             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="229.0" minWidth="41.0" prefWidth="60.0" />
+                             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="455.0" minWidth="36.0" prefWidth="55.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="678.0" minWidth="8.0" prefWidth="30.0" />
+                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="678.0" minWidth="60.0" prefWidth="581.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="678.0" minWidth="35.0" prefWidth="70.0" />
                          </columnConstraints>
                          <rowConstraints>
@@ -83,18 +66,13 @@
                               <Font name="Segoe UI" size="12.0" />
                            </font>
                         </Button>
-                        <Hyperlink onAction="#SignOut" text="Sign out" textFill="WHITE" GridPane.columnIndex="4" />
-                        <Label fx:id="welcomeText" nodeOrientation="RIGHT_TO_LEFT" prefHeight="17.0" prefWidth="550.0" textFill="WHITE" GridPane.columnIndex="3" />
+                        <Hyperlink onAction="#SignOut" text="Sign out" textFill="WHITE" GridPane.columnIndex="5" />
+                        <Label fx:id="welcomeText" nodeOrientation="RIGHT_TO_LEFT" prefHeight="17.0" prefWidth="550.0" textFill="WHITE" GridPane.columnIndex="4" />
                          </children>
                          <padding>
                              <Insets left="80.0" right="80.0" />
                          </padding>
                      </GridPane>
-                  <Label fx:id="projectName" contentDisplay="CENTER" prefHeight="29.0" prefWidth="711.0" styleClass="text" stylesheets="@../Style.css" text="Project Name" textAlignment="CENTER">
-                     <font>
-                        <Font name="Calibri" size="24.0" />
-                     </font>
-                  </Label>
                </children>
             </VBox>
          </top>
@@ -106,16 +84,61 @@
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Text>
-                  <AnchorPane prefHeight="522.0" prefWidth="300.0">
+                  <AnchorPane prefHeight="603.0" prefWidth="300.0">
                      <children>
-                        <TextArea fx:id="projectDescText" blendMode="MULTIPLY" editable="false" layoutX="19.0" layoutY="12.0" prefHeight="494.0" prefWidth="263.0" />
+                        <TextArea fx:id="projectDescText" blendMode="MULTIPLY" editable="false" layoutX="22.0" layoutY="14.0" prefHeight="605.0" prefWidth="256.0" wrapText="true" />
                      </children>
                   </AnchorPane>
                </children>
             </VBox>
          </right>
+         <center>
+            <GridPane BorderPane.alignment="CENTER">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="10.0" prefWidth="85.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="464.0" minWidth="10.0" prefWidth="373.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="464.0" minWidth="10.0" prefWidth="108.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints maxHeight="614.0" minHeight="10.0" prefHeight="82.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="618.0" minHeight="10.0" prefHeight="538.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="618.0" minHeight="10.0" prefHeight="69.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <ScrollPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <content>
+                        <VBox fx:id="mainVbox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="561.0" prefWidth="347.0" />
+                     </content>
+                  </ScrollPane>
+                  <Label fx:id="projectName" contentDisplay="CENTER" prefHeight="29.0" prefWidth="428.0" styleClass="text" text="Project Name" textAlignment="CENTER" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="Calibri" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+         </center>
          <left>
-            <VBox fx:id="mainVbox" prefHeight="624.0" prefWidth="439.0" BorderPane.alignment="CENTER" />
+            <GridPane prefHeight="638.0" prefWidth="181.0" BorderPane.alignment="CENTER">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="71.0" minWidth="10.0" prefWidth="38.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="143.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints maxHeight="208.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="208.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="301.0" minHeight="10.0" prefHeight="61.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="301.0" minHeight="10.0" prefHeight="74.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="301.0" minHeight="10.0" prefHeight="71.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="341.0" minHeight="10.0" prefHeight="332.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                      <Button fx:id="addTaskBtn" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" stylesheets="@../Style.css" text="Add new task" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                      <Button fx:id="addUser" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" stylesheets="@../Style.css" text="Add user to project" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button fx:id="editProj" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" stylesheets="@../Style.css" text="Edit project" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Button fx:id="deleteProjBtn" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" stylesheets="@../Style.css" text="Delete project" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+               </children>
+            </GridPane>
          </left>
        </BorderPane>
    </children>
