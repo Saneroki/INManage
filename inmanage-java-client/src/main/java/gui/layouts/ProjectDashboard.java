@@ -95,13 +95,10 @@ public class ProjectDashboard extends Controller {
 
         alert.setTitle("Sign out?");
         alert.setContentText("Are you sure you'd like to sign out?");
-
         alert.showAndWait();
 
         if (alert.getResult() == ButtonType.OK) {
             ClientLauncher.setUser(null);
-            ClientLauncher.getUser().setName("");
-            ClientLauncher.getUser().setPassword("");
             welcomeText.setText("");
             ClientLauncher.getWindowChanger().setLayout("Login");
 
