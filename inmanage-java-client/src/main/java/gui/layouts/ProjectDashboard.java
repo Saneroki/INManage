@@ -99,7 +99,7 @@ public class ProjectDashboard extends Controller {
         alert.showAndWait();
 
         if (alert.getResult() == ButtonType.OK) {
-            //ClientLauncher.setUser(null);
+            ClientLauncher.setUser(null);
             ClientLauncher.getUser().setName("");
             ClientLauncher.getUser().setPassword("");
             welcomeText.setText("");
