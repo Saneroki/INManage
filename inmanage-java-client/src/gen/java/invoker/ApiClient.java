@@ -41,7 +41,7 @@ import gen.java.invoker.auth.OAuth;
 
 public class ApiClient {
 
-    private String basePath = "http://tek-sb3-glo0a.tek.sdu.dk:8080/";
+    private String basePath = "http://tek-sb3-glo0a.tek.sdu.dk:8080";
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
     private String tempFolderPath = null;
