@@ -98,8 +98,6 @@ public class TaskDetail extends Controller {
 
         if (alert.getResult() == ButtonType.OK) {
             ClientLauncher.setUser(null);
-            ClientLauncher.getUser().setName("");
-            ClientLauncher.getUser().setPassword("");
             welcomeText.setText("");
             ClientLauncher.getWindowChanger().setLayout("Login");
 
