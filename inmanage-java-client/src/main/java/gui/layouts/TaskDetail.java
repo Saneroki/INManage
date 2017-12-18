@@ -2,10 +2,7 @@ package main.java.gui.layouts;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import main.java.gui.ClientLauncher;
@@ -50,6 +47,11 @@ public class TaskDetail extends Controller {
     @FXML
     private Button deleteTaskBtn;
 
+    private Alert alert;
+
+    @FXML
+    private Label welcomeText;
+
     @FXML
     void GoChat(ActionEvent event) {
 
@@ -71,6 +73,8 @@ public class TaskDetail extends Controller {
             ClientLauncher.getServer().deleteTask(ClientLauncher.getTask().getId().toString());
             ClientLauncher.getWindowChanger().setLayout("ProjectOverview");
         });
+
+        welcomeText.setText("You're logged in as: " + ClientLauncher.getUser().getName());
     }
 
     @FXML
@@ -84,8 +88,24 @@ public class TaskDetail extends Controller {
     }
 
     @FXML
-    void SignOut(ActionEvent event) {
-        ClientLauncher.getWindowChanger().setLayout("Login");
+    public void SignOut(ActionEvent actionEvent) {
+        alert = new Alert(Alert.AlertType.CONFIRMATION);
+
+        alert.setTitle("Sign out?");
+        alert.setContentText("Are you sure you'd like to sign out?");
+
+        alert.showAndWait();
+
+        if (alert.getResult() == ButtonType.OK) {
+            ClientLauncher.setUserId("");
+            ClientLauncher.getUser().setName("");
+            ClientLauncher.getUser().setPassword("");
+            welcomeText.setText("");
+            ClientLauncher.getWindowChanger().setLayout("Login");
+
+        } if (alert.getResult() == ButtonType.CANCEL) {
+            alert.close();
+        }
     }
 
 }

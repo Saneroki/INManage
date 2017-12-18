@@ -55,7 +55,7 @@
                   <Hyperlink alignment="CENTER" contentDisplay="CENTER" nodeOrientation="LEFT_TO_RIGHT" onAction="#SignOut" prefHeight="25.0" prefWidth="67.0" text="Sign out" textFill="WHITE" GridPane.columnIndex="3" />
                    </children>
                    <padding>
-                       <Insets bottom="15.0" left="80.0" right="80.0" />
+                       <Insets left="80.0" right="80.0" />
                    </padding>
                </GridPane>
            </top>
