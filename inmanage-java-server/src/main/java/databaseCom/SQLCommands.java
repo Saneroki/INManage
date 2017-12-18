@@ -259,18 +259,18 @@ public class SQLCommands implements ISQLCommands {
     /**
      * Author: pepak16.
      * Changes the username of the user via his username.
-     * @param userid
+     * @param userId
      * @return boolean
      * @throws SQLException
      */
     @Override
-    public boolean editUsername(String userid, String newUsername) throws SQLException {
+    public boolean editUsername(String userId, String newUsername) throws SQLException {
         PreparedStatement ps = null;
         try {
             if (!checkIfUsernameExist(newUsername)) {
                 ps = con.prepareStatement("UPDATE public.user SET username = ? WHERE userid = ?;");
                 ps.setString(1, newUsername);
-                ps.setObject(2, UUID.fromString(userid));
+                ps.setObject(2, UUID.fromString(userId));
                 ps.execute();
                 return true;
             } else {
@@ -289,15 +289,15 @@ public class SQLCommands implements ISQLCommands {
     /**
      * Author: pepak16.
      * Checks if the given username already exist.
-     * @param username
+     * @param userId
      * @return boolean
      * @throws SQLException
      */
-    private boolean checkIfUsernameExist(String username) throws SQLException {
+    private boolean checkIfUsernameExist(String userId) throws SQLException {
         PreparedStatement ps = null;
         try {
-            ps = con.prepareStatement("SELECT EXISTS (SELECT * FROM public.user WHERE username = ?);");
-            ps.setString(1, username);
+            ps = con.prepareStatement("SELECT EXISTS (SELECT * FROM public.user WHERE userid = ?);");
+            ps.setObject(1, UUID.fromString(userId));
             ResultSet rs = ps.executeQuery();
             rs.next();
             return rs.getBoolean(1);
@@ -314,17 +314,17 @@ public class SQLCommands implements ISQLCommands {
     /**
      * Author: pepak16.
      * Changes the users password via his username and password.
-     * @param username
+     * @param userId
      * @return boolean
      * @throws SQLException
      */
     @Override
-    public boolean editPassword(String username, String password) throws SQLException {
+    public boolean editPassword(String userId, String password) throws SQLException {
         PreparedStatement ps = null;
         try {
-            ps = con.prepareStatement("UPDATE public.user SET password = ? WHERE username = ?;");
+            ps = con.prepareStatement("UPDATE public.user SET password = ? WHERE userid = ?;");
             ps.setString(1, password);
-            ps.setString(2, username);
+            ps.setObject(2, UUID.fromString(userId));
             ps.execute();
             return true;
         } catch (SQLException e) {

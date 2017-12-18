@@ -214,7 +214,7 @@ public class INManageServer {
         try {
             sql.editFirstname(user.getName(),user.getFirstName());
             sql.editLastname(user.getName(),user.getLastName());
-            sql.editPassword(user.getName(),user.getPassword());
+            sql.editPassword(user.getId().toString(),user.getPassword());
             sql.editUsername(user.getId().toString(),user.getName());
             return "Succes!";
         } catch (SQLException e) {

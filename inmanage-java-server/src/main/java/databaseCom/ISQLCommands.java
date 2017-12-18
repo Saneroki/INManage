@@ -23,9 +23,9 @@ public interface ISQLCommands {
 
     String getLastname(String username) throws SQLException;
 
-    boolean editUsername(String username, String newUsername) throws SQLException;
+    boolean editUsername(String userId, String newUsername) throws SQLException;
 
-    boolean editPassword(String username, String password) throws SQLException;
+    boolean editPassword(String userId, String password) throws SQLException;
 
     boolean editFirstname(String username, String firstname) throws SQLException;
 
