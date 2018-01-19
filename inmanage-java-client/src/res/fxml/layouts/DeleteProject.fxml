@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.gui.layouts.DeleteProject">
+   <children>
+      <AnchorPane>
+         <children>
+            <AnchorPane minHeight="400.0" minWidth="600.0" prefHeight="768.0" prefWidth="1024.0" styleClass="root" stylesheets="@../Style.css">
+               <children>
+                  <Label layoutX="472.0" layoutY="354.0" styleClass="text" stylesheets="@../Style.css" text="Password:">
+                     <font>
+                        <Font name="Avenir Next Condensed Regular" size="17.0" />
+                     </font>
+                  </Label>
+                  <Button id="editprojconfirmbtn" fx:id="editProjConfirmBtn" layoutX="424.0" layoutY="476.0" mnemonicParsing="false" onAction="#editProjectConfirmAction" stylesheets="@../Style.css" text="Confirm">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Button>
+                  <Button id="editprojcancelbtn" fx:id="editProjCancelBtn" layoutX="517.0" layoutY="476.0" mnemonicParsing="false" onAction="#editProjectCancelButton" stylesheets="@../Style.css" text="Cancel">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Button>
+                  <PasswordField fx:id="passworField" layoutX="419.0" layoutY="388.0" />
+                  <Label layoutX="280.0" layoutY="216.0" text="Are you sure you want to delete this project?">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="424.0" layoutY="258.0" text="You can't revert this action..." />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

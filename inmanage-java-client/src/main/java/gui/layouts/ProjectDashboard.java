@@ -1,22 +1,27 @@
 package main.java.gui.layouts;
 
+import com.sun.scenario.animation.shared.ClipInterpolator;
 import gen.java.model.Project;
+import gen.java.model.User;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import main.java.gui.ClientLauncher;
+import main.java.gui.components.ProjectView;
 import main.java.serverCom.ServerCom;
 
 import java.util.ArrayList;
 
-public class ProjectDashboard {
+/**
+ * The controller for the fxml where you land after logging in, displays the projects and some basic functionality.
+ */
 
-    @FXML
-    private ListView<Project> projectList;
+public class ProjectDashboard extends Controller {
 
     @FXML
     private VBox vboxLeft;
@@ -24,21 +29,35 @@ public class ProjectDashboard {
     @FXML
     private Button addNewProjectBtn;
 
-    private final ArrayList<Project> list = (ArrayList<Project>) ClientLauncher.getServer().getAllProjects(ClientLauncher.getUserID());
-
-
-    ServerCom serv = ClientLauncher.getServer();
-
-
+    @FXML
+    private Button editUserBtn;
 
     @FXML
-    public void initialize(){
-        vboxLeft.getChildren().add(new Text("Projects:"));
-        for (Project proj : list) {
-            addProjectView(proj);
-        }
+    private Label welcomeText;
+
+    private Alert alert;
+
+
+    private final ArrayList<Project> list =
+            (ArrayList<Project>) ClientLauncher.getServer().getAllProjects(ClientLauncher.getUser().getId().toString());
+
+
+    private ServerCom serv = ClientLauncher.getServer();
+
+    @FXML
+    public void initialize() {
+        vboxLeft.setSpacing(15);
+        vboxLeft.setMinWidth(250);
+        vboxLeft.setMaxHeight(250);
+
+        list.parallelStream().forEach(proj -> new ProjectView(proj, serv.getUserAmount(proj.getId()), serv.getTaskAmount(proj.getId()), vboxLeft));
+
 
         addNewProjectBtn.setOnAction(event -> ClientLauncher.getWindowChanger().setLayout("AddProject"));
+
+        editUserBtn.setOnAction(event -> ClientLauncher.getWindowChanger().setLayout("EditUser"));
+
+        welcomeText.setText("You're logged in as: " + ClientLauncher.getUser().getName());
 
     }
 
@@ -58,30 +77,33 @@ public class ProjectDashboard {
     }
 
 
-
-    private void populateListView(){
+    private void populateListView() {
         //list = serv.getAllProjects(ClientLauncher.getUserID());
 
         //projectList = new ListView<Project>();
 
     }
 
-    private void addProjectView(Project proj){
-        String btnText = proj.getName() + "\n " + proj.getDescription();
-        Button btn = new Button(btnText);
-        btn.setMinWidth(300);
-        btn.setMaxWidth(300);
-        btn.setAlignment(Pos.CENTER);
-        vboxLeft.setAlignment(Pos.CENTER);
-        vboxLeft.setStyle("-fx-font-size: 20px");
-        btn.setOnAction(event -> {
-            ClientLauncher.setCurrentProjectId(proj.getId());
-            //delete later
-            ClientLauncher.setProj(proj);
-            ClientLauncher.getWindowChanger().setLayout("ProjectOverview");
-        });
-        vboxLeft.getChildren().add(btn);
+    @FXML
+    public void GoHome(ActionEvent actionEvent) {
+        ClientLauncher.getWindowChanger().setLayout("ProjectDashboard");
     }
 
+    @FXML
+    public void SignOut(ActionEvent actionEvent) {
+        alert = new Alert(Alert.AlertType.CONFIRMATION);
 
+        alert.setTitle("Sign out?");
+        alert.setContentText("Are you sure you'd like to sign out?");
+        alert.showAndWait();
+
+        if (alert.getResult() == ButtonType.OK) {
+            ClientLauncher.setUser(null);
+            welcomeText.setText("");
+            ClientLauncher.getWindowChanger().setLayout("Login");
+
+        } if (alert.getResult() == ButtonType.CANCEL) {
+            alert.close();
+        }
+    }
 }

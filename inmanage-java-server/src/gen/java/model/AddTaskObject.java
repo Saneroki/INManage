@@ -31,11 +31,12 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
+import javax.validation.constraints.*;
 
 /**
  * AddTaskObject
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-11-29T09:47:06.589Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-12-17T13:13:34.302Z")
 public class AddTaskObject  implements Serializable {
   @JsonProperty("taskName")
   private String taskName = null;
@@ -60,11 +61,13 @@ public class AddTaskObject  implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get taskName
    * @return taskName
-  **/
+   **/
+  @JsonProperty("taskName")
   @ApiModelProperty(required = true, value = "")
+  @NotNull
   public String getTaskName() {
     return taskName;
   }
@@ -78,11 +81,13 @@ public class AddTaskObject  implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get userId
    * @return userId
-  **/
+   **/
+  @JsonProperty("userId")
   @ApiModelProperty(required = true, value = "")
+  @NotNull
   public String getUserId() {
     return userId;
   }
@@ -96,10 +101,11 @@ public class AddTaskObject  implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get description
    * @return description
-  **/
+   **/
+  @JsonProperty("description")
   @ApiModelProperty(value = "")
   public String getDescription() {
     return description;
@@ -114,10 +120,11 @@ public class AddTaskObject  implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get dueDate
    * @return dueDate
-  **/
+   **/
+  @JsonProperty("dueDate")
   @ApiModelProperty(value = "")
   public String getDueDate() {
     return dueDate;
@@ -132,10 +139,11 @@ public class AddTaskObject  implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get taskStatus
    * @return taskStatus
-  **/
+   **/
+  @JsonProperty("taskStatus")
   @ApiModelProperty(value = "")
   public String getTaskStatus() {
     return taskStatus;
@@ -150,10 +158,11 @@ public class AddTaskObject  implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get projectId
    * @return projectId
-  **/
+   **/
+  @JsonProperty("projectId")
   @ApiModelProperty(value = "")
   public String getProjectId() {
     return projectId;

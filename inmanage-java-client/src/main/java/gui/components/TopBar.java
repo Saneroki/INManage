@@ -33,8 +33,8 @@ public class TopBar {
     //Logs the user out, and then sends them back to login screen.
     public void SignOut(ActionEvent actionEvent) {
         //NOT DONE YET
-        ClientLauncher.getWindowChanger().setLayout("Login");
-    }
+            ClientLauncher.getWindowChanger().setLayout("Login");
+        }
 
     public void turnOff(MouseEvent mouseEvent) {
     }

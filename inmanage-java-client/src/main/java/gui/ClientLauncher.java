@@ -1,6 +1,8 @@
 package main.java.gui;
 
 import gen.java.model.Project;
+import gen.java.model.Task;
+import gen.java.model.User;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.image.Image;
@@ -13,18 +15,17 @@ import java.io.IOException;
 /**
  * This class is meant to start the Gui Client
  *
- * @author Glenn
+ * This class is used for keeping track of important variables that are shared across the gui
+ * these include the current user, project and task. All of this is static to make it accesible
+ * from everywhere.
  */
 public class ClientLauncher extends Application {
     private static GUIManager guiManager;
     private static Stage primaryStage;
     private static ServerCom serv;
-    private static String userID;
-    private static String currentProjectId;
-    //Here i will save the project locally and use it,
-    //I think that in the future i will have use a sql command to get it for the specific projects
     private static Project proj;
-
+    private static Task task;
+    private static User user = null;
 
 
     @Override
@@ -43,7 +44,8 @@ public class ClientLauncher extends Application {
         primaryStage.getIcons().add(new Image("img/inManage_150px.png"));
         guiManager = new GUIManager();
         guiManager.setLayout("Login");
-        primaryStage.setMaximized(true);
+        primaryStage.setTitle("INManage");
+        primaryStage.show();
     }
 
     public static GUIManager getWindowChanger(){
@@ -68,25 +70,27 @@ public class ClientLauncher extends Application {
 
     public static ServerCom getServer(){ return serv; }
 
-    public static void setUserId(String setUserID){
-        userID = setUserID;
-    }
-
-    public static String getUserID(){return userID;}
-
-    public static String getCurrentProjectId() {
-        return currentProjectId;
-    }
-
-    public static void setCurrentProjectId(String currentProjectId) {
-        ClientLauncher.currentProjectId = currentProjectId;
-    }
-
     public static Project getProj() {
         return proj;
     }
 
     public static void setProj(Project proj) {
         ClientLauncher.proj = proj;
+    }
+
+    public static Task getTask() {
+        return task;
+    }
+
+    public static void setTask(Task task) {
+        ClientLauncher.task = task;
+    }
+
+    public static User getUser() {
+        return user;
+    }
+
+    public static void setUser(User user) {
+        ClientLauncher.user = user;
     }
 }

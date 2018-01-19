@@ -1,6 +1,7 @@
 package main.java.gui.layouts;
 
 import gen.java.model.Task;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -13,6 +14,12 @@ import main.java.serverCom.ServerCom;
 
 import java.util.ArrayList;
 
+/**
+ *
+ * Controller for the TaskDetail fxml controller.
+ *
+ */
+
 public class TaskOverview extends Controller {
 
     @FXML
@@ -23,8 +30,10 @@ public class TaskOverview extends Controller {
 
     private final ServerCom serv = ClientLauncher.getServer();
 
-    private final ArrayList<Task> list = (ArrayList<Task>) serv.getAllTasks(ClientLauncher.getProj().getId());
+    private ArrayList<Task> list;
 
+    @FXML
+    private Button backBtn;
 
     @FXML
     void arrowDown(MouseEvent event) {
@@ -43,21 +52,20 @@ public class TaskOverview extends Controller {
 
     @FXML
     public void initialize(){
-        //Make for loop that loops through task statusses and makes one VBOX for each
-        //for now we just have one VBOX
 
+        //Get the list of all the tasks for this project
+        list = (ArrayList<Task>) serv.getAllTasks(ClientLauncher.getProj().getId());
+
+        //Make new VBox and iterate through the list of tasks, adding them to the VBox with a taskview one by one.
+        //an example of threading in out program
         VBox vboxLeft = new VBox();
         centerHbox.getChildren().add(vboxLeft);
-
         vboxLeft.setAlignment(Pos.CENTER);
-        int tmp = 0;
-        System.out.println("Starting for loop: ");
-        for (Task task: list) {
-            System.out.println(tmp++);
-            taskView(task, vboxLeft);
+        list.parallelStream().forEach(task -> taskView(task, vboxLeft));
 
-        }
-
+        backBtn.setOnAction(event -> {
+            ClientLauncher.getWindowChanger().setLayout("ProjectOverview");
+        });
 
     }
 
@@ -70,4 +78,15 @@ public class TaskOverview extends Controller {
         vbox.getChildren().add(btn);
     }
 
+    public void GoHome(ActionEvent actionEvent) {ClientLauncher.getWindowChanger().setLayout("ProjectDashboard");
+    }
+
+    public void GoChat(ActionEvent actionEvent) {
+    }
+
+    public void ShowProfile(ActionEvent actionEvent) {
+    }
+
+    public void SignOut(ActionEvent actionEvent) {ClientLauncher.getWindowChanger().setLayout("Login");
+    }
 }

@@ -15,6 +15,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
+
 import gen.java.model.InlineResponse200;
 
 import java.lang.reflect.Type;
@@ -42,17 +43,24 @@ public class ChatApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for getChatMsg */
-    private com.squareup.okhttp.Call getChatMsgCall(String chatID, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for getChatMsg
+     * @param chatID The ID of the chat (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getChatMsgCall(String chatID, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
 
         // create path and map variables
-        String localVarPath = "/chat".replaceAll("\\{format\\}","json");
+        String localVarPath = "/chat";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (chatID != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "chatID", chatID));
+        localVarQueryParams.addAll(apiClient.parameterToPair("chatID", chatID));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -83,7 +91,16 @@ public class ChatApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getChatMsgValidateBeforeCall(String chatID, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = getChatMsgCall(chatID, progressListener, progressRequestListener);
+        return call;
+
     }
 
     /**
@@ -106,7 +123,7 @@ public class ChatApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<InlineResponse200> getChatMsgWithHttpInfo(String chatID) throws ApiException {
-        com.squareup.okhttp.Call call = getChatMsgCall(chatID, null, null);
+        com.squareup.okhttp.Call call = getChatMsgValidateBeforeCall(chatID, null, null);
         Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -140,26 +157,35 @@ public class ChatApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getChatMsgCall(chatID, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getChatMsgValidateBeforeCall(chatID, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for postChatMsg */
-    private com.squareup.okhttp.Call postChatMsgCall(String chatID, String msg, String timestamp, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for postChatMsg
+     * @param chatID The ID of the chat (optional)
+     * @param msg The message sent (optional)
+     * @param timestamp The time the message was sent (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call postChatMsgCall(String chatID, String msg, String timestamp, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
 
         // create path and map variables
-        String localVarPath = "/chat".replaceAll("\\{format\\}","json");
+        String localVarPath = "/chat";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (chatID != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "chatID", chatID));
+        localVarQueryParams.addAll(apiClient.parameterToPair("chatID", chatID));
         if (msg != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "msg", msg));
+        localVarQueryParams.addAll(apiClient.parameterToPair("msg", msg));
         if (timestamp != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "timestamp", timestamp));
+        localVarQueryParams.addAll(apiClient.parameterToPair("timestamp", timestamp));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -190,7 +216,16 @@ public class ChatApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call postChatMsgValidateBeforeCall(String chatID, String msg, String timestamp, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = postChatMsgCall(chatID, msg, timestamp, progressListener, progressRequestListener);
+        return call;
+
     }
 
     /**
@@ -215,7 +250,7 @@ public class ChatApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> postChatMsgWithHttpInfo(String chatID, String msg, String timestamp) throws ApiException {
-        com.squareup.okhttp.Call call = postChatMsgCall(chatID, msg, timestamp, null, null);
+        com.squareup.okhttp.Call call = postChatMsgValidateBeforeCall(chatID, msg, timestamp, null, null);
         return apiClient.execute(call);
     }
 
@@ -250,7 +285,7 @@ public class ChatApi {
             };
         }
 
-        com.squareup.okhttp.Call call = postChatMsgCall(chatID, msg, timestamp, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = postChatMsgValidateBeforeCall(chatID, msg, timestamp, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }

@@ -31,11 +31,12 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
+import javax.validation.constraints.*;
 
 /**
  * Project
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-11-29T09:47:06.589Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJerseyServerCodegen", date = "2017-12-17T13:13:34.302Z")
 public class Project  implements Serializable {
   @JsonProperty("id")
   private String id = null;
@@ -54,11 +55,13 @@ public class Project  implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   **/
+  @JsonProperty("id")
   @ApiModelProperty(example = "d290f1ee-6c54-4b01-90e6-d701748f0851", required = true, value = "")
+  @NotNull
   public String getId() {
     return id;
   }
@@ -72,10 +75,11 @@ public class Project  implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
+   **/
+  @JsonProperty("name")
   @ApiModelProperty(example = "Semester project group 1.", value = "")
   public String getName() {
     return name;
@@ -90,10 +94,11 @@ public class Project  implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get description
    * @return description
-  **/
+   **/
+  @JsonProperty("description")
   @ApiModelProperty(example = "This project is about doing the semester correctly", value = "")
   public String getDescription() {
     return description;
@@ -108,10 +113,11 @@ public class Project  implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get userid
    * @return userid
-  **/
+   **/
+  @JsonProperty("userid")
   @ApiModelProperty(example = "d290f1ee-6c54-4b01-90e6-d701748f0851", value = "")
   public String getUserid() {
     return userid;

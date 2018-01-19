@@ -15,7 +15,9 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
+
 import gen.java.model.Task;
+import java.util.UUID;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -42,22 +44,24 @@ public class TaskApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for deleteTask */
-    private com.squareup.okhttp.Call deleteTaskCall(String projectId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for deleteTask
+     * @param taskId The ID of the project you want to delete (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteTaskCall(UUID taskId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
-        // verify the required parameter 'projectId' is set
-        if (projectId == null) {
-            throw new ApiException("Missing the required parameter 'projectId' when calling deleteTask(Async)");
-        }
-        
 
         // create path and map variables
-        String localVarPath = "/task".replaceAll("\\{format\\}","json");
+        String localVarPath = "/task";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        if (projectId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "projectId", projectId));
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (taskId != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("taskId", taskId));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -88,40 +92,54 @@ public class TaskApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteTaskValidateBeforeCall(UUID taskId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'taskId' is set
+        if (taskId == null) {
+            throw new ApiException("Missing the required parameter 'taskId' when calling deleteTask(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = deleteTaskCall(taskId, progressListener, progressRequestListener);
+        return call;
+
     }
 
     /**
      * Deletes a given task
      * Deletes a given task, if the given id matches
-     * @param projectId The ID of the project you want to delete (required)
+     * @param taskId The ID of the project you want to delete (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteTask(String projectId) throws ApiException {
-        deleteTaskWithHttpInfo(projectId);
+    public void deleteTask(UUID taskId) throws ApiException {
+        deleteTaskWithHttpInfo(taskId);
     }
 
     /**
      * Deletes a given task
      * Deletes a given task, if the given id matches
-     * @param projectId The ID of the project you want to delete (required)
+     * @param taskId The ID of the project you want to delete (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> deleteTaskWithHttpInfo(String projectId) throws ApiException {
-        com.squareup.okhttp.Call call = deleteTaskCall(projectId, null, null);
+    public ApiResponse<Void> deleteTaskWithHttpInfo(UUID taskId) throws ApiException {
+        com.squareup.okhttp.Call call = deleteTaskValidateBeforeCall(taskId, null, null);
         return apiClient.execute(call);
     }
 
     /**
      * Deletes a given task (asynchronously)
      * Deletes a given task, if the given id matches
-     * @param projectId The ID of the project you want to delete (required)
+     * @param taskId The ID of the project you want to delete (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteTaskAsync(String projectId, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteTaskAsync(UUID taskId, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -142,19 +160,26 @@ public class TaskApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteTaskCall(projectId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteTaskValidateBeforeCall(taskId, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
-    /* Build call for editTask */
-    private com.squareup.okhttp.Call editTaskCall(Task taskObject, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for editTask
+     * @param taskObject The task object with the updated values (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call editTaskCall(Task taskObject, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = taskObject;
-        
 
         // create path and map variables
-        String localVarPath = "/task".replaceAll("\\{format\\}","json");
+        String localVarPath = "/task";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -185,7 +210,16 @@ public class TaskApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call editTaskValidateBeforeCall(Task taskObject, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = editTaskCall(taskObject, progressListener, progressRequestListener);
+        return call;
+
     }
 
     /**
@@ -206,7 +240,7 @@ public class TaskApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> editTaskWithHttpInfo(Task taskObject) throws ApiException {
-        com.squareup.okhttp.Call call = editTaskCall(taskObject, null, null);
+        com.squareup.okhttp.Call call = editTaskValidateBeforeCall(taskObject, null, null);
         return apiClient.execute(call);
     }
 
@@ -239,26 +273,28 @@ public class TaskApi {
             };
         }
 
-        com.squareup.okhttp.Call call = editTaskCall(taskObject, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = editTaskValidateBeforeCall(taskObject, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
-    /* Build call for getTask */
-    private com.squareup.okhttp.Call getTaskCall(String projectID, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for getTask
+     * @param projectID The id of the project (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getTaskCall(UUID projectID, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
-        // verify the required parameter 'projectID' is set
-        if (projectID == null) {
-            throw new ApiException("Missing the required parameter 'projectID' when calling getTask(Async)");
-        }
-        
 
         // create path and map variables
-        String localVarPath = "/task".replaceAll("\\{format\\}","json");
+        String localVarPath = "/task";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (projectID != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "projectID", projectID));
+        localVarQueryParams.addAll(apiClient.parameterToPair("projectID", projectID));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -289,7 +325,21 @@ public class TaskApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getTaskValidateBeforeCall(UUID projectID, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'projectID' is set
+        if (projectID == null) {
+            throw new ApiException("Missing the required parameter 'projectID' when calling getTask(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getTaskCall(projectID, progressListener, progressRequestListener);
+        return call;
+
     }
 
     /**
@@ -299,7 +349,7 @@ public class TaskApi {
      * @return List&lt;Task&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<Task> getTask(String projectID) throws ApiException {
+    public List<Task> getTask(UUID projectID) throws ApiException {
         ApiResponse<List<Task>> resp = getTaskWithHttpInfo(projectID);
         return resp.getData();
     }
@@ -311,8 +361,8 @@ public class TaskApi {
      * @return ApiResponse&lt;List&lt;Task&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<Task>> getTaskWithHttpInfo(String projectID) throws ApiException {
-        com.squareup.okhttp.Call call = getTaskCall(projectID, null, null);
+    public ApiResponse<List<Task>> getTaskWithHttpInfo(UUID projectID) throws ApiException {
+        com.squareup.okhttp.Call call = getTaskValidateBeforeCall(projectID, null, null);
         Type localVarReturnType = new TypeToken<List<Task>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -325,7 +375,7 @@ public class TaskApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTaskAsync(String projectID, final ApiCallback<List<Task>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTaskAsync(UUID projectID, final ApiCallback<List<Task>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -346,22 +396,29 @@ public class TaskApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getTaskCall(projectID, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getTaskValidateBeforeCall(projectID, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<Task>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for getTaskAmount */
-    private com.squareup.okhttp.Call getTaskAmountCall(String projectId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for getTaskAmount
+     * @param taskId  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getTaskAmountCall(UUID taskId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
 
         // create path and map variables
-        String localVarPath = "/task/getTaskAmount".replaceAll("\\{format\\}","json");
+        String localVarPath = "/task/getTaskAmount";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        if (projectId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPairs("", "projectId", projectId));
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (taskId != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("taskId", taskId));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -392,30 +449,39 @@ public class TaskApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getTaskAmountValidateBeforeCall(UUID taskId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = getTaskAmountCall(taskId, progressListener, progressRequestListener);
+        return call;
+
     }
 
     /**
      * get the amount of task for a project
      * Get the amount of tasks for a project given a project ID
-     * @param projectId  (optional)
+     * @param taskId  (optional)
      * @return Integer
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Integer getTaskAmount(String projectId) throws ApiException {
-        ApiResponse<Integer> resp = getTaskAmountWithHttpInfo(projectId);
+    public Integer getTaskAmount(UUID taskId) throws ApiException {
+        ApiResponse<Integer> resp = getTaskAmountWithHttpInfo(taskId);
         return resp.getData();
     }
 
     /**
      * get the amount of task for a project
      * Get the amount of tasks for a project given a project ID
-     * @param projectId  (optional)
+     * @param taskId  (optional)
      * @return ApiResponse&lt;Integer&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Integer> getTaskAmountWithHttpInfo(String projectId) throws ApiException {
-        com.squareup.okhttp.Call call = getTaskAmountCall(projectId, null, null);
+    public ApiResponse<Integer> getTaskAmountWithHttpInfo(UUID taskId) throws ApiException {
+        com.squareup.okhttp.Call call = getTaskAmountValidateBeforeCall(taskId, null, null);
         Type localVarReturnType = new TypeToken<Integer>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -423,12 +489,12 @@ public class TaskApi {
     /**
      * get the amount of task for a project (asynchronously)
      * Get the amount of tasks for a project given a project ID
-     * @param projectId  (optional)
+     * @param taskId  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTaskAmountAsync(String projectId, final ApiCallback<Integer> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTaskAmountAsync(UUID taskId, final ApiCallback<Integer> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -449,7 +515,7 @@ public class TaskApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getTaskAmountCall(projectId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getTaskAmountValidateBeforeCall(taskId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Integer>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
